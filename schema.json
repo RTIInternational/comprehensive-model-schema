@@ -1,0 +1,128 @@
+{
+    "id": "/comprehensive_diabetes_model_schema",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "JSON Schema for a Comprehensive Diabetes Model configuration file.",
+    "required": [
+        "scenario_name", "time_horizon", "size", "simulation", "analysis"
+    ],
+    "type": "object",
+    "properties": {
+        "scenario_name": {
+            "type": "string"
+        },
+        "time_horizon": {
+            "type": "integer"
+        },
+        "size": {
+            "type": "integer"
+        },
+        "seed": {
+            "type": "integer"
+        },
+        "simulation": {
+            "$ref": "#/definitions/simulation"
+        },
+        "analysis": {
+            "$ref": "#/definitions/analysis"
+        }
+    },
+    "definitions": {
+        "analysis": {
+            "type": "object",
+            "properties": {
+                "cost_strategy": {
+                    "type": "string"
+                },
+                "strata": {
+                    "$ref": "#/definitions/strata"
+                },
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "outputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "equation": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "module", "events", "factors"
+                ],
+                "properties": {
+                    "module": {
+                        "type": "string"
+                    },
+                    "events": {
+                        "type": "string"
+                    },
+                    "factors": {
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "model": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "stage", "ordinal", "equations"
+                ],
+                "properties": {
+                    "stage": {
+                        "type": "string"
+                    },
+                    "ordinal": {
+                        "type": "integer"
+                    },
+                    "equations": {
+                        "$ref": "#/definitions/equation"
+                    }
+                }
+            }
+        },
+        "simulation": {
+            "type": "object",
+            "required": [
+                "models"
+            ],
+            "properties": {
+                "models": {
+                    "$ref": "#/definitions/model"
+                }
+            }
+        },
+        "strata": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "key", "labels"
+                ],
+                "properties": {
+                    "key": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "bins": {
+                        "type": "array"
+                    }
+                }
+            }
+        }
+    }
+}
