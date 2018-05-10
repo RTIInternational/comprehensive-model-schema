@@ -1,0 +1,77 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "id": "simulation_schema.json",
+    "description": "JSON Schema for simulation configuration.",
+    "type": "object",
+    "required": [
+        "model", "stages"
+    ],
+    "properties": {
+        "model": {
+            "description": "Name of the model being executed",
+            "$ref": "types.json#/definitions/string"
+        },
+        "stages": {
+            "description": "Array of model execution stages",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/stage"
+            }
+        }
+    },
+    "definitions": {
+        "equation": {
+            "description": "A discrete equation in a model",
+            "type": "object",
+            "required": [
+                "module", "events", "factors", "is_terminal", "is_deterministic"
+            ],
+            "properties": {
+                "module": {
+                    "description": "Module containing the equation function",
+                    "$ref": "types.json#/definitions/string"
+                },
+                "events": {
+                    "description": "Complication events associated with the equation",
+                    "$ref": "types.json#/definitions/string"
+                },
+                "factors": {
+                    "description": "Key-value pair of equation parameters",
+                    "type": "object"
+                },
+                "is_deterministic": {
+                    "description": "Is this equation deterministic or probablistic?",
+                    "type": "boolean"
+                },
+                "is_terminal": {
+                    "description": "Does this equation yield death?",
+                    "type": "boolean"
+                }
+            }
+        },
+        "stage": {
+            "description": "Stage of model execution",
+            "type": "object",
+            "required": [
+                "stage", "ordinal", "equations"
+            ],
+            "properties": {
+                "stage": {
+                    "description": "Keyword name of the stage",
+                    "$ref": "types.json#/definitions/string"
+                },
+                "ordinal": {
+                    "description": "Position in the order of execution",
+                    "$ref": "types.json#/definitions/positiveInteger"
+                },
+                "equations": {
+                    "description": "An array of equations, linked by stage",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/equation"
+                    }
+                }
+            }
+        }
+    }
+}

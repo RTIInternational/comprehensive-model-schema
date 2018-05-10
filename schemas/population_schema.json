@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "id": "population_schema.json",
+    "description": "JSON Schema for population generation.",
+    "type": "object",
+    "required": [
+        "size"
+    ],
+    "properties": {
+        "size": {
+            "description": "Number of individuals in the population.",
+            "$ref": "types.json#/definitions/positiveInteger"
+        }
+    }
+}
