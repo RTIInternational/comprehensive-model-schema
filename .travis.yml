@@ -4,4 +4,4 @@ node_js:
 install: 
   - pip install demjson
 script: 
-  - jsonlint schemas/schema.json
+  - jsonlint schemas/*.json

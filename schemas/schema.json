@@ -1,103 +1,120 @@
 {
-    "id": "/comprehensive_diabetes_model_schema",
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "JSON Schema for a Comprehensive Diabetes Model configuration file.",
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "id": "schema.json",
+    "description": "A Comprehensive Diabetes Model scenario file schema.",
     "required": [
-        "scenario_name", "time_horizon", "size", "simulation", "analysis"
+        "scenario_name", "time_horizon", "population", "simulation"
     ],
     "type": "object",
     "properties": {
         "scenario_name": {
-            "type": "string"
+            "description": "Name of the scenario",
+            "$ref": "types.json#/definitions/string"
+        },
+        "population": {
+            "$ref": "population_schema.json"
         },
         "time_horizon": {
-            "type": "integer"
+            "$ref": "#/definitions/horizon"
         },
-        "size": {
-            "type": "integer"
+        "iterations": {
+            "description": "Number of simulations to conduct",
+            "$ref": "types.json#/definitions/positiveInteger"
         },
         "seed": {
-            "type": "integer"
+            "description": "Optional random number generation seed",
+            "$ref": "types.json#/definitions/positiveInteger"
         },
         "simulation": {
-            "$ref": "#/definitions/simulation"
+            "$ref": "simulation_schema.json"
         },
-        "analysis": {
-            "$ref": "#/definitions/analysis"
+        "economics": {
+            "$ref": "economics_schema.json"
+        },
+        "experiments": {
+            "$ref": "#/definitions/experiments"
         }
     },
     "definitions": {
-        "analysis": {
-            "type": "object",
-            "properties": {
-                "cost_strategy": {
-                    "type": "string"
-                },
-                "strata": {
-                    "$ref": "#/definitions/strata"
-                },
-                "events": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "outputs": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        "equation": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "required": [
-                    "module", "events", "factors"
-                ],
-                "properties": {
-                    "module": {
-                        "type": "string"
-                    },
-                    "events": {
-                        "type": "string"
-                    },
-                    "factors": {
-                        "type": "object"
-                    }
-                }
-            }
-        },
-        "model": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "required": [
-                    "stage", "ordinal", "equations"
-                ],
-                "properties": {
-                    "stage": {
-                        "type": "string"
-                    },
-                    "ordinal": {
-                        "type": "integer"
-                    },
-                    "equations": {
-                        "$ref": "#/definitions/equation"
-                    }
-                }
-            }
-        },
-        "simulation": {
+        "horizon": {
+            "description": "Simulation time horizon configuration.",
             "type": "object",
             "required": [
-                "models"
+                "strategy", "limit"
             ],
             "properties": {
-                "models": {
-                    "$ref": "#/definitions/model"
+                "strategy": {
+                    "description": "Horizon strategy. 'fixed' runs for a set duration. 'max_age' runs until the youngest indidual reaches the mx age. 'all_deceased' runs until all agents have passed away.",
+                    "$ref": "types.json#/definitions/string",
+                    "enum": ["fixed", "max_age", "all_deceased"]
+                },
+                "limit": {
+                    "description": "Iteration limit. Only applied in 'fixed' and 'max_age' strategies",
+                    "default": 0,
+                    "$ref": "types.json#/definitions/positiveInteger"
+                }
+            }
+        },
+        "experiments": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "risk_reduction", "factor_change"
+                        ]
+                    },
+                    "strategy": {
+                        "type": "string",
+                        "enum": [
+                            "scalar", "set", "distribution"
+                        ]
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "number"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "distribution": {
+                                        "type": "string"
+                                    }, 
+                                    "maximum": {
+                                        "type": ["integer", "number"]
+                                    },
+                                    "minimum": {
+                                        "type": ["integer", "number"]
+                                    },
+                                    "count": {
+                                        "type": "integer"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "array",
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "type": "integer"
+                                        },
+                                        {
+                                            "type": "number"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
                 }
             }
         },
