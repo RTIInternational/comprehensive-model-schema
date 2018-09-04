@@ -12,7 +12,7 @@
             "$ref": "types.json#/definitions/string"
         },
         "stages": {
-            "description": "Array of model execution stages",
+            "description": "Array of model execution stages.",
             "type": "array",
             "items": {
                 "$ref": "#/definitions/stage"
@@ -28,15 +28,15 @@
             ],
             "properties": {
                 "module": {
-                    "description": "Module containing the equation function",
+                    "description": "Name of the equation module",
                     "$ref": "types.json#/definitions/string"
                 },
                 "events": {
-                    "description": "Complication events associated with the equation",
+                    "description": "Complications associated with the equation",
                     "$ref": "types.json#/definitions/string"
                 },
                 "factors": {
-                    "description": "Key-value pair of equation parameters",
+                    "description": "Key-value pairs of equation parameters",
                     "type": "object"
                 },
                 "is_deterministic": {
@@ -44,7 +44,7 @@
                     "type": "boolean"
                 },
                 "is_terminal": {
-                    "description": "Does this equation yield death?",
+                    "description": "Does this equation result in death?",
                     "type": "boolean"
                 }
             }
@@ -58,14 +58,17 @@
             "properties": {
                 "stage": {
                     "description": "Keyword name of the stage",
+                    "ui:widget": "hidden",
                     "$ref": "types.json#/definitions/string"
                 },
                 "ordinal": {
                     "description": "Position in the order of execution",
+                    "ui:widget": "hidden",
                     "$ref": "types.json#/definitions/positiveInteger"
                 },
                 "equations": {
                     "description": "An array of equations, linked by stage",
+                    "ui:widget": "hidden",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/equation"

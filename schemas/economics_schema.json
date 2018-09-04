@@ -11,7 +11,8 @@
             "description": "Discounting factor",
             "type": "number",
             "minimum": 0,
-            "maximum": 1
+            "maximum": 1,
+            "default": 0.3
         },
         "intervention_cost": {
             "description": "Cost of an intervention",
