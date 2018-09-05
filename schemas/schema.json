@@ -3,7 +3,8 @@
     "id": "schema.json",
     "description": "A Comprehensive Diabetes Model scenario file schema.",
     "required": [
-        "scenario_name", "time_horizon", "population", "simulation"
+        "scenario_name", "time_horizon", "population", "simulation", "economics",
+        "experiments"
     ],
     "type": "object",
     "properties": {
