@@ -3,7 +3,8 @@
     "id": "schema.json",
     "description": "A Comprehensive Diabetes Model scenario file schema.",
     "required": [
-        "scenario_name", "time_horizon", "population", "simulation"
+        "scenario_name", "time_horizon", "population", "simulation", "economics",
+        "experiments"
     ],
     "type": "object",
     "properties": {
@@ -25,6 +26,10 @@
             "description": "Optional random number generation seed",
             "$ref": "types.json#/definitions/positiveInteger"
         },
+        "sensitivity_analysis": {
+            "description": "Is this a probabilistic sensitivity analysis?",
+            "type": "boolean"
+        },
         "simulation": {
             "$ref": "simulation_schema.json"
         },
@@ -44,18 +49,19 @@
             ],
             "properties": {
                 "strategy": {
-                    "description": "Horizon strategy. 'fixed' runs for a set duration. 'max_age' runs until the youngest indidual reaches the mx age. 'all_deceased' runs until all agents have passed away.",
+                    "description": "Horizon strategy. 'fixed' runs for a set duration. 'max_age' runs until the youngest indidual reaches the max age. 'all_deceased' runs until all agents have passed away.",
                     "$ref": "types.json#/definitions/string",
                     "enum": ["fixed", "max_age", "all_deceased"]
                 },
                 "limit": {
-                    "description": "Iteration limit. Only applied in 'fixed' and 'max_age' strategies",
+                    "description": "Time step limit. Refers to the maximum number of steps or maximum age, depending on context. Only applied in 'fixed' and 'max_age' strategies",
                     "default": 0,
                     "$ref": "types.json#/definitions/positiveInteger"
                 }
             }
         },
         "experiments": {
+            "description": "Scenario specific simulation mutations. Values can be supplied by the user in normal execution or drawn from a distribution in probabilistic sensitivity analyses.",
             "type": "array",
             "items": {
                 "type": "object",
@@ -67,51 +73,24 @@
                         ]
                     },
                     "strategy": {
+                        "description": "Type of value to apply. Scalar refers to user supplied values used in normal executions. Distribution refers to distribution draw in probabilistic sensitivity analyses.",
                         "type": "string",
                         "enum": [
-                            "scalar", "set", "distribution"
+                            "scalar", "distribution"
                         ]
                     },
                     "key": {
+                        "description": "Name of the factor or event to mutate",
                         "type": "string"
                     },
                     "value": {
+                        "description": "User supplied mutation value. Only applied in normal executions.",
                         "anyOf": [
                             {
                                 "type": "integer"
                             },
                             {
                                 "type": "number"
-                            },
-                            {
-                                "type": "object",
-                                "properties": {
-                                    "distribution": {
-                                        "type": "string"
-                                    }, 
-                                    "maximum": {
-                                        "type": ["integer", "number"]
-                                    },
-                                    "minimum": {
-                                        "type": ["integer", "number"]
-                                    },
-                                    "count": {
-                                        "type": "integer"
-                                    }
-                                }
-                            },
-                            {
-                                "type": "array",
-                                "items": {
-                                    "anyOf": [
-                                        {
-                                            "type": "integer"
-                                        },
-                                        {
-                                            "type": "number"
-                                        }
-                                    ]
-                                }
                             }
                         ]
                     }
