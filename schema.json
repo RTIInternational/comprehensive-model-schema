@@ -7,6 +7,10 @@
         "economics"
     ],
     "type": "object",
+    "ui:order": [
+        "scenario_name", "time_horizon", "iterations", "population",
+        "equation_set", "economics", "sensitivity_analysis", "ukpds", "t1d"
+    ],
     "properties": {
         "scenario_name": {
             "description": "Name of the scenario",
@@ -31,6 +35,9 @@
             "required": [
                 "strategy", "limit"
             ],
+            "ui:order": [
+                "strategy", "limit"
+            ],
             "properties": {
                 "strategy": {
                     "description": "Time horizon execution strategy. 'fixed' runs for a set duration. 'max_age' runs until the youngest indidual reaches the max age. 'all_deceased' runs until all agents have passed away.",
@@ -53,6 +60,9 @@
         "sensitivity_analysis": {
             "description": "Configurations for Probabilitic Sensitivity Analysis.",
             "type": "object",
+            "ui:order": [
+                "risk_reductions", "factor_changes"
+            ],
             "properties": {
                 "risk_reductions": {
                     "description": "Array of risk reductions variables to sample randomly.",
@@ -72,6 +82,9 @@
         "economics": {
             "description": "Cost Effectiveness configurations",
             "type": "object",
+            "ui:order": [
+                "discount", "cost_strategy", "intervention_cost"
+            ],
             "properties": {
                 "discount": {
                     "description": "Discount factor.",
@@ -92,6 +105,11 @@
             }
         },
         "ukpds": {
+            "description": "UKPDS equation set.",
+            "type": "object",
+            "ui:order": [
+                "risk_reductions", "factor_changes"
+            ],
             "properties": {
                 "risk_reductions": {
                     "description": "UKPDS specific complication risk reductions.",
@@ -200,6 +218,11 @@
             }
         },
         "t1d": {
+            "description": "T1D equation set.",
+            "type": "object",
+            "ui:order": [
+                "risk_reductions", "factor_changes"
+            ],
             "properties": {
                 "risk_reductions": {
                     "description": "T1D specific complication risk reductions",
