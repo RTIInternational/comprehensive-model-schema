@@ -7,10 +7,10 @@
         "economics"
     ],
     "type": "object",
-    "ui:order": [
-        "scenario_name", "time_horizon", "iterations", "population",
-        "equation_set", "economics", "sensitivity_analysis", "ukpds", "t1d"
-    ],
+    "ui:chapter:order": ["chapter:basic_setup", "chapter:variables", "chapter:advanced_setup"],
+    "chapter:basic_setup": ["scenario_name", "time_horizon", "iterations", "population", "equation_set", "economics"],
+    "chapter:variables": ["sensitivity_analysis"],
+    "chapter:advanced_setup": ["ukpds", "t1d"],
     "properties": {
         "scenario_name": {
             "description": "Name of the scenario",
