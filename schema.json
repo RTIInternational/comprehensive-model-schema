@@ -333,17 +333,14 @@
     },
     "definitions": {
         "string": {
-            "description": "String with a minimum length of 1 (i.e. excludes '')",
             "type": "string",
             "minLength": 1
         },
         "positiveInteger": {
-            "description": "Integer greater than zero",
             "type": "integer",
             "minimum": 0
         },
         "percent": {
-            "description": "Decimal representation of a percentage",
             "type": "number",
             "minimum": 0,
             "maximum": 100
