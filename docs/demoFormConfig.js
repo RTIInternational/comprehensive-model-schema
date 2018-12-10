@@ -20,6 +20,10 @@ const formConfig = {
           schema: {
             type: 'object',
             properties: {
+              scenario_name: {
+                type: 'string',
+                minLength: 1
+              },
               equation_set: {
                 type: 'string',
                 minLength: 1,
@@ -27,6 +31,18 @@ const formConfig = {
                   'ukpds',
                   't1d'
                 ]
+              },
+              population: {
+                type: 'object',
+                required: [
+                  'size'
+                ],
+                properties: {
+                  size: {
+                    type: 'integer',
+                    minimum: 0
+                  }
+                }
               },
               economics: {
                 type: 'object',
@@ -50,22 +66,6 @@ const formConfig = {
                     type: 'integer',
                     minimum: 0,
                     'default': 0
-                  }
-                }
-              },
-              scenario_name: {
-                type: 'string',
-                minLength: 1
-              },
-              population: {
-                type: 'object',
-                required: [
-                  'size'
-                ],
-                properties: {
-                  size: {
-                    type: 'integer',
-                    minimum: 0
                   }
                 }
               },
@@ -97,10 +97,27 @@ const formConfig = {
           },
           uiSchema: {
             'ui:title': 'Basic Setup',
+            'ui:options': {
+              classNames: 'two-column-page'
+            },
+            scenario_name: {
+              'ui:title': 'Scenario Name',
+              'ui:description': 'Name of the scenario'
+            },
             equation_set: {
+              'ui:title': 'Equation Set',
               'ui:description': 'Name of the complication equation set to invoke.'
             },
+            population: {
+              'ui:title': 'population',
+              'ui:description': 'Configurations for population generation.',
+              size: {
+                'ui:title': 'Size',
+                'ui:description': 'Number of individuals in the population.'
+              }
+            },
             economics: {
+              'ui:title': 'Economics',
               'ui:description': 'Cost Effectiveness configurations',
               'ui:order': [
                 'discount',
@@ -108,34 +125,31 @@ const formConfig = {
                 'intervention_cost'
               ],
               discount: {
+                'ui:title': 'Discount',
                 'ui:description': 'Discount factor.'
               },
               cost_strategy: {
+                'ui:title': 'Cost Strategy',
                 'ui:description': 'Cost calculation strategy.'
               },
               intervention_cost: {
+                'ui:title': 'Intervention Cost',
                 'ui:description': 'Cost of an intervention.'
               }
             },
-            scenario_name: {
-              'ui:description': 'Name of the scenario'
-            },
-            population: {
-              'ui:description': 'Configurations for population generation.',
-              size: {
-                'ui:description': 'Number of individuals in the population.'
-              }
-            },
             time_horizon: {
+              'ui:title': 'Time Horizon',
               'ui:description': 'Simulation time horizon configuration.',
               'ui:order': [
                 'strategy',
                 'limit'
               ],
               strategy: {
+                'ui:title': 'Strategy',
                 'ui:description': 'Time horizon execution strategy. \'fixed\' runs for a set duration. \'max_age\' runs until the youngest indidual reaches the max age. \'all_deceased\' runs until all agents have passed away.'
               },
               limit: {
+                'ui:title': 'Limit',
                 'ui:description': 'Time step limit. Refers to the maximum number of steps or maximum age, depending on context. Only applied in \'fixed\' and \'max_age\' strategies'
               }
             }
@@ -195,12 +209,15 @@ const formConfig = {
                         type: 'boolean'
                       },
                       npdr: {
+                        title: 'NPDR',
                         type: 'boolean'
                       },
                       pdr: {
+                        title: 'PDR',
                         type: 'boolean'
                       },
                       ulcer: {
+                        title: 'Ulcer',
                         type: 'boolean'
                       }
                     }
@@ -245,46 +262,62 @@ const formConfig = {
             }
           },
           uiSchema: {
-            'ui:title': 'ukpds_sensitivity_analysis',
+            'ui:title': 'UKPDS Sensitivity Analysis',
             'ui:description': 'Configurations for Probabilitic Sensitivity Analysis.',
             'ui:order': [
               'iterations',
               'interventions'
             ],
             iterations: {
+              'ui:title': 'Iterations',
               'ui:description': 'Number of intervention simulations to conduct.'
             },
             interventions: {
+              'ui:title': 'Interventions',
               risk_reductions: {
+                'ui:title': 'Risk Reductions',
+                'ui:options': {
+                  classNames: 'flexwrapped-fieldset'
+                },
                 'ui:description': 'T1D specific complication risk reductions',
                 amputation: {
+                  'ui:title': 'Amputation',
                   'ui:description': 'Decrease risk of amputation.'
                 },
                 csme: {
+                  'ui:title': 'CSME',
                   'ui:description': 'Decrease risk of clinically significant macular edema.'
                 },
                 cvd: {
+                  'ui:title': 'CVD',
                   'ui:description': 'Decrease risk of cardiovascular disease.'
                 },
                 dka: {
+                  'ui:title': 'DKA',
                   'ui:description': 'Decrease risk of diabetic ketoacidosis.'
                 },
                 dpn: {
+                  'ui:title': 'DPN',
                   'ui:description': 'Decrease risk of dermatosis papulosa nigra.'
                 },
                 esrd: {
+                  'ui:title': 'ESRD',
                   'ui:description': 'Decrease risk of end-stage renal disease.'
                 },
                 gfr: {
+                  'ui:title': 'GFR',
                   'ui:description': 'Decrease risk of GFR.'
                 },
                 hypoglycemia: {
+                  'ui:title': 'Hypoglycemia',
                   'ui:description': 'Decrease risk of hypoglycemia.'
                 },
                 macroalbuminuria: {
+                  'ui:title': 'Macroalbuminuria',
                   'ui:description': 'Decrease risk of macroalbuminuria.'
                 },
                 microalbuminuria: {
+                  'ui:title': 'Microalbuminuria',
                   'ui:description': 'Decrease risk of microalbuminuria.'
                 },
                 npdr: {
@@ -298,6 +331,9 @@ const formConfig = {
                 }
               },
               factor_changes: {
+                'ui:options': {
+                  classNames: 'flexwrapped-fieldset'
+                },
                 'ui:description': 'T1D specific risk factor adjustments',
                 bmi: {
                   'ui:description': 'Change population BMI characteristics.'
@@ -354,69 +390,43 @@ const formConfig = {
                     type: 'object',
                     properties: {
                       amputation: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       csme: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       cvd: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       dka: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       dpn: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       esrd: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       gfr: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       hypoglycemia: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       macroalbuminuria: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       microalbuminuria: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       npdr: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       pdr: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       },
                       ulcer: {
-                        type: 'number',
-                        minimum: 0,
-                        maximum: 100
+                        type: 'boolean'
                       }
                     }
                   },
@@ -424,34 +434,34 @@ const formConfig = {
                     type: 'object',
                     properties: {
                       bmi: {
-                        type: 'number'
+                        type: 'boolean'
                       },
                       dbp: {
-                        type: 'number'
+                        type: 'boolean'
                       },
                       sbp: {
-                        type: 'number'
+                        type: 'boolean'
                       },
                       hba1c: {
-                        type: 'number'
+                        type: 'boolean'
                       },
                       hdl: {
-                        type: 'number'
+                        type: 'boolean'
                       },
                       ldl: {
-                        type: 'number'
+                        type: 'boolean'
                       },
                       hr: {
-                        type: 'number'
+                        type: 'boolean'
                       },
                       smoker: {
-                        type: 'number'
+                        type: 'boolean'
                       },
                       insulin_dose: {
-                        type: 'number'
+                        type: 'boolean'
                       },
                       trig: {
-                        type: 'number'
+                        type: 'boolean'
                       }
                     }
                   }
@@ -471,6 +481,9 @@ const formConfig = {
             },
             interventions: {
               risk_reductions: {
+                'ui:options': {
+                  classNames: 'flexwrapped-fieldset'
+                },
                 'ui:description': 'T1D specific complication risk reductions',
                 amputation: {
                   'ui:description': 'Decrease risk of amputation.'
@@ -513,6 +526,9 @@ const formConfig = {
                 }
               },
               factor_changes: {
+                'ui:options': {
+                  classNames: 'flexwrapped-fieldset'
+                },
                 'ui:description': 'T1D specific risk factor adjustments',
                 bmi: {
                   'ui:description': 'Change population BMI characteristics.'
@@ -688,6 +704,57 @@ const formConfig = {
               'ui:description': 'For multiple intervention sets, click the "Add Another" button below.',
               'ui:options': {},
               items: {
+                intervention_set_name: {
+                  'ui:title': 'Intervention set name'
+                },
+                risk_reductions: {
+                  'ui:title': 'Risk Reductions',
+                  'ui:description': 'UKPDS specific complication risk reductions.',
+                  blindness: {
+                    'ui:title': 'Blindness',
+                    'ui:description': 'Decrease risk of blindness.'
+                  },
+                  first_amputation: {
+                    'ui:title': 'First Amputation',
+                    'ui:description': 'Decrease risk of first amputation.'
+                  },
+                  first_chf: {
+                    'ui:title': 'First CHF',
+                    'ui:description': 'Decrease risk of first congestive heart failure'
+                  },
+                  first_ihd: {
+                    'ui:title': 'First IHD',
+                    'ui:description': 'Decrease risk of first ischemic heart disease event.'
+                  },
+                  first_mi: {
+                    'ui:title': 'First MI',
+                    'ui:description': 'Decrease risk of first myocardial infacrtion.'
+                  },
+                  first_stroke: {
+                    'ui:title': 'First_Stroke',
+                    'ui:description': 'Decrease risk of first stroke.'
+                  },
+                  renal_failure: {
+                    'ui:title': 'Renal Failure',
+                    'ui:description': 'Decrease risk of renal failure.'
+                  },
+                  second_amputation: {
+                    'ui:title': 'Second_Amputation',
+                    'ui:description': 'Decrease risk of second amputation.'
+                  },
+                  second_mi: {
+                    'ui:title': 'Second MI',
+                    'ui:description': 'Decrease risk of second myocardial infacrtion.'
+                  },
+                  second_stroke: {
+                    'ui:title': 'Second Stroke',
+                    'ui:description': 'Decrease risk of second stroke.'
+                  },
+                  ulcer: {
+                    'ui:title': 'Ulcer',
+                    'ui:description': 'Decrease risk of ulcers.'
+                  }
+                },
                 factor_changes: {
                   'ui:description': 'UKPDS specific risk factor adjustments',
                   smoker: {
@@ -869,6 +936,48 @@ const formConfig = {
               'ui:description': 'T1D intervention sets.',
               'ui:options': {},
               items: {
+                risk_reductions: {
+                  'ui:description': 'T1D specific complication risk reductions',
+                  amputation: {
+                    'ui:description': 'Decrease risk of amputation.'
+                  },
+                  csme: {
+                    'ui:description': 'Decrease risk of clinically significant macular edema.'
+                  },
+                  cvd: {
+                    'ui:description': 'Decrease risk of cardiovascular disease.'
+                  },
+                  dka: {
+                    'ui:description': 'Decrease risk of diabetic ketoacidosis.'
+                  },
+                  dpn: {
+                    'ui:description': 'Decrease risk of dermatosis papulosa nigra.'
+                  },
+                  esrd: {
+                    'ui:description': 'Decrease risk of end-stage renal disease.'
+                  },
+                  gfr: {
+                    'ui:description': 'Decrease risk of GFR.'
+                  },
+                  hypoglycemia: {
+                    'ui:description': 'Decrease risk of hypoglycemia.'
+                  },
+                  macroalbuminuria: {
+                    'ui:description': 'Decrease risk of macroalbuminuria.'
+                  },
+                  microalbuminuria: {
+                    'ui:description': 'Decrease risk of microalbuminuria.'
+                  },
+                  npdr: {
+                    'ui:description': 'Decrease risk of nonproliferative diabetic retinopathy.'
+                  },
+                  pdr: {
+                    'ui:description': 'Decrease risk of proliferative diabetic retinopathy.'
+                  },
+                  ulcer: {
+                    'ui:description': 'Decrease risk of ulcers.'
+                  }
+                },
                 factor_changes: {
                   'ui:description': 'T1D specific risk factor adjustments',
                   bmi: {
