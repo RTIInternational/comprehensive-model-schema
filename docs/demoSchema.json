@@ -541,6 +541,10 @@
         "type": "object",
         "ui:order": ["risk_reductions", "factor_changes"],
         "properties": {
+          "intervention_set_name": {
+            "ui:title": "Intervention set name",
+            "type": "string"
+          },
           "risk_reductions": {
             "ui:description": "T1D specific complication risk reductions",
             "type": "object",
