@@ -255,6 +255,8 @@ The `ui:schema` may contain (details [here](https://github.com/usds/us-forms-sys
 
 [relevant USFS docs](https://github.com/usds/us-forms-system/blob/master/docs/building-a-form/common-patterns-for-building-forms.md#conditionally-hiding-a-group-of-fields)
 
+for multiple conditional fields to return to a single property key without name conflicts add the "opt-[uniqueId]--" prefix in addition to the conditional logic described in the USFS docs to each of the conditional fields, followed by the key they should resolve to. For example, top-level properties "opt-1--foo", "opt-2--foo", "opt-3--foo" will all resolve to a "foo" property in the output schema
+
 ### Separating schema from `ui:schema`
 
 Because the UI contains information not relevant to the simulation, certain properties (always prefaced by `ui:`) should be included in the schema. These `ui:` configurations in the schema are diverted at the page level into their own `ui:schema` in the formConfig, which mirrors the `schema` for that page. 

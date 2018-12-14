@@ -13,13 +13,14 @@
   "ui:chapter:order": ["chapter:setup"],
   "chapter:setup": [
     "basic_setup",
-    "ukpds_sensitivity_analysis",
-    "t1d_sensitivity_analysis",
-    "ukpds_intervention_sets",
-    "t1d_intervention_sets"
+    "opt-ukpds--sensitivity_analysis",
+    "opt-t1d--sensitivity_analysis",
+    "opt-ukpds--intervention_sets",
+    "opt-t1d--intervention_sets"
   ],
   "properties": {
     "basic_setup": {
+      "title": "Basic Setup",
       "ui:title": "Basic Setup",
       "initialData": {
         "equation_set": "ukpds",
@@ -107,14 +108,15 @@
         }
       }
     },
-    "ukpds_sensitivity_analysis": {
+    "opt-ukpds--sensitivity_analysis": {
+      "title": "UKPDS Sensitivity Analysis",
       "ui:title": "UKPDS Sensitivity Analysis",
       "ui:description": "Configurations for Probabilitic Sensitivity Analysis.",
       "type": "object",
       "depends": {
         "equation_set": "ukpds"
       },
-      "ui:order": ["iterations", "interventions"],
+      "ui:order": ["iterations", "sensitivity_analysis"],
       "properties": {
         "iterations": {
           "ui:title": "Iterations",
@@ -122,7 +124,7 @@
           "$ref": "#/definitions/positiveInteger",
           "default": 0
         },
-        "interventions": {
+        "sensitivity_analysis": {
           "ui:title": "Interventions",
           "type": "object",
           "properties": {
@@ -254,20 +256,22 @@
         }
       }
     },
-    "t1d_sensitivity_analysis": {
+    "opt-t1d--sensitivity_analysis": {
+      "title": "UKPDS Sensitivity Analysis",
+      "ui:title": "UKPDS Sensitivity Analysis",
       "ui:description": "Configurations for Probabilitic Sensitivity Analysis.",
       "type": "object",
       "depends": {
         "equation_set": "t1d"
       },
-      "ui:order": ["iterations", "interventions"],
+      "ui:order": ["iterations", "sensitivity_analysis"],
       "properties": {
         "iterations": {
           "ui:description": "Number of intervention simulations to conduct.",
           "$ref": "#/definitions/positiveInteger",
           "default": 0
         },
-        "interventions": {
+        "sensitivity_analysis": {
           "type": "object",
           "properties": {
             "risk_reductions": {
@@ -384,7 +388,7 @@
         }
       }
     },
-    "ukpds_intervention_sets": {
+    "opt-ukpds--intervention_sets": {
       "ui:title": "UKPDS Intervention Sets",
       "ui:description": "For multiple intervention sets, click the \"Add Another\" button below.",
       "type": "array",
@@ -524,7 +528,7 @@
         }
       }
     },
-    "t1d_intervention_sets": {
+    "opt-t1d--intervention_sets": {
       "ui:title": "t1d intervention sets",
       "ui:description": "T1D intervention sets.",
       "type": "array",

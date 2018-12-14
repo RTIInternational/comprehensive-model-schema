@@ -16,7 +16,7 @@ const formConfig = {
       pages: {
         basic_setup: {
           path: 'setup/basic_setup',
-          title: 'basic_setup',
+          title: 'Basic Setup',
           schema: {
             type: 'object',
             properties: {
@@ -161,9 +161,9 @@ const formConfig = {
             }
           }
         },
-        ukpds_sensitivity_analysis: {
-          path: 'setup/ukpds_sensitivity_analysis',
-          title: 'ukpds_sensitivity_analysis',
+        'opt-ukpds--sensitivity_analysis': {
+          path: 'setup/opt-ukpds--sensitivity_analysis',
+          title: 'UKPDS Sensitivity Analysis',
           schema: {
             type: 'object',
             properties: {
@@ -172,7 +172,7 @@ const formConfig = {
                 minimum: 0,
                 'default': 0
               },
-              interventions: {
+              sensitivity_analysis: {
                 type: 'object',
                 properties: {
                   risk_reductions: {
@@ -266,13 +266,13 @@ const formConfig = {
             'ui:description': 'Configurations for Probabilitic Sensitivity Analysis.',
             'ui:order': [
               'iterations',
-              'interventions'
+              'sensitivity_analysis'
             ],
             iterations: {
               'ui:title': 'Iterations',
               'ui:description': 'Number of intervention simulations to conduct.'
             },
-            interventions: {
+            sensitivity_analysis: {
               'ui:title': 'Interventions',
               risk_reductions: {
                 'ui:title': 'Risk Reductions',
@@ -372,9 +372,9 @@ const formConfig = {
             equation_set: 'ukpds'
           }
         },
-        t1d_sensitivity_analysis: {
-          path: 'setup/t1d_sensitivity_analysis',
-          title: 't1d_sensitivity_analysis',
+        'opt-t1d--sensitivity_analysis': {
+          path: 'setup/opt-t1d--sensitivity_analysis',
+          title: 'UKPDS Sensitivity Analysis',
           schema: {
             type: 'object',
             properties: {
@@ -383,7 +383,7 @@ const formConfig = {
                 minimum: 0,
                 'default': 0
               },
-              interventions: {
+              sensitivity_analysis: {
                 type: 'object',
                 properties: {
                   risk_reductions: {
@@ -470,16 +470,16 @@ const formConfig = {
             }
           },
           uiSchema: {
-            'ui:title': 't1d_sensitivity_analysis',
+            'ui:title': 'UKPDS Sensitivity Analysis',
             'ui:description': 'Configurations for Probabilitic Sensitivity Analysis.',
             'ui:order': [
               'iterations',
-              'interventions'
+              'sensitivity_analysis'
             ],
             iterations: {
               'ui:description': 'Number of intervention simulations to conduct.'
             },
-            interventions: {
+            sensitivity_analysis: {
               risk_reductions: {
                 'ui:options': {
                   classNames: 'flexwrapped-fieldset'
@@ -567,13 +567,13 @@ const formConfig = {
             equation_set: 't1d'
           }
         },
-        ukpds_intervention_sets: {
-          path: 'setup/ukpds_intervention_sets',
-          title: 'ukpds_intervention_sets',
+        'opt-ukpds--intervention_sets': {
+          path: 'setup/opt-ukpds--intervention_sets',
+          title: 'opt-ukpds--intervention_sets',
           schema: {
             type: 'object',
             properties: {
-              ukpds_intervention_sets: {
+              'opt-ukpds--intervention_sets': {
                 type: 'array',
                 depends: {
                   and: {
@@ -698,8 +698,8 @@ const formConfig = {
             }
           },
           uiSchema: {
-            'ui:title': 'ukpds_intervention_sets',
-            ukpds_intervention_sets: {
+            'ui:title': 'opt-ukpds--intervention_sets',
+            'opt-ukpds--intervention_sets': {
               'ui:title': 'UKPDS Intervention Sets',
               'ui:description': 'For multiple intervention sets, click the "Add Another" button below.',
               'ui:options': {},
@@ -798,13 +798,13 @@ const formConfig = {
             }
           }
         },
-        t1d_intervention_sets: {
-          path: 'setup/t1d_intervention_sets',
-          title: 't1d_intervention_sets',
+        'opt-t1d--intervention_sets': {
+          path: 'setup/opt-t1d--intervention_sets',
+          title: 'opt-t1d--intervention_sets',
           schema: {
             type: 'object',
             properties: {
-              t1d_intervention_sets: {
+              'opt-t1d--intervention_sets': {
                 type: 'array',
                 depends: {
                   and: {
@@ -814,6 +814,9 @@ const formConfig = {
                 },
                 items: {
                   properties: {
+                    intervention_set_name: {
+                      type: 'string'
+                    },
                     risk_reductions: {
                       type: 'object',
                       properties: {
@@ -930,12 +933,15 @@ const formConfig = {
             }
           },
           uiSchema: {
-            'ui:title': 't1d_intervention_sets',
-            t1d_intervention_sets: {
+            'ui:title': 'opt-t1d--intervention_sets',
+            'opt-t1d--intervention_sets': {
               'ui:title': 't1d intervention sets',
               'ui:description': 'T1D intervention sets.',
               'ui:options': {},
               items: {
+                intervention_set_name: {
+                  'ui:title': 'Intervention set name'
+                },
                 risk_reductions: {
                   'ui:description': 'T1D specific complication risk reductions',
                   amputation: {
