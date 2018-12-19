@@ -104,6 +104,13 @@
                 }
             }
         },
+        "intervention_set": {
+            "description": "Data container for a scenario's interventions.",
+            "type": "array",
+            "items": {
+                "type": "object"
+            }
+        },
         "ukpds": {
             "ui:description": "UKPDS equation set.",
             "type": "object",
