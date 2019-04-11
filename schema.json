@@ -1,349 +1,653 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
     "id": "schema.json",
-    "ui:description": "Configuration for the Comprehensive Diabetes Model",
+    "description": "Configuration for the Comprehensive Diabetes Model",
     "required": [
-        "scenario_name", "time_horizon", "population", "equation_set",
-        "economics"
+      "scenario_name",
+      "time_horizon",
+      "population",
+      "equation_set",
+      "economics"
     ],
     "type": "object",
-    "ui:chapter:order": ["chapter:basic_setup", "chapter:variables", "chapter:advanced_setup"],
-    "chapter:basic_setup": ["scenario_name", "time_horizon", "iterations", "population", "equation_set", "economics"],
-    "chapter:variables": ["sensitivity_analysis"],
-    "chapter:advanced_setup": ["ukpds", "t1d"],
-    "properties": {
-        "scenario_name": {
-            "ui:description": "Name of the scenario",
-            "$ref": "#/definitions/string"
+    "ui:layout": {
+      "pages": [
+        {
+          "url_path": "/",
+          "built_in_page": {
+            "type": "introduction",
+            "title": "New Scenario Setup",
+            "message": "message message message",
+            "button_text": "Get Started"
+          }
         },
-        "population": {
-            "ui:description": "Configurations for population generation.",
-            "type": "object",
-            "required": [
-                "size"
-            ],
-            "properties": {
-                "size": {
-                    "ui:description": "Number of individuals in the population.",
-                    "$ref": "#/definitions/positiveInteger"
+        {
+          "title": "Scenario Setup: Basic",
+          "url_path": "/basic-setup",
+          "fieldsets": [
+            [
+              { "$ref": "#/properties/scenario_name" },
+              { "$ref": "#/properties/equation_set" },
+              {
+                "$ref": "#/properties/simulation_type",
+                "update_on_change": true
+              },
+              {
+                "$ref": "#/properties/intervention_sets",
+                "expand_if": {
+                  "simulation_type": "Standard"
                 }
-            }
-        },
-        "time_horizon": {
-            "ui:description": "Simulation time horizon configuration.",
-            "type": "object",
-            "required": [
-                "strategy", "limit"
-            ],
-            "ui:order": [
-                "strategy", "limit"
-            ],
-            "properties": {
-                "strategy": {
-                    "ui:description": "Time horizon execution strategy. 'fixed' runs for a set duration. 'max_age' runs until the youngest indidual reaches the max age. 'all_deceased' runs until all agents have passed away.",
-                    "$ref": "#/definitions/string",
-                    "default": "fixed",
-                    "enum": ["fixed", "max_age", "all_deceased"]
-                },
-                "limit": {
-                    "ui:description": "Time step limit. Refers to the maximum number of steps or maximum age, depending on context. Only applied in 'fixed' and 'max_age' strategies",
-                    "default": 0,
-                    "$ref": "#/definitions/positiveInteger"
+              },
+              {
+                "$ref": "#/properties/interventions",
+                "expand_if": {
+                  "simulation_type": "Sensitivity Analysis"
                 }
-            }
-        },
-        "iterations": {
-            "ui:description": "Number of intervention simulations to conduct.",
-            "$ref": "#/definitions/positiveInteger",
-            "default": 1
-        },
-        "sensitivity_analysis": {
-            "ui:description": "Configurations for Probabilitic Sensitivity Analysis.",
-            "type": "object",
-            "ui:order": [
-                "risk_reductions", "factor_changes"
+              },
+              { "$ref": "#/properties/seed" }
             ],
-            "properties": {
-                "risk_reductions": {
-                    "ui:description": "Array of risk reductions variables to sample randomly.",
-                    "type": "array"
-                },
-                "factor_changes": {
-                    "ui:description": "Array of risk factor variables to sample randomly.",
-                    "type": "array"
-                }
-            }
+            [
+              { "$ref": "#/properties/population" },
+              { "$ref": "#/properties/time_horizon" }
+            ]
+          ]
         },
-        "equation_set": {
-            "ui:description": "Name of the complication equation set to invoke.",
-            "$ref": "#/definitions/string",
-            "enum": ["ukpds", "t1d"]
-        },
-        "economics": {
-            "ui:description": "Cost Effectiveness configurations",
-            "type": "object",
-            "ui:order": [
-                "discount", "cost_strategy", "intervention_cost"
-            ],
-            "properties": {
-                "discount": {
-                    "ui:description": "Discount factor.",
-                    "$ref": "#/definitions/percent",
-                    "default": 3
-                },
-                "cost_strategy": {
-                    "ui:description": "Cost calculation strategy.",
-                    "$ref": "#/definitions/string",
-                    "default": "ADDITIVE",
-                    "enum": ["ADDITIVE", "MULTIPLICATIVE"]
-                },
-                "intervention_cost": {
-                    "ui:description": "Cost of an intervention.",
-                    "$ref": "#/definitions/positiveInteger",
-                    "default": 0
-                }
+        {
+          "title": "Scenario Setup: Intervention Sets",
+          "url_path": "/intervention-sets-config",
+          "expand_if": {
+            "simulation_type": "Standard"
+          },
+          "fieldsets": [
+            {
+              "$ref": "#/properties/intervention_sets_ukpds",
+              "items_length": "intervention_sets",
+              "max_items_length": 10,
+              "expand_if": {
+                "equation_set": "ukpds"
+              }
+            },
+            {
+              "$ref": "#/properties/intervention_sets_t1d",
+              "items_length": "intervention_sets",
+              "max_items_length": 10,
+              "expand_if": {
+                "equation_set": "t1d"
+              }
             }
+          ]
         },
-        "ukpds": {
-            "ui:description": "UKPDS equation set.",
-            "type": "object",
-            "ui:order": [
-                "risk_reductions", "factor_changes"
-            ],
-            "properties": {
-                "risk_reductions": {
-                    "ui:description": "UKPDS specific complication risk reductions.",
-                    "type": "object",
-                    "properties": {
-                        "blindness": {
-                            "ui:description": "Decrease risk of blindness.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "first_amputation": {
-                            "ui:description": "Decrease risk of first amputation.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "first_chf": {
-                            "ui:description": "Decrease risk of first congestive heart failure",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "first_ihd": {
-                            "ui:description": "Decrease risk of first ischemic heart disease event.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "first_mi": {
-                            "ui:description": "Decrease risk of first myocardial infacrtion.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "first_stroke": {
-                            "ui:description": "Decrease risk of first stroke.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "renal_failure": {
-                            "ui:description": "Decrease risk of renal failure.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "second_amputation": {
-                            "ui:description": "Decrease risk of second amputation.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "second_mi": {
-                            "ui:description": "Decrease risk of second myocardial infacrtion.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "second_stroke": {
-                            "ui:description": "Decrease risk of second stroke.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "ulcer": {
-                            "ui:description": "Decrease risk of ulcers.",
-                            "$ref": "#/definitions/percent"
-                        }
-                    }
-                },
-                "factor_changes": {
-                    "ui:description": "UKPDS specific risk factor adjustments",
-                    "type": "object",
-                    "properties": {
-                        "smoker": {
-                            "ui:description": "Change population smoking characteristics.",
-                            "type": "number"
-                        },
-                        "mmalb": {
-                            "ui:description": "Change population microalbuminuria characteristics.",
-                            "type": "number"
-                        },
-                        "pvd": {
-                            "ui:description": "Change population peripheral vascular disease characteristics.",
-                            "type": "number"
-                        },
-                        "bmi": {
-                            "ui:description": "Change population BMI characteristics.",
-                            "type": "number"
-                        },
-                        "hr": {
-                            "ui:description": "Change population heart rate characteristics.",
-                            "type": "number"
-                        },
-                        "hdl": {
-                            "ui:description": "Change population HDL characteristics.",
-                            "type": "number"
-                        },
-                        "ldl": {
-                            "ui:description": "Change population LDL characteristics.",
-                            "type": "number"
-                        },
-                        "sbp": {
-                            "ui:description": "Change population systolic blood pressure characteristics.",
-                            "type": "number"
-                        },
-                        "wbc": {
-                            "ui:description": "Change population white blood cell characteristics.",
-                            "type": "number"
-                        },
-                        "hba1c": {
-                            "ui:description": "Change population HbA1c characteristics.",
-                            "type": "number"
-                        },
-                        "haem": {
-                            "ui:description": "Change population haemoglobin characteristics.",
-                            "type": "number"
-                        },
-                        "egfr": {
-                            "ui:description": "Change population eGFR characteristics.",
-                            "type": "number"
-                        }
-                    }
-                }
+        {
+          "title": "Scenario Setup: Sensitivity Analysis",
+          "url_path": "/sensitivity-analysis-config",
+          "expand_if": {
+            "simulation_type": "Sensitivity Analysis"
+          },
+          "fieldsets": [
+            {
+              "$ref": "#/properties/sensitivity_analysis_ukpds",
+              "update_on_change": true,
+              "expand_if": {
+                "equation_set": "ukpds"
+              }
+            },
+            {
+              "$ref": "#/properties/sensitivity_analysis_t1d",
+              "update_on_change": true,
+              "expand_if": {
+                "equation_set": "t1d"
+              }
             }
+          ]
         },
-        "t1d": {
-            "ui:description": "T1D equation set.",
-            "type": "object",
-            "ui:order": [
-                "risk_reductions", "factor_changes"
-            ],
-            "properties": {
-                "risk_reductions": {
-                    "ui:description": "T1D specific complication risk reductions",
-                    "type": "object",
-                    "properties": {
-                        "amputation": {
-                            "ui:description": "Decrease risk of amputation.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "csme": {
-                            "ui:description": "Decrease risk of clinically significant macular edema.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "cvd": {
-                            "ui:description": "Decrease risk of cardiovascular disease.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "dka": {
-                            "ui:description": "Decrease risk of diabetic ketoacidosis.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "dpn": {
-                            "ui:description": "Decrease risk of dermatosis papulosa nigra.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "esrd": {
-                            "ui:description": "Decrease risk of end-stage renal disease.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "gfr": {
-                            "ui:description": "Decrease risk of GFR.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "hypoglycemia": {
-                            "ui:description": "Decrease risk of hypoglycemia.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "macroalbuminuria": {
-                            "ui:description": "Decrease risk of macroalbuminuria.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "microalbuminuria": {
-                            "ui:description": "Decrease risk of microalbuminuria.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "npdr": {
-                            "ui:description": "Decrease risk of nonproliferative diabetic retinopathy.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "pdr": {
-                            "ui:description": "Decrease risk of proliferative diabetic retinopathy.",
-                            "$ref": "#/definitions/percent"
-                        },
-                        "ulcer": {
-                            "ui:description": "Decrease risk of ulcers.",
-                            "$ref": "#/definitions/percent"
-                        }
-                    }
-                },
-                "factor_changes": {
-                    "ui:description": "T1D specific risk factor adjustments",
-                    "type": "object",
-                    "properties": {
-                        "bmi": {
-                            "ui:description": "Change population BMI characteristics.",
-                            "type": "number"
-                        },
-                        "dbp": {
-                            "ui:description": "Change population diastolic blood pressure characteristics.",
-                            "type": "number"
-                        },
-                        "sbp": {
-                            "ui:description": "Change population systolic blood pressure characteristics.",
-                            "type": "number"
-                        },
-                        "hba1c": {
-                            "ui:description": "Change population HbA1c characteristics.",
-                            "type": "number"
-                        },
-                        "hdl": {
-                            "ui:description": "Change population HDL characteristics.",
-                            "type": "number"
-                        },
-                        "ldl": {
-                            "ui:description": "Change population LDL characteristics.",
-                            "type": "number"
-                        },
-                        "hr": {
-                            "ui:description": "Change population heart rate characteristics.",
-                            "type": "number"
-                        },
-                        "smoker": {
-                            "ui:description": "Change population smoking characteristics.",
-                            "type": "number"
-                        },
-                        "insulin_dose": {
-                            "ui:description": "Change population insulin dose characteristics.",
-                            "type": "number"
-                        },
-                        "trig": {
-                            "ui:description": "Change population triglyceride characteristics.",
-                            "type": "number"
-                        }
-                    }
-                }
-            }
+        {
+          "url_path": "/summary",
+          "built_in_page": {
+            "type": "summary",
+            "title": "Scenario Summary",
+            "message": "Data as it will be sent to the simulator.",
+            "button_text": "Finish Form"
+          }
         }
+      ]
+    },
+    "properties": {
+      "seed": {
+        "description": "6 digit simulation seed",
+        "$ref": "#/definitions/positiveInteger",
+        "ui:schema": {
+          "ui:widget": "hidden"
+        },
+        "default": 123456
+      },
+      "scenario_name": {
+        "title": "Scenario Name",
+        "description": "Name of the scenario",
+        "$ref": "#/definitions/string"
+      },
+      "simulation_type": {
+        "title": "Simulation Type",
+        "description": "Type of simulation to run.",
+        "$ref": "#/definitions/string",
+        "enum": ["Standard", "Sensitivity Analysis"],
+        "default": "Standard"
+      },
+      "equation_set": {
+        "title": "Equation Set",
+        "description": "Name of the complication equation set to invoke.",
+        "$ref": "#/definitions/string",
+        "enum": ["ukpds", "t1d"],
+        "default": "ukpds"
+      },
+      "intervention_sets": {
+        "title": "Intervention Sets",
+        "description": "Number of intervention sets to configure/run (standard simulation).",
+        "$ref": "#/definitions/interventionSetsLength",
+        "default": 3
+      },
+      "interventions": {
+        "title": "Interventions",
+        "description": "Number of intervention for sensitivity analysis.",
+        "$ref": "#/definitions/positiveInteger",
+        "default": 1
+      },
+      "population": {
+        "title": "Population",
+        "description": "Configurations for population generation.",
+        "type": "object",
+        "required": ["size"],
+        "properties": {
+          "size": {
+            "title": "Size",
+            "description": "Number of individuals in the population.",
+            "$ref": "#/definitions/positiveInteger"
+          }
+        }
+      },
+      "time_horizon": {
+        "title": "Time Horizon",
+        "description": "Simulation time horizon configuration.",
+        "type": "object",
+        "required": ["strategy", "limit"],
+        "ui:schema": {
+          "ui:order": ["strategy", "limit"]
+        },
+        "properties": {
+          "strategy": {
+            "title": "Strategy",
+            "description": "Time horizon execution strategy. 'fixed' runs for a set duration. 'max_age' runs until the youngest indidual reaches the max age. 'all_deceased' runs until all agents have passed away.",
+            "$ref": "#/definitions/string",
+            "default": "fixed",
+            "enum": ["fixed", "max_age", "all_deceased"]
+          },
+          "limit": {
+            "title": "Limit",
+            "description": "Time step limit. Refers to the maximum number of steps or maximum age, depending on context. Only applied in 'fixed' and 'max_age' strategies",
+            "default": 0,
+            "$ref": "#/definitions/positiveInteger"
+          }
+        }
+      },
+      "economics": {
+        "title": "Economics",
+        "description": "Cost Effectiveness configurations",
+        "type": "object",
+        "ui:schema": {
+          "ui:order": ["discount", "cost_strategy", "intervention_cost"]
+        },
+        "properties": {
+          "discount": {
+            "title": "Discount",
+            "description": "Discount factor.",
+            "$ref": "#/definitions/percent",
+            "default": 3
+          },
+          "cost_strategy": {
+            "title": "Cost Strategy",
+            "description": "Cost calculation strategy.",
+            "$ref": "#/definitions/string",
+            "default": "ADDITIVE",
+            "enum": ["ADDITIVE", "MULTIPLICATIVE"]
+          },
+          "intervention_cost": {
+            "title": "Intervention Cost",
+            "description": "Cost of an intervention.",
+            "$ref": "#/definitions/positiveInteger",
+            "default": 0
+          }
+        }
+      },
+      "intervention_sets_ukpds": {
+        "title": "UKPDS",
+        "ui:schema": {
+          "ui:field_type": "accordion",
+          "ui:options": {
+            "orderable": false,
+            "addable": false
+          },
+          "items": {
+            "ui:options": {
+              "header_buttons": {
+                "common_text": "Intervention Set",
+                "numbered": true
+              }
+            },
+            "risk_reductions": {
+              "ui:field_type": "grid"
+            },
+            "factor_changes": {
+              "ui:field_type": "grid"
+            }
+          }
+        },
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "intervention_set_name": {
+              "title": "Intervention Set Name",
+              "type": "string"
+            },
+            "risk_reductions": {
+              "title": "Risk Reductions",
+              "description": "UKPDS specific complication risk reductions.",
+              "type": "object",
+              "properties": {
+                "blindness": {
+                  "title": "Blindness",
+                  "description": "Decrease risk of blindness.",
+                  "$ref": "#/definitions/percent"
+                },
+                "first_amputation": {
+                  "title": "First Amputation",
+                  "description": "Decrease risk of first amputation.",
+                  "$ref": "#/definitions/percent"
+                },
+                "first_chf": {
+                  "title": "First CHF",
+                  "description": "Decrease risk of first congestive heart failure",
+                  "$ref": "#/definitions/percent"
+                },
+                "first_ihd": {
+                  "description": "Decrease risk of first ischemic heart disease event.",
+                  "$ref": "#/definitions/percent"
+                },
+                "first_mi": {
+                  "description": "Decrease risk of first myocardial infacrtion.",
+                  "$ref": "#/definitions/percent"
+                },
+                "first_stroke": {
+                  "description": "Decrease risk of first stroke.",
+                  "$ref": "#/definitions/percent"
+                },
+                "renal_failure": {
+                  "description": "Decrease risk of renal failure.",
+                  "$ref": "#/definitions/percent"
+                },
+                "second_amputation": {
+                  "description": "Decrease risk of second amputation.",
+                  "$ref": "#/definitions/percent"
+                },
+                "second_mi": {
+                  "description": "Decrease risk of second myocardial infacrtion.",
+                  "$ref": "#/definitions/percent"
+                },
+                "second_stroke": {
+                  "description": "Decrease risk of second stroke.",
+                  "$ref": "#/definitions/percent"
+                },
+                "ulcer": {
+                  "description": "Decrease risk of ulcers.",
+                  "$ref": "#/definitions/percent"
+                }
+              }
+            },
+            "factor_changes": {
+              "title": "Factor Changes",
+              "description": "UKPDS specific risk factor adjustments",
+              "type": "object",
+              "properties": {
+                "smoker": {
+                  "description": "Change population smoking characteristics.",
+                  "type": "number"
+                },
+                "mmalb": {
+                  "description": "Change population microalbuminuria characteristics.",
+                  "type": "number"
+                },
+                "pvd": {
+                  "description": "Change population peripheral vascular disease characteristics.",
+                  "type": "number"
+                },
+                "bmi": {
+                  "description": "Change population BMI characteristics.",
+                  "type": "number"
+                },
+                "hr": {
+                  "description": "Change population heart rate characteristics.",
+                  "type": "number"
+                },
+                "hdl": {
+                  "description": "Change population HDL characteristics.",
+                  "type": "number"
+                },
+                "ldl": {
+                  "description": "Change population LDL characteristics.",
+                  "type": "number"
+                },
+                "sbp": {
+                  "description": "Change population systolic blood pressure characteristics.",
+                  "type": "number"
+                },
+                "wbc": {
+                  "description": "Change population white blood cell characteristics.",
+                  "type": "number"
+                },
+                "hba1c": {
+                  "description": "Change population HbA1c characteristics.",
+                  "type": "number"
+                },
+                "haem": {
+                  "description": "Change population haemoglobin characteristics.",
+                  "type": "number"
+                },
+                "egfr": {
+                  "description": "Change population eGFR characteristics.",
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      },
+      "intervention_sets_t1d": {
+        "title": "T1D",
+        "ui:schema": {
+          "ui:field_type": "tabs",
+          "ui:options": {
+            "orderable": false,
+            "addable": false
+          },
+          "items": {
+            "ui:options": {
+              "header_buttons": {
+                "common_text": "Intervention Set",
+                "numbered": true
+              }
+            },
+            "risk_reductions": {
+              "ui:field_type": "grid"
+            },
+            "factor_changes": {
+              "ui:field_type": "grid"
+            }
+          }
+        },
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "intervention_set_name": {
+              "title": "Intervention set name",
+              "type": "string",
+              "default": "initial default"
+            },
+            "risk_reductions": {
+              "title": "Risk Reductions",
+              "type": "object",
+              "properties": {
+                "amputation": {
+                  "description": "Decrease risk of amputation.",
+                  "$ref": "#/definitions/percent"
+                },
+                "cvd": {
+                  "description": "Decrease risk of cardiovascular disease.",
+                  "$ref": "#/definitions/percent"
+                },
+                "dka": {
+                  "description": "Decrease risk of diabetic ketoacidosis.",
+                  "$ref": "#/definitions/percent"
+                },
+                "dpn": {
+                  "description": "Decrease risk of dermatosis papulosa nigra.",
+                  "$ref": "#/definitions/percent"
+                },
+                "esrd": {
+                  "description": "Decrease risk of end-stage renal disease.",
+                  "$ref": "#/definitions/percent"
+                },
+                "gfr": {
+                  "description": "Decrease risk of GFR.",
+                  "$ref": "#/definitions/percent"
+                },
+                "hypoglycemia": {
+                  "description": "Decrease risk of hypoglycemia.",
+                  "$ref": "#/definitions/percent"
+                },
+                "macroalbuminuria": {
+                  "description": "Decrease risk of macroalbuminuria.",
+                  "$ref": "#/definitions/percent"
+                },
+                "microalbuminuria": {
+                  "description": "Decrease risk of microalbuminuria.",
+                  "$ref": "#/definitions/percent"
+                },
+                "npdr": {
+                  "description": "Decrease risk of nonproliferative diabetic retinopathy.",
+                  "$ref": "#/definitions/percent"
+                },
+                "pdr": {
+                  "description": "Decrease risk of proliferative diabetic retinopathy.",
+                  "$ref": "#/definitions/percent"
+                },
+                "csme": {
+                  "description": "Decrease risk of clinically significant macular edema.",
+                  "$ref": "#/definitions/percent"
+                },
+                "ulcer": {
+                  "description": "Decrease risk of ulcers.",
+                  "$ref": "#/definitions/percent"
+                }
+              }
+            },
+            "factor_changes": {
+              "title": "Factor Changes",
+              "type": "object",
+              "properties": {
+                "bmi": {
+                  "description": "Change population BMI characteristics.",
+                  "type": "number"
+                },
+                "dbp": {
+                  "description": "Change population diastolic blood pressure characteristics.",
+                  "type": "number"
+                },
+                "sbp": {
+                  "description": "Change population systolic blood pressure characteristics.",
+                  "type": "number"
+                },
+                "hba1c": {
+                  "description": "Change population HbA1c characteristics.",
+                  "type": "number"
+                },
+                "hdl": {
+                  "description": "Change population HDL characteristics.",
+                  "type": "number"
+                },
+                "ldl": {
+                  "description": "Change population LDL characteristics.",
+                  "type": "number"
+                },
+                "hr": {
+                  "description": "Change population heart rate characteristics.",
+                  "type": "number"
+                },
+                "smoker": {
+                  "description": "Change population smoking characteristics.",
+                  "type": "number"
+                },
+                "insulin_dose": {
+                  "description": "Change population insulin dose characteristics.",
+                  "type": "number"
+                },
+                "trig": {
+                  "description": "Change population triglyceride characteristics.",
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      },
+      "sensitivity_analysis_ukpds": {
+        "title": "UKPDS",
+        "description": "Configurations for Probabilitic Sensitivity Analysis.",
+        "type": "object",
+        "ui:schema": {
+          "ui:order": ["risk_reductions", "factor_changes"],
+          "risk_reductions": {
+            "ui:widget": "checkboxes",
+            "items": {
+              "ui:field_type": "grid"
+            }
+          },
+          "factor_changes": {
+            "ui:widget": "checkboxes"
+          }
+        },
+        "properties": {
+          "risk_reductions": {
+            "title": "Risk Reductions",
+            "description": "Array of risk reductions variables to sample randomly.",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "amputation",
+                "csme",
+                "cvd",
+                "dka",
+                "dpn",
+                "esrd",
+                "gfr",
+                "hypoglycemia",
+                "macroalbuminuria",
+                "microalbuminuria",
+                "npdr",
+                "pdr",
+                "ulcer"
+              ]
+            }
+          },
+          "factor_changes": {
+            "title": "Factor Changes",
+            "description": "Array of risk factor variables to sample randomly.",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "bmi",
+                "dbp",
+                "sbp",
+                "hba1c",
+                "hdl",
+                "ldl",
+                "hr",
+                "smoker",
+                "insulin_dose",
+                "trig"
+              ]
+            }
+          }
+        }
+      },
+      "sensitivity_analysis_t1d": {
+        "title": "T1D",
+        "description": "Configurations for Probabilitic Sensitivity Analysis.",
+        "type": "object",
+        "ui:schema": {
+          "ui:order": ["risk_reductions", "factor_changes"],
+          "risk_reductions": {
+            "ui:widget": "checkboxes"
+          },
+          "factor_changes": {
+            "ui:widget": "checkboxes"
+          }
+        },
+        "properties": {
+          "risk_reductions": {
+            "title": "Risk Reductions",
+            "description": "Array of risk reductions variables to sample randomly.",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "amputation",
+                "csme",
+                "cvd",
+                "dka",
+                "dpn",
+                "esrd",
+                "gfr",
+                "hypoglycemia",
+                "macroalbuminuria",
+                "microalbuminuria",
+                "npdr",
+                "pdr",
+                "ulcer"
+              ]
+            }
+          },
+          "factor_changes": {
+            "title": "Factor Changes",
+            "description": "Array of risk factor variables to sample randomly.",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "bmi",
+                "dbp",
+                "sbp",
+                "hba1c",
+                "hdl",
+                "ldl",
+                "hr",
+                "smoker",
+                "insulin_dose",
+                "trig"
+              ]
+            }
+          }
+        }
+      }
     },
     "definitions": {
-        "string": {
-            "type": "string",
-            "minLength": 1
-        },
-        "positiveInteger": {
-            "type": "integer",
-            "minimum": 0
-        },
-        "percent": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 100
-        }
+      "string": {
+        "description": "String with a minimum length of 1 (i.e. excludes '')",
+        "type": "string",
+        "minLength": 1
+      },
+      "positiveInteger": {
+        "description": "Integer greater than or equal to zero",
+        "type": "integer",
+        "minimum": 0
+      },
+      "interventionSetsLength": {
+        "description": "Integer greater than zero and less than the maximum allowable number of intervention sets",
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10
+      },
+      "percent": {
+        "description": "Decimal representation of a percentage",
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      }
     }
-}
+  }
+  
