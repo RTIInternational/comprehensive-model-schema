@@ -524,18 +524,16 @@
             "items": {
               "type": "string",
               "enum": [
-                "amputation",
-                "csme",
-                "cvd",
-                "dka",
-                "dpn",
-                "esrd",
-                "gfr",
-                "hypoglycemia",
-                "macroalbuminuria",
-                "microalbuminuria",
-                "npdr",
-                "pdr",
+                "blindness",
+                "first_amputation",
+                "first_chf",
+                "first_ihd",
+                "first_mi",
+                "first_stroke",
+                "renal_failure",
+                "second_amputation",
+                "second_mi",
+                "second_stroke",
                 "ulcer"
               ]
             }
@@ -548,19 +546,22 @@
             "items": {
               "type": "string",
               "enum": [
+                "smoker",
+                "mmalb",
+                "pvd",
                 "bmi",
-                "dbp",
-                "sbp",
-                "hba1c",
+                "hr",
                 "hdl",
                 "ldl",
-                "hr",
-                "smoker",
-                "insulin_dose",
-                "trig"
+                "sbp",
+                "wbc",
+                "hba1c",
+                "haem",
+                "egfr",
+                "atfib"
               ]
             }
-          }
+          } 
         }
       },
       "sensitivity_analysis_t1d": {
