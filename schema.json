@@ -39,7 +39,7 @@
                 }
               },
               {
-                "$ref": "#/properties/interventions",
+                "$ref": "#/properties/iterations",
                 "expand_if": {
                   "simulation_type": "Sensitivity Analysis"
                 }
@@ -145,9 +145,9 @@
         "$ref": "#/definitions/interventionSetsLength",
         "default": 3
       },
-      "interventions": {
-        "title": "Interventions",
-        "description": "Number of intervention for sensitivity analysis.",
+      "iterations": {
+        "title": "Iterations",
+        "description": "Number of iterations for sensitivity analysis.",
         "$ref": "#/definitions/positiveInteger",
         "default": 1
       },
