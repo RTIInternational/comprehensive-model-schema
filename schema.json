@@ -121,39 +121,39 @@
         "default": 123456
       },
       "scenario_name": {
-        "title": "Scenario Name",
-        "description": "Name of the scenario",
+        "title": "Name of the scenario",
+        "description": "",
         "$ref": "#/definitions/string"
       },
       "simulation_type": {
-        "title": "Simulation Type",
-        "description": "Type of simulation to run.",
+        "title": "Type of simulation to run.",
+        "description": "",
         "$ref": "#/definitions/string",
         "enum": ["Standard", "Sensitivity Analysis"],
         "default": "Standard"
       },
       "equation_set": {
-        "title": "Equation Set",
-        "description": "Name of the complication equation set to invoke.",
+        "title": "Name of the complication equation set to invoke.",
+        "description": "",
         "$ref": "#/definitions/string",
         "enum": ["ukpds", "t1d"],
         "default": "ukpds"
       },
       "intervention_sets": {
-        "title": "Intervention Sets",
-        "description": "Number of intervention sets to configure/run (standard simulation).",
+        "title": "Number of intervention sets to configure/run (standard simulation).",
+        "description": "",
         "$ref": "#/definitions/interventionSetsLength",
         "default": 3
       },
       "interventions": {
-        "title": "Interventions",
-        "description": "Number of intervention for sensitivity analysis.",
+        "title": "Number of intervention for sensitivity analysis.",
+        "description": "",
         "$ref": "#/definitions/positiveInteger",
         "default": 1
       },
       "population": {
-        "title": "Population",
-        "description": "Configurations for population generation.",
+        "title": "Configurations for population generation.",
+        "description": "",
         "type": "object",
         "required": ["size"],
         "properties": {
@@ -165,8 +165,8 @@
         }
       },
       "time_horizon": {
-        "title": "Time Horizon",
-        "description": "Simulation time horizon configuration.",
+        "title": "Simulation time horizon configuration.",
+        "description": "",
         "type": "object",
         "required": ["strategy", "limit"],
         "ui:schema": {
@@ -174,44 +174,44 @@
         },
         "properties": {
           "strategy": {
-            "title": "Strategy",
-            "description": "Time horizon execution strategy. 'fixed' runs for a set duration. 'max_age' runs until the youngest indidual reaches the max age. 'all_deceased' runs until all agents have passed away.",
+            "title": "Time horizon execution strategy. 'fixed' runs for a set duration. 'max_age' runs until the youngest indidual reaches the max age. 'all_deceased' runs until all  agents have passed away.",
+            "description": "",
             "$ref": "#/definitions/string",
             "default": "fixed",
             "enum": ["fixed", "max_age", "all_deceased"]
           },
           "limit": {
-            "title": "Limit",
-            "description": "Time step limit. Refers to the maximum number of steps or maximum age, depending on context. Only applied in 'fixed' and 'max_age' strategies",
+            "title": "Time step limit. Refers to the maximum number of steps or maximum age, depending on context. Only applied in 'fixed' and 'max_age' strategies",
+            "description": "",
             "default": 0,
             "$ref": "#/definitions/positiveInteger"
           }
         }
       },
       "economics": {
-        "title": "Economics",
-        "description": "Cost Effectiveness configurations",
+        "title": "Cost Effectiveness configurations",
+        "description": "",
         "type": "object",
         "ui:schema": {
           "ui:order": ["discount", "cost_strategy", "intervention_cost"]
         },
         "properties": {
           "discount": {
-            "title": "Discount",
-            "description": "Discount factor.",
+            "title": "Discount factor.",
+            "description": "",
             "$ref": "#/definitions/percent",
             "default": 3
           },
           "cost_strategy": {
-            "title": "Cost Strategy",
-            "description": "Cost calculation strategy.",
+            "title": "Cost calculation strategy.",
+            "description": "",
             "$ref": "#/definitions/string",
             "default": "ADDITIVE",
             "enum": ["ADDITIVE", "MULTIPLICATIVE"]
           },
           "intervention_cost": {
-            "title": "Intervention Cost",
-            "description": "Cost of an intervention.",
+            "title": "Cost of an intervention.",
+            "description": "",
             "$ref": "#/definitions/positiveInteger",
             "default": 0
           }
@@ -249,110 +249,129 @@
               "type": "string"
             },
             "risk_reductions": {
-              "title": "Risk Reductions",
-              "description": "UKPDS specific complication risk reductions.",
+              "title": "UKPDS specific complication risk reductions.",
+              "description": "",
               "type": "object",
               "properties": {
                 "blindness": {
-                  "title": "Blindness",
-                  "description": "Decrease risk of blindness.",
+                  "title": "Decrease risk of blindness.",
+                  "description": "",
                   "$ref": "#/definitions/percent"
                 },
                 "first_amputation": {
-                  "title": "First Amputation",
-                  "description": "Decrease risk of first amputation.",
+                  "title": "Decrease risk of first amputation.",
+                  "description": "",
                   "$ref": "#/definitions/percent"
                 },
                 "first_chf": {
-                  "title": "First CHF",
-                  "description": "Decrease risk of first congestive heart failure",
+                  "title": "Decrease risk of first congestive heart failure",
+                  "description": "",
                   "$ref": "#/definitions/percent"
                 },
                 "first_ihd": {
-                  "description": "Decrease risk of first ischemic heart disease event.",
+                  "title": "Decrease risk of first ischemic heart disease event.",
+                  "description": "",
                   "$ref": "#/definitions/percent"
                 },
                 "first_mi": {
-                  "description": "Decrease risk of first myocardial infacrtion.",
+                  "title": "Decrease risk of first myocardial infacrtion.",
+                  "description": "",
                   "$ref": "#/definitions/percent"
                 },
                 "first_stroke": {
-                  "description": "Decrease risk of first stroke.",
+                  "title": "Decrease risk of first stroke.",
+                  "description": "",
                   "$ref": "#/definitions/percent"
                 },
                 "renal_failure": {
-                  "description": "Decrease risk of renal failure.",
+                  "title": "Decrease risk of renal failure.",
+                  "description": "",
                   "$ref": "#/definitions/percent"
                 },
                 "second_amputation": {
-                  "description": "Decrease risk of second amputation.",
+                  "title": "Decrease risk of second amputation.",
+                  "description": "",
                   "$ref": "#/definitions/percent"
                 },
                 "second_mi": {
-                  "description": "Decrease risk of second myocardial infacrtion.",
+                  "title": "Decrease risk of second myocardial infacrtion.",
+                  "description": "",
                   "$ref": "#/definitions/percent"
                 },
                 "second_stroke": {
-                  "description": "Decrease risk of second stroke.",
+                  "title": "Decrease risk of second stroke.",
+                  "description": "",
                   "$ref": "#/definitions/percent"
                 },
                 "ulcer": {
-                  "description": "Decrease risk of ulcers.",
+                  "title": "Decrease risk of ulcers.",
+                  "description": "",
                   "$ref": "#/definitions/percent"
                 }
               }
             },
             "factor_changes": {
-              "title": "Factor Changes",
               "description": "UKPDS specific risk factor adjustments",
               "type": "object",
               "properties": {
                 "smoker": {
-                  "description": "Change population smoking characteristics.",
+                  "title": "Change population smoking characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "mmalb": {
-                  "description": "Change population microalbuminuria characteristics.",
+                  "title": "Change population microalbuminuria characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "pvd": {
-                  "description": "Change population peripheral vascular disease characteristics.",
+                  "title": "Change population peripheral vascular disease characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "bmi": {
-                  "description": "Change population BMI characteristics.",
+                  "title": "Change population BMI characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "hr": {
-                  "description": "Change population heart rate characteristics.",
+                  "title": "Change population heart rate characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "hdl": {
-                  "description": "Change population HDL characteristics.",
+                  "title": "Change population HDL characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "ldl": {
-                  "description": "Change population LDL characteristics.",
+                  "title": "Change population LDL characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "sbp": {
-                  "description": "Change population systolic blood pressure characteristics.",
+                  "title": "Change population systolic blood pressure characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "wbc": {
-                  "description": "Change population white blood cell characteristics.",
+                  "title": "Change population white blood cell characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "hba1c": {
-                  "description": "Change population HbA1c characteristics.",
+                  "title": "Change population HbA1c characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "haem": {
-                  "description": "Change population haemoglobin characteristics.",
+                  "title": "Change population haemoglobin characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "egfr": {
-                  "description": "Change population eGFR characteristics.",
+                  "title": "Change population eGFR characteristics.",
+                  "description": "",
                   "type": "number"
                 }
               }
@@ -455,43 +474,53 @@
               "type": "object",
               "properties": {
                 "bmi": {
-                  "description": "Change population BMI characteristics.",
+                  "title": "Change population BMI characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "dbp": {
-                  "description": "Change population diastolic blood pressure characteristics.",
+                  "title": "Change population diastolic blood pressure characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "sbp": {
-                  "description": "Change population systolic blood pressure characteristics.",
+                  "title": "Change population systolic blood pressure characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "hba1c": {
-                  "description": "Change population HbA1c characteristics.",
+                  "title": "Change population HbA1c characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "hdl": {
-                  "description": "Change population HDL characteristics.",
+                  "title": "Change population HDL characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "ldl": {
-                  "description": "Change population LDL characteristics.",
+                  "title": "Change population LDL characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "hr": {
-                  "description": "Change population heart rate characteristics.",
+                  "title": "Change population heart rate characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "smoker": {
-                  "description": "Change population smoking characteristics.",
+                  "title": "Change population smoking characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "insulin_dose": {
-                  "description": "Change population insulin dose characteristics.",
+                  "title": "Change population insulin dose characteristics.",
+                  "description": "",
                   "type": "number"
                 },
                 "trig": {
-                  "description": "Change population triglyceride characteristics.",
+                  "title": "Change population triglyceride characteristics.",
+                  "description": "",
                   "type": "number"
                 }
               }
@@ -517,8 +546,8 @@
         },
         "properties": {
           "risk_reductions": {
-            "title": "Risk Reductions",
-            "description": "Array of risk reductions variables to sample randomly.",
+            "title": "Array of risk reductions variables to sample randomly.",
+            "description": "",
             "type": "array",
             "uniqueItems": true,
             "items": {
@@ -539,8 +568,8 @@
             }
           },
           "factor_changes": {
-            "title": "Factor Changes",
-            "description": "Array of risk factor variables to sample randomly.",
+            "title": "Array of risk factor variables to sample randomly.",
+            "description": "",
             "type": "array",
             "uniqueItems": true,
             "items": {
@@ -565,8 +594,8 @@
         }
       },
       "sensitivity_analysis_t1d": {
-        "title": "T1D",
-        "description": "Configurations for Probabilitic Sensitivity Analysis.",
+        "title": "Configurations for Probabilitic Sensitivity Analysis.",
+        "description": "",
         "type": "object",
         "ui:schema": {
           "ui:order": ["risk_reductions", "factor_changes"],
@@ -579,8 +608,8 @@
         },
         "properties": {
           "risk_reductions": {
-            "title": "Risk Reductions",
-            "description": "Array of risk reductions variables to sample randomly.",
+            "title": "Array of risk reductions variables to sample randomly.",
+            "description": "",
             "type": "array",
             "uniqueItems": true,
             "items": {
@@ -603,8 +632,8 @@
             }
           },
           "factor_changes": {
-            "title": "Factor Changes",
-            "description": "Array of risk factor variables to sample randomly.",
+            "title": "Array of risk factor variables to sample randomly.",
+            "description": "",
             "type": "array",
             "uniqueItems": true,
             "items": {
