@@ -44,6 +44,12 @@
                   "simulation_type": "Sensitivity Analysis"
                 }
               },
+              {
+                "$ref": "#/properties/iterations",
+                "expand_if": {
+                  "simulation_type": "Sensitivity Analysis"
+                }
+              },
               { "$ref": "#/properties/seed" }
             ],
             [
@@ -148,6 +154,12 @@
       "interventions": {
         "title": "Interventions",
         "description": "Number of intervention for sensitivity analysis.",
+        "$ref": "#/definitions/positiveInteger",
+        "default": 1
+      },
+      "iterations": {
+        "title": "Iterations",
+        "description": "Number of iterations for sensitivity analysis.",
         "$ref": "#/definitions/positiveInteger",
         "default": 1
       },
