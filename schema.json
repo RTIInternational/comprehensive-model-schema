@@ -382,7 +382,7 @@
       "intervention_sets_t1d": {
         "title": "T1D",
         "ui:schema": {
-          "ui:field_type": "tabs",
+          "ui:field_type": "accordion",
           "ui:options": {
             "orderable": false,
             "addable": false
