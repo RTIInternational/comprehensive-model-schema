@@ -17,7 +17,7 @@
           "built_in_page": {
             "type": "introduction",
             "title": "New Scenario Setup",
-            "message": "message message message",
+            "message": "Comprehensive Diabetes Model GUI functional demo",
             "button_text": "Get Started"
           }
         },
@@ -561,7 +561,7 @@
                 "atfib"
               ]
             }
-          } 
+          }
         }
       },
       "sensitivity_analysis_t1d": {
@@ -651,4 +651,3 @@
       }
     }
   }
-  
