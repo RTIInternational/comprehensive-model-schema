@@ -1,653 +1,5224 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
-    "id": "schema.json",
-    "description": "Configuration for the Comprehensive Diabetes Model",
-    "required": [
-      "scenario_name",
-      "time_horizon",
-      "population",
-      "equation_set",
-      "economics"
-    ],
-    "type": "object",
-    "ui:layout": {
-      "pages": [
-        {
-          "url_path": "/",
-          "built_in_page": {
-            "type": "introduction",
-            "title": "New Scenario Setup",
-            "message": "Comprehensive Diabetes Model GUI functional demo",
-            "button_text": "Get Started"
+
+  "$schema": "http://json-schema.org/draft-04/schema",
+
+  "id": "file://schema.json",
+
+  "description": "Configuration for the Comprehensive Diabetes Model",
+
+  "required": [
+    "scenario_name",
+    "time_horizon",
+    "population",
+    "equation_set",
+    "economics"
+  ],
+  
+  "type": "object",
+
+  "ui:layout": {
+
+    "pages": [
+
+      {
+        "url_path": "/",
+        "title": "New Scenario Setup",
+
+        "fieldsets": 
+        [
+          { "$ref": "#/properties/diabetes_type", 
+            "update_on_change": true 
           }
-        },
-        {
-          "title": "Scenario Setup: Basic",
-          "url_path": "/basic-setup",
-          "fieldsets": [
-            [
-              { "$ref": "#/properties/scenario_name" },
-              { "$ref": "#/properties/equation_set" },
-              {
-                "$ref": "#/properties/simulation_type",
-                "update_on_change": true
-              },
-              {
-                "$ref": "#/properties/intervention_sets",
-                "expand_if": {
-                  "simulation_type": "Standard"
-                }
-              },
-              {
-                "$ref": "#/properties/interventions",
-                "expand_if": {
-                  "simulation_type": "Sensitivity Analysis"
-                }
-              },
-              { "$ref": "#/properties/seed" }
-            ],
-            [
-              { "$ref": "#/properties/population" },
-              { "$ref": "#/properties/time_horizon" }
-            ]
-          ]
-        },
-        {
-          "title": "Scenario Setup: Intervention Sets",
-          "url_path": "/intervention-sets-config",
-          "expand_if": {
-            "simulation_type": "Standard"
-          },
-          "fieldsets": [
-            {
-              "$ref": "#/properties/intervention_sets_ukpds",
-              "items_length": "intervention_sets",
-              "max_items_length": 10,
-              "expand_if": {
-                "equation_set": "ukpds"
-              }
+        ]
+
+      },
+
+      {
+        "title": "Scenario Setup: Basic - Type 1 Diabetes",
+        "url_path": "/basic-setup-for-type-1-diabetes",
+        "form_submit_button": true,
+        "expand_if": {"diabetes_type": "Type 1"},
+
+        "fieldsets": 
+        [
+          [
+            { "$ref": "#/properties/scenario_name"},
+
+            { "$ref": "#/properties/equation_set_t1" },
+
+            { "$ref": "#/properties/simulation_type_t1", 
+              "update_on_change": true
             },
-            {
-              "$ref": "#/properties/intervention_sets_t1d",
-              "items_length": "intervention_sets",
-              "max_items_length": 10,
-              "expand_if": {
-                "equation_set": "t1d"
-              }
-            }
-          ]
-        },
-        {
-          "title": "Scenario Setup: Sensitivity Analysis",
-          "url_path": "/sensitivity-analysis-config",
-          "expand_if": {
-            "simulation_type": "Sensitivity Analysis"
-          },
-          "fieldsets": [
-            {
-              "$ref": "#/properties/sensitivity_analysis_ukpds",
-              "update_on_change": true,
-              "expand_if": {
-                "equation_set": "ukpds"
-              }
+            
+            { "$ref": "#/properties/intervention_sets_t1",
+              "expand_if": {"simulation_type_t1": "Standard"}
             },
-            {
-              "$ref": "#/properties/sensitivity_analysis_t1d",
-              "update_on_change": true,
-              "expand_if": {
-                "equation_set": "t1d"
-              }
-            }
+            
+            { "$ref": "#/properties/iterations_t1",
+              "expand_if": {"simulation_type_t1": "Sensitivity Analysis"}
+            },
+
+            { "$ref": "#/properties/seed" }
+          ],
+
+          [
+            { "$ref": "#/properties/population_t1" },
+            { "$ref": "#/properties/custom"},
+            { "$ref": "#/properties/input_name"},
+            { "$ref": "#/properties/time_horizon_t1" }
           ]
-        },
-        {
-          "url_path": "/summary",
-          "built_in_page": {
-            "type": "summary",
-            "title": "Scenario Summary",
-            "message": "Data as it will be sent to the simulator.",
-            "button_text": "Finish Form"
+        ]
+      },
+
+      {
+        "title": "Scenario Setup: Basic - Type 2 Diabetes",
+        "url_path": "/basic-setup-for-type-2-diabetes",
+        "form_submit_button": true,
+        "expand_if": {"diabetes_type": "Type 2"},
+
+        "fieldsets": 
+        [
+          [
+            { "$ref": "#/properties/scenario_name"},
+
+            { "$ref": "#/properties/equation_set_t2" },
+
+            { "$ref": "#/properties/simulation_type_t2", 
+              "update_on_change": true
+            },
+            
+            { "$ref": "#/properties/intervention_sets_t2",
+              "expand_if": {"simulation_type_t2": "Standard"}
+            },
+            
+            { "$ref": "#/properties/iterations_t2",
+              "expand_if": {"simulation_type_t2": "Sensitivity Analysis"}
+            },
+
+            { "$ref": "#/properties/seed" }
+          ],
+
+          [
+            { "$ref": "#/properties/population_t2" },
+            { "$ref": "#/properties/custom"},
+            { "$ref": "#/properties/input_name"},
+
+            { "$ref": "#/properties/time_horizon_t2" }
+          ]
+        ]
+      },
+
+      {
+        "title": "Advanced Setup: Population Generation - Type 1 Diabetes",
+        "url_path": "/population-generation-for-type-1-diabetes",
+        "form_submit_button": true,
+        "expand_if": {"diabetes_type": "Type 1"},
+
+        "fieldsets": 
+        [
+          {
+            "$ref": "#/properties/population_composition",
+            "items_length": "intervention_sets_t1",
+            "max_items_length": 1
+          },
+
+          {
+            "$ref": "#/properties/SEARCH_demographics",
+            "items_length": "intervention_sets_t1",
+            "max_items_length": 1
+          },
+
+          {
+            "$ref": "#/properties/SEARCH_clinical_history",
+            "items_length": "intervention_sets_t1",
+            "max_items_length": 1
+          },
+
+          {
+            "$ref": "#/properties/EXCHANGE_demographics",
+            "items_length": "intervention_sets_t1",
+            "max_items_length": 1
+          },
+
+          {
+            "$ref": "#/properties/EXCHANGE_clinical_history",
+            "items_length": "intervention_sets_t1",
+            "max_items_length": 1
           }
+        ]
+      },
+
+      {
+        "title": "Advanced Setup: Population Generation - Type 2 Diabetes",
+        "url_path": "/population-generation-for-type-2-diabetes",
+        "form_submit_button": true,
+        "expand_if": {"diabetes_type": "Type 2"},
+
+        "fieldsets": 
+        [
+          {
+            "$ref": "#/properties/demographics",
+            "items_length": "intervention_sets_t2",
+            "max_items_length": 1
+          },
+
+          {
+            "$ref": "#/properties/clinical_history",
+            "items_length": "intervention_sets_t2",
+            "max_items_length": 1
+          }
+        ]
+      },
+      
+      {
+        "title": "Advanced Setup: Economic Factors - Type 1 Diabetes",
+        "url_path": "/economic-factors-for-type-1-diabetes",
+        "form_submit_button": true,
+        "expand_if": {"diabetes_type": "Type 1"},
+
+        "fieldsets": 
+        [
+          {
+            "$ref": "#/properties/disutilities_t1",
+            "items_length": "intervention_sets_t1",
+            "max_items_length": 1,
+            "update_on_change": true
+          },
+
+          {
+            "$ref": "#/properties/costs_t1",
+            "items_length": "intervention_sets_t1",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+
+      {
+        "title": "Advanced Setup: Economic Factors - Type 2 Diabetes",
+        "url_path": "/economic-factors-for-type-2-diabetes",
+        "form_submit_button": true,
+        "expand_if": {"diabetes_type": "Type 2"},
+
+        "fieldsets": 
+        [
+          {
+            "$ref": "#/properties/disutilities_t2",
+            "items_length": "intervention_sets_t2",
+            "max_items_length": 1,
+            "update_on_change": true
+          },
+
+          {
+            "$ref": "#/properties/costs_t2",
+            "items_length": "intervention_sets_t2",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+
+      {
+        "title": "Scenario Setup: Intervention Sets",
+        "url_path": "/intervention-sets-config",
+        "expand_if": {"simulation_type_t1": "Standard"},
+
+        "fieldsets": 
+        [
+          {
+            "$ref": "#/properties/intervention_sets_ukpds_t1",
+            "items_length": "intervention_sets_t1",
+            "max_items_length": 10,
+            "expand_if": {"equation_set_t1": "ukpds"}
+          },
+          
+          {
+            "$ref": "#/properties/intervention_sets_t1d_t1",
+            "items_length": "intervention_sets_t1",
+            "max_items_length": 10,
+            "expand_if": {"equation_set_t1": "t1d"}
+          }
+        ]
+      },
+
+      {
+        "title": "Scenario Setup: Sensitivity Analysis",
+        "url_path": "/sensitivity-analysis-config-t1",
+        "expand_if": {"simulation_type_t1": "Sensitivity Analysis"},
+
+        "fieldsets": 
+        [
+          {
+            "$ref": "#/properties/sensitivity_analysis_ukpds_t1",
+            "update_on_change": true,
+            "expand_if": {"equation_set_t1": "ukpds"}
+          },
+
+          {
+            "$ref": "#/properties/sensitivity_analysis_t1d_t1",
+            "update_on_change": true,
+            "expand_if": {"equation_set_t1": "t1d"}
+          }
+        ]
+      },
+
+      {
+        "title": "Scenario Setup: Intervention Sets",
+        "url_path": "/intervention-sets-config",
+        "expand_if": {"simulation_type_t2": "Standard"},
+
+        "fieldsets": 
+        [
+          {
+            "$ref": "#/properties/intervention_sets_ukpds_t2",
+            "items_length": "intervention_sets_t2",
+            "max_items_length": 10,
+            "expand_if": {"equation_set_t2": "ukpds"}
+          },
+
+          {
+            "$ref": "#/properties/intervention_sets_ukpds_t2",
+            "items_length": "intervention_sets_t2",
+            "max_items_length": 10,
+            "expand_if": {"equation_set_t2": "t1d"}
+          }
+        ]
+      },
+
+      {
+        "title": "Scenario Setup: Sensitivity Analysis",
+        "url_path": "/sensitivity-analysis-config-t2",
+        "expand_if": {"simulation_type_t2": "Sensitivity Analysis"},
+
+        "fieldsets": 
+        [
+          {
+            "$ref": "#/properties/sensitivity_analysis_ukpds_t2",
+            "update_on_change": true,
+            "expand_if": {"equation_set_t2": "ukpds"}
+          },
+
+          {
+            "$ref": "#/properties/sensitivity_analysis_t1d_t2",
+            "update_on_change": true,
+            "expand_if": {"equation_set_t2": "t1d"}
+          }
+        ]
+      },
+
+      {
+        "url_path": "/summary",
+
+        "built_in_page": 
+        {
+          "type": "summary",
+          "title": "Scenario Summary",
+          "message": "Data as it will be sent to the simulator.",
+          "button_text": "Finish Form"
         }
-      ]
+      }
+
+    ]
+  },
+
+  "properties": {
+
+    "diabetes_type": {
+      "title": "Diabetes Type",
+      "description": "",
+      "$ref": "#/definitions/string",
+      "enum": ["Type 1", "Type 2", "Prediabetes"],
+      "default": "Type 1"
     },
-    "properties": {
-      "seed": {
-        "description": "6 digit simulation seed",
-        "$ref": "#/definitions/positiveInteger",
-        "ui:schema": {
-          "ui:widget": "hidden"
+
+    "scenario_name": {
+      "title": "Name of the scenario",
+      "description": "",
+      "$ref": "#/definitions/string"
+    },
+
+    "equation_set_t1": {
+      "title": "Name of the complication equation set to invoke.",
+      "description": "",
+      "$ref": "#/definitions/string",
+      "enum": ["ukpds", "t1d"],
+      "default": "ukpds"
+    },
+
+    "equation_set_t2": {
+      "title": "Name of the complication equation set to invoke.",
+      "description": "",
+      "$ref": "#/definitions/string",
+      "enum": ["ukpds", "t1d"],
+      "default": "ukpds"
+    },
+
+    "simulation_type_t1": {
+      "title": "Type of simulation to run.",
+      "description": "",
+      "$ref": "#/definitions/string",
+      "enum": ["Standard", "Sensitivity Analysis"]
+    },
+
+    "simulation_type_t2": {
+      "title": "Type of simulation to run.",
+      "description": "",
+      "$ref": "#/definitions/string",
+      "enum": ["Standard", "Sensitivity Analysis"]
+    },
+
+    "intervention_sets_t1": {
+      "title": "Number of intervention sets to configure/run (standard simulation).",
+      "description": "",
+      "$ref": "#/definitions/interventionSetsLength",
+      "default": 3
+    },
+
+    "intervention_sets_t2": {
+      "title": "Number of intervention sets to configure/run (standard simulation).",
+      "description": "",
+      "$ref": "#/definitions/interventionSetsLength",
+      "default": 3
+    },
+
+    "iterations_t1": {
+      "title": "Number of iterations for sensitivity analysis.",
+      "description": "",
+      "$ref": "#/definitions/positiveInteger",
+      "default": 1
+    },
+
+    "iterations_t2": {
+      "title": "Number of iterations for sensitivity analysis.",
+      "description": "",
+      "$ref": "#/definitions/positiveInteger",
+      "default": 1
+    },
+
+    "seed": {
+      "description": "6 digit simulation seed",
+      "$ref": "#/definitions/positiveInteger",
+      "ui:schema": {"ui:widget": "hidden"},
+      "default": 123456
+    },
+
+    "population_t1": {
+      "title": "Configurations for population generation.",
+      "description": "",
+      "type": "object",
+      "required": ["size"],
+      "ui:schema": {
+        "ui:order": ["size"]
+      },
+      "properties": {
+
+        "size": {
+
+          "title": "Size",
+          "description": "Number of individuals in the population.",
+          "$ref": "#/definitions/positiveInteger"
+
+        }
+      }
+    },
+
+    "custom": {
+      "title": " ",
+      "description": "",
+      "type": "boolean",
+      "ui:schema": {
+        "ui:widget": "hidden"
+      },
+      "default": false,
+      "readOnly": true
+
+    },
+
+    "input_name": {
+      "title": " ",
+      "description": "",
+      "type": "string",
+      "ui:schema": {
+        "ui:widget": "hidden"
+      },
+      "default": "default",
+      "readOnly": true
+    },
+
+    "population_t2": {
+      "title": "Configurations for population generation.",
+      "description": "",
+      "type": "object",
+      "required": ["size"],
+      "ui:schema": {
+        "ui:order": ["size"]
+      },
+      "properties": {
+
+        "size": {
+
+          "title": "Size",
+          "description": "Number of individuals in the population.",
+          "$ref": "#/definitions/positiveInteger"
+
+        }
+        
+      }
+    },
+
+    "time_horizon_t1": {
+      "title": "Simulation time horizon configuration.",
+      "description": "",
+      "type": "object",
+      "required": ["strategy", "limit"],
+      "ui:schema": {
+        "ui:order": ["strategy", "limit"]
+      },
+      "properties": {
+
+        "strategy": {
+
+          "title": "Time horizon execution strategy. 'fixed' runs for a set duration. 'max_age' runs until the youngest indidual reaches the max age. 'all_deceased' runs until all  agents have passed away.",
+          "description": "",
+          "$ref": "#/definitions/string",
+          "default": "fixed",
+          "enum": ["fixed", "max_age", "all_deceased"]
+
         },
-        "default": 123456
+
+        "limit": {
+
+          "title": "Time step limit. Refers to the maximum number of steps or maximum age, depending on context. Only applied in 'fixed' and 'max_age' strategies",
+          "description": "",
+          "default": 0,
+          "$ref": "#/definitions/positiveInteger"
+
+        }
+      }
+    },
+
+    "time_horizon_t2": {
+      "title": "Simulation time horizon configuration.",
+      "description": "",
+      "type": "object",
+      "required": ["strategy", "limit"],
+      "ui:schema": {
+        "ui:order": ["strategy", "limit"]
       },
-      "scenario_name": {
-        "title": "Scenario Name",
-        "description": "Name of the scenario",
-        "$ref": "#/definitions/string"
-      },
-      "simulation_type": {
-        "title": "Simulation Type",
-        "description": "Type of simulation to run.",
-        "$ref": "#/definitions/string",
-        "enum": ["Standard", "Sensitivity Analysis"],
-        "default": "Standard"
-      },
-      "equation_set": {
-        "title": "Equation Set",
-        "description": "Name of the complication equation set to invoke.",
-        "$ref": "#/definitions/string",
-        "enum": ["ukpds", "t1d"],
-        "default": "ukpds"
-      },
-      "intervention_sets": {
-        "title": "Intervention Sets",
-        "description": "Number of intervention sets to configure/run (standard simulation).",
-        "$ref": "#/definitions/interventionSetsLength",
-        "default": 3
-      },
-      "interventions": {
-        "title": "Interventions",
-        "description": "Number of intervention for sensitivity analysis.",
-        "$ref": "#/definitions/positiveInteger",
-        "default": 1
-      },
-      "population": {
-        "title": "Population",
-        "description": "Configurations for population generation.",
-        "type": "object",
-        "required": ["size"],
-        "properties": {
-          "size": {
-            "title": "Size",
-            "description": "Number of individuals in the population.",
-            "$ref": "#/definitions/positiveInteger"
+      "properties": {
+
+        "strategy": {
+
+          "title": "Time horizon execution strategy. 'fixed' runs for a set duration. 'max_age' runs until the youngest indidual reaches the max age. 'all_deceased' runs until all  agents have passed away.",
+          "description": "",
+          "$ref": "#/definitions/string",
+          "default": "fixed",
+          "enum": ["fixed", "max_age", "all_deceased"]
+
+        },
+
+        "limit": {
+
+          "title": "Time step limit. Refers to the maximum number of steps or maximum age, depending on context. Only applied in 'fixed' and 'max_age' strategies",
+          "description": "",
+          "default": 0,
+          "$ref": "#/definitions/positiveInteger"
+
+        }
+      }
+    },
+
+    "population_composition": {
+      "title": "Population Composition",
+      "description": "SEARCH and EXCHANGE must sum to 1. If SEARCH or EXCHANGE are zero the associated demographics and clinical history will not be accounted for.",
+      "ui:schema": {
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 2
           }
         }
       },
-      "time_horizon": {
-        "title": "Time Horizon",
-        "description": "Simulation time horizon configuration.",
+      "type": "array",
+      "items": {
         "type": "object",
-        "required": ["strategy", "limit"],
-        "ui:schema": {
-          "ui:order": ["strategy", "limit"]
-        },
         "properties": {
-          "strategy": {
-            "title": "Strategy",
-            "description": "Time horizon execution strategy. 'fixed' runs for a set duration. 'max_age' runs until the youngest indidual reaches the max age. 'all_deceased' runs until all agents have passed away.",
-            "$ref": "#/definitions/string",
-            "default": "fixed",
-            "enum": ["fixed", "max_age", "all_deceased"]
-          },
-          "limit": {
-            "title": "Limit",
-            "description": "Time step limit. Refers to the maximum number of steps or maximum age, depending on context. Only applied in 'fixed' and 'max_age' strategies",
-            "default": 0,
-            "$ref": "#/definitions/positiveInteger"
-          }
-        }
-      },
-      "economics": {
-        "title": "Economics",
-        "description": "Cost Effectiveness configurations",
-        "type": "object",
-        "ui:schema": {
-          "ui:order": ["discount", "cost_strategy", "intervention_cost"]
-        },
-        "properties": {
-          "discount": {
-            "title": "Discount",
-            "description": "Discount factor.",
+          "SEARCH": {
+            "description": "",
             "$ref": "#/definitions/percent",
-            "default": 3
+            "default": 0.3
           },
-          "cost_strategy": {
-            "title": "Cost Strategy",
-            "description": "Cost calculation strategy.",
-            "$ref": "#/definitions/string",
-            "default": "ADDITIVE",
-            "enum": ["ADDITIVE", "MULTIPLICATIVE"]
+          "EXCHANGE": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.7
+          }
+        }
+      }
+    },
+
+    "SEARCH_demographics": {
+      "title": "SEARCH Population Composition",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "SEARCH Demographics",
+              "numbered": ""
+            }
           },
-          "intervention_cost": {
-            "title": "Intervention Cost",
-            "description": "Cost of an intervention.",
-            "$ref": "#/definitions/positiveInteger",
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Proportion Other Race": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.284215
+          },
+          "Proportion White": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.715785
+          },
+          "Proportion Black": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "Proportion Hispanic": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "Proportion Is Married": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 1
+          },
+          "Proportion Has Secondary Ed (yes)": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "Proportion Has Secondary Ed (some)": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.0147
+          },
+          "Proportion Has Secondary Ed (HS or less)": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.9853
+          },
+          "Proportion female": {
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.579646
+          },
+          "V͟a͟r͟i͟a͟b͟l͟e͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "M͟e͟a͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "S͟t͟a͟n͟d͟a͟r͟d͟ ͟D͟e͟v͟i͟a͟t͟i͟o͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Diabetes duration entry": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Diabetes duration entry mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "Diabetes duration entry sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
             "default": 0
           }
         }
-      },
-      "intervention_sets_ukpds": {
-        "title": "UKPDS",
-        "ui:schema": {
-          "ui:field_type": "accordion",
-          "ui:options": {
-            "orderable": false,
-            "addable": false
-          },
-          "items": {
-            "ui:options": {
-              "header_buttons": {
-                "common_text": "Intervention Set",
-                "numbered": true
-              }
-            },
-            "risk_reductions": {
-              "ui:field_type": "grid"
-            },
-            "factor_changes": {
-              "ui:field_type": "grid"
-            }
-          }
+      }
+    },
+
+    "SEARCH_clinical_history": {
+      "title": " ",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
         },
-        "type": "array",
         "items": {
-          "type": "object",
-          "properties": {
-            "intervention_set_name": {
-              "title": "Intervention Set Name",
-              "type": "string"
-            },
-            "risk_reductions": {
-              "title": "Risk Reductions",
-              "description": "UKPDS specific complication risk reductions.",
-              "type": "object",
-              "properties": {
-                "blindness": {
-                  "title": "Blindness",
-                  "description": "Decrease risk of blindness.",
-                  "$ref": "#/definitions/percent"
-                },
-                "first_amputation": {
-                  "title": "First Amputation",
-                  "description": "Decrease risk of first amputation.",
-                  "$ref": "#/definitions/percent"
-                },
-                "first_chf": {
-                  "title": "First CHF",
-                  "description": "Decrease risk of first congestive heart failure",
-                  "$ref": "#/definitions/percent"
-                },
-                "first_ihd": {
-                  "description": "Decrease risk of first ischemic heart disease event.",
-                  "$ref": "#/definitions/percent"
-                },
-                "first_mi": {
-                  "description": "Decrease risk of first myocardial infacrtion.",
-                  "$ref": "#/definitions/percent"
-                },
-                "first_stroke": {
-                  "description": "Decrease risk of first stroke.",
-                  "$ref": "#/definitions/percent"
-                },
-                "renal_failure": {
-                  "description": "Decrease risk of renal failure.",
-                  "$ref": "#/definitions/percent"
-                },
-                "second_amputation": {
-                  "description": "Decrease risk of second amputation.",
-                  "$ref": "#/definitions/percent"
-                },
-                "second_mi": {
-                  "description": "Decrease risk of second myocardial infacrtion.",
-                  "$ref": "#/definitions/percent"
-                },
-                "second_stroke": {
-                  "description": "Decrease risk of second stroke.",
-                  "$ref": "#/definitions/percent"
-                },
-                "ulcer": {
-                  "description": "Decrease risk of ulcers.",
-                  "$ref": "#/definitions/percent"
-                }
-              }
-            },
-            "factor_changes": {
-              "title": "Factor Changes",
-              "description": "UKPDS specific risk factor adjustments",
-              "type": "object",
-              "properties": {
-                "smoker": {
-                  "description": "Change population smoking characteristics.",
-                  "type": "number"
-                },
-                "mmalb": {
-                  "description": "Change population microalbuminuria characteristics.",
-                  "type": "number"
-                },
-                "pvd": {
-                  "description": "Change population peripheral vascular disease characteristics.",
-                  "type": "number"
-                },
-                "bmi": {
-                  "description": "Change population BMI characteristics.",
-                  "type": "number"
-                },
-                "hr": {
-                  "description": "Change population heart rate characteristics.",
-                  "type": "number"
-                },
-                "hdl": {
-                  "description": "Change population HDL characteristics.",
-                  "type": "number"
-                },
-                "ldl": {
-                  "description": "Change population LDL characteristics.",
-                  "type": "number"
-                },
-                "sbp": {
-                  "description": "Change population systolic blood pressure characteristics.",
-                  "type": "number"
-                },
-                "wbc": {
-                  "description": "Change population white blood cell characteristics.",
-                  "type": "number"
-                },
-                "hba1c": {
-                  "description": "Change population HbA1c characteristics.",
-                  "type": "number"
-                },
-                "haem": {
-                  "description": "Change population haemoglobin characteristics.",
-                  "type": "number"
-                },
-                "egfr": {
-                  "description": "Change population eGFR characteristics.",
-                  "type": "number"
-                }
-              }
-            }
-          }
-        }
-      },
-      "intervention_sets_t1d": {
-        "title": "T1D",
-        "ui:schema": {
-          "ui:field_type": "tabs",
           "ui:options": {
-            "orderable": false,
-            "addable": false
-          },
-          "items": {
-            "ui:options": {
-              "header_buttons": {
-                "common_text": "Intervention Set",
-                "numbered": true
-              }
-            },
-            "risk_reductions": {
-              "ui:field_type": "grid"
-            },
-            "factor_changes": {
-              "ui:field_type": "grid"
+            "header_buttons": {
+              "common_text": "SEARCH Clinical History",
+              "numbered": ""
             }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
           }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "V͟a͟r͟i͟a͟b͟l͟e͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "M͟e͟a͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "S͟t͟a͟n͟d͟a͟r͟d͟ ͟D͟e͟v͟i͟a͟t͟i͟o͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Age": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Age mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 10.708742
+          },
+          "Age sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 4.448557
+          },
+          "BMI": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "BMI mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 19.948731
+          },
+          "BMI sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 5.165256
+          },
+          "DBP": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "DBP mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 62.802128
+          },
+          "DBP sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 9.714731
+          },
+          "SBP": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "SBP mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 99.566690
+          },
+          "SBP sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 12.031699
+          },
+          "totchol": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "totchol mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 160.584704
+          },
+          "totchol sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 27.512956
+          },
+          "hypertension": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hypertension mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.002798
+          },
+          "hypertension sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.052827
+          },
+          "hba1c": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hba1c mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 7.788074
+          },
+          "hba1c sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1.556779
+          },
+          "hdl": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hdl mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 54.890917
+          },
+          "hdl sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 12.093728
+          },
+          "ldl": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ldl mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 92.261053
+          },
+          "ldl sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 22.558387
+          },
+          "hr": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hr mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 84.405472
+          },
+          "hr sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 3.642347
+          },
+          "smoker": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "smoker mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.030310
+          },
+          "smoker sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.171459
+          },
+          "insulin_dose": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "insulin_dose mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.640608
+          },
+          "insulin_dose sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.281921
+          },
+          "trig": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "trig mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 4.097373
+          },
+          "trig sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.427957
+          },
+          "amputation": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "amputation mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "amputation sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "csme": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "csme mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "csme sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "cvd": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "cvd mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "cvd sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "dka": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "dka mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.055724
+          },
+          "dka sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.229415
+          },
+          "dpn": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "dpn mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "dpn sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "esrd": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "esrd mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "esrd sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "gfr": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "gfr mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "gfr sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "hypoglycemia": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hypoglycemia mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.006295
+          },
+          "hypoglycemia sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.079101
+          },
+          "macroalbuminuria": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "macroalbuminuria mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.006062
+          },
+          "macroalbuminuria sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.077632
+          },
+          "microalbuminuria": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "microalbuminuria mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.063418
+          },
+          "microalbuminuria sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.243742
+          },
+          "npdr": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "npdr mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "npdr sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "pdr": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "pdr mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "pdr sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "ulcer": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ulcer mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "ulcer sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "dcct_intervention": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "dcct_intervention mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1
+          },
+          "dcct_intervention sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          }
+        }
+      }
+    },
+    
+
+    "EXCHANGE_demographics": {
+      "title": "EXCHANGE Population Composition",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
         },
-        "type": "array",
         "items": {
-          "type": "object",
-          "properties": {
-            "intervention_set_name": {
-              "title": "Intervention set name",
-              "type": "string",
-              "default": "initial default"
-            },
-            "risk_reductions": {
-              "title": "Risk Reductions",
-              "type": "object",
-              "properties": {
-                "amputation": {
-                  "description": "Decrease risk of amputation.",
-                  "$ref": "#/definitions/percent"
-                },
-                "cvd": {
-                  "description": "Decrease risk of cardiovascular disease.",
-                  "$ref": "#/definitions/percent"
-                },
-                "dka": {
-                  "description": "Decrease risk of diabetic ketoacidosis.",
-                  "$ref": "#/definitions/percent"
-                },
-                "dpn": {
-                  "description": "Decrease risk of dermatosis papulosa nigra.",
-                  "$ref": "#/definitions/percent"
-                },
-                "esrd": {
-                  "description": "Decrease risk of end-stage renal disease.",
-                  "$ref": "#/definitions/percent"
-                },
-                "gfr": {
-                  "description": "Decrease risk of GFR.",
-                  "$ref": "#/definitions/percent"
-                },
-                "hypoglycemia": {
-                  "description": "Decrease risk of hypoglycemia.",
-                  "$ref": "#/definitions/percent"
-                },
-                "macroalbuminuria": {
-                  "description": "Decrease risk of macroalbuminuria.",
-                  "$ref": "#/definitions/percent"
-                },
-                "microalbuminuria": {
-                  "description": "Decrease risk of microalbuminuria.",
-                  "$ref": "#/definitions/percent"
-                },
-                "npdr": {
-                  "description": "Decrease risk of nonproliferative diabetic retinopathy.",
-                  "$ref": "#/definitions/percent"
-                },
-                "pdr": {
-                  "description": "Decrease risk of proliferative diabetic retinopathy.",
-                  "$ref": "#/definitions/percent"
-                },
-                "csme": {
-                  "description": "Decrease risk of clinically significant macular edema.",
-                  "$ref": "#/definitions/percent"
-                },
-                "ulcer": {
-                  "description": "Decrease risk of ulcers.",
-                  "$ref": "#/definitions/percent"
-                }
-              }
-            },
-            "factor_changes": {
-              "title": "Factor Changes",
-              "type": "object",
-              "properties": {
-                "bmi": {
-                  "description": "Change population BMI characteristics.",
-                  "type": "number"
-                },
-                "dbp": {
-                  "description": "Change population diastolic blood pressure characteristics.",
-                  "type": "number"
-                },
-                "sbp": {
-                  "description": "Change population systolic blood pressure characteristics.",
-                  "type": "number"
-                },
-                "hba1c": {
-                  "description": "Change population HbA1c characteristics.",
-                  "type": "number"
-                },
-                "hdl": {
-                  "description": "Change population HDL characteristics.",
-                  "type": "number"
-                },
-                "ldl": {
-                  "description": "Change population LDL characteristics.",
-                  "type": "number"
-                },
-                "hr": {
-                  "description": "Change population heart rate characteristics.",
-                  "type": "number"
-                },
-                "smoker": {
-                  "description": "Change population smoking characteristics.",
-                  "type": "number"
-                },
-                "insulin_dose": {
-                  "description": "Change population insulin dose characteristics.",
-                  "type": "number"
-                },
-                "trig": {
-                  "description": "Change population triglyceride characteristics.",
-                  "type": "number"
-                }
-              }
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "EXCHANGE Demographics",
+              "numbered": ""
             }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
           }
         }
       },
-      "sensitivity_analysis_ukpds": {
-        "title": "UKPDS",
-        "description": "Configurations for Probabilitic Sensitivity Analysis.",
+      "type": "array",
+      "items": {
         "type": "object",
-        "ui:schema": {
-          "ui:order": ["risk_reductions", "factor_changes"],
-          "risk_reductions": {
-            "ui:widget": "checkboxes",
-            "items": {
-              "ui:field_type": "grid"
-            }
-          },
-          "factor_changes": {
-            "ui:widget": "checkboxes"
-          }
-        },
         "properties": {
-          "risk_reductions": {
-            "title": "Risk Reductions",
-            "description": "Array of risk reductions variables to sample randomly.",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": [
-                "blindness",
-                "first_amputation",
-                "first_chf",
-                "first_ihd",
-                "first_mi",
-                "first_stroke",
-                "renal_failure",
-                "second_amputation",
-                "second_mi",
-                "second_stroke",
-                "ulcer"
-              ]
+          "Proportion Other Race": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.102277
+          },
+          "Proportion White": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.897723
+          },
+          "Proportion Black": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "Proportion Hispanic": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "Proportion Is Married": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.7125
+          },
+          "Proportion Has Secondary Ed (yes)": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.5678
+          },
+          "Proportion Has Secondary Ed (some)": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.2861
+          },
+          "Proportion Has Secondary Ed (HS or less)": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.1461
+          },
+          "Proportion female": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.508325
+          },
+          "V͟a͟r͟i͟a͟b͟l͟e͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "M͟e͟a͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "S͟t͟a͟n͟d͟a͟r͟d͟ ͟D͟e͟v͟i͟a͟t͟i͟o͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Diabetes duration entry": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Diabetes duration entry mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 21.093551
+          },
+          "Diabetes duration entry sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 12.527547
+          }
+        }
+      }
+    },
+
+    "EXCHANGE_clinical_history": {
+      "title": " ",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "EXCHANGE Clinical History",
+              "numbered": ""
             }
           },
-          "factor_changes": {
-            "title": "Factor Changes",
-            "description": "Array of risk factor variables to sample randomly.",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": [
-                "smoker",
-                "mmalb",
-                "pvd",
-                "bmi",
-                "hr",
-                "hdl",
-                "ldl",
-                "sbp",
-                "wbc",
-                "hba1c",
-                "haem",
-                "egfr",
-                "atfib"
-              ]
-            }
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
           }
         }
       },
-      "sensitivity_analysis_t1d": {
-        "title": "T1D",
-        "description": "Configurations for Probabilitic Sensitivity Analysis.",
+      "type": "array",
+      "items": {
         "type": "object",
-        "ui:schema": {
-          "ui:order": ["risk_reductions", "factor_changes"],
+        "properties": {
+          "V͟a͟r͟i͟a͟b͟l͟e͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "M͟e͟a͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "S͟t͟a͟n͟d͟a͟r͟d͟ ͟D͟e͟v͟i͟a͟t͟i͟o͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Age": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Age mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 54.007475
+          },
+          "Age sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 13.744362
+          },
+          "BMI": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "BMI mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 27.615125
+          },
+          "BMI sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 5.392542
+          },
+          "DBP": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "DBP mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 72.489009
+          },
+          "DBP sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 9.406357
+          },
+          "SBP": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "SBP mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 124.747707
+          },
+          "SBP sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 15.439750
+          },
+          "totchol": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "totchol mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 173.936208
+          },
+          "totchol sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 30.549091
+          },
+          "hypertension": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hypertension mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.136595
+          },
+          "hypertension sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.343478
+          },
+          "hba1c": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hba1c mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 7.745359
+          },
+          "hba1c sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1.279549
+          },
+          "hdl": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hdl mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 65.228181
+          },
+          "hdl sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 17.331174
+          },
+          "ldl": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ldl mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 89.477393
+          },
+          "ldl sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 24.896276
+          },
+          "hr": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hr mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 75.100206
+          },
+          "hr sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 8.484705
+          },
+          "smoker": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "smoker mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.066938
+          },
+          "smoker sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.249958
+          },
+          "insulin_dose": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "insulin_dose mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.585253
+          },
+          "insulin_dose sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.217272
+          },
+          "trig": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "trig mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 4.456329
+          },
+          "trig sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.439935
+          },
+          "amputation": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "amputation mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "amputation sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "csme": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "csme mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0 
+          },
+          "csme sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "cvd": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "cvd mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "cvd sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "dka": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "dka mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.033299
+          },
+          "dka sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "dpn": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "dpn mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "dpn sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "esrd": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "esrd mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.020727
+          },
+          "esrd sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "gfr": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "gfr mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.088005
+          },
+          "gfr sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "hypoglycemia": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hypoglycemia mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.128780
+          },
+          "hypoglycemia sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "macroalbuminuria": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "macroalbuminuria mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.019368
+          },
+          "macroalbuminuria sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "microalbuminuria": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "microalbuminuria mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.095481
+          },
+          "microalbuminuria sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "npdr": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "npdr mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "npdr sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "pdr": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "pdr mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "pdr sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "ulcer": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ulcer mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "ulcer sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          },
+          "dcct_intervention": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "dcct_intervention mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 1
+          },
+          "dcct_intervention sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0
+          }
+        }
+      }
+    },
+
+    "demographics": {
+      "title": "Population Composition",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Demographics",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Proportion Other Race": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.113
+          },
+          "Proportion White": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.330
+          },
+          "Proportion Black": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.224
+          },
+          "Proportion Hispanic": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.313
+          },
+          "Proportion Has Post-Secondary Ed": {
+            "description": "",
+            "$ref": "#/definitions/percent",
+            "default": 0.440
+          },
+          "placeholder1": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "V͟a͟r͟i͟a͟b͟l͟e͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "M͟e͟a͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "S͟t͟a͟n͟d͟a͟r͟d͟ ͟D͟e͟v͟i͟a͟t͟i͟o͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Diabetes duration entry": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Diabetes duration entry mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 11
+          },
+          "Diabetes duration entry sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 10.45
+          }
+        }
+      }
+    },
+
+    "clinical_history": {
+      "title": " ",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Clinical History",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "V͟a͟r͟i͟a͟b͟l͟e͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "M͟e͟a͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "S͟t͟a͟n͟d͟a͟r͟d͟ ͟D͟e͟v͟i͟a͟t͟i͟o͟n͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Age": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Age mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 61.28
+          },
+          "Age sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 12.85
+          },
+          "BMI": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "BMI mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 32.55
+          },
+          "BMI sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 7.42
+          },
+          "SBP": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "SBP mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 129.57
+          },
+          "SBP sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 17.86
+          },
+          "hba1c": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hba1c mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 7.35
+          },
+          "hba1c sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1.77
+          },
+          "hdl": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "hdl mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 48.42
+          },
+          "hdl sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 14.52
+          },
+          "ldl": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ldl mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 105.71
+          },
+          "ldl sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 39.67
+          },
+          "smoker": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "smoker mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.030310
+          },
+          "smoker sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "serum creatine": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "serum creatine mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.94
+          },
+          "serum creatine sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.38
+          },
+          "trig": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "trig mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 4.81
+          },
+          "trig sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.49
+          },
+          "amputation": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "amputation mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "amputation sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "macroalbuminuria": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "macroalbuminuria mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "macroalbuminuria sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "microalbuminuria": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "microalbuminuria mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.2314
+          },
+          "microalbuminuria sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "blindness": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "blindness mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "blindness sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "ulcer": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ulcer mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "ulcer sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "mi": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "mi mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.0994
+          },
+          "mi sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "stroke": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "stroke mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.0796
+          },
+          "stroke sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "chf": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "chf mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.0817
+          },
+          "chf sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "angina": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "angina mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.0649
+          },
+          "angina sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "dialysis": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "dialysis mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.0022
+          },
+          "dialysis sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "egfr 60": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "egfr 60 mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.2054
+          },
+          "egfr 60 sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "egfr 30": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "egfr 30 mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0.0168
+          },
+          "egfr 30 sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "revasc": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "revasc mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "revasc sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "neurop": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "neurop mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "neurop sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "laser retin": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "laser retin mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "laser retin sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "dataset": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "dataset mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          },
+          "dataset sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 0
+          }      
+        }
+      }
+    },
+    
+    "disutilities_t1": {
+      "title": "Economic Factors",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Event Disutilities",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "V͟a͟r͟i͟a͟b͟l͟e͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "U͟t͟i͟l͟i͟t͟y͟ ͟D͟e͟c͟r͟e͟m͟e͟n͟t͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "S͟t͟a͟n͟d͟a͟r͟d͟ ͟E͟r͟r͟o͟r͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Microalbuminuria, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Microalbuminuria, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.010
+          },
+          "Microalbuminuria, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.005
+          },
+          "Microalbuminuria, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Microalbuminuria, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.010
+          },
+          "Microalbuminuria, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.005
+          },
+          "Macroalbuminuria, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Macroalbuminuria, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.021
+          },
+          "Macroalbuminuria, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.008
+          },
+          "Macroalbuminuria, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Macroalbuminuria, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.021
+          },
+          "Macroalbuminuria, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.008
+          },
+          "Impaired GFR, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Impaired GFR, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.034
+          },
+          "Impaired GFR, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.010
+          },
+          "Impaired GFR, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Impaired GFR, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.034
+          },
+          "Impaired GFR, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.010
+          },
+          "ESRD, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ESRD, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.000
+          },
+          "ESRD, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.000
+          },
+          "ESRD, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ESRD, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.000
+          },
+          "ESRD, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.000
+          },
+          "NPDR, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "NPDR, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.003
+          },
+          "NPDR, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.005
+          },
+          "NPDR, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "NPDR, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.003
+          },
+          "NPDR, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.005
+          },
+          "PDR, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "PDR, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.013
+          },
+          "PDR, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.007
+          },
+          "PDR, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "PDR, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.013
+          },
+          "PDR, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.007
+          },
+          "Amputation, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Amputation, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.116
+          },
+          "Amputation, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.023
+          },
+          "Amputation, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Amputation, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.116
+          },
+          "Amputation, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.023
+          },
+          "CSME, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CSME, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.002
+          },
+          "CSME, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.005
+          },
+          "CSME, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CSME, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.002
+          },
+          "CSME, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.005
+          },
+          "CVD MACE, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CVD MACE, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.066
+          },
+          "CVD MACE, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.018
+          },
+          "CVD MACE, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CVD MACE, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.066
+          },
+          "CVD MACE, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.018
+          },
+          "CVD Non-MACE, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CVD Non-MACE, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.007
+          },
+          "CVD Non-MACE, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.011
+          },
+          "CVD Non-MACE, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CVD Non-MACE, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.007
+          },
+          "CVD Non-MACE, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.011
+          },
+          "DPN, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "DPN, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.056
+          },
+          "DPN, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.009
+          },
+          "DPN, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "DPN, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.056
+          },
+          "DPN, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.009
+          },
+          "Hypoglycemia, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Hypoglycemia, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.009
+          },
+          "Hypoglycemia, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.003
+          },
+          "DKA, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "DKA, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.035
+          },
+          "DKA, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.010
+          },
+          "Ulcer, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Ulcer, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.066
+          },
+          "Ulcer, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.015
+          }
+        }
+      }
+    },
+    "costs_t1": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Event Cost",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "V͟a͟r͟i͟a͟b͟l͟e͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "C͟o͟s͟t͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "S͟t͟a͟n͟d͟a͟r͟d͟ ͟E͟r͟r͟o͟r͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Macro, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Macro, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 9119
+          },
+          "Macro, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1161
+          },
+          "Macro, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Macro, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 3865
+          },
+          "Macro, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1001
+          },
+          "GFR, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "GFR, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 9119
+          },
+          "GFR, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1161
+          },
+          "GFR, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "GFR, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 3865
+          },
+          "GFR, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1001
+          },
+          "ESRD, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ESRD, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 73534
+          },
+          "ESRD, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 8269
+          },
+          "ESRD, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ESRD, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 97431
+          },
+          "ESRD, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 11596
+          },
+          "DPN, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "DPN, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 3646
+          },
+          "DPN, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 390
+          },
+          "DPN, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "DPN, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 2200
+          },
+          "DPN, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 498
+          },
+          "PDR, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "PDR, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 2023
+          },
+          "PDR, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 539
+          },
+          "PDR, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "PDR, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 2250
+          },
+          "PDR, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 755
+          },
+          "Ulcer, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Ulcer, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 4418
+          },
+          "Ulcer, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1904
+          },
+          "Ulcer, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Ulcer, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 2520
+          },
+          "Ulcer, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1955
+          },
+          "CVD MACE, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CVD MACE, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 38773.231292517
+          },
+          "CVD MACE, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 4354.36901870069
+          },
+          "CVD MACE, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CVD MACE, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 9225.59183673469
+          },
+          "CVD MACE, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 4130.25758449588
+          },
+          "CVD Non-MACE, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CVD Non-MACE, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 16546.7765957447
+          },
+          "CVD Non-MACE, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 2882.43969692047
+          },
+          "CVD Non-MACE, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CVD Non-MACE, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1185.23936170213
+          },
+          "CVD Non-MACE, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1121.95630817194
+          },
+          "Amputation, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Amputation, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 10264
+          },
+          "Amputation, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 7126
+          },
+          "CSME, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CSME, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 5357
+          },
+          "CSME, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1232
+          },
+          "Hypo, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Hypo, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 5497
+          },
+          "Hypo, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 448
+          },
+          "DKA, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "DKA, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 10624
+          },
+          "DKA, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 577
+          }
+        }
+      }
+    },
+
+    "disutilities_t2": {
+      "title": "Economic Factors",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Event Disutilities",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "V͟a͟r͟i͟a͟b͟l͟e͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "U͟t͟i͟l͟i͟t͟y͟ ͟D͟e͟c͟r͟e͟m͟e͟n͟t͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "S͟t͟a͟n͟d͟a͟r͟d͟ ͟E͟r͟r͟o͟r͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "FSMOKES, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "FSMOKES, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.006
+          },
+          "FSMOKES, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.005
+          },
+          "FBMI, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "FBMI, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.003
+          },
+          "FBMI, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0
+          },
+          "TV_DUR, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "TV_DUR, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.008
+          },
+          "TV_DUR, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0
+          },
+          "Stroke, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Stroke, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.107
+          },
+          "Stroke, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.015
+          },
+          "Stroke, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Stroke, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.051
+          },
+          "Stroke, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.014
+          },
+          "Amputation, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Amputation, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.092
+          },
+          "Amputation, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.028
+          },
+          "Amputation, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Amputation, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.150
+          },
+          "Amputation, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.034
+          },
+          "Dialysis, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Dialysis, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.038
+          },
+          "Dialysis, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.015
+          },
+          "Dialysis, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Dialysis, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.015
+          },
+          "Dialysis, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.013
+          },
+          "MI, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "MI, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.027
+          },
+          "MI, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.009
+          },
+          "MI, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "MI, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.007
+          },
+          "MI, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.008
+          },
+          "CHF, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CHF, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.050
+          },
+          "CHF, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.014
+          },
+          "CHF, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CHF, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.043
+          },
+          "CHF, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.014
+          },
+          "ANGINA, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ANGINA, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.015
+          },
+          "ANGINA, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.009
+          },
+          "ANGINA, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ANGINA, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.028
+          },
+          "ANGINA, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.008
+          },
+          "EGFR_30, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "EGFR_30, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.043
+          },
+          "EGFR_30, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.010
+          },
+          "EGFR_30, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "EGFR_30, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.025
+          },
+          "EGFR_30, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.010
+          },
+          "EGFR_60, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "EGFR_60, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.014
+          },
+          "EGFR_60, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.003
+          },
+          "EGFR_60, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "EGFR_60, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.015
+          },
+          "EGFR_60, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.003
+          },
+          "REVASC, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "REVASC, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.005
+          },
+          "REVASC, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.006
+          },
+          "REVASC, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "REVASC, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.000
+          },
+          "REVASC, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.007
+          },
+          "LASER_RETIN, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "LASER_RETIN, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.011
+          },
+          "LASER_RETIN, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.007
+          },
+          "LASER_RETIN, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "LASER_RETIN, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.014
+          },
+          "LASER_RETIN, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.006
+          },
+          "BLINDNESS, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "BLINDNESS, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.045
+          },
+          "BLINDNESS, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.010
+          },
+          "BLINDNESS, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "BLINDNESS, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.023
+          },
+          "BLINDNESS, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.010
+          },
+          "FOOT_ULCER, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "FOOT_ULCER, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.017
+          },
+          "FOOT_ULCER, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.009
+          },
+          "FOOT_ULCER, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "FOOT_ULCER, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.020
+          },
+          "FOOT_ULCER, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.009
+          },
+          "NEUROP, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "NEUROP, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.007
+          },
+          "NEUROP, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.004
+          },
+          "NEUROP, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "NEUROP, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": -0.007
+          },
+          "NEUROP, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.004
+          },
+          "HYPO_MED, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "HYPO_MED, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.001
+          },
+          "HYPO_MED, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.008
+          },
+          "HYPO_ANY, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "HYPO_ANY, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.000
+          },
+          "HYPO_ANY, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.006
+          },
+          "INTERCEPT, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "INTERCEPT, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.935
+          },
+          "INTERCEPT, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/disutility",
+            "default": 0.012
+          }
+        }
+      }
+    },
+    "costs_t2": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Event Cost",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "V͟a͟r͟i͟a͟b͟l͟e͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "C͟o͟s͟t͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "S͟t͟a͟n͟d͟a͟r͟d͟ ͟E͟r͟r͟o͟r͟": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Macro, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Macro, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 11509
+          },
+          "Macro, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 315
+          },
+          "Macro, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Macro, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 3057
+          },
+          "Macro, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 291
+          },
+          "EGFR_30, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "EGFR_30, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 11509
+          },
+          "EGFR_30, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 315
+          },
+          "EGFR_30, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "EGFR_30, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 3057
+          },
+          "EGFR_30, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 291
+          },
+          "EGFR_60, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "EGFR_60, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 11509
+          },
+          "EGFR_60, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 315
+          },
+          "EGFR_60, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "EGFR_60, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 3057
+          },
+          "EGFR_60, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 291
+          },
+          "DIALYSIS, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "DIALYSIS, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 94231.00
+          },
+          "DIALYSIS, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 4336.00
+          },
+          "DIALYSIS, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "DIALYSIS, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 98981.00
+          },
+          "DIALYSIS, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 5066.00
+          },
+          "NEUROP, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "NEUROP, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 4323.00
+          },
+          "NEUROP, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 160.00
+          },
+          "NEUROP, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "NEUROP, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 2012.00
+          },
+          "NEUROP, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 186.00
+          },
+          "LASER_RETIN, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "LASER_RETIN, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 4393.00
+          },
+          "LASER_RETIN, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 995.00
+          },
+          "LASER_RETIN, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "LASER_RETIN, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 2202.00
+          },
+          "LASER_RETIN, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 276.00
+          },
+          "BLINDNESS, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "BLINDNESS, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 12995.00
+          },
+          "BLINDNESS, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1733.00
+          },
+          "BLINDNESS, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "BLINDNESS, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 2378.00
+          },
+          "BLINDNESS, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1813.00
+          },
+          "FOOT_ULCER, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "FOOT_ULCER, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 11045.00
+          },
+          "FOOT_ULCER, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 704.00
+          },
+          "FOOT_ULCER, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "FOOT_ULCER, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 2147.00
+          },
+          "FOOT_ULCER, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 684.00
+          },
+          "MI, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "MI, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 45251.00
+          },
+          "MI, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1203.00
+          },
+          "MI, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "MI, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 8572.00
+          },
+          "MI, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 1107.00
+          },
+          "STROKE, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "STROKE, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 23780.00
+          },
+          "STROKE, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 850.00
+          },
+          "STROKE, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "STROKE, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 4729.00
+          },
+          "STROKE, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 876.00
+          },
+          "CHF, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CHF, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 31202.00
+          },
+          "CHF, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 920.00
+          },
+          "CHF, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CHF, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 7062.00
+          },
+          "CHF, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 883.00
+          },
+          "Amputation, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Amputation, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 25008.00
+          },
+          "Amputation, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 3767.00
+          },
+          "REVASC, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "REVASC, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 20328.00
+          },
+          "REVASC, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 560.00
+          },
+          "ANGINA, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "ANGINA, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 8907.00
+          },
+          "ANGINA, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 331.00
+          },
+          "HYPO_MED, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "HYPO_MED, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 7656.00
+          },
+          "HYPO_MED, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/cost",
+            "default": 296.00
+          }
+        }
+      }
+    },
+
+    "interventions_or_treatments": {
+      "title": "Name of the treatment",
+      "description": "",
+      "$ref": "#/definitions/string"
+    },
+
+    "baseline_demographics": {
+      "title": "Baseline demoraphics (always 1)",
+      "description": "",
+      "$ref": "#/definitions/interventionSetsLength",
+      "default": 1
+    },
+
+    "economics": {
+      "title": "Cost Effectiveness configurations",
+      "description": "",
+      "type": "object",
+      "ui:schema": {
+        "ui:order": ["discount", "cost_strategy", "intervention_cost"]
+      },
+      "properties": {
+        "discount": {
+          "title": "Discount factor.",
+          "description": "",
+          "$ref": "#/definitions/percent",
+          "default": 3
+        },
+        "cost_strategy": {
+          "title": "Cost calculation strategy.",
+          "description": "",
+          "$ref": "#/definitions/string",
+          "default": "ADDITIVE",
+          "enum": ["ADDITIVE", "MULTIPLICATIVE"]
+        },
+        "intervention_cost": {
+          "title": "Cost of an intervention.",
+          "description": "",
+          "$ref": "#/definitions/positiveInteger",
+          "default": 0
+        }
+      }
+    },
+    "intervention_sets_ukpds_t1": {
+      "title": "UKPDS",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Intervention Set",
+              "numbered": true
+            }
+          },
           "risk_reductions": {
-            "ui:widget": "checkboxes"
+            "ui:field_type": "grid"
           },
           "factor_changes": {
-            "ui:widget": "checkboxes"
+            "ui:field_type": "grid"
           }
-        },
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
         "properties": {
+          "intervention_set_name": {
+            "title": "Intervention Set Name",
+            "type": "string"
+          },
           "risk_reductions": {
-            "title": "Risk Reductions",
-            "description": "Array of risk reductions variables to sample randomly.",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": [
-                "amputation",
-                "csme",
-                "cvd",
-                "dka",
-                "dpn",
-                "esrd",
-                "gfr",
-                "hypoglycemia",
-                "macroalbuminuria",
-                "microalbuminuria",
-                "npdr",
-                "pdr",
-                "ulcer"
-              ]
+            "title": "UKPDS specific complication risk reductions.",
+            "description": "",
+            "type": "object",
+            "properties": {
+              "blindness": {
+                "title": "Decrease risk of blindness.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "first_amputation": {
+                "title": "Decrease risk of first amputation.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "first_chf": {
+                "title": "Decrease risk of first congestive heart failure",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "first_ihd": {
+                "title": "Decrease risk of first ischemic heart disease event.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "first_mi": {
+                "title": "Decrease risk of first myocardial infacrtion.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "first_stroke": {
+                "title": "Decrease risk of first stroke.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "renal_failure": {
+                "title": "Decrease risk of renal failure.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "second_amputation": {
+                "title": "Decrease risk of second amputation.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "second_mi": {
+                "title": "Decrease risk of second myocardial infacrtion.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "second_stroke": {
+                "title": "Decrease risk of second stroke.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "ulcer": {
+                "title": "Decrease risk of ulcers.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              }
             }
           },
           "factor_changes": {
-            "title": "Factor Changes",
-            "description": "Array of risk factor variables to sample randomly.",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": [
-                "bmi",
-                "dbp",
-                "sbp",
-                "hba1c",
-                "hdl",
-                "ldl",
-                "hr",
-                "smoker",
-                "insulin_dose",
-                "trig"
-              ]
+            "description": "UKPDS specific risk factor adjustments",
+            "type": "object",
+            "properties": {
+              "smoker": {
+                "title": "Change population smoking characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "mmalb": {
+                "title": "Change population microalbuminuria characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "pvd": {
+                "title": "Change population peripheral vascular disease characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "bmi": {
+                "title": "Change population BMI characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hr": {
+                "title": "Change population heart rate characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hdl": {
+                "title": "Change population HDL characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "ldl": {
+                "title": "Change population LDL characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "sbp": {
+                "title": "Change population systolic blood pressure characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "wbc": {
+                "title": "Change population white blood cell characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hba1c": {
+                "title": "Change population HbA1c characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "haem": {
+                "title": "Change population haemoglobin characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "egfr": {
+                "title": "Change population eGFR characteristics.",
+                "description": "",
+                "type": "number"
+              }
             }
           }
         }
       }
     },
-    "definitions": {
-      "string": {
-        "description": "String with a minimum length of 1 (i.e. excludes '')",
-        "type": "string",
-        "minLength": 1
+    "intervention_sets_t1d_t1": {
+      "title": "T1D",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Intervention Set",
+              "numbered": true
+            }
+          },
+          "risk_reductions": {
+            "ui:field_type": "grid"
+          },
+          "factor_changes": {
+            "ui:field_type": "grid"
+          }
+        }
       },
-      "positiveInteger": {
-        "description": "Integer greater than or equal to zero",
-        "type": "integer",
-        "minimum": 0
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "intervention_set_name": {
+            "title": "Intervention set name",
+            "type": "string",
+            "default": "initial default"
+          },
+          "risk_reductions": {
+            "title": "Risk Reductions",
+            "type": "object",
+            "properties": {
+              "amputation": {
+                "description": "Decrease risk of amputation.",
+                "$ref": "#/definitions/percent"
+              },
+              "cvd": {
+                "description": "Decrease risk of cardiovascular disease.",
+                "$ref": "#/definitions/percent"
+              },
+              "dka": {
+                "description": "Decrease risk of diabetic ketoacidosis.",
+                "$ref": "#/definitions/percent"
+              },
+              "dpn": {
+                "description": "Decrease risk of dermatosis papulosa nigra.",
+                "$ref": "#/definitions/percent"
+              },
+              "esrd": {
+                "description": "Decrease risk of end-stage renal disease.",
+                "$ref": "#/definitions/percent"
+              },
+              "gfr": {
+                "description": "Decrease risk of GFR.",
+                "$ref": "#/definitions/percent"
+              },
+              "hypoglycemia": {
+                "description": "Decrease risk of hypoglycemia.",
+                "$ref": "#/definitions/percent"
+              },
+              "macroalbuminuria": {
+                "description": "Decrease risk of macroalbuminuria.",
+                "$ref": "#/definitions/percent"
+              },
+              "microalbuminuria": {
+                "description": "Decrease risk of microalbuminuria.",
+                "$ref": "#/definitions/percent"
+              },
+              "npdr": {
+                "description": "Decrease risk of nonproliferative diabetic retinopathy.",
+                "$ref": "#/definitions/percent"
+              },
+              "pdr": {
+                "description": "Decrease risk of proliferative diabetic retinopathy.",
+                "$ref": "#/definitions/percent"
+              },
+              "csme": {
+                "description": "Decrease risk of clinically significant macular edema.",
+                "$ref": "#/definitions/percent"
+              },
+              "ulcer": {
+                "description": "Decrease risk of ulcers.",
+                "$ref": "#/definitions/percent"
+              }
+            }
+          },
+          "factor_changes": {
+            "title": "Factor Changes",
+            "type": "object",
+            "properties": {
+              "bmi": {
+                "title": "Change population BMI characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "dbp": {
+                "title": "Change population diastolic blood pressure characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "sbp": {
+                "title": "Change population systolic blood pressure characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hba1c": {
+                "title": "Change population HbA1c characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hdl": {
+                "title": "Change population HDL characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "ldl": {
+                "title": "Change population LDL characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hr": {
+                "title": "Change population heart rate characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "smoker": {
+                "title": "Change population smoking characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "insulin_dose": {
+                "title": "Change population insulin dose characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "trig": {
+                "title": "Change population triglyceride characteristics.",
+                "description": "",
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "intervention_sets_ukpds_t2": {
+      "title": "UKPDS",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Intervention Set",
+              "numbered": true
+            }
+          },
+          "risk_reductions": {
+            "ui:field_type": "grid"
+          },
+          "factor_changes": {
+            "ui:field_type": "grid"
+          }
+        }
       },
-      "interventionSetsLength": {
-        "description": "Integer greater than zero and less than the maximum allowable number of intervention sets",
-        "type": "integer",
-        "minimum": 1,
-        "maximum": 10
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "intervention_set_name": {
+            "title": "Intervention Set Name",
+            "type": "string"
+          },
+          "risk_reductions": {
+            "title": "UKPDS specific complication risk reductions.",
+            "description": "",
+            "type": "object",
+            "properties": {
+              "blindness": {
+                "title": "Decrease risk of blindness.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "first_amputation": {
+                "title": "Decrease risk of first amputation.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "first_chf": {
+                "title": "Decrease risk of first congestive heart failure",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "first_ihd": {
+                "title": "Decrease risk of first ischemic heart disease event.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "first_mi": {
+                "title": "Decrease risk of first myocardial infacrtion.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "first_stroke": {
+                "title": "Decrease risk of first stroke.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "renal_failure": {
+                "title": "Decrease risk of renal failure.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "second_amputation": {
+                "title": "Decrease risk of second amputation.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "second_mi": {
+                "title": "Decrease risk of second myocardial infacrtion.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "second_stroke": {
+                "title": "Decrease risk of second stroke.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              },
+              "ulcer": {
+                "title": "Decrease risk of ulcers.",
+                "description": "",
+                "$ref": "#/definitions/percent"
+              }
+            }
+          },
+          "factor_changes": {
+            "description": "UKPDS specific risk factor adjustments",
+            "type": "object",
+            "properties": {
+              "smoker": {
+                "title": "Change population smoking characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "mmalb": {
+                "title": "Change population microalbuminuria characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "pvd": {
+                "title": "Change population peripheral vascular disease characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "bmi": {
+                "title": "Change population BMI characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hr": {
+                "title": "Change population heart rate characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hdl": {
+                "title": "Change population HDL characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "ldl": {
+                "title": "Change population LDL characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "sbp": {
+                "title": "Change population systolic blood pressure characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "wbc": {
+                "title": "Change population white blood cell characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hba1c": {
+                "title": "Change population HbA1c characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "haem": {
+                "title": "Change population haemoglobin characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "egfr": {
+                "title": "Change population eGFR characteristics.",
+                "description": "",
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "intervention_sets_t1d_t2": {
+      "title": "T1D",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Intervention Set",
+              "numbered": true
+            }
+          },
+          "risk_reductions": {
+            "ui:field_type": "grid"
+          },
+          "factor_changes": {
+            "ui:field_type": "grid"
+          }
+        }
       },
-      "percent": {
-        "description": "Decimal representation of a percentage",
-        "type": "number",
-        "minimum": 0,
-        "maximum": 100
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "intervention_set_name": {
+            "title": "Intervention set name",
+            "type": "string",
+            "default": "initial default"
+          },
+          "risk_reductions": {
+            "title": "Risk Reductions",
+            "type": "object",
+            "properties": {
+              "amputation": {
+                "description": "Decrease risk of amputation.",
+                "$ref": "#/definitions/percent"
+              },
+              "cvd": {
+                "description": "Decrease risk of cardiovascular disease.",
+                "$ref": "#/definitions/percent"
+              },
+              "dka": {
+                "description": "Decrease risk of diabetic ketoacidosis.",
+                "$ref": "#/definitions/percent"
+              },
+              "dpn": {
+                "description": "Decrease risk of dermatosis papulosa nigra.",
+                "$ref": "#/definitions/percent"
+              },
+              "esrd": {
+                "description": "Decrease risk of end-stage renal disease.",
+                "$ref": "#/definitions/percent"
+              },
+              "gfr": {
+                "description": "Decrease risk of GFR.",
+                "$ref": "#/definitions/percent"
+              },
+              "hypoglycemia": {
+                "description": "Decrease risk of hypoglycemia.",
+                "$ref": "#/definitions/percent"
+              },
+              "macroalbuminuria": {
+                "description": "Decrease risk of macroalbuminuria.",
+                "$ref": "#/definitions/percent"
+              },
+              "microalbuminuria": {
+                "description": "Decrease risk of microalbuminuria.",
+                "$ref": "#/definitions/percent"
+              },
+              "npdr": {
+                "description": "Decrease risk of nonproliferative diabetic retinopathy.",
+                "$ref": "#/definitions/percent"
+              },
+              "pdr": {
+                "description": "Decrease risk of proliferative diabetic retinopathy.",
+                "$ref": "#/definitions/percent"
+              },
+              "csme": {
+                "description": "Decrease risk of clinically significant macular edema.",
+                "$ref": "#/definitions/percent"
+              },
+              "ulcer": {
+                "description": "Decrease risk of ulcers.",
+                "$ref": "#/definitions/percent"
+              }
+            }
+          },
+          "factor_changes": {
+            "title": "Factor Changes",
+            "type": "object",
+            "properties": {
+              "bmi": {
+                "title": "Change population BMI characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "dbp": {
+                "title": "Change population diastolic blood pressure characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "sbp": {
+                "title": "Change population systolic blood pressure characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hba1c": {
+                "title": "Change population HbA1c characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hdl": {
+                "title": "Change population HDL characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "ldl": {
+                "title": "Change population LDL characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "hr": {
+                "title": "Change population heart rate characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "smoker": {
+                "title": "Change population smoking characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "insulin_dose": {
+                "title": "Change population insulin dose characteristics.",
+                "description": "",
+                "type": "number"
+              },
+              "trig": {
+                "title": "Change population triglyceride characteristics.",
+                "description": "",
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "sensitivity_analysis_ukpds_t1": {
+      "title": "UKPDS",
+      "description": "Configurations for Probabilitic Sensitivity Analysis.",
+      "type": "object",
+      "ui:schema": {
+        "ui:order": ["risk_reductions", "factor_changes"],
+        "risk_reductions": {
+          "ui:widget": "checkboxes",
+          "items": {
+            "ui:field_type": "grid"
+          }
+        },
+        "factor_changes": {
+          "ui:widget": "checkboxes"
+        }
+      },
+      "properties": {
+        "risk_reductions": {
+          "title": "Array of risk reductions variables to sample randomly.",
+          "description": "",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "blindness",
+              "first_amputation",
+              "first_chf",
+              "first_ihd",
+              "first_mi",
+              "first_stroke",
+              "renal_failure",
+              "second_amputation",
+              "second_mi",
+              "second_stroke",
+              "ulcer"
+            ]
+          }
+        },
+        "factor_changes": {
+          "title": "Array of risk factor variables to sample randomly.",
+          "description": "",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "smoker",
+              "mmalb",
+              "pvd",
+              "bmi",
+              "hr",
+              "hdl",
+              "ldl",
+              "sbp",
+              "wbc",
+              "hba1c",
+              "haem",
+              "egfr",
+              "atfib"
+            ]
+          }
+        } 
+      }
+    },
+    "sensitivity_analysis_t1d_t1": {
+      "title": "Configurations for Probabilitic Sensitivity Analysis.",
+      "description": "",
+      "type": "object",
+      "ui:schema": {
+        "ui:order": ["risk_reductions", "factor_changes"],
+        "risk_reductions": {
+          "ui:widget": "checkboxes"
+        },
+        "factor_changes": {
+          "ui:widget": "checkboxes"
+        }
+      },
+      "properties": {
+        "risk_reductions": {
+          "title": "Array of risk reductions variables to sample randomly.",
+          "description": "",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "amputation",
+              "csme",
+              "cvd",
+              "dka",
+              "dpn",
+              "esrd",
+              "gfr",
+              "hypoglycemia",
+              "macroalbuminuria",
+              "microalbuminuria",
+              "npdr",
+              "pdr",
+              "ulcer"
+            ]
+          }
+        },
+        "factor_changes": {
+          "title": "Array of risk factor variables to sample randomly.",
+          "description": "",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "bmi",
+              "dbp",
+              "sbp",
+              "hba1c",
+              "hdl",
+              "ldl",
+              "hr",
+              "smoker",
+              "insulin_dose",
+              "trig"
+            ]
+          }
+        }
+      }
+    },
+    "sensitivity_analysis_ukpds_t2": {
+      "title": "UKPDS",
+      "description": "Configurations for Probabilitic Sensitivity Analysis.",
+      "type": "object",
+      "ui:schema": {
+        "ui:order": ["risk_reductions", "factor_changes"],
+        "risk_reductions": {
+          "ui:widget": "checkboxes",
+          "items": {
+            "ui:field_type": "grid"
+          }
+        },
+        "factor_changes": {
+          "ui:widget": "checkboxes"
+        }
+      },
+      "properties": {
+        "risk_reductions": {
+          "title": "Array of risk reductions variables to sample randomly.",
+          "description": "",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "blindness",
+              "first_amputation",
+              "first_chf",
+              "first_ihd",
+              "first_mi",
+              "first_stroke",
+              "renal_failure",
+              "second_amputation",
+              "second_mi",
+              "second_stroke",
+              "ulcer"
+            ]
+          }
+        },
+        "factor_changes": {
+          "title": "Array of risk factor variables to sample randomly.",
+          "description": "",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "smoker",
+              "mmalb",
+              "pvd",
+              "bmi",
+              "hr",
+              "hdl",
+              "ldl",
+              "sbp",
+              "wbc",
+              "hba1c",
+              "haem",
+              "egfr",
+              "atfib"
+            ]
+          }
+        } 
+      }
+    },
+    "sensitivity_analysis_t1d_t2": {
+      "title": "Configurations for Probabilitic Sensitivity Analysis.",
+      "description": "",
+      "type": "object",
+      "ui:schema": {
+        "ui:order": ["risk_reductions", "factor_changes"],
+        "risk_reductions": {
+          "ui:widget": "checkboxes"
+        },
+        "factor_changes": {
+          "ui:widget": "checkboxes"
+        }
+      },
+      "properties": {
+        "risk_reductions": {
+          "title": "Array of risk reductions variables to sample randomly.",
+          "description": "",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "amputation",
+              "csme",
+              "cvd",
+              "dka",
+              "dpn",
+              "esrd",
+              "gfr",
+              "hypoglycemia",
+              "macroalbuminuria",
+              "microalbuminuria",
+              "npdr",
+              "pdr",
+              "ulcer"
+            ]
+          }
+        },
+        "factor_changes": {
+          "title": "Array of risk factor variables to sample randomly.",
+          "description": "",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "bmi",
+              "dbp",
+              "sbp",
+              "hba1c",
+              "hdl",
+              "ldl",
+              "hr",
+              "smoker",
+              "insulin_dose",
+              "trig"
+            ]
+          }
+        }
       }
     }
+  },
+
+  "definitions": {
+    "text": {
+      "description": "",
+      "type": "null"
+    },
+    "string": {
+      "description": "String with a minimum length of 1 (i.e. excludes '')",
+      "type": "string",
+      "minLength": 1
+    },
+    "positiveInteger": {
+      "description": "Integer greater than or equal to zero",
+      "type": "integer",
+      "minimum": 0
+    },
+    "interventionSetsLength": {
+      "description": "Integer greater than zero and less than the maximum allowable number of intervention sets",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "percent": {
+      "description": "Decimal representation of a percentage",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "disutility": {
+      "description": "Number between -1 and 1",
+      "type": "number",
+      "minimum": -1,
+      "maximum": 1
+    },
+    "cost": {
+      "description": "Number greater than or equal to zero",
+      "type": "number",
+      "minimum": 0
+    }
   }
+}
