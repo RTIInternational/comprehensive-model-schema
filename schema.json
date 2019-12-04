@@ -63,7 +63,8 @@
 
           [
             { "$ref": "#/properties/population_t1" },
-
+            { "$ref": "#/properties/custom"},
+            { "$ref": "#/properties/input_name"},
             { "$ref": "#/properties/time_horizon_t1" }
           ]
         ]
@@ -99,6 +100,8 @@
 
           [
             { "$ref": "#/properties/population_t2" },
+            { "$ref": "#/properties/custom"},
+            { "$ref": "#/properties/input_name"},
 
             { "$ref": "#/properties/time_horizon_t2" }
           ]
@@ -108,6 +111,7 @@
       {
         "title": "Advanced Setup: Population Generation - Type 1 Diabetes",
         "url_path": "/population-generation-for-type-1-diabetes",
+        "form_submit_button": true,
         "expand_if": {"diabetes_type": "Type 1"},
 
         "fieldsets": 
@@ -147,6 +151,7 @@
       {
         "title": "Advanced Setup: Population Generation - Type 2 Diabetes",
         "url_path": "/population-generation-for-type-2-diabetes",
+        "form_submit_button": true,
         "expand_if": {"diabetes_type": "Type 2"},
 
         "fieldsets": 
@@ -168,6 +173,7 @@
       {
         "title": "Advanced Setup: Economic Factors - Type 1 Diabetes",
         "url_path": "/economic-factors-for-type-1-diabetes",
+        "form_submit_button": true,
         "expand_if": {"diabetes_type": "Type 1"},
 
         "fieldsets": 
@@ -191,6 +197,7 @@
       {
         "title": "Advanced Setup: Economic Factors - Type 2 Diabetes",
         "url_path": "/economic-factors-for-type-2-diabetes",
+        "form_submit_button": true,
         "expand_if": {"diabetes_type": "Type 2"},
 
         "fieldsets": 
@@ -401,7 +408,7 @@
       "type": "object",
       "required": ["size"],
       "ui:schema": {
-        "ui:order": ["size", "custom", "input_name"]
+        "ui:order": ["size"]
       },
       "properties": {
 
@@ -411,30 +418,31 @@
           "description": "Number of individuals in the population.",
           "$ref": "#/definitions/positiveInteger"
 
-        },
-        "custom": {
-          "title": " ",
-          "description": "",
-          "type": "boolean",
-          "ui:schema": {
-            "ui:widget": "hidden"
-          },
-          "default": true,
-          "readOnly": true
-
-        },
-        "input_name": {
-          "title": " ",
-          "description": "",
-          "type": "string",
-          "ui:schema": {
-            "ui:widget": "hidden"
-          },
-          "default": "default",
-          "readOnly": true
         }
-        
       }
+    },
+
+    "custom": {
+      "title": " ",
+      "description": "",
+      "type": "boolean",
+      "ui:schema": {
+        "ui:widget": "hidden"
+      },
+      "default": false,
+      "readOnly": true
+
+    },
+
+    "input_name": {
+      "title": " ",
+      "description": "",
+      "type": "string",
+      "ui:schema": {
+        "ui:widget": "hidden"
+      },
+      "default": "default",
+      "readOnly": true
     },
 
     "population_t2": {
@@ -443,7 +451,7 @@
       "type": "object",
       "required": ["size"],
       "ui:schema": {
-        "ui:order": ["size", "custom", "input_name"]
+        "ui:order": ["size"]
       },
       "properties": {
 
@@ -453,26 +461,6 @@
           "description": "Number of individuals in the population.",
           "$ref": "#/definitions/positiveInteger"
 
-        },
-        "custom": {
-          "title": " ",
-          "description": "",
-          "type": "boolean",
-          "ui:schema": {
-            "ui:widget": "hidden"
-          },
-          "default": true,
-          "readOnly": true
-
-        },
-        "input_name": {
-          "title": " ",
-          "description": "",
-          "type": "string",
-          "ui:schema": {
-            "ui:widget": "hidden"
-          },
-          "default": "default"
         }
         
       }
@@ -638,11 +626,10 @@
             "$ref": "#/definitions/percent",
             "default": 0.9853
           },
-          "placeholder1": {
-            "title": " ",
+          "Proportion female": {
             "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
+            "$ref": "#/definitions/cost",
+            "default": 0.579646
           },
           "V͟a͟r͟i͟a͟b͟l͟e͟": {
             "description": "",
@@ -658,23 +645,6 @@
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
-          },
-          "Proportion female": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Proportion female mean": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/cost",
-            "default": 0.837511
-          },
-          "Proportion female sd": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/cost",
-            "default": 0.579646
           },
           "Diabetes duration entry": {
             "description": "",
