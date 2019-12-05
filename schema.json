@@ -44,28 +44,28 @@
           [
             { "$ref": "#/properties/scenario_name"},
 
-            { "$ref": "#/properties/equation_set_t1" },
+            { "$ref": "#/properties/equation_set_t1d" },
 
-            { "$ref": "#/properties/simulation_type_t1", 
+            { "$ref": "#/properties/simulation_type_t1d", 
               "update_on_change": true
             },
             
-            { "$ref": "#/properties/intervention_sets_t1",
-              "expand_if": {"simulation_type_t1": "Standard"}
+            { "$ref": "#/properties/intervention_sets_t1d",
+              "expand_if": {"simulation_type_t1d": "Standard"}
             },
             
-            { "$ref": "#/properties/iterations_t1",
-              "expand_if": {"simulation_type_t1": "Sensitivity Analysis"}
+            { "$ref": "#/properties/iterations_t1d",
+              "expand_if": {"simulation_type_t1d": "Sensitivity Analysis"}
             },
 
             { "$ref": "#/properties/seed" }
           ],
 
           [
-            { "$ref": "#/properties/population_t1" },
+            { "$ref": "#/properties/population_t1d" },
             { "$ref": "#/properties/custom"},
             { "$ref": "#/properties/input_name"},
-            { "$ref": "#/properties/time_horizon_t1" }
+            { "$ref": "#/properties/time_horizon_t1d" }
           ]
         ]
       },
@@ -81,29 +81,29 @@
           [
             { "$ref": "#/properties/scenario_name"},
 
-            { "$ref": "#/properties/equation_set_t2" },
+            { "$ref": "#/properties/equation_set_t2d" },
 
-            { "$ref": "#/properties/simulation_type_t2", 
+            { "$ref": "#/properties/simulation_type_t2d", 
               "update_on_change": true
             },
             
-            { "$ref": "#/properties/intervention_sets_t2",
-              "expand_if": {"simulation_type_t2": "Standard"}
+            { "$ref": "#/properties/intervention_sets_t2d",
+              "expand_if": {"simulation_type_t2d": "Standard"}
             },
             
-            { "$ref": "#/properties/iterations_t2",
-              "expand_if": {"simulation_type_t2": "Sensitivity Analysis"}
+            { "$ref": "#/properties/iterations_t2d",
+              "expand_if": {"simulation_type_t2d": "Sensitivity Analysis"}
             },
 
             { "$ref": "#/properties/seed" }
           ],
 
           [
-            { "$ref": "#/properties/population_t2" },
+            { "$ref": "#/properties/population_t2d" },
             { "$ref": "#/properties/custom"},
             { "$ref": "#/properties/input_name"},
 
-            { "$ref": "#/properties/time_horizon_t2" }
+            { "$ref": "#/properties/time_horizon_t2d" }
           ]
         ]
       },
@@ -118,31 +118,31 @@
         [
           {
             "$ref": "#/properties/population_composition",
-            "items_length": "intervention_sets_t1",
+            "items_length": "intervention_sets_t1d",
             "max_items_length": 1
           },
 
           {
             "$ref": "#/properties/SEARCH_demographics",
-            "items_length": "intervention_sets_t1",
+            "items_length": "intervention_sets_t1d",
             "max_items_length": 1
           },
 
           {
             "$ref": "#/properties/SEARCH_clinical_history",
-            "items_length": "intervention_sets_t1",
+            "items_length": "intervention_sets_t1d",
             "max_items_length": 1
           },
 
           {
             "$ref": "#/properties/EXCHANGE_demographics",
-            "items_length": "intervention_sets_t1",
+            "items_length": "intervention_sets_t1d",
             "max_items_length": 1
           },
 
           {
             "$ref": "#/properties/EXCHANGE_clinical_history",
-            "items_length": "intervention_sets_t1",
+            "items_length": "intervention_sets_t1d",
             "max_items_length": 1
           }
         ]
@@ -158,13 +158,13 @@
         [
           {
             "$ref": "#/properties/demographics",
-            "items_length": "intervention_sets_t2",
+            "items_length": "intervention_sets_t2d",
             "max_items_length": 1
           },
 
           {
             "$ref": "#/properties/clinical_history",
-            "items_length": "intervention_sets_t2",
+            "items_length": "intervention_sets_t2d",
             "max_items_length": 1
           }
         ]
@@ -179,15 +179,15 @@
         "fieldsets": 
         [
           {
-            "$ref": "#/properties/disutilities_t1",
-            "items_length": "intervention_sets_t1",
+            "$ref": "#/properties/disutilities_t1d",
+            "items_length": "intervention_sets_t1d",
             "max_items_length": 1,
             "update_on_change": true
           },
 
           {
-            "$ref": "#/properties/costs_t1",
-            "items_length": "intervention_sets_t1",
+            "$ref": "#/properties/costs_t1d",
+            "items_length": "intervention_sets_t1d",
             "max_items_length": 1,
             "update_on_change": true
           }
@@ -203,15 +203,15 @@
         "fieldsets": 
         [
           {
-            "$ref": "#/properties/disutilities_t2",
-            "items_length": "intervention_sets_t2",
+            "$ref": "#/properties/disutilities_t2d",
+            "items_length": "intervention_sets_t2d",
             "max_items_length": 1,
             "update_on_change": true
           },
 
           {
-            "$ref": "#/properties/costs_t2",
-            "items_length": "intervention_sets_t2",
+            "$ref": "#/properties/costs_t2d",
+            "items_length": "intervention_sets_t2d",
             "max_items_length": 1,
             "update_on_change": true
           }
@@ -221,43 +221,43 @@
       {
         "title": "Scenario Setup: Intervention Sets",
         "url_path": "/intervention-sets-config",
-        "expand_if": {"simulation_type_t1": "Standard"},
+        "expand_if": {"simulation_type_t1d": "Standard"},
 
         "fieldsets": 
         [
           {
-            "$ref": "#/properties/intervention_sets_ukpds_t1",
-            "items_length": "intervention_sets_t1",
+            "$ref": "#/properties/intervention_sets_ukpds_t1d",
+            "items_length": "intervention_sets_t1d",
             "max_items_length": 10,
-            "expand_if": {"equation_set_t1": "ukpds"}
+            "expand_if": {"equation_set_t1d": "ukpds"}
           },
           
           {
-            "$ref": "#/properties/intervention_sets_t1d_t1",
-            "items_length": "intervention_sets_t1",
+            "$ref": "#/properties/intervention_sets_t1d_t1d",
+            "items_length": "intervention_sets_t1d",
             "max_items_length": 10,
-            "expand_if": {"equation_set_t1": "t1d"}
+            "expand_if": {"equation_set_t1d": "t1d"}
           }
         ]
       },
 
       {
         "title": "Scenario Setup: Sensitivity Analysis",
-        "url_path": "/sensitivity-analysis-config-t1",
-        "expand_if": {"simulation_type_t1": "Sensitivity Analysis"},
+        "url_path": "/sensitivity-analysis-config-t1d",
+        "expand_if": {"simulation_type_t1d": "Sensitivity Analysis"},
 
         "fieldsets": 
         [
           {
-            "$ref": "#/properties/sensitivity_analysis_ukpds_t1",
+            "$ref": "#/properties/sensitivity_analysis_ukpds_t1d",
             "update_on_change": true,
-            "expand_if": {"equation_set_t1": "ukpds"}
+            "expand_if": {"equation_set_t1d": "ukpds"}
           },
 
           {
-            "$ref": "#/properties/sensitivity_analysis_t1d_t1",
+            "$ref": "#/properties/sensitivity_analysis_t1d_t1d",
             "update_on_change": true,
-            "expand_if": {"equation_set_t1": "t1d"}
+            "expand_if": {"equation_set_t1d": "t1d"}
           }
         ]
       },
@@ -265,43 +265,43 @@
       {
         "title": "Scenario Setup: Intervention Sets",
         "url_path": "/intervention-sets-config",
-        "expand_if": {"simulation_type_t2": "Standard"},
+        "expand_if": {"simulation_type_t2d": "Standard"},
 
         "fieldsets": 
         [
           {
-            "$ref": "#/properties/intervention_sets_ukpds_t2",
-            "items_length": "intervention_sets_t2",
+            "$ref": "#/properties/intervention_sets_ukpds_t2d",
+            "items_length": "intervention_sets_t2d",
             "max_items_length": 10,
-            "expand_if": {"equation_set_t2": "ukpds"}
+            "expand_if": {"equation_set_t2d": "ukpds"}
           },
 
           {
-            "$ref": "#/properties/intervention_sets_ukpds_t2",
-            "items_length": "intervention_sets_t2",
+            "$ref": "#/properties/intervention_sets_ukpds_t2d",
+            "items_length": "intervention_sets_t2d",
             "max_items_length": 10,
-            "expand_if": {"equation_set_t2": "t1d"}
+            "expand_if": {"equation_set_t2d": "t1d"}
           }
         ]
       },
 
       {
         "title": "Scenario Setup: Sensitivity Analysis",
-        "url_path": "/sensitivity-analysis-config-t2",
-        "expand_if": {"simulation_type_t2": "Sensitivity Analysis"},
+        "url_path": "/sensitivity-analysis-config-t2d",
+        "expand_if": {"simulation_type_t2d": "Sensitivity Analysis"},
 
         "fieldsets": 
         [
           {
-            "$ref": "#/properties/sensitivity_analysis_ukpds_t2",
+            "$ref": "#/properties/sensitivity_analysis_ukpds_t2d",
             "update_on_change": true,
-            "expand_if": {"equation_set_t2": "ukpds"}
+            "expand_if": {"equation_set_t2d": "ukpds"}
           },
 
           {
-            "$ref": "#/properties/sensitivity_analysis_t1d_t2",
+            "$ref": "#/properties/sensitivity_analysis_t1d_t2d",
             "update_on_change": true,
-            "expand_if": {"equation_set_t2": "t1d"}
+            "expand_if": {"equation_set_t2d": "t1d"}
           }
         ]
       },
@@ -337,7 +337,7 @@
       "$ref": "#/definitions/string"
     },
 
-    "equation_set_t1": {
+    "equation_set_t1d": {
       "title": "Name of the complication equation set to invoke.",
       "description": "",
       "$ref": "#/definitions/string",
@@ -345,7 +345,7 @@
       "default": "ukpds"
     },
 
-    "equation_set_t2": {
+    "equation_set_t2d": {
       "title": "Name of the complication equation set to invoke.",
       "description": "",
       "$ref": "#/definitions/string",
@@ -353,42 +353,42 @@
       "default": "ukpds"
     },
 
-    "simulation_type_t1": {
+    "simulation_type_t1d": {
       "title": "Type of simulation to run.",
       "description": "",
       "$ref": "#/definitions/string",
       "enum": ["Standard", "Sensitivity Analysis"]
     },
 
-    "simulation_type_t2": {
+    "simulation_type_t2d": {
       "title": "Type of simulation to run.",
       "description": "",
       "$ref": "#/definitions/string",
       "enum": ["Standard", "Sensitivity Analysis"]
     },
 
-    "intervention_sets_t1": {
+    "intervention_sets_t1d": {
       "title": "Number of intervention sets to configure/run (standard simulation).",
       "description": "",
       "$ref": "#/definitions/interventionSetsLength",
       "default": 3
     },
 
-    "intervention_sets_t2": {
+    "intervention_sets_t2d": {
       "title": "Number of intervention sets to configure/run (standard simulation).",
       "description": "",
       "$ref": "#/definitions/interventionSetsLength",
       "default": 3
     },
 
-    "iterations_t1": {
+    "iterations_t1d": {
       "title": "Number of iterations for sensitivity analysis.",
       "description": "",
       "$ref": "#/definitions/positiveInteger",
       "default": 1
     },
 
-    "iterations_t2": {
+    "iterations_t2d": {
       "title": "Number of iterations for sensitivity analysis.",
       "description": "",
       "$ref": "#/definitions/positiveInteger",
@@ -402,7 +402,7 @@
       "default": 123456
     },
 
-    "population_t1": {
+    "population_t1d": {
       "title": "Configurations for population generation.",
       "description": "",
       "type": "object",
@@ -445,7 +445,7 @@
       "readOnly": true
     },
 
-    "population_t2": {
+    "population_t2d": {
       "title": "Configurations for population generation.",
       "description": "",
       "type": "object",
@@ -466,7 +466,7 @@
       }
     },
 
-    "time_horizon_t1": {
+    "time_horizon_t1d": {
       "title": "Simulation time horizon configuration.",
       "description": "",
       "type": "object",
@@ -497,7 +497,7 @@
       }
     },
 
-    "time_horizon_t2": {
+    "time_horizon_t2d": {
       "title": "Simulation time horizon configuration.",
       "description": "",
       "type": "object",
@@ -2341,7 +2341,7 @@
       }
     },
     
-    "disutilities_t1": {
+    "disutilities_t1d": {
       "title": "Economic Factors",
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -2809,7 +2809,7 @@
         }
       }
     },
-    "costs_t1": {
+    "costs_t1d": {
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
@@ -3192,7 +3192,7 @@
       }
     },
 
-    "disutilities_t2": {
+    "disutilities_t2d": {
       "title": "Economic Factors",
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -3779,7 +3779,7 @@
         }
       }
     },
-    "costs_t2": {
+    "costs_t2d": {
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
@@ -4306,7 +4306,7 @@
         }
       }
     },
-    "intervention_sets_ukpds_t1": {
+    "intervention_sets_ukpds_t1d": {
       "title": "UKPDS",
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -4468,7 +4468,7 @@
         }
       }
     },
-    "intervention_sets_t1d_t1": {
+    "intervention_sets_t1d_t1d": {
       "title": "T1D",
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -4617,7 +4617,7 @@
         }
       }
     },
-    "intervention_sets_ukpds_t2": {
+    "intervention_sets_ukpds_t2d": {
       "title": "UKPDS",
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -4779,7 +4779,7 @@
         }
       }
     },
-    "intervention_sets_t1d_t2": {
+    "intervention_sets_t1d_t2d": {
       "title": "T1D",
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -4928,7 +4928,7 @@
         }
       }
     },
-    "sensitivity_analysis_ukpds_t1": {
+    "sensitivity_analysis_ukpds_t1d": {
       "title": "UKPDS",
       "description": "Configurations for Probabilitic Sensitivity Analysis.",
       "type": "object",
@@ -4993,7 +4993,7 @@
         } 
       }
     },
-    "sensitivity_analysis_t1d_t1": {
+    "sensitivity_analysis_t1d_t1d": {
       "title": "Configurations for Probabilitic Sensitivity Analysis.",
       "description": "",
       "type": "object",
@@ -5054,7 +5054,7 @@
         }
       }
     },
-    "sensitivity_analysis_ukpds_t2": {
+    "sensitivity_analysis_ukpds_t2d": {
       "title": "UKPDS",
       "description": "Configurations for Probabilitic Sensitivity Analysis.",
       "type": "object",
@@ -5119,7 +5119,7 @@
         } 
       }
     },
-    "sensitivity_analysis_t1d_t2": {
+    "sensitivity_analysis_t1d_t2d": {
       "title": "Configurations for Probabilitic Sensitivity Analysis.",
       "description": "",
       "type": "object",
