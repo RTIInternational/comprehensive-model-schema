@@ -220,7 +220,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets",
-        "url_path": "/intervention-sets-config",
+        "url_path": "/intervention-sets-config-for-type-1-diabetes",
         "expand_if": {"simulation_type_t1d": "Standard"},
 
         "fieldsets": 
@@ -264,7 +264,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets",
-        "url_path": "/intervention-sets-config",
+        "url_path": "/intervention-sets-config-for-type-2-diabetes",
         "expand_if": {"simulation_type_t2d": "Standard"},
 
         "fieldsets": 
