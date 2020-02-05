@@ -261,6 +261,23 @@
                 ]
             },
             {
+                "title": "Scenario Setup: Intervention Sets - Type 1 Diabetes",
+                "url_path": "/intervention-sets-config-for-type-1-diabetes-psa",
+                "expand_if": {
+                    "simulation_type_t1d": "Sensitivity analysis"
+                },
+                "fieldsets": [
+                    {
+                        "$ref": "#/properties/intervention_sets_t1d_psa",
+                        "items_length": "iterations_t1d",
+                        "max_items_length": 1,
+                        "expand_if": {
+                            "equation_set_t1d": "t1d"
+                        }
+                    }
+                ]
+            },
+            {
                 "title": "Scenario Setup: Sensitivity Analysis - Type 1 Diabetes",
                 "url_path": "/sensitivity-analysis-config-t1d",
                 "expand_if": {
@@ -280,7 +297,7 @@
                 "title": "Scenario Setup: Intervention Sets - Type 2 Diabetes",
                 "url_path": "/intervention-sets-config-for-type-2-diabetes",
                 "expand_if": {
-                    "simulation_type_t2d": "Standard"
+                    "diabetes_type": "Type 2"
                 },
                 "fieldsets": [
                     {
@@ -1752,6 +1769,7 @@
                         "default": 0.49
                     },
                     "Serum creatinine": {
+                        "title": "Serum creatinine (mg/dL)",
                         "description": "",
                         "$ref": "#/definitions/text",
                         "readOnly": true
@@ -1936,15 +1954,15 @@
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 16
                     },
-                    "Baseline QALY": {
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.836
-                    },
                     "QALY discount factor": {
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 0.03
+                    },
+                    "Baseline QALY": {
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 0.836
                     }
                 }
             }
@@ -1990,15 +2008,15 @@
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 64
                     },
-                    "Baseline QALY": {
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.935
-                    },
                     "QALY discount factor": {
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 0.03
+                    },
+                    "Baseline QALY": {
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 0.935
                     }
                 }
             }
@@ -2045,12 +2063,12 @@
                     },
                     "Microalbuminuria, first year mean": {
                         "title": " ",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.010
                     },
                     "Microalbuminuria, first year se": {
                         "title": " ",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.005
                     },
                     "Microalbuminuria, following year": {
@@ -2059,13 +2077,13 @@
                     },
                     "Microalbuminuria, following year mean": {
                         "title": " ",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.010
                     },
                     "Microalbuminuria, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.005
                     },
                     "Macroalbuminuria, first year": {
@@ -2076,13 +2094,13 @@
                     "Macroalbuminuria, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.021
                     },
                     "Macroalbuminuria, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.008
                     },
                     "Macroalbuminuria, following year": {
@@ -2093,13 +2111,13 @@
                     "Macroalbuminuria, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.021
                     },
                     "Macroalbuminuria, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.008
                     },
                     "Impaired GFR, first year": {
@@ -2110,13 +2128,13 @@
                     "Impaired GFR, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.034
                     },
                     "Impaired GFR, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.010
                     },
                     "Impaired GFR, following year": {
@@ -2127,13 +2145,13 @@
                     "Impaired GFR, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.034
                     },
                     "Impaired GFR, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.010
                     },
                     "ESRD, first year": {
@@ -2144,13 +2162,13 @@
                     "ESRD, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.000
                     },
                     "ESRD, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.000
                     },
                     "ESRD, following year": {
@@ -2161,13 +2179,13 @@
                     "ESRD, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.000
                     },
                     "ESRD, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.000
                     },
                     "NPDR, first year": {
@@ -2178,13 +2196,13 @@
                     "NPDR, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.003
                     },
                     "NPDR, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.005
                     },
                     "NPDR, following year": {
@@ -2195,13 +2213,13 @@
                     "NPDR, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.003
                     },
                     "NPDR, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.005
                     },
                     "PDR, first year": {
@@ -2212,13 +2230,13 @@
                     "PDR, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.013
                     },
                     "PDR, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.007
                     },
                     "PDR, following year": {
@@ -2229,13 +2247,13 @@
                     "PDR, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.013
                     },
                     "PDR, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.007
                     },
                     "CSME, first year": {
@@ -2246,13 +2264,13 @@
                     "CSME, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.002
                     },
                     "CSME, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.005
                     },
                     "CSME, following year": {
@@ -2263,13 +2281,13 @@
                     "CSME, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.002
                     },
                     "CSME, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.005
                     },
                     "CVD MACE, first year": {
@@ -2280,13 +2298,13 @@
                     "CVD MACE, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.066
                     },
                     "CVD MACE, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.018
                     },
                     "CVD MACE, following year": {
@@ -2297,13 +2315,13 @@
                     "CVD MACE, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.066
                     },
                     "CVD MACE, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.018
                     },
                     "CVD non-MACE, first year": {
@@ -2314,13 +2332,13 @@
                     "CVD non-MACE, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.007
                     },
                     "CVD non-MACE, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.011
                     },
                     "CVD non-MACE, following year": {
@@ -2331,13 +2349,13 @@
                     "CVD non-MACE, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.007
                     },
                     "CVD non-MACE, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.011
                     },
                     "DPN, first year": {
@@ -2348,13 +2366,13 @@
                     "DPN, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.056
                     },
                     "DPN, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.009
                     },
                     "DPN, following year": {
@@ -2365,13 +2383,13 @@
                     "DPN, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.056
                     },
                     "DPN, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.009
                     },
                     "Foot ulcer, first year": {
@@ -2382,13 +2400,13 @@
                     "Ulcer, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.066
                     },
                     "Ulcer, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.015
                     },
                     "Amputation, first year": {
@@ -2399,13 +2417,13 @@
                     "Amputation, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.116
                     },
                     "Amputation, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.023
                     },
                     "Amputation, following year": {
@@ -2416,13 +2434,13 @@
                     "Amputation, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.116
                     },
                     "Amputation, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.023
                     },
                     "Hypoglycemia, first year": {
@@ -2433,13 +2451,13 @@
                     "Hypoglycemia, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.009
                     },
                     "Hypoglycemia, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.003
                     },
                     "DKA, first year": {
@@ -2450,13 +2468,13 @@
                     "DKA, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.035
                     },
                     "DKA, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.010
                     }
                 }
@@ -2750,13 +2768,13 @@
                         "title": " ",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 38773.231292517
+                        "default": 38773
                     },
                     "CVD MACE, first year se": {
                         "title": " ",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 4354.36901870069
+                        "default": 4354
                     },
                     "CVD MACE, following year": {
                         "description": "",
@@ -2767,13 +2785,13 @@
                         "title": " ",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 9225.59183673469
+                        "default": 9225
                     },
                     "CVD MACE, following year se": {
                         "title": " ",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 4130.25758449588
+                        "default": 4130
                     },
                     "CVD non-MACE, first year": {
                         "description": "",
@@ -2784,13 +2802,13 @@
                         "title": " ",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 16546.7765957447
+                        "default": 16546
                     },
                     "CVD non-MACE, first year se": {
                         "title": " ",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 2882.43969692047
+                        "default": 2882
                     },
                     "CVD non-MACE, following year": {
                         "description": "",
@@ -2801,13 +2819,13 @@
                         "title": " ",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 1185.23936170213
+                        "default": 1185
                     },
                     "CVD non-MACE, following year se": {
                         "title": " ",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 1121.95630817194
+                        "default": 1121
                     },
                     "Hypoglycemia, first year": {
                         "description": "",
@@ -2894,13 +2912,13 @@
                     "Smoking, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.006
                     },
                     "Smoking, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.005
                     },
                     "BMI": {
@@ -2911,13 +2929,13 @@
                     "BMI, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.003
                     },
                     "BMI, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0
                     },
                     "Duration": {
@@ -2928,13 +2946,13 @@
                     "Duration, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.008
                     },
                     "Duration, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0
                     },
                     "eGFR <60, first year": {
@@ -2945,13 +2963,13 @@
                     "eGFR 60, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.014
                     },
                     "eGFR 60, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.003
                     },
                     "eGFR <60, following year": {
@@ -2962,13 +2980,13 @@
                     "eGFR 60, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.015
                     },
                     "eGFR 60, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.003
                     },
                     "eGFR <30, first year": {
@@ -2979,13 +2997,13 @@
                     "eGFR 30, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.043
                     },
                     "eGFR 30, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.010
                     },
                     "eGFR <30, following year": {
@@ -2996,13 +3014,13 @@
                     "eGFR 30, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.025
                     },
                     "eGFR 30, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.010
                     },
                     "Dialysis, first year": {
@@ -3013,13 +3031,13 @@
                     "Dialysis, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.038
                     },
                     "Dialysis, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.015
                     },
                     "Dialysis, following year": {
@@ -3030,13 +3048,13 @@
                     "Dialysis, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.015
                     },
                     "Dialysis, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.013
                     },
                     "Neuropathy, first year": {
@@ -3047,13 +3065,13 @@
                     "Neuropathy, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.007
                     },
                     "Neuropathy, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.004
                     },
                     "Neuropathy, following year": {
@@ -3064,13 +3082,13 @@
                     "Neuropathy, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.007
                     },
                     "Neuropathy, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.004
                     },
                     "Foot ulcer, first year": {
@@ -3081,13 +3099,13 @@
                     "Foot ulcer, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.017
                     },
                     "Foot ulcer, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.009
                     },
                     "Foot ulcer, following year": {
@@ -3098,13 +3116,13 @@
                     "Foot ulcer, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.020
                     },
                     "Foot ulcer, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.009
                     },
                     "Amputation, first year": {
@@ -3115,13 +3133,13 @@
                     "Amputation, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.092
                     },
                     "Amputation, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.028
                     },
                     "Amputation, following year": {
@@ -3132,13 +3150,13 @@
                     "Amputation, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.150
                     },
                     "Amputation, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.034
                     },
                     "Laser retina, first year": {
@@ -3150,13 +3168,13 @@
                     "Laser retina, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.011
                     },
                     "Laser retina, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.007
                     },
                     "Laser retina, following year": {
@@ -3168,13 +3186,13 @@
                     "Laser retina, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.014
                     },
                     "Laser retina, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.006
                     },
                     "Blindness, first year": {
@@ -3185,13 +3203,13 @@
                     "Blindness, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.045
                     },
                     "Blindness, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.010
                     },
                     "Blindness, following year": {
@@ -3202,13 +3220,13 @@
                     "Blindness, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.023
                     },
                     "Blindness, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.010
                     },
                     "MI, first year": {
@@ -3219,13 +3237,13 @@
                     "MI, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.027
                     },
                     "MI, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.009
                     },
                     "MI, following year": {
@@ -3236,13 +3254,13 @@
                     "MI, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.007
                     },
                     "MI, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.008
                     },
                     "Stroke, first year": {
@@ -3253,13 +3271,13 @@
                     "Stroke, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.107
                     },
                     "Stroke, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.015
                     },
                     "Stroke, following year": {
@@ -3270,13 +3288,13 @@
                     "Stroke, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.051
                     },
                     "Stroke, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.014
                     },
                     "CHF, first year": {
@@ -3287,13 +3305,13 @@
                     "CHF, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.050
                     },
                     "CHF, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.014
                     },
                     "CHF, following year": {
@@ -3304,13 +3322,13 @@
                     "CHF, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.043
                     },
                     "CHF, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.014
                     },
                     "Angina, first year": {
@@ -3321,13 +3339,13 @@
                     "Angina, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.015
                     },
                     "Angina, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.009
                     },
                     "Angina, following year": {
@@ -3338,13 +3356,13 @@
                     "Angina, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.028
                     },
                     "Angina, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.008
                     },
                     "Revascularization, first year": {
@@ -3355,13 +3373,13 @@
                     "Revascularization, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": -0.005
                     },
                     "Revascularization, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.006
                     },
                     "Revascularization, following year": {
@@ -3372,13 +3390,13 @@
                     "Revascularization, following year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.000
                     },
                     "Revascularization, following year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.007
                     },
                     "Hypoglycemia (medical assistance), first year": {
@@ -3389,13 +3407,13 @@
                     "Hypoglycemia (medical assistance), first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.001
                     },
                     "Hypoglycemia (medical assistance), first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.008
                     },
                     "Hypoglycemia (any assistance), first year": {
@@ -3406,13 +3424,13 @@
                     "Hypoglycemia (any assistance), first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.000
                     },
                     "Hypoglycemia (any assistance), first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.006
                     },
                     "Intercept, first year": {
@@ -3423,13 +3441,13 @@
                     "Intercept, first year mean": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.935
                     },
                     "Intercept, first year se": {
                         "title": " ",
                         "description": "",
-                        "$ref": "#/definitions/disutility",
+                        "$ref": "#/definitions/negativeProportion",
                         "default": 0.012
                     }
                 }
@@ -3968,6 +3986,444 @@
                 }
             }
         },
+        "intervention_sets_t1d_psa": {
+            "title": "T1D",
+            "ui:schema": {
+                "ui:field_type": "accordion",
+                "ui:options": {
+                    "orderable": false,
+                    "addable": false
+                },
+                "items": {
+                    "ui:options": {
+                        "header_buttons": {
+                            "common_text": "Intervention set",
+                            "numbered": ""
+                        }
+                    },
+                    "factor_changes": {
+                        "ui:field_type": {
+                            "type": "grid",
+                            "columns": 3
+                        }
+                    },
+                    "risk_reductions": {
+                        "ui:field_type": {
+                            "type": "grid",
+                            "columns": 3
+                        }
+                    }
+                }
+            },
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "intervention_set_name": {
+                        "title": "Intervention set name",
+                        "type": "string",
+                        "default": "initial default"
+                    },
+                    "factor_changes": {
+                        "title": "Factor changes",
+                        "type": "object",
+                        "properties": {
+                            "Variable": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "Mean": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "Standard deviation": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "hba1c": {
+                                "title": "HbA1c (%)",
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "hba1c mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "hba1c sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "bmi": {
+                                "title": "BMI (1 point change)",
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "bmi mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "bmi sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "dbp": {
+                                "title": "Diastolic blood pressure (mm/dL)",
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "dbp mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "dbp sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "sbp": {
+                                "title": "Systolic blood pressure (mm/dL)",
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "sbp mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "sbp sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "hdl": {
+                                "title": "HDL (mm/dL)",
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "hdl mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "hdl sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "ldl": {
+                                "title": "LDL (mm/dL)",
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "ldl mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "ldl sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "trig": {
+                                "title": "Triglycerides (mg/dL)",
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "trig mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "trig sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "hr": {
+                                "title": "Heart rate (per minute)",
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "hr mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "hr sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "smoker": {
+                                "title": "Smoking (probability change)",
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "smoker mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "smoker sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "insulin_dose": {
+                                "title": "Insulin dose (units/kg)",
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "insulin_dose mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "insulin_dose sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            }
+                        }
+                    },
+                    "risk_reductions": {
+                        "title": "Risk reductions (% change)",
+                        "type": "object",
+                        "properties": {
+                            "Variable": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "Mean": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "Standard deviation": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "Microalbuminuria": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "Microalbuminuria mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "Microalbuminuria sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "Macroalbuminuria": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "Macroalbuminuria mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "Macroalbuminuria sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "Impaired GFR": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "Impaired GFR mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "Impaired GFR sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "ESRD": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "ESRD mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "ESRD sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "NPDR": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "NPDR mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "NPDR sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "PDR": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "PDR mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "PDR sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "CSME": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "CSME mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "CSME sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "CVD": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "CVD mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "CVD sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "DPN": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "DPN mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "DPN sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "Foot ulcer": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "Foot ulcer mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "Foot ulcer sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "Amputation": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "Amputation mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "Amputation sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "Hypoglycemia": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "Hypoglycemia mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "Hypoglycemia sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "DKA": {
+                                "description": "",
+                                "$ref": "#/definitions/text",
+                                "readOnly": true
+                            },
+                            "DKA mean": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            },
+                            "DKA sd": {
+                                "title": " ",
+                                "description": "",
+                                "$ref": "#/definitions/negativeProportion"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "intervention_sets_t1d_t1d": {
             "title": "T1D",
             "ui:schema": {
@@ -4061,43 +4517,43 @@
                         "type": "object",
                         "properties": {
                             "Microalbuminuria": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "Macroalbuminuria": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "Impaired GFR": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "ESRD": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "NPDR": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "PDR": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "CSME": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "CVD": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "DPN": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "Foot ulcer": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "Amputation": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "Hypoglycemia": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "DKA": {
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             }
                         }
                     }
@@ -4188,71 +4644,71 @@
                         "properties": {
                             "microalbuminuria": {
                                 "title": "Microalbuminuria",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "macroalbuminuria": {
                                 "title": "Macroalbuminuria",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "egfr_60": {
                                 "title": "eGFR <60",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "egfr_30": {
                                 "title": "eGFR <30",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "dialysis": {
                                 "title": "Dialysis",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "neuropathy": {
                                 "title": "Neuropathy",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "ulcer": {
                                 "title": "Foot ulcer",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "amputation": {
                                 "title": "Amputation",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "laser_retin": {
                                 "title": "Laser retinopathy",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "blindness": {
                                 "title": "Blindness",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "mi": {
                                 "title": "MI",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "stroke": {
                                 "title": "Stroke",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "chf": {
                                 "title": "CHF",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "angina": {
                                 "title": "Angina",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "revasc": {
                                 "title": "Revascularization",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "hypo_med": {
                                 "title": "Hypoglycemia requiring medical assistance",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             },
                             "hypo_any": {
                                 "title": "Hypoglycemia requiring any assistance",
-                                "$ref": "#/definitions/proportion"
+                                "$ref": "#/definitions/negativeProportion"
                             }
                         }
                     }
@@ -4264,87 +4720,33 @@
             "description": "",
             "type": "object",
             "ui:schema": {
-                "ui:order": [
-                    "factor_changes",
-                    "risk_reductions"
-                ],
-                "risk_reductions": {
-                    "ui:widget": "checkboxes"
-                },
-                "factor_changes": {
-                    "ui:widget": "checkboxes"
+                "psa_samples": {
+                    "ui:widget": "checkboxes",
+                    "ui:fieldtype":{
+                        "type": "grid",
+                        "columns": 1
+                    }
                 }
             },
             "properties": {
-                "risk_reductions": {
-                    "title": "Array of risk reductions variables to sample randomly",
+                "psa_samples": {
+                    "title": "Values to be randomly sampled from previous inputs",
                     "description": "",
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
                         "type": "string",
                         "enum": [
-                            "microalbuminuria",
-                            "macroalbuminuria",
-                            "gfr",
-                            "esrd",
-                            "npdr",
-                            "pdr",
-                            "csme",
-                            "cvd",
-                            "dpn",
-                            "ulcer",
-                            "amputation",
-                            "hypoglycemia",
-                            "dka"
+                            "cost",
+                            "disutilities",
+                            "risk_factors",
+                            "risk_reductions"
                         ],
                         "enumNames": [
-                            "Microalbuminuria",
-                            "Macroalbuminuria",
-                            "Impaired GFR",
-                            "ESRD",
-                            "NPDR",
-                            "PDR",
-                            "CSME",
-                            "CVD",
-                            "DPN",
-                            "Foot ulcer",
-                            "Amputation",
-                            "Hypoglycemia",
-                            "DKA"
-                        ]
-                    }
-                },
-                "factor_changes": {
-                    "title": "Array of risk factor variables to sample randomly",
-                    "description": "",
-                    "type": "array",
-                    "uniqueItems": true,
-                    "items": {
-                        "type": "string",
-                        "enum": [
-                            "hba1c",
-                            "bmi",
-                            "dbp",
-                            "sbp",
-                            "hdl",
-                            "ldl",
-                            "trig",
-                            "hr",
-                            "smoker",
-                            "insulin_dose"
-                        ],
-                        "enumNames": [
-                            "HbA1c",
-                            "BMI",
-                            "Diastolic blood pressure",
-                            "Systolic blood pressure",
-                            "HDL",
-                            "LDL",
-                            "Triglycerides",
-                            "Heart rate",
-                            "Smoking",
-                            "Insulin dose"
+                            "Disutilities",
+                            "Costs",
+                            "Risk factors",
+                            "Risk reductions"
                         ]
                     }
                 }
@@ -4482,7 +4884,7 @@
             "minimum": 0,
             "maximum": 100
         },
-        "disutility": {
+        "negativeProportion": {
             "type": "number",
             "minimum": -1,
             "maximum": 1
