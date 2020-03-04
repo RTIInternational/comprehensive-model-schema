@@ -338,12 +338,14 @@
                 "Type 2",
                 "Prediabetes"
             ],
-            "default": "t1d"
+            "default": "t1d",
+            "basic_config": true
         },
         "scenario_name_t1d": {
             "title": "Name of the scenario",
             "default": "Example scenario T1D",
-            "$ref": "#/definitions/string"
+            "$ref": "#/definitions/string",
+            "basic_config": true
         },
         "scenario_name_t2d": {
             "title": "Name of the scenario",
