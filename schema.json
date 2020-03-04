@@ -660,7 +660,8 @@
                         }
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "SEARCH_risk_factors": {
             "title": " ",
