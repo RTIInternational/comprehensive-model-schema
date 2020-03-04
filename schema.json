@@ -20,15 +20,12 @@
                 "url_path": "/basic-setup-for-type-1-diabetes",
                 "form_submit_button": true,
                 "expand_if": {
-                    "diabetes_type": "Type 1"
+                    "diabetes_type": "t1d"
                 },
                 "fieldsets": [
                     [
                         {
                             "$ref": "#/properties/scenario_name_t1d"
-                        },
-                        {
-                            "$ref": "#/properties/equation_set_t1d"
                         },
                         {
                             "$ref": "#/properties/simulation_type_t1d",
@@ -69,15 +66,12 @@
                 "url_path": "/basic-setup-for-type-2-diabetes",
                 "form_submit_button": true,
                 "expand_if": {
-                    "diabetes_type": "Type 2"
+                    "diabetes_type": "t2d"
                 },
                 "fieldsets": [
                     [
                         {
                             "$ref": "#/properties/scenario_name_t2d"
-                        },
-                        {
-                            "$ref": "#/properties/equation_set_t2d"
                         },
                         {
                             "$ref": "#/properties/simulation_type_t2d",
@@ -114,11 +108,78 @@
                 ]
             },
             {
+                "title": "Scenario Setup: Intervention Sets - Type 1 Diabetes",
+                "url_path": "/intervention-sets-config-for-type-1-diabetes",
+                "form_submit_button": true,
+                "expand_if": {
+                    "simulation_type_t1d": "Standard"
+                },
+                "fieldsets": [
+                    {
+                        "$ref": "#/properties/intervention_sets_t1d",
+                        "update_on_change": true
+                    },
+                    {
+                        "$ref": "#/properties/intervention_sets_t1d_t1d",
+                        "items_length": "intervention_sets_t1d",
+                        "max_items_length": 10
+                    }
+                ]
+            },
+            {
+                "title": "Scenario Setup: Intervention Sets - Type 1 Diabetes",
+                "url_path": "/intervention-sets-config-for-type-1-diabetes-sensitivity-analysis",
+                "form_submit_button": true,
+                "expand_if": {
+                    "simulation_type_t1d": "Sensitivity analysis"
+                },
+                "fieldsets": [
+                    {
+                        "$ref": "#/properties/intervention_sets_t1d_psa",
+                        "items_length": "iterations_t1d",
+                        "max_items_length": 1
+                    }
+                ]
+            },
+            {
+                "title": "Scenario Setup: Sensitivity Analysis - Type 1 Diabetes",
+                "url_path": "/sensitivity-analysis-config-t1d",
+                "form_submit_button": true,
+                "expand_if": {
+                    "simulation_type_t1d": "Sensitivity analysis"
+                },
+                "fieldsets": [
+                    {
+                        "$ref": "#/properties/sensitivity_analysis_t1d_t1d",
+                        "update_on_change": true
+                    }
+                ]
+            },
+            {
+                "title": "Scenario Setup: Intervention Sets - Type 2 Diabetes",
+                "url_path": "/intervention-sets-config-for-type-2-diabetes",
+                "form_submit_button": true,
+                "expand_if": {
+                    "diabetes_type": "t2d"
+                },
+                "fieldsets": [
+                    {
+                        "$ref": "#/properties/intervention_sets_t2d",
+                        "update_on_change": true
+                    },
+                    {
+                        "$ref": "#/properties/intervention_sets_t2d_t2d",
+                        "items_length": "intervention_sets_t2d",
+                        "max_items_length": 10
+                    }
+                ]
+            },
+            {
                 "title": "Advanced Setup: Population Generation - Type 1 Diabetes",
                 "url_path": "/population-generation-for-type-1-diabetes",
                 "form_submit_button": true,
                 "expand_if": {
-                    "diabetes_type": "Type 1"
+                    "diabetes_type": "t1d"
                 },
                 "fieldsets": [
                     {
@@ -163,7 +224,7 @@
                 "url_path": "/population-generation-for-type-2-diabetes",
                 "form_submit_button": true,
                 "expand_if": {
-                    "diabetes_type": "Type 2"
+                    "diabetes_type": "t2d"
                 },
                 "fieldsets": [
                     {
@@ -188,7 +249,7 @@
                 "url_path": "/economic-factors-for-type-1-diabetes",
                 "form_submit_button": true,
                 "expand_if": {
-                    "diabetes_type": "Type 1"
+                    "diabetes_type": "t1d"
                 },
                 "fieldsets": [
                     {
@@ -216,7 +277,7 @@
                 "url_path": "/economic-factors-for-type-2-diabetes",
                 "form_submit_button": true,
                 "expand_if": {
-                    "diabetes_type": "Type 2"
+                    "diabetes_type": "t2d"
                 },
                 "fieldsets": [
                     {
@@ -240,81 +301,6 @@
                 ]
             },
             {
-                "title": "Scenario Setup: Intervention Sets - Type 1 Diabetes",
-                "url_path": "/intervention-sets-config-for-type-1-diabetes",
-                "expand_if": {
-                    "simulation_type_t1d": "Standard"
-                },
-                "fieldsets": [
-                    {
-                        "$ref": "#/properties/intervention_sets_t1d",
-                        "update_on_change": true
-                    },
-                    {
-                        "$ref": "#/properties/intervention_sets_t1d_t1d",
-                        "items_length": "intervention_sets_t1d",
-                        "max_items_length": 10,
-                        "expand_if": {
-                            "equation_set_t1d": "t1d"
-                        }
-                    }
-                ]
-            },
-            {
-                "title": "Scenario Setup: Intervention Sets - Type 1 Diabetes",
-                "url_path": "/intervention-sets-config-for-type-1-diabetes-psa",
-                "expand_if": {
-                    "simulation_type_t1d": "Sensitivity analysis"
-                },
-                "fieldsets": [
-                    {
-                        "$ref": "#/properties/intervention_sets_t1d_psa",
-                        "items_length": "iterations_t1d",
-                        "max_items_length": 1,
-                        "expand_if": {
-                            "equation_set_t1d": "t1d"
-                        }
-                    }
-                ]
-            },
-            {
-                "title": "Scenario Setup: Sensitivity Analysis - Type 1 Diabetes",
-                "url_path": "/sensitivity-analysis-config-t1d",
-                "expand_if": {
-                    "simulation_type_t1d": "Sensitivity analysis"
-                },
-                "fieldsets": [
-                    {
-                        "$ref": "#/properties/sensitivity_analysis_t1d_t1d",
-                        "update_on_change": true,
-                        "expand_if": {
-                            "equation_set_t1d": "t1d"
-                        }
-                    }
-                ]
-            },
-            {
-                "title": "Scenario Setup: Intervention Sets - Type 2 Diabetes",
-                "url_path": "/intervention-sets-config-for-type-2-diabetes",
-                "expand_if": {
-                    "diabetes_type": "Type 2"
-                },
-                "fieldsets": [
-                    {
-                        "$ref": "#/properties/intervention_sets_t2d",
-                        "update_on_change": true
-                    },
-                    {
-                        "$ref": "#/properties/intervention_sets_t2d_t2d",
-                        "items_length": "intervention_sets_t2d",
-                        "max_items_length": 10,
-                        "expand_if": {
-                            "equation_set_t2d": "t2d"
-                        }
-                    }
-                ]
-            },
-            {
                 "title": "Scenario Setup: Sensitivity Analysis - Type 2 Diabetes",
                 "url_path": "/sensitivity-analysis-config-t2d",
                 "expand_if": {
@@ -323,10 +309,7 @@
                 "fieldsets": [
                     {
                         "$ref": "#/properties/sensitivity_analysis_t1d_t2d",
-                        "update_on_change": true,
-                        "expand_if": {
-                            "equation_set_t2d": "t2d"
-                        }
+                        "update_on_change": true
                     }
                 ]
             },
@@ -346,11 +329,16 @@
             "title": "Diabetes type",
             "$ref": "#/definitions/string",
             "enum": [
+                "t1d",
+                "t2d",
+                "pre"
+            ],
+            "enumNames": [
                 "Type 1",
                 "Type 2",
                 "Prediabetes"
             ],
-            "default": "Type 1"
+            "default": "t1d"
         },
         "scenario_name_t1d": {
             "title": "Name of the scenario",
@@ -361,22 +349,6 @@
             "title": "Name of the scenario",
             "default": "Example scenario T2D",
             "$ref": "#/definitions/string"
-        },
-        "equation_set_t1d": {
-            "title": "Name of the complication equation set to invoke",
-            "$ref": "#/definitions/string",
-            "enum": [
-                "t1d"
-            ],
-            "default": "t1d"
-        },
-        "equation_set_t2d": {
-            "title": "Name of the complication equation set to invoke",
-            "$ref": "#/definitions/string",
-            "enum": [
-                "t2d"
-            ],
-            "default": "t2d"
         },
         "simulation_type_t1d": {
             "title": "Type of simulation to run",
@@ -507,21 +479,29 @@
                 "type": "object",
                 "properties": {
                     "SEARCH": {
-                        "title": "SEARCH (onset at age < 18)",
+                        "title": "Young patients (onset at age < 21)",
                         "$ref": "#/definitions/proportion",
-                        "default": 0.7
+                        "default": 0.52
                     },
                     "EXCHANGE": {
-                        "title": "EXCHANGE (onset at age ≥ 18)",
+                        "title": "Older Patients (onset at age ≥ 21)",
                         "$ref": "#/definitions/proportion",
-                        "default": 0.3
+                        "default": 0.48
                     }
                 }
             }
         },
         "SEARCH_demographics": {
-            "title": "SEARCH population composition",
+            "title": "Young patient population composition",
             "validation": [
+                {
+                    "condition": "$.0.mean_sd_demographics.age_at_entry_mean - $.0.mean_sd_demographics.age_at_entry_sd > 0",
+                    "error_message": "Standard deviation must be less than the mean"
+                },
+                {
+                    "condition": "$.0.mean_sd_demographics.diabetes_duration_entry_mean - $.0.mean_sd_demographics.diabetes_duration_entry_sd > 0",
+                    "error_message": "Standard deviation must be less than the mean"
+                },
                 {
                     "condition": "$.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white + $.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic = 1",
                     "error_message": "Race proportions must sum to 1."
@@ -536,7 +516,7 @@
                 "items": {
                     "ui:options": {
                         "header_buttons": {
-                            "common_text": "SEARCH demographics",
+                            "common_text": "Young patient demographics",
                             "numbered": ""
                         }
                     },
@@ -575,22 +555,25 @@
                         "description": "",
                         "type": "object",
                         "properties": {
-                            "Age at entry mean": {
+                            "age_at_entry_mean": {
+                                "title": "Age at entry mean",
                                 "description": "",
                                 "$ref": "#/definitions/nonnegativeNumber",
                                 "default": 10.71
                             },
-                            "Age at entry sd": {
+                            "age_at_entry_sd": {
+                                "title": "Age at entry sd",
                                 "description": "",
                                 "$ref": "#/definitions/nonnegativeNumber",
                                 "default": 4.45
                             },
-                            "Diabetes duration entry mean": {
+                            "diabetes_duration_entry_mean": {
+                                "title": "Diabetes duration entry mean",
                                 "description": "",
                                 "$ref": "#/definitions/nonnegativeNumber",
                                 "default": 0.84
                             },
-                            "Diabetes duration entry sd": {
+                            "diabetes_duration_entry_sd": {
                                 "title": "Diabetes duration entry sd",
                                 "description": "",
                                 "$ref": "#/definitions/nonnegativeNumber",
@@ -686,7 +669,7 @@
                 "items": {
                     "ui:options": {
                         "header_buttons": {
-                            "common_text": "SEARCH risk factors",
+                            "common_text": "Young patient risk factors",
                             "numbered": ""
                         }
                     },
@@ -901,7 +884,7 @@
                 "items": {
                     "ui:options": {
                         "header_buttons": {
-                            "common_text": "SEARCH clinical history (proportions)",
+                            "common_text": "Young patient clinical history (proportions)",
                             "numbered": ""
                         }
                     },
@@ -915,96 +898,101 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "Amputation": {
+                    "proportion_microalbuminuria": {
+                        "title": "Microalbuminuria",
                         "description": "",
                         "$ref": "#/definitions/proportion",
-                        "default": 0
+                        "default": 0.063
                     },
-                    "Proportion CSME": {
-                        "title": "CSME (clinically significant macular edema)",
+                    "proportion_macroalbuminuria": {
+                        "title": "Macroalbuminuria",
                         "description": "",
                         "$ref": "#/definitions/proportion",
-                        "default": 0
+                        "default": 0.006
                     },
-                    "Proportion CVD": {
-                        "title": "CVD (cardiovascular disease)",
-                        "description": "",
-                        "$ref": "#/definitions/proportion",
-                        "default": 0
-                    },
-                    "Proportion DKA": {
-                        "title": "DKA (diabetic ketoacidosis)",
-                        "description": "",
-                        "$ref": "#/definitions/proportion",
-                        "default": 0.055724
-                    },
-                    "Proportion DPN": {
-                        "title": "DPN (diabetic peripheral neuropathy)",
-                        "description": "",
-                        "$ref": "#/definitions/proportion",
-                        "default": 0
-                    },
-                    "Proportion ESRD": {
-                        "title": "ESRD (end-stage renal disease)",
-                        "description": "",
-                        "$ref": "#/definitions/proportion",
-                        "default": 0.020727
-                    },
-                    "Proportion GFR": {
+                    "proportion_gfr": {
                         "title": "Impaired GFR (glomerular filtration rate)",
                         "description": "",
                         "$ref": "#/definitions/proportion",
                         "default": 0.088
                     },
-                    "Hypoglycemia": {
+                    "proportion_esrd": {
+                        "title": "ESRD (end-stage renal disease)",
                         "description": "",
                         "$ref": "#/definitions/proportion",
-                        "default": 0.006
+                        "default": 0.020727
                     },
-                    "Macroalbuminuria": {
-                        "description": "",
-                        "$ref": "#/definitions/proportion",
-                        "default": 0.006
-                    },
-                    "Microalbuminuria": {
-                        "description": "",
-                        "$ref": "#/definitions/proportion",
-                        "default": 0.063
-                    },
-                    "Proportion NPDR": {
+                    "proportion_npdr": {
                         "title": "NPDR (nonproliferative retinopathy)",
                         "description": "",
                         "$ref": "#/definitions/proportion",
                         "default": 0.000
                     },
-                    "Proportion PDR": {
+                    "proportion_pdr": {
                         "title": "PDR (proliferative retinopathy)",
                         "description": "",
                         "$ref": "#/definitions/proportion",
                         "default": 0
                     },
-                    "Foot ulcer": {
+                    "proportion_csme": {
+                        "title": "CSME (clinically significant macular edema)",
+                        "description": "",
+                        "$ref": "#/definitions/proportion",
+                        "default": 0
+                    },
+                    "proportion_cvd": {
+                        "title": "CVD (cardiovascular disease)",
+                        "description": "",
+                        "$ref": "#/definitions/proportion",
+                        "default": 0
+                    },
+                    "proportion_dpn": {
+                        "title": "DPN (diabetic peripheral neuropathy)",
+                        "description": "",
+                        "$ref": "#/definitions/proportion",
+                        "default": 0
+                    },
+                    "proportion_foot_ulcer": {
+                        "title": "Foot ulcer",
                         "description": "",
                         "$ref": "#/definitions/proportion",
                         "default": 0.000
                     },
-                    "Proportion dcct_intervention": {
-                        "title": "DCCT intervention (intensive glycemic control)",
+                    "proportion_amputation": {
+                        "title": "Amputation",
                         "description": "",
                         "$ref": "#/definitions/proportion",
-                        "default": 1.000
+                        "default": 0
                     },
-                    "Proportion hypertension": {
+                    "proportion_hypoglycemia": {
+                        "title": "Hypoglycemia",
+                        "description": "",
+                        "$ref": "#/definitions/proportion",
+                        "default": 0.006
+                    },
+                    "proportion_dka": {
+                        "title": "DKA (diabetic ketoacidosis)",
+                        "description": "",
+                        "$ref": "#/definitions/proportion",
+                        "default": 0.055724
+                    },
+                    "proportion_hypertension": {
                         "title": "Hypertension (proportion ever diagnosed)",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 0.003
+                    },
+                    "proportion_dcct_intervention": {
+                        "title": "DCCT intervention",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 1
                     }
                 }
             }
         },
         "EXCHANGE_demographics": {
-            "title": "EXCHANGE population composition",
+            "title": "Older patient population composition",
             "validation": [
                 {
                     "condition": "$.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white + $.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic = 1",
@@ -1024,7 +1012,7 @@
                 "items": {
                     "ui:options": {
                         "header_buttons": {
-                            "common_text": "EXCHANGE demographics",
+                            "common_text": "Older patient demographics",
                             "numbered": ""
                         }
                     },
@@ -1063,22 +1051,25 @@
                         "description": "",
                         "type": "object",
                         "properties": {
-                            "Age at entry mean": {
+                            "age_at_entry_mean": {
+                                "title": "Age at entry mean",
                                 "description": "",
                                 "$ref": "#/definitions/nonnegativeNumber",
                                 "default": 54.01
                             },
-                            "Age at entry sd": {
+                            "age_at_entry_sd": {
+                                "title": "Age at entry sd",
                                 "description": "",
                                 "$ref": "#/definitions/nonnegativeNumber",
                                 "default": 13.74
                             },
-                            "Diabetes duration entry mean": {
+                            "diabetes_duration_entry_mean": {
+                                "title": "Diabetes duration entry mean",
                                 "description": "",
                                 "$ref": "#/definitions/nonnegativeNumber",
                                 "default": 21.09
                             },
-                            "Diabetes duration entry sd": {
+                            "diabetes_duration_entry_sd": {
                                 "title": "Diabetes duration entry sd",
                                 "description": "",
                                 "$ref": "#/definitions/nonnegativeNumber",
@@ -1147,17 +1138,20 @@
                         "description": "",
                         "type": "object",
                         "properties": {
-                            "Married": {
+                            "proportion_married": {
+                                "title": "Married",
                                 "description": "",
                                 "$ref": "#/definitions/proportion",
                                 "default": 0.713
                             },
-                            "Female": {
+                            "proportion_female": {
+                                "title": "Female",
                                 "description": "",
                                 "$ref": "#/definitions/proportion",
                                 "default": 0.508
                             },
-                            "Smoking": {
+                            "proportion_smoker": {
+                                "title": "Smoking",
                                 "description": "",
                                 "$ref": "#/definitions/proportion",
                                 "default": 0.067
@@ -1178,7 +1172,7 @@
                 "items": {
                     "ui:options": {
                         "header_buttons": {
-                            "common_text": "EXCHANGE risk factors",
+                            "common_text": "Older patient risk factors",
                             "numbered": ""
                         }
                     },
@@ -1206,6 +1200,24 @@
                         "description": "",
                         "$ref": "#/definitions/text",
                         "readOnly": true
+                    },
+                    "HBA1C": {
+                        "title": "HbA1c (%)",
+                        "description": "",
+                        "$ref": "#/definitions/text",
+                        "readOnly": true
+                    },
+                    "HBA1C mean": {
+                        "title": " ",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 7.75
+                    },
+                    "HBA1C sd": {
+                        "title": " ",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 1.28
                     },
                     "BMI": {
                         "description": "",
@@ -1276,24 +1288,6 @@
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 31
-                    },
-                    "HBA1C": {
-                        "title": "HbA1c (%)",
-                        "description": "",
-                        "$ref": "#/definitions/text",
-                        "readOnly": true
-                    },
-                    "HBA1C mean": {
-                        "title": " ",
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 7.75
-                    },
-                    "HBA1C sd": {
-                        "title": " ",
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 1.28
                     },
                     "HDL": {
                         "title": "HDL (mg/dL)",
@@ -1395,7 +1389,7 @@
                 "items": {
                     "ui:options": {
                         "header_buttons": {
-                            "common_text": "EXCHANGE clinical history (proportions)",
+                            "common_text": "Older patient clinical history (proportions)",
                             "numbered": ""
                         }
                     },
@@ -1409,90 +1403,95 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "Amputation": {
+                    "proportion_microalbuminuria": {
+                        "title": "Microalbuminuria",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.000
+                        "default": 0.095
                     },
-                    "Proportion CSME": {
-                        "title": "CSME (clinically significant macular edema)",
+                    "proportion_macroalbuminuria": {
+                        "title": "Macroalbuminuria",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.000
+                        "default": 0.019
                     },
-                    "Proportion CVD": {
-                        "title": "CVD (cardiovascular disease)",
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.000
-                    },
-                    "Proportion DKA": {
-                        "title": "DKA (diabetic ketoacidosis)",
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.033
-                    },
-                    "Proportion DPN": {
-                        "title": "DPN (diabetic peripheral neuropathy)",
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.000
-                    },
-                    "Proportion ESRD": {
-                        "title": "ESRD (end-stage renal disease)",
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.021
-                    },
-                    "Proportion GFR": {
+                    "proportion_gfr": {
                         "title": "Impaired GFR (glomerular filtration rate)",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 0.088
                     },
-                    "Hypoglycemia": {
+                    "proportion_esrd": {
+                        "title": "ESRD (end-stage renal disease)",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.129
+                        "default": 0.021
                     },
-                    "Macroalbuminuria": {
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.019
-                    },
-                    "Microalbuminuria": {
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.095
-                    },
-                    "Proportion NPDR": {
+                    "proportion_npdr": {
                         "title": "NPDR (non-proliferative retinopathy)",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 0.000
                     },
-                    "Proportion PDR": {
+                    "proportion_pdr": {
                         "title": "PDR (proliferative retinopathy)",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 0.000
                     },
-                    "Foot ulcer": {
+                    "proportion_csme": {
+                        "title": "CSME (clinically significant macular edema)",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 0.000
                     },
-                    "Proportion dcct_intervention": {
-                        "title": "DCCT intervention",
+                    "proportion_cvd": {
+                        "title": "CVD (cardiovascular disease)",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 1
+                        "default": 0.000
                     },
-                    "Proportion hypertension": {
+                    "proportion_dpn": {
+                        "title": "DPN (diabetic peripheral neuropathy)",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 0.000
+                    },
+                    "proportion_foot_ulcer": {
+                        "title": "Foot ulcer",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 0.000
+                    },
+                    "proportion_amputation": {
+                        "title": "Amputation",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 0.000
+                    },
+                    "proportion_hypoglycemia": {
+                        "title": "Hypoglycemia",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 0.129
+                    },
+                    "proportion_dka": {
+                        "title": "DKA (diabetic ketoacidosis)",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 0.033
+                    },
+                    "proportion_hypertension": {
                         "title": "Hypertension (proportion ever diagnosed)",
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 0.137
+                    },
+                    "proportion_dcct_intervention": {
+                        "title": "DCCT intervention",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 1
                     }
                 }
             }
@@ -1924,13 +1923,13 @@
                 "items": {
                     "ui:options": {
                         "header_buttons": {
-                            "common_text": "Baseline factors",
+                            "common_text": "Discount factors",
                             "numbered": ""
                         }
                     },
                     "ui:field_type": {
                         "type": "grid",
-                        "columns": 3
+                        "columns": 2
                     }
                 }
             },
@@ -1943,26 +1942,10 @@
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 0.03
                     },
-                    "Base cost": {
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 7131
-                    },
-                    "TV age cost": {
-                        "title": "Time-varying age cost",
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 16
-                    },
                     "QALY discount factor": {
                         "description": "",
                         "$ref": "#/definitions/nonnegativeNumber",
                         "default": 0.03
-                    },
-                    "Baseline QALY": {
-                        "description": "",
-                        "$ref": "#/definitions/nonnegativeNumber",
-                        "default": 0.836
                     }
                 }
             }
@@ -2054,6 +2037,23 @@
                         "readOnly": true
                     },
                     "Standard error": {
+                        "$ref": "#/definitions/text",
+                        "readOnly": true
+                    },
+                    "Baseline QALY text": {
+                        "title": "Baseline QALY",
+                        "$ref": "#/definitions/text",
+                        "readOnly": true
+                    },
+                    "Baseline QALY": {
+                        "title": " ",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 0.836
+                    },
+                    "Baseline QALY placeholder": {
+                        "title": " ",
+                        "description": "",
                         "$ref": "#/definitions/text",
                         "readOnly": true
                     },
@@ -2515,6 +2515,42 @@
                         "readOnly": true
                     },
                     "Standard error": {
+                        "description": "",
+                        "$ref": "#/definitions/text",
+                        "readOnly": true
+                    },
+                    "Base cost text": {
+                        "title": "Base cost",
+                        "description": "",
+                        "$ref": "#/definitions/text",
+                        "readOnly": true
+                    },
+                    "Base cost": {
+                        "title": " ",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 7131
+                    },
+                    "Base cost placeholder": {
+                        "title": " ",
+                        "description": "",
+                        "$ref": "#/definitions/text",
+                        "readOnly": true
+                    },
+                    "TV age cost text": {
+                        "title": "Time-varying age cost",
+                        "description": "",
+                        "$ref": "#/definitions/text",
+                        "readOnly": true
+                    },
+                    "TV age cost": {
+                        "title": " ",
+                        "description": "",
+                        "$ref": "#/definitions/nonnegativeNumber",
+                        "default": 16
+                    },
+                    "TV age cost placeholder": {
+                        "title": " ",
                         "description": "",
                         "$ref": "#/definitions/text",
                         "readOnly": true
@@ -4724,7 +4760,7 @@
                     "ui:widget": "checkboxes",
                     "ui:fieldtype":{
                         "type": "grid",
-                        "columns": 1
+                        "columns": 5
                     }
                 }
             },
@@ -4737,12 +4773,14 @@
                     "items": {
                         "type": "string",
                         "enum": [
-                            "cost",
+                            "discount_factors",
                             "disutilities",
+                            "cost",
                             "risk_factors",
                             "risk_reductions"
                         ],
                         "enumNames": [
+                            "Discount factors",
                             "Disutilities",
                             "Costs",
                             "Risk factors",
