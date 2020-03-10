@@ -343,7 +343,8 @@
         "scenario_name_t1d": {
             "title": "Name of the scenario",
             "default": "Example scenario T1D",
-            "$ref": "#/definitions/string"
+            "$ref": "#/definitions/string",
+            "_basic_config": true
         },
         "scenario_name_t2d": {
             "title": "Name of the scenario",
@@ -356,7 +357,8 @@
             "enum": [
                 "Standard",
                 "Sensitivity analysis"
-            ]
+            ],
+            "_basic_config": true
         },
         "simulation_type_t2d": {
             "title": "Type of simulation to run",
@@ -380,7 +382,8 @@
             "title": "Number of iterations",
             "description": "In 'Standard', this is the number of times a simulation is run. In 'Sensitivity analysis', this is the number of times a new set of values is drawn.",
             "$ref": "#/definitions/positiveInteger",
-            "default": 1
+            "default": 1,
+            "_basic_config": true
         },
         "iterations_t2d": {
             "title": "Number of iterations",
@@ -399,7 +402,8 @@
         "size_t1d": {
             "title": "Number of individuals in the population",
             "default": 10000,
-            "$ref": "#/definitions/positiveInteger"
+            "$ref": "#/definitions/positiveInteger",
+            "_basic_config": true
         },
         "size_t2d": {
             "title": "Number of individuals in the population",
@@ -420,17 +424,20 @@
                 "Fixed",
                 "Max age",
                 "All deceased"
-            ]
+            ],
+            "_basic_config": true
         },
         "max_age_t1d": {
             "title": "Maximum age",
             "$ref": "#/definitions/positiveInteger",
-            "default": 30
+            "default": 30,
+            "_basic_config": true
         },
         "max_steps_t1d": {
             "title": "Maximum number of steps",
             "$ref": "#/definitions/positiveInteger",
-            "default": 5
+            "default": 5,
+            "_basic_config": true
         },
         "time_horizon_t2d": {
             "title": "Time horizon execution strategy",
@@ -489,7 +496,8 @@
                         "default": 0.48
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "SEARCH_demographics": {
             "title": "Young patient population composition",
@@ -660,7 +668,8 @@
                         }
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "SEARCH_risk_factors": {
             "title": " ",
@@ -875,7 +884,8 @@
                         "default": 0.28
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "SEARCH_clinical_history": {
             "title": " ",
@@ -989,7 +999,8 @@
                         "default": 1
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "EXCHANGE_demographics": {
             "title": "Older patient population composition",
@@ -1159,7 +1170,8 @@
                         }
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "EXCHANGE_risk_factors": {
             "title": " ",
@@ -1376,7 +1388,8 @@
                         "default": 0.22
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "EXCHANGE_clinical_history": {
             "title": " ",
@@ -1494,7 +1507,8 @@
                         "default": 1
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "demographics": {
             "title": "Population Composition",
@@ -1948,7 +1962,8 @@
                         "default": 0.03
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "baseline_economic_factors_t2d": {
             "title": "Economic factors",
@@ -2478,7 +2493,8 @@
                         "default": 0.010
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "costs_t1d": {
             "ui:schema": {
@@ -2898,7 +2914,8 @@
                         "default": 577
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "disutilities_t2d": {
             "title": "",
@@ -4458,7 +4475,8 @@
                         }
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "intervention_sets_t1d_t1d": {
             "title": "T1D",
@@ -4594,7 +4612,8 @@
                         }
                     }
                 }
-            }
+            },
+            "_watch_for_changes": true
         },
         "intervention_sets_t2d_t2d": {
             "title": "T2D",
