@@ -876,7 +876,8 @@
                         "default": 0.28
                     }
                 }
-            }
+            },
+            "_watch_for_changes": "Search: Risk Factors"
         },
         "SEARCH_clinical_history": {
             "title": " ",
