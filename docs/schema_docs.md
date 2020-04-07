@@ -424,3 +424,29 @@ validaton: [
 Output is an object structured by the schema's properties.
 
 Fields in conditional pages and fields are only returned if their condition was true at the time of submission.
+
+## Output Summary
+
+The output summary has two sections, "Basic Configurations" and "Modified Sections", and is configured by the schema.
+
+### Basic Configurations
+
+This section will always show any root-level property that has "_basic_config" set to true. 
+```
+"scenario_name_t1d": {
+    "$ref": "#/definitions/string",
+    "_basic_config": true
+}
+```
+
+The property will be displayed as a key:value pair, where the key will be the properties title, description, or key name in that order of precedence.
+
+An array type property may not be set as a basic configuration.
+
+### Modified Sections
+
+This section will display which sections have been changed if those sections have the "_watch_for_changes" property set to `true` or some string value.
+
+Observer flags operate in conjunction with basic config flags. Properties flagged as basic config flags may not also be change observers, and the basic config flag will take precedence.
+
+If _watch_for_changes is true or a string, then the scenario summary will notify the user if that section has changed with some identifier for that section. When true, the section's identifer defaults to its title, description, or key, in that order (eg. nonexistent or empty values for title such as undefined, "", or " " will prompt the front-end to check that section's description). Alternatively, the section can be given a custom identifier string by setting it as the value for _watch_for_changes.
