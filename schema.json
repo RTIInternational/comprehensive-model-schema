@@ -338,7 +338,8 @@
                 "Type 2",
                 "Prediabetes"
             ],
-            "default": "t1d"
+            "default": "t1d",
+            "_basic_config": true
         },
         "scenario_name_t1d": {
             "title": "Name of the scenario",
