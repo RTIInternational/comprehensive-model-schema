@@ -235,9 +235,24 @@ To configure a fieldset, the "ui:field_type" ("group_type" equivalent) field mus
       ...
 ```
 
-#### Grids
+Accordions may be set to be collapsed on load with the "default_collapsed" option:
 
-Object type fieldsets may be displayed as a grid by setting the "ui:field_type" to "grid".
+```
+"ui:schema": {
+  "ui:field_type": {
+    "type": "accordion"
+  },
+  "items": {
+    "ui:options": {
+      "default_collapsed": true
+    }
+  }
+},
+```
+
+#### Grids & Tables
+
+Object type fieldsets may be displayed as a grid or table by setting the "ui:field_type" to "grid" or "table", respectively.
 
 Grid items have a pre-defined width and wrap responsively by default. To set a fixed number of columns, use the expanded syntax instead:
 
@@ -246,6 +261,94 @@ Grid items have a pre-defined width and wrap responsively by default. To set a f
 "ui:field_type": {
   "type": "grid",
   "columns": 3
+}
+```
+
+For greater control over grid columns, the CSS Grid property [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) may be directly configured through the schema:
+
+```
+// grid with three columns, where the first and second columns are each half the width of the third
+"ui:field_type": {
+  "type": "grid",
+  "columns": 3,
+  "gridTemplateColumns": "1fr 1fr 2fr"
+}
+```
+
+Tables are a special subset of grid meant to work within certain constraints (example below). The following steps should be taken for best results:
+  1. Set a fixed number of columns.
+  2. Add properties to the grid for each table cell (including headers), in order of left-to-right and top-to-bottom.
+  3. For row and column header cells, set "type" to "null" and "readOnly" to true. Do not set a description.
+  4. For non-header cells, set up an input property as you would normally, but do not set a title or description.
+
+```
+// The following table contains 3 columns (variable headers, Mean, and Standard deviation)
+//   and 3 rows (column headers, HBA1C, and BMI).
+"SEARCH_risk_factors": {
+  "title": " ",
+  "ui:schema": {
+    "ui:options": {
+      "header_buttons": {
+        "common_text": "Young patient risk factors",
+        "numbered": ""
+      },
+      "default_collapsed": true
+    },
+    "ui:field_type": {
+      "type": "table",
+      "columns": 3,
+    }
+  },
+  "type": "object",
+  "properties": {
+    "Variable": {
+      "$ref": "#/definitions/text",
+      "readOnly": true
+    },
+    "Mean": {
+      "$ref": "#/definitions/text",
+      "readOnly": true
+    },
+    "Standard deviation": {
+      "$ref": "#/definitions/text",
+      "readOnly": true
+    },
+    "HBA1C": {
+      "title": "HbA1c (%)",
+      "description": "",
+      "$ref": "#/definitions/text",
+      "readOnly": true
+    },
+    "HBA1C mean": {
+      "title": " ",
+      "description": "",
+      "$ref": "#/definitions/nonnegativeNumber",
+      "default": 7.79
+    },
+    "HBA1C sd": {
+      "title": " ",
+      "description": "",
+      "$ref": "#/definitions/nonnegativeNumber",
+      "default": 1.56
+    },
+    "BMI": {
+      "description": "",
+      "$ref": "#/definitions/text",
+      "readOnly": true
+    },
+    "BMI mean": {
+      "title": " ",
+      "description": "",
+      "$ref": "#/definitions/nonnegativeNumber",
+      "default": 19.95
+    },
+    "BMI sd": {
+      "title": " ",
+      "description": "",
+      "$ref": "#/definitions/nonnegativeNumber",
+      "default": 5.17
+    }
+  }
 }
 ```
 
