@@ -749,6 +749,7 @@
         "ui:field_type": "accordion",
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Young patient demographics",
               "numbered": ""
@@ -903,6 +904,7 @@
         "ui:field_type": "accordion",
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Young patient risk factors",
               "numbered": ""
@@ -1119,6 +1121,7 @@
         "ui:field_type": "accordion",
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Young patient clinical history (proportions)",
               "numbered": ""
@@ -1248,6 +1251,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Older patient demographics",
               "numbered": ""
@@ -1409,6 +1413,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Older patient risk factors",
               "numbered": ""
@@ -1627,6 +1632,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Older patient clinical history (proportions)",
               "numbered": ""
@@ -1748,6 +1754,7 @@
         "ui:field_type": "accordion",
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Demographics",
               "numbered": ""
@@ -1872,6 +1879,7 @@
         "ui:field_type": "accordion",
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Demographics",
               "numbered": ""
@@ -1994,6 +2002,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Risk factors",
               "numbered": ""
@@ -2162,6 +2171,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Risk factors",
               "numbered": ""
@@ -2330,6 +2340,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Clinical history (proportions)",
               "numbered": ""
@@ -2454,6 +2465,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Clinical history (proportions)",
               "numbered": ""
@@ -2578,6 +2590,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Discount factors",
               "numbered": ""
@@ -2617,6 +2630,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Discount factors",
               "numbered": ""
@@ -2655,6 +2669,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Discount factors",
               "numbered": ""
@@ -2692,6 +2707,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Event disutilities",
               "numbered": ""
@@ -3169,6 +3185,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Event cost",
               "numbered": ""
@@ -3591,6 +3608,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Event Disutilities",
               "numbered": ""
@@ -4196,6 +4214,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Event Cost",
               "numbered": ""
@@ -4719,6 +4738,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Event Disutilities",
               "numbered": ""
@@ -5324,6 +5344,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Event Cost",
               "numbered": ""
@@ -5887,6 +5908,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Intervention set",
               "numbered": ""
@@ -6326,6 +6348,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Intervention set",
               "numbered": true
@@ -6467,6 +6490,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Intervention Set",
               "numbered": true
@@ -6622,6 +6646,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Intervention Set",
               "numbered": true
@@ -7026,6 +7051,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Glycemic Control: Basic Setup",
               "numbered": ""
@@ -7353,6 +7379,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Modify trajectory",
               "numbered": ""
@@ -7423,6 +7450,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Modify effectiveness of intensification",
               "numbered": ""
@@ -7491,6 +7519,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Modify A1c targets",
               "numbered": ""
@@ -7615,6 +7644,7 @@
         },
         "items": {
           "ui:options": {
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Modify annual costs",
               "numbered": ""
