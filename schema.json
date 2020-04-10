@@ -177,6 +177,53 @@
           ]
         ]
       },
+
+      {
+        "title": "Scenario Setup: Basic - Prediabetes",
+        "url_path": "/basic-setup-for-prediabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "pre"
+        },
+        "fieldsets": [
+          [
+            {
+              "$ref": "#/properties/scenario_name_pre"
+            },
+            {
+              "$ref": "#/properties/simulation_type_pre",
+              "update_on_change": true
+            },
+            {
+              "$ref": "#/properties/iterations_pre"
+            },
+            {
+              "$ref": "#/properties/seed"
+            }
+          ],
+          [
+            {
+              "$ref": "#/properties/size_pre"
+            },
+            {
+              "$ref": "#/properties/time_horizon_pre",
+              "update_on_change": true
+            },
+            {
+              "$ref": "#/properties/max_steps_pre",
+              "expand_if": {
+                "time_horizon_pre": "fixed"
+              }
+            },
+            {
+              "$ref": "#/properties/max_age_pre",
+              "expand_if": {
+                "time_horizon_pre": "max_age"
+              }
+            }
+          ]
+        ]
+      },
       {
         "title": "Scenario Setup: Intervention Sets - Type 1 Diabetes",
         "url_path": "/intervention-sets-config-for-type-1-diabetes",
@@ -242,6 +289,25 @@
           {
             "$ref": "#/properties/intervention_sets_t2d_t2d",
             "items_length": "intervention_sets_t2d",
+            "max_items_length": 10
+          }
+        ]
+      },
+      {
+        "title": "Scenario Setup: Intervention Sets - Prediabetes",
+        "url_path": "/intervention-sets-config-for-prediabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "pre"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/intervention_sets_pre",
+            "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/intervention_sets_pre_pre",
+            "items_length": "intervention_sets_pre",
             "max_items_length": 10
           }
         ]
@@ -317,6 +383,31 @@
         ]
       },
       {
+        "title": "Advanced Setup: Population Generation - Prediabetes",
+        "url_path": "/population-generation-for-prediabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "pre"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/demographics_pre",
+            "items_length": "iterations_pre",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/risk_factors_pre",
+            "items_length": "iterations_pre",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/clinical_history_pre",
+            "items_length": "iterations_pre",
+            "max_items_length": 1
+          }
+        ]
+      },
+      {
         "title": "Advanced Setup: Economic Factors - Type 1 Diabetes",
         "url_path": "/economic-factors-for-type-1-diabetes",
         "form_submit_button": true,
@@ -373,6 +464,34 @@
         ]
       },
       {
+        "title": "Advanced Setup: Economic Factors - Prediabetes",
+        "url_path": "/economic-factors-for-prediabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "pre"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/baseline_economic_factors_pre",
+            "items_length": "iterations_pre",
+            "max_items_length": 1,
+            "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/disutilities_pre",
+            "items_length": "iterations_pre",
+            "max_items_length": 1,
+            "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/costs_pre",
+            "items_length": "iterations_pre",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+      {
         "title": "Scenario Setup: Sensitivity Analysis - Type 2 Diabetes",
         "url_path": "/sensitivity-analysis-config-t2d",
         "expand_if": {
@@ -380,7 +499,20 @@
         },
         "fieldsets": [
           {
-            "$ref": "#/properties/sensitivity_analysis_t1d_t2d",
+            "$ref": "#/properties/sensitivity_analysis_t2d",
+            "update_on_change": true
+          }
+        ]
+      },
+      {
+        "title": "Scenario Setup: Sensitivity Analysis - Prediabetes",
+        "url_path": "/sensitivity-analysis-config-pre",
+        "expand_if": {
+          "simulation_type_pre": "Sensitivity analysis"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/sensitivity_analysis_pre",
             "update_on_change": true
           }
         ]
@@ -413,7 +545,14 @@
     "scenario_name_t2d": {
       "title": "Name of the scenario",
       "default": "Example scenario T2D",
-      "$ref": "#/definitions/string"
+      "$ref": "#/definitions/string",
+      "_basic_config": true
+    },
+    "scenario_name_pre": {
+      "title": "Name of the scenario",
+      "default": "Example scenario PRE",
+      "$ref": "#/definitions/string",
+      "_basic_config": true
     },
     "simulation_type_t1d": {
       "title": "Type of simulation to run",
@@ -424,7 +563,14 @@
     "simulation_type_t2d": {
       "title": "Type of simulation to run",
       "$ref": "#/definitions/string",
-      "enum": ["Standard", "Sensitivity analysis"]
+      "enum": ["Standard", "Sensitivity analysis"],
+      "_basic_config": true
+    },
+    "simulation_type_pre": {
+      "title": "Type of simulation to run",
+      "$ref": "#/definitions/string",
+      "enum": ["Standard", "Sensitivity analysis"],
+      "_basic_config": true
     },
     "intervention_sets_t1d": {
       "title": "Number of intervention sets",
@@ -432,6 +578,11 @@
       "default": 1
     },
     "intervention_sets_t2d": {
+      "title": "Number of intervention sets",
+      "$ref": "#/definitions/interventionSetsLength",
+      "default": 1
+    },
+    "intervention_sets_pre": {
       "title": "Number of intervention sets",
       "$ref": "#/definitions/interventionSetsLength",
       "default": 1
@@ -447,7 +598,15 @@
       "title": "Number of iterations",
       "description": "In 'Standard', this is the number of times a simulation is run. In 'Sensitivity analysis', this is the number of times a new set of values is drawn.",
       "$ref": "#/definitions/positiveInteger",
-      "default": 1
+      "default": 1,
+      "_basic_config": true
+    },
+    "iterations_pre": {
+      "title": "Number of iterations",
+      "description": "In 'Standard', this is the number of times a simulation is run. In 'Sensitivity analysis', this is the number of times a new set of values is drawn.",
+      "$ref": "#/definitions/positiveInteger",
+      "default": 1,
+      "_basic_config": true
     },
     "seed": {
       "description": "6 digit simulation seed",
@@ -466,7 +625,14 @@
     "size_t2d": {
       "title": "Number of individuals in the population",
       "default": 10000,
-      "$ref": "#/definitions/positiveInteger"
+      "$ref": "#/definitions/positiveInteger",
+      "_basic_config": true
+    },
+    "size_pre": {
+      "title": "Number of individuals in the population",
+      "default": 10000,
+      "$ref": "#/definitions/positiveInteger",
+      "_basic_config": true
     },
     "time_horizon_t1d": {
       "title": "Time horizon execution strategy",
@@ -503,6 +669,24 @@
       "default": 30
     },
     "max_steps_t2d": {
+      "title": "Maximum number of steps",
+      "$ref": "#/definitions/positiveInteger",
+      "default": 5
+    },
+    "time_horizon_pre": {
+      "title": "Time horizon execution strategy",
+      "description": "'Fixed' runs for a set duration. 'Max age' runs until the youngest indidual reaches the max age. 'All deceased' runs until all agents have passed away.",
+      "$ref": "#/definitions/string",
+      "default": "fixed",
+      "enum": ["fixed", "max_age", "all_deceased"],
+      "enumNames": ["Fixed", "Max age", "All deceased"]
+    },
+    "max_age_pre": {
+      "title": "Maximum age",
+      "$ref": "#/definitions/positiveInteger",
+      "default": 30
+    },
+    "max_steps_pre": {
       "title": "Maximum number of steps",
       "$ref": "#/definitions/positiveInteger",
       "default": 5
@@ -872,7 +1056,7 @@
             "default": 23
           },
           "Triglycerides": {
-            "title": "Triglycerides (mg/dL)",
+            "title": "ln(Triglycerides (ln(mg/dL)))",
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -1379,7 +1563,7 @@
             "default": 25
           },
           "Triglycerides": {
-            "title": "Triglycerides (mg/dL)",
+            "title": "ln(Triglycerides (ln(mg/dL)))",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -1676,6 +1860,130 @@
         }
       }
     },
+    "demographics_pre": {
+      "title": "Population Composition",
+      "validation": [
+        {
+          "condition": "$.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white + $.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic = 1",
+          "error_message": "Race proportions must sum to 1."
+        }
+      ],
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Demographics",
+              "numbered": ""
+            }
+          },
+          "mean_sd_demographics": {
+            "ui:field_type": {
+              "type": "grid",
+              "columns": 4
+            }
+          },
+          "race_proportions": {
+            "ui:field_type": {
+              "type": "grid",
+              "columns": 4
+            }
+          },
+          "other_proportions": {
+            "ui:field_type": {
+              "type": "grid",
+              "columns": 4
+            }
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mean_sd_demographics": {
+            "title": " ",
+            "description": "",
+            "type": "object",
+            "properties": {
+              "Age at entry mean": {
+                "description": "",
+                "$ref": "#/definitions/nonnegativeNumber",
+                "default": 46.45
+              },
+              "Age at entry sd": {
+                "description": "",
+                "$ref": "#/definitions/nonnegativeNumber",
+                "default": 17.27
+              },
+              "Diabetes duration entry mean": {
+                "description": "",
+                "$ref": "#/definitions/nonnegativeNumber",
+                "default": 0.0
+              },
+              "Diabetes duration entry sd": {
+                "description": "",
+                "$ref": "#/definitions/nonnegativeNumber",
+                "default": 0.0
+              }
+            }
+          },
+          "race_proportions": {
+            "title": " ",
+            "description": "",
+            "type": "object",
+            "properties": {
+              "proportion_white": {
+                "title": "Race: White",
+                "description": "",
+                "$ref": "#/definitions/proportion",
+                "default": 0.4291
+              },
+              "proportion_black": {
+                "title": "Race: Black",
+                "description": "",
+                "$ref": "#/definitions/proportion",
+                "default": 0.1947
+              },
+              "proportion_hispanic": {
+                "title": "Race: Hispanic",
+                "description": "",
+                "$ref": "#/definitions/proportion",
+                "default": 0.2478
+              },
+              "proportion_other": {
+                "title": "Race: Other",
+                "description": "",
+                "$ref": "#/definitions/proportion",
+                "default": 0.1285
+              }
+            }
+          },
+          "other_proportions": {
+            "title": " ",
+            "description": "",
+            "type": "object",
+            "properties": {
+              "Proportion with postsecondary education": {
+                "description": "",
+                "$ref": "#/definitions/proportion",
+                "default": 0.5642
+              },
+              "Proportion smoking": {
+                "description": "",
+                "$ref": "#/definitions/proportion",
+                "default": 0.25
+              },
+              "Proportion females": {
+                "description": "",
+                "$ref": "#/definitions/proportion",
+                "default": 0.5202
+              }
+            }
+          }
+        }
+      }
+    },
     "risk_factors": {
       "title": " ",
       "ui:schema": {
@@ -1806,7 +2114,7 @@
             "default": 39.67
           },
           "Triglycerides": {
-            "title": "Triglycerides (mg/dL)",
+            "title": "ln(Triglycerides (ln(mg/dL)))",
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -1840,6 +2148,174 @@
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 0.38
+          }
+        }
+      }
+    },
+    "risk_factors_pre": {
+      "title": " ",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Risk factors",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Variable": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Mean": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Standard deviation": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "HBA1C": {
+            "title": "HbA1c (%)",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "HBA1C mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 5.44
+          },
+          "HBA1C sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0.39
+          },
+          "BMI": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "BMI mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 28.47
+          },
+          "BMI sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 6.56
+          },
+          "SBP": {
+            "title": "Systolic blood pressure (mmHg)",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "SBP mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 121.75
+          },
+          "SBP sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 17.19
+          },
+          "HDL": {
+            "title": "HDL (mg/dL)",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "HDL mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 54.06
+          },
+          "HDL sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 16.35
+          },
+          "LDL": {
+            "title": "LDL (mg/dL)",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "LDL mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 115.85
+          },
+          "LDL sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 34.23
+          },
+          "Triglycerides": {
+            "title": "ln(Triglycerides (ln(mg/dL)))",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Triglycerides mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 4.68
+          },
+          "Triglycerides sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0.48
+          },
+          "Serum creatinine": {
+            "title": "Serum creatinine (mg/dL)",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Serum creatinine mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0.87
+          },
+          "Serum creatinine sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0.27
           }
         }
       }
@@ -1968,6 +2444,130 @@
         }
       }
     },
+    "clinical_history_pre": {
+      "title": " ",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Clinical history (proportions)",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Proportion microalbuminuria": {
+            "title": "Microalbuminuria",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0731
+          },
+          "Proportion macroalbuminuria": {
+            "title": "Macroalbuminuria",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0
+          },
+          "Proportion eGFR <60": {
+            "title": "eGFR <60",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0654
+          },
+          "Proportion eGFR <30": {
+            "title": "eGFR <30",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.004
+          },
+          "Proportion dialysis": {
+            "title": "Dialysis",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0007
+          },
+          "Proportion neuropathy": {
+            "title": "Neuropathy",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0
+          },
+          "Proportion foot ulcer": {
+            "title": "Foot ulcer",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0
+          },
+          "Proportion amputation": {
+            "title": "Amputation",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0
+          },
+          "Proportion laser retina": {
+            "title": "Laser retinopathy",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0
+          },
+          "Proportion blindness": {
+            "title": "Blindness",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0
+          },
+          "Proportion MI": {
+            "title": "MI",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0266
+          },
+          "Proportion stroke": {
+            "title": "Stroke",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0242
+          },
+          "Proportion CHF": {
+            "title": "CHF",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0181
+          },
+          "Proportion angina": {
+            "title": "Angina",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.015
+          },
+          "Proportion revascularization": {
+            "title": "Revascularization",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0
+          },
+          "Dataset": {
+            "title": "Proportion from ACCORD dataset",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0
+          }
+        }
+      }
+    },
     "baseline_economic_factors_t1d": {
       "title": "Economic factors",
       "ui:schema": {
@@ -2018,7 +2618,7 @@
         "items": {
           "ui:options": {
             "header_buttons": {
-              "common_text": "Baseline factors",
+              "common_text": "Discount factors",
               "numbered": ""
             }
           },
@@ -2037,26 +2637,48 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 0.03
           },
-          "Base cost": {
+          "QALY discount factor": {
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 9311
+            "default": 0.03
+          }
+        }
+      }
+    },
+    "baseline_economic_factors_pre": {
+      "title": "Economic factors",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Discount factors",
+              "numbered": ""
+            }
           },
-          "TV age cost": {
-            "title": "Time-varying age cost",
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Cost discount factor": {
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 64
+            "default": 0.03
           },
           "QALY discount factor": {
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 0.03
-          },
-          "Baseline QALY": {
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.935
           }
         }
       }
@@ -2999,6 +3621,23 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
+          "Baseline QALY text": {
+            "title": "Baseline QALY",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Baseline QALY": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0.935
+          },
+          "Baseline QALY placeholder": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
           "Smoking": {
             "description": "",
             "$ref": "#/definitions/text",
@@ -3583,6 +4222,1170 @@
             "readOnly": true
           },
           "Standard error": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Base cost text": {
+            "title": "Base cost",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Base cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 9311
+          },
+          "Base cost placeholder": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "TV age cost text": {
+            "title": "Time-varying age cost",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "TV age cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 64
+          },
+          "TV age cost placeholder": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Macroalbuminuria, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Macroalbuminuria, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 11509
+          },
+          "Macroalbuminuria, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 315
+          },
+          "Macroalbuminuria, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Macroalbuminuria, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 3057
+          },
+          "Macroalbuminuria, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 291
+          },
+          "eGFR <30, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "eGFR 30, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 11509
+          },
+          "eGFR 30, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 315
+          },
+          "eGFR <30, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "eGFR 30, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 3057
+          },
+          "eGFR 30, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 291
+          },
+          "eGFR <60, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "eGFR 60, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 11509
+          },
+          "eGFR 60, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 315
+          },
+          "eGFR <60, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "eGFR 60, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 3057
+          },
+          "eGFR 60, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 291
+          },
+          "Dialysis, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Dialysis, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 94231.0
+          },
+          "Dialysis, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 4336.0
+          },
+          "Dialysis, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Dialysis, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 98981.0
+          },
+          "Dialysis, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 5066.0
+          },
+          "Neuropathy, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Neuropathy, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 4323.0
+          },
+          "Neuropathy, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 160.0
+          },
+          "Neuropathy, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Neuropathy, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 2012.0
+          },
+          "Neuropathy, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 186.0
+          },
+          "Foot ulcer, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Foot ulcer, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 11045.0
+          },
+          "Foot ulcer, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 704.0
+          },
+          "Foot ulcer, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Foot ulcer, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 2147.0
+          },
+          "Foot ulcer, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 684.0
+          },
+          "Amputation, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Amputation, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 25008.0
+          },
+          "Amputation, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 3767.0
+          },
+          "Laser retina, first year": {
+            "title": "Laser retinopathy, first year",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Laser retina, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 4393.0
+          },
+          "Laser retina, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 995.0
+          },
+          "Laser retina, following year": {
+            "title": "Laser retinopathy, following year",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Laser retina, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 2202.0
+          },
+          "Laser retina, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 276.0
+          },
+          "Blindness, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Blindness, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 12995.0
+          },
+          "Blindness, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 1733.0
+          },
+          "Blindness, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Blindness, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 2378.0
+          },
+          "Blindness, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 1813.0
+          },
+          "MI, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "MI, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 45251.0
+          },
+          "MI, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 1203.0
+          },
+          "MI, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "MI, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 8572.0
+          },
+          "MI, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 1107.0
+          },
+          "Stroke, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Stroke, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 23780.0
+          },
+          "Stroke, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 850.0
+          },
+          "Stroke, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Stroke, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 4729.0
+          },
+          "Stroke, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 876.0
+          },
+          "CHF, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CHF, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 31202.0
+          },
+          "CHF, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 920.0
+          },
+          "CHF, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CHF, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 7062.0
+          },
+          "CHF, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 883.0
+          },
+          "Revascularization, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Revascularization, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 20328.0
+          },
+          "Revascularization, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 560.0
+          },
+          "Angina, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Angina, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 8907.0
+          },
+          "Angina, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 331.0
+          },
+          "Hypoglycemia (medical assistance), first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Hypoglycemia (medical assistance), first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 7656.0
+          },
+          "Hypoglycemia (medical assistance), first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 296.0
+          }
+        }
+      }
+    },
+    "disutilities_pre": {
+      "title": "",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Event Disutilities",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Variable": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Utility decrement": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Standard error": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Baseline QALY text": {
+            "title": "Baseline QALY",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Baseline QALY": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0.935
+          },
+          "Baseline QALY placeholder": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Smoking": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Smoking, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.006
+          },
+          "Smoking, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.005
+          },
+          "BMI": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "BMI, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.003
+          },
+          "BMI, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0
+          },
+          "Duration": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Duration, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.008
+          },
+          "Duration, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0
+          },
+          "eGFR <60, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "eGFR 60, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.014
+          },
+          "eGFR 60, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.003
+          },
+          "eGFR <60, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "eGFR 60, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.015
+          },
+          "eGFR 60, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.003
+          },
+          "eGFR <30, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "eGFR 30, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.043
+          },
+          "eGFR 30, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.01
+          },
+          "eGFR <30, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "eGFR 30, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.025
+          },
+          "eGFR 30, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.01
+          },
+          "Dialysis, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Dialysis, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.038
+          },
+          "Dialysis, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.015
+          },
+          "Dialysis, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Dialysis, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.015
+          },
+          "Dialysis, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.013
+          },
+          "Neuropathy, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Neuropathy, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.007
+          },
+          "Neuropathy, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.004
+          },
+          "Neuropathy, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Neuropathy, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.007
+          },
+          "Neuropathy, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.004
+          },
+          "Foot ulcer, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Foot ulcer, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.017
+          },
+          "Foot ulcer, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.009
+          },
+          "Foot ulcer, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Foot ulcer, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.02
+          },
+          "Foot ulcer, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.009
+          },
+          "Amputation, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Amputation, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.092
+          },
+          "Amputation, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.028
+          },
+          "Amputation, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Amputation, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.15
+          },
+          "Amputation, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.034
+          },
+          "Laser retina, first year": {
+            "title": "Laser retinopathy, first year",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Laser retina, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.011
+          },
+          "Laser retina, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.007
+          },
+          "Laser retina, following year": {
+            "title": "Laser retinopathy, following year",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Laser retina, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.014
+          },
+          "Laser retina, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.006
+          },
+          "Blindness, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Blindness, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.045
+          },
+          "Blindness, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.01
+          },
+          "Blindness, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Blindness, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.023
+          },
+          "Blindness, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.01
+          },
+          "MI, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "MI, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.027
+          },
+          "MI, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.009
+          },
+          "MI, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "MI, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.007
+          },
+          "MI, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.008
+          },
+          "Stroke, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Stroke, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.107
+          },
+          "Stroke, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.015
+          },
+          "Stroke, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Stroke, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.051
+          },
+          "Stroke, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.014
+          },
+          "CHF, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CHF, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.05
+          },
+          "CHF, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.014
+          },
+          "CHF, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "CHF, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.043
+          },
+          "CHF, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.014
+          },
+          "Angina, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Angina, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.015
+          },
+          "Angina, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.009
+          },
+          "Angina, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Angina, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.028
+          },
+          "Angina, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.008
+          },
+          "Revascularization, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Revascularization, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.005
+          },
+          "Revascularization, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.006
+          },
+          "Revascularization, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Revascularization, following year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.0
+          },
+          "Revascularization, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.007
+          },
+          "Hypoglycemia (medical assistance), first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Hypoglycemia (medical assistance), first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.001
+          },
+          "Hypoglycemia (medical assistance), first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.008
+          },
+          "Hypoglycemia (any assistance), first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Hypoglycemia (any assistance), first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.0
+          },
+          "Hypoglycemia (any assistance), first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.006
+          },
+          "Intercept, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Intercept, first year mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.935
+          },
+          "Intercept, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.012
+          }
+        }
+      }
+    },
+    "costs_pre": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Event Cost",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Variable": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Cost": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Standard error": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Base cost text": {
+            "title": "Base cost",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Base cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 9311
+          },
+          "Base cost placeholder": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "TV age cost text": {
+            "title": "Time-varying age cost",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "TV age cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 64
+          },
+          "TV age cost placeholder": {
+            "title": " ",
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -4545,6 +6348,10 @@
             "type": "string",
             "default": "initial default"
           },
+          "annual_cost": {
+            "title": "Annual cost",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
           "factor_changes": {
             "title": "Factor changes",
             "type": "object",
@@ -4648,10 +6455,165 @@
           }
         }
       },
-      "_watch_for_changes": true
+      "_watch_for_changes": "Interventions - T1D"
     },
     "intervention_sets_t2d_t2d": {
       "title": "T2D",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "header_buttons": {
+              "common_text": "Intervention Set",
+              "numbered": true
+            }
+          },
+          "factor_changes": {
+            "ui:field_type": "grid"
+          },
+          "risk_reductions": {
+            "ui:field_type": "grid"
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "intervention_set_name": {
+            "title": "Intervention set name",
+            "type": "string",
+            "default": "initial default"
+          },
+          "factor_changes": {
+            "title": "Factor Changes",
+            "type": "object",
+            "properties": {
+              "hba1c": {
+                "title": "HbA1c (%)",
+                "description": "",
+                "type": "number"
+              },
+              "bmi": {
+                "title": "BMI (1 point change)",
+                "description": "",
+                "type": "number"
+              },
+              "sbp": {
+                "title": "Systolic blood pressure (mmHg)",
+                "description": "",
+                "type": "number"
+              },
+              "hdl": {
+                "title": "HDL (mg/dL)",
+                "description": "",
+                "type": "number"
+              },
+              "ldl": {
+                "title": "LDL (mg/dL)",
+                "description": "",
+                "type": "number"
+              },
+              "trig": {
+                "title": "Triglycerides (mg/dL)",
+                "description": "",
+                "type": "number"
+              },
+              "smoker": {
+                "title": "Smoking (probability change)",
+                "description": "",
+                "type": "number"
+              },
+              "serum_creatinine": {
+                "title": "Serum creatinine (mg/dL)",
+                "description": "",
+                "type": "number"
+              }
+            }
+          },
+          "risk_reductions": {
+            "title": "Risk reductions (% change)",
+            "type": "object",
+            "properties": {
+              "microalbuminuria": {
+                "title": "Microalbuminuria",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "macroalbuminuria": {
+                "title": "Macroalbuminuria",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "egfr_60": {
+                "title": "eGFR <60",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "egfr_30": {
+                "title": "eGFR <30",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "dialysis": {
+                "title": "Dialysis",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "neuropathy": {
+                "title": "Neuropathy",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "ulcer": {
+                "title": "Foot ulcer",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "amputation": {
+                "title": "Amputation",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "laser_retin": {
+                "title": "Laser retinopathy",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "blindness": {
+                "title": "Blindness",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "mi": {
+                "title": "MI",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "stroke": {
+                "title": "Stroke",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "chf": {
+                "title": "CHF",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "angina": {
+                "title": "Angina",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "revasc": {
+                "title": "Revascularization",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "hypo_med": {
+                "title": "Hypoglycemia requiring medical assistance",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "hypo_any": {
+                "title": "Hypoglycemia requiring any assistance",
+                "$ref": "#/definitions/negativeProportion"
+              }
+            }
+          }
+        }
+      }
+    },
+    "intervention_sets_pre_pre": {
+      "title": "PRE",
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
@@ -4844,7 +6806,7 @@
         }
       }
     },
-    "sensitivity_analysis_t1d_t2d": {
+    "sensitivity_analysis_t2d": {
       "title": "Configurations for probablistic sensitivity analysis.",
       "description": "",
       "type": "object",
@@ -4899,7 +6861,99 @@
               "Stroke",
               "CHF",
               "Angina",
-              "Ravascularization",
+              "Revascularization",
+              "Hypoglycemia, requiring medical assistance",
+              "Hypoglycemia, any medical assistance"
+            ]
+          }
+        },
+        "factor_changes": {
+          "title": "Array of risk factor variables to sample randomly",
+          "description": "",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "hba1c",
+              "bmi",
+              "sbp",
+              "hdl",
+              "ldl",
+              "trig",
+              "smoker",
+              "serum_creatinine"
+            ],
+            "enumNames": [
+              "HbA1c",
+              "BMI",
+              "Systolic blood pressure",
+              "HDL",
+              "LDL",
+              "Triglycerides",
+              "Smoking",
+              "Serum creatinine"
+            ]
+          }
+        }
+      }
+    },
+    "sensitivity_analysis_pre": {
+      "title": "Configurations for probablistic sensitivity analysis.",
+      "description": "",
+      "type": "object",
+      "ui:schema": {
+        "ui:order": ["factor_changes", "risk_reductions"],
+        "factor_changes": {
+          "ui:widget": "checkboxes"
+        },
+        "risk_reductions": {
+          "ui:widget": "checkboxes"
+        }
+      },
+      "properties": {
+        "risk_reductions": {
+          "title": "Array of risk reductions variables to sample randomly",
+          "description": "",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "microalbuminuria",
+              "macroalbuminuria",
+              "egfr_60",
+              "egfr_30",
+              "dialysis",
+              "neuropathy",
+              "ulcer",
+              "amputation",
+              "laser_retin",
+              "blindness",
+              "mi",
+              "stroke",
+              "chf",
+              "angina",
+              "revasc",
+              "hypo_med",
+              "hypo_any"
+            ],
+            "enumNames": [
+              "Microalbuminuria",
+              "Macroalbuminuria",
+              "eGFR <60",
+              "eGFR <30",
+              "Dialysis",
+              "Neuropathy",
+              "Foot ulcer",
+              "Amputation",
+              "Laser retinopathy",
+              "Blindness",
+              "MI",
+              "Stroke",
+              "CHF",
+              "Angina",
+              "Revascularization",
               "Hypoglycemia, requiring medical assistance",
               "Hypoglycemia, any medical assistance"
             ]
@@ -5007,51 +7061,6 @@
             "title": "Factor changes",
             "type": "object",
             "properties": {
-              "Microalbuminuria": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "Macroalbuminuria": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "Impaired GFR": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "ESRD": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "NPDR": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "PDR": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "CSME": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "CVD": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "DPN": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "Foot ulcer": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "Amputation": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "Hypoglycemia": {
-                "$ref": "#/definitions/negativeProportion"
-              },
-              "DKA": {
-                "$ref": "#/definitions/negativeProportion"
-              }
-            }
-          },
-          "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "type": "object",
-            "properties": {
               "hba1c": {
                 "title": "HbA1c (%)",
                 "description": "",
@@ -5101,6 +7110,51 @@
                 "title": "Insulin dose (units/kg)",
                 "description": "",
                 "type": "number"
+              }
+            }
+          },
+          "risk_reductions": {
+            "title": "Risk reductions (% change)",
+            "type": "object",
+            "properties": {
+              "Microalbuminuria": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Macroalbuminuria": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Impaired GFR": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "ESRD": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "NPDR": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "PDR": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "CSME": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "CVD": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "DPN": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Foot ulcer": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Amputation": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Hypoglycemia": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "DKA": {
+                "$ref": "#/definitions/negativeProportion"
               }
             }
           }
@@ -5328,6 +7382,7 @@
             "readOnly": true
           },
           "Annual A1c before intensifying": {
+            "title": "Annual A1c change (%) before intensifying",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -5342,6 +7397,7 @@
             "$ref": "#/definitions/nonnegativeNumber"
           },
           "Annual A1c after intensifying": {
+            "title": "Annual A1c change (%) after intensifying",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -5477,16 +7533,16 @@
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
           },
-          "If age < 21": {
+          "If age < 18": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "If age < 21 Standard": {
+          "If age < 18 Standard": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
           },
-          "If age < 21 Intervention": {
+          "If age < 18 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
