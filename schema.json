@@ -2760,7 +2760,7 @@
           "female": {
             "title": "Female",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
+            "$ref": "#/definitions/nonnegativeNumber"
           },
           "female placeholder": {
             "title": " ",
@@ -2776,7 +2776,7 @@
           "diabetes_duration_entry": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
+            "$ref": "#/definitions/nonnegativeNumber"
           },
           "diabetes_duration_entry placeholder": {
             "title": " ",
