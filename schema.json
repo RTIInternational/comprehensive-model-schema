@@ -2753,14 +2753,14 @@
             "readOnly": true
           },
           "female text": {
-            "title": "",
+            "title": "Female",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
           "female": {
-            "title": "Female",
+            "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/negativeProportion"
           },
           "female placeholder": {
             "title": " ",
@@ -2776,7 +2776,7 @@
           "diabetes_duration_entry": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/negativeProportion"
           },
           "diabetes_duration_entry placeholder": {
             "title": " ",
