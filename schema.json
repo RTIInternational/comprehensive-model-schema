@@ -246,35 +246,6 @@
         ]
       },
       {
-        "title": "Scenario Setup: Intervention Sets - Type 1 Diabetes",
-        "url_path": "/intervention-sets-config-for-type-1-diabetes-sensitivity-analysis",
-        "form_submit_button": true,
-        "expand_if": {
-          "simulation_type_t1d": "Sensitivity analysis"
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/intervention_sets_t1d_psa",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          }
-        ]
-      },
-      {
-        "title": "Scenario Setup: Sensitivity Analysis - Type 1 Diabetes",
-        "url_path": "/sensitivity-analysis-config-t1d",
-        "form_submit_button": true,
-        "expand_if": {
-          "simulation_type_t1d": "Sensitivity analysis"
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/sensitivity_analysis_t1d_t1d",
-            "update_on_change": true
-          }
-        ]
-      },
-      {
         "title": "Scenario Setup: Intervention Sets - Type 2 Diabetes",
         "url_path": "/intervention-sets-config-for-type-2-diabetes",
         "form_submit_button": true,
@@ -487,6 +458,20 @@
             "$ref": "#/properties/costs_pre",
             "items_length": "iterations_pre",
             "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+      {
+        "title": "Scenario Setup: Sensitivity Analysis - Type 1 Diabetes",
+        "url_path": "/sensitivity-analysis-config-t1d",
+        "form_submit_button": true,
+        "expand_if": {
+          "simulation_type_t1d": "Sensitivity analysis"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/sensitivity_analysis_t1d_t1d",
             "update_on_change": true
           }
         ]
@@ -1847,17 +1832,20 @@
             "description": "",
             "type": "object",
             "properties": {
-              "Proportion with postsecondary education": {
+              "proportion_postsecondary_education": {
+                "title": "Proportion with postsecondary education",
                 "description": "",
                 "$ref": "#/definitions/proportion",
                 "default": 0.44
               },
-              "Proportion smoking": {
+              "proportion_smoker": {
+                "title": "Proportion smoking",
                 "description": "",
                 "$ref": "#/definitions/proportion",
                 "default": 0.03
               },
-              "Proportion females": {
+              "proportion_female": {
+                "title": "Proportion females",
                 "description": "",
                 "$ref": "#/definitions/proportion",
                 "default": 0.502
@@ -1972,17 +1960,20 @@
             "description": "",
             "type": "object",
             "properties": {
-              "Proportion with postsecondary education": {
+              "proportion_postsecondary_education": {
+                "title": "Proportion with postsecondary education",
                 "description": "",
                 "$ref": "#/definitions/proportion",
                 "default": 0.5642
               },
-              "Proportion smoking": {
+              "proportion_smoker": {
+                  "title": "Proportion smoking",
                 "description": "",
                 "$ref": "#/definitions/proportion",
                 "default": 0.25
               },
-              "Proportion females": {
+              "proportion_female": {
+                "title": "Proportion females",
                 "description": "",
                 "$ref": "#/definitions/proportion",
                 "default": 0.5202
@@ -2326,6 +2317,24 @@
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 0.27
+          },
+          "FPG": {
+            "title": "FPG (Fasting plasma glucose)",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "FPG mean": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0.00
+          },
+          "FPG sd": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0.00
           }
         }
       }
@@ -2356,97 +2365,97 @@
       "items": {
         "type": "object",
         "properties": {
-          "Proportion microalbuminuria": {
+          "proportion_microalbuminuria": {
             "title": "Microalbuminuria",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.2314
           },
-          "Proportion macroalbuminuria": {
+          "proportion_macroalbuminuria": {
             "title": "Macroalbuminuria",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0
           },
-          "Proportion eGFR <60": {
+          "proportion_egfr_60": {
             "title": "eGFR <60",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.2054
           },
-          "Proportion eGFR <30": {
+          "proportion_egfr_30": {
             "title": "eGFR <30",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0168
           },
-          "Proportion dialysis": {
+          "proportion_dialysis": {
             "title": "Dialysis",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0022
           },
-          "Proportion neuropathy": {
+          "proportion_neuropathy": {
             "title": "Neuropathy",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0
           },
-          "Proportion foot ulcer": {
+          "proportion_foot_ulcer": {
             "title": "Foot ulcer",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0
           },
-          "Proportion amputation": {
+          "proportion_amputation": {
             "title": "Amputation",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0
           },
-          "Proportion laser retina": {
+          "proportion_laser_retina": {
             "title": "Laser retinopathy",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0
           },
-          "Proportion blindness": {
+          "proportion_blindness": {
             "title": "Blindness",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0
           },
-          "Proportion MI": {
+          "proportion_mi": {
             "title": "MI",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0994
           },
-          "Proportion stroke": {
+          "proportion_stroke": {
             "title": "Stroke",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0796
           },
-          "Proportion CHF": {
+          "proportion_chf": {
             "title": "CHF",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0817
           },
-          "Proportion angina": {
+          "proportion_angina": {
             "title": "Angina",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0649
           },
-          "Proportion revascularization": {
+          "proportion_revascularization": {
             "title": "Revascularization",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0
           },
-          "Dataset": {
+          "dataset": {
             "title": "Proportion from ACCORD dataset",
             "description": "",
             "$ref": "#/definitions/proportion",
@@ -2481,97 +2490,103 @@
       "items": {
         "type": "object",
         "properties": {
-          "Proportion microalbuminuria": {
+          "proportion_microalbuminuria": {
             "title": "Microalbuminuria",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0731
           },
-          "Proportion macroalbuminuria": {
+          "proportion_macroalbuminuria": {
             "title": "Macroalbuminuria",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0
           },
-          "Proportion eGFR <60": {
+          "proportion_egfr_60": {
             "title": "eGFR <60",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0654
           },
-          "Proportion eGFR <30": {
+          "proportion_egfr_30": {
             "title": "eGFR <30",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.004
           },
-          "Proportion dialysis": {
+          "proportion_dialysis": {
             "title": "Dialysis",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0007
           },
-          "Proportion neuropathy": {
+          "proportion_neuropathy": {
             "title": "Neuropathy",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0
           },
-          "Proportion foot ulcer": {
+          "proportion_foot_ulcer": {
             "title": "Foot ulcer",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0
           },
-          "Proportion amputation": {
+          "proportion_amputation": {
             "title": "Amputation",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0
           },
-          "Proportion laser retina": {
+          "proportion_laser_retina": {
             "title": "Laser retinopathy",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0
           },
-          "Proportion blindness": {
+          "proportion_blindness": {
             "title": "Blindness",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0
           },
-          "Proportion MI": {
+          "proportion_mi": {
             "title": "MI",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0266
           },
-          "Proportion stroke": {
+          "proportion_stroke": {
             "title": "Stroke",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0242
           },
-          "Proportion CHF": {
+          "proportion_chf": {
             "title": "CHF",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0181
           },
-          "Proportion angina": {
+          "proportion_angina": {
             "title": "Angina",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.015
           },
-          "Proportion revascularization": {
+          "proportion_revascularization": {
             "title": "Revascularization",
             "description": "",
             "$ref": "#/definitions/proportion",
             "default": 0.0
           },
-          "Dataset": {
+          "proportion_family_history": {
+            "title": "Family history",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0.0
+          },
+          "dataset": {
             "title": "Proportion from ACCORD dataset",
             "description": "",
             "$ref": "#/definitions/proportion",
@@ -2752,15 +2767,33 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
+          "age text": {
+            "title": "Age",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Age": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.009
+          },
+          "age placeholder": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
           "female text": {
             "title": "Female",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "female": {
+          "Female": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/negativeProportion"
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.028
           },
           "female placeholder": {
             "title": " ",
@@ -2768,17 +2801,18 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "diabetes_duration_entry text": {
-            "title": "Diabetes duration entry",
+          "baseline_duration text": {
+            "title": "Baseline Duration",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "diabetes_duration_entry": {
+          "Baseline duration": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/negativeProportion"
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.001
           },
-          "diabetes_duration_entry placeholder": {
+          "baseline_duration placeholder": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/text",
