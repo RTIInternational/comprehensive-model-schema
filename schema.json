@@ -2328,13 +2328,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.00
+            "default": 98.4
           },
           "FPG sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.00
+            "default": 9.1
           }
         }
       }
