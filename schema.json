@@ -62,76 +62,6 @@
         ]
       },
       {
-        "title": "Scenario Setup: Intervention Sets - Type 1 Diabetes",
-        "url_path": "/setup-intervention-sets-t1d",
-        "expand_if": {
-          "diabetes_type": "t1d"
-        },
-        "fieldsets": [
-          [
-            {
-              "$ref": "#/properties/glycemic_control_t1d",
-              "update_on_change": true
-            },
-            {
-              "$ref": "#/properties/generic_intervention_t1d",
-              "update_on_change": true
-            }
-          ]
-        ]
-      },
-      {
-        "title": "Scenario Setup: Glycemic Control - Type 1 Diabetes",
-        "url_path": "/basic-setup-glycemic-control-t1d",
-        "expand_if": {
-          "glycemic_control_t1d": {
-            "glycemic_control_t1d": ["Glycemic control"]
-          }
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/glycemic_control_intervention_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/glycemic_control_advanced_t1d",
-            "update_on_change": true
-          }
-        ]
-      },
-      {
-        "title": "Scenario Setup: Advanced - Glycemic Control - Type 1 Diabetes",
-        "url_path": "/advanced-setup-glycemic-control-t1d",
-        "expand_if": {
-          "glycemic_control_advanced_t1d": {
-            "glycemic_control_advanced_t1d": ["Advanced"]
-          }
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/glycemic_control_trajectory_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/glycemic_control_intensification_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/glycemic_control_targets_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/glycemic_control_costs_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          }
-        ]
-      },
-      {
         "title": "Scenario Setup: Basic - Type 2 Diabetes",
         "url_path": "/basic-setup-for-type-2-diabetes",
         "form_submit_button": true,
@@ -229,19 +159,189 @@
         "url_path": "/intervention-sets-config-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "generic_intervention_t1d": {
-            "generic_intervention_t1d": ["Generic intervention"]
+          "diabetes_type": "t1d"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/interventions_basic_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+      {
+        "title": "Scenario Setup: Intervention Sets - Generic intervention",
+        "url_path": "/intervention-sets-config-for-generic-intervention",
+        "form_submit_button": true,
+        "expand_if": {
+          "interventions_basic_t1d": {
+            "0": {
+              "type_generic_t1d": {
+                "0": "generic"
+              }
+            }
           }
         },
         "fieldsets": [
           {
-            "$ref": "#/properties/intervention_sets_t1d",
+            "$ref": "#/properties/intervention_set_generic_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+      {
+        "title": "Scenario Setup: Intervention Sets - Glycemic control intervention",
+        "url_path": "/intervention-sets-config-for-glycemic-intervention",
+        "form_submit_button": true,
+        "expand_if": {
+          "interventions_basic_t1d": {
+            "0": {
+              "type_glycemic_t1d": {
+                "0": "glycemic"
+              }
+            }
+          }
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/glycemic_control_setup_type_t1d",
             "update_on_change": true
           },
           {
-            "$ref": "#/properties/intervention_sets_t1d_t1d",
-            "items_length": "intervention_sets_t1d",
-            "max_items_length": 10
+            "$ref": "#/properties/glycemic_control_intervention_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if":{
+                "glycemic_control_setup_type_t1d": "basic"
+            }
+          },
+          {
+            "$ref": "#/properties/glycemic_control_trajectory_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if":{
+                "glycemic_control_setup_type_t1d": "advanced"
+            }
+          },
+          {
+            "$ref": "#/properties/glycemic_control_intensification_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if":{
+                "glycemic_control_setup_type_t1d": "advanced"
+            }
+          },
+          {
+            "$ref": "#/properties/glycemic_control_targets_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if":{
+                "glycemic_control_setup_type_t1d": "advanced"
+            }
+          },
+          {
+            "$ref": "#/properties/glycemic_control_costs_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if":{
+                "glycemic_control_setup_type_t1d": "advanced"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Scenario Setup: Intervention Sets - Cholesterol control intervention",
+        "url_path": "/intervention-sets-config-for-cholesterol-intervention",
+        "form_submit_button": true,
+        "expand_if": {
+          "interventions_basic_t1d": {
+            "0": {
+              "type_cholesterol_t1d": {
+                "0": "cholesterol"
+              }
+            }
+          }
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/cholesterol_control_intervention_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/cholesterol_control_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/cholesterol_control_costs_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          }
+        ]
+      },
+      {
+        "title": "Scenario Setup: Intervention Sets - Blood pressure control intervention",
+        "url_path": "/intervention-sets-config-for-blood-pressure-control-intervention",
+        "form_submit_button": true,
+        "expand_if": {
+          "interventions_basic_t1d": {
+            "0": {
+              "type_bp_t1d": {
+                "0": "bp"
+              }
+            }
+          }
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/bp_control_intervention_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/bp_control_trajectory_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/bp_control_intensification_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/bp_control_targets_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/bp_control_costs_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          }
+        ]
+      },
+      {
+        "title": "Scenario Setup: Intervention Sets - Smoking cessation intervention",
+        "url_path": "/intervention-sets-config-for-smoking-cessation-intervention",
+        "form_submit_button": true,
+        "expand_if": {
+          "interventions_basic_t1d": {
+            "0": {
+              "type_smoke_t1d": {
+                "0": "smoking"
+              }
+            }
+          }
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/smoking_cessation_intervention_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
           }
         ]
       },
@@ -254,13 +354,46 @@
         },
         "fieldsets": [
           {
-            "$ref": "#/properties/intervention_sets_t2d",
+            "$ref": "#/properties/interventions_basic_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
             "update_on_change": true
+          }
+        ]
+      },
+      {
+        "title": "Scenario Setup: Intervention Sets - Lifestyle intervention",
+        "url_path": "/intervention-sets-config-for-lifestyle-intervention",
+        "form_submit_button": true,
+        "expand_if": {
+          "interventions_basic_t2d": {
+            "0": {
+              "type_lifestyle_t2d": {
+                "0": "lifestyle"
+              }
+            }
+          }
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/lifestyle_intervention_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1
           },
           {
-            "$ref": "#/properties/intervention_sets_t2d_t2d",
-            "items_length": "intervention_sets_t2d",
-            "max_items_length": 10
+            "$ref": "#/properties/lifestyle_advanced_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/lifestyle_effects_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/lifestyle_costs_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1
           }
         ]
       },
@@ -1967,7 +2100,7 @@
                 "default": 0.5642
               },
               "proportion_smoker": {
-                  "title": "Proportion smoking",
+                "title": "Proportion smoking",
                 "description": "",
                 "$ref": "#/definitions/proportion",
                 "default": 0.25
@@ -6404,7 +6537,7 @@
       },
       "_watch_for_changes": true
     },
-    "intervention_sets_t1d_t1d": {
+    "interventions_basic_t1d": {
       "title": "T1D",
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -6416,8 +6549,243 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Intervention set",
-              "numbered": true
+              "common_text": "Intervention set - Basic setup",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          },
+          "type_generic_t1d": {
+            "ui:widget": "checkboxes"
+          },
+          "type_glycemic_t1d": {
+            "ui:widget": "checkboxes"
+          },
+          "type_cholesterol_t1d": {
+            "ui:widget": "checkboxes"
+          },
+          "type_bp_t1d": {
+            "ui:widget": "checkboxes"
+          },
+          "type_smoke_t1d": {
+            "ui:widget": "checkboxes"
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "intervention_set_name_t1d": {
+            "title": "Intervention set name",
+            "type": "string",
+            "default": "initial default"
+          },
+          "placeholder1": {
+            "title": " ",
+            "type": "null"
+          },
+          "placeholder2": {
+            "title": " ",
+            "type": "null"
+          },
+          "intervention_type_text": {
+            "title": "Select interventions to use:",
+            "type": "null"
+          },
+          "type_generic_t1d": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["generic"],
+              "enumNames": ["Generic intervention"]
+            }
+          },
+          "type_glycemic_t1d": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["glycemic"],
+              "enumNames": ["Glycemic control"]
+            }
+          },
+          "type_cholesterol_t1d": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["cholesterol"],
+              "enumNames": ["Cholesterol control"]
+            }
+          },
+          "type_bp_t1d": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["bp"],
+              "enumNames": ["Blood pressure control"]
+            }
+          },
+          "type_smoke_t1d": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["smoking"],
+              "enumNames": ["Smoking cessation"]
+            }
+          }
+        }
+      }
+    },
+    "interventions_basic_t2d": {
+      "title": "T2D",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Intervention set - Basic setup",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          },
+          "type_generic_t2d": {
+            "ui:widget": "checkboxes"
+          },
+          "type_glycemic_t2d": {
+            "ui:widget": "checkboxes"
+          },
+          "type_cholesterol_t2d": {
+            "ui:widget": "checkboxes"
+          },
+          "type_bp_t2d": {
+            "ui:widget": "checkboxes"
+          },
+          "type_smoke_t2d": {
+            "ui:widget": "checkboxes"
+          },
+          "type_lifestyle_t2d": {
+            "ui:widget": "checkboxes"
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "intervention_set_name_t2d": {
+            "title": "Intervention set name",
+            "type": "string",
+            "default": "initial default"
+          },
+          "placeholder1": {
+            "title": " ",
+            "type": "null"
+          },
+          "placeholder2": {
+            "title": " ",
+            "type": "null"
+          },
+          "intervention_type_text": {
+            "title": "Select interventions to use:",
+            "type": "null"
+          },
+          "type_generic_t2d": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["generic"],
+              "enumNames": ["Generic intervention"]
+            }
+          },
+          "type_glycemic_t2d": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["glycemic"],
+              "enumNames": ["Glycemic control"]
+            }
+          },
+          "type_cholesterol_t2d": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["cholesterol"],
+              "enumNames": ["Cholesterol control"]
+            }
+          },
+          "type_bp_t2d": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["bp"],
+              "enumNames": ["Blood pressure control"]
+            }
+          },
+          "type_smoke_t2d": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["smoking"],
+              "enumNames": ["Smoking cessation"]
+            }
+          },
+          "type_lifestyle_t2d": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["lifestyle"],
+              "enumNames": ["Lifestyle"]
+            }
+          }
+        }
+      }
+    },
+    "intervention_set_generic_t1d": {
+      "title": "Generic intervention",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Intervention set - Generic intervention",
+              "numbered": ""
             }
           },
           "factor_changes": {
@@ -6432,11 +6800,6 @@
       "items": {
         "type": "object",
         "properties": {
-          "intervention_set_name": {
-            "title": "Intervention set name",
-            "type": "string",
-            "default": "initial default"
-          },
           "annual_cost": {
             "title": "Annual cost",
             "$ref": "#/definitions/nonnegativeNumber"
@@ -6543,8 +6906,7 @@
             }
           }
         }
-      },
-      "_watch_for_changes": "Interventions - T1D"
+      }
     },
     "intervention_sets_t2d_t2d": {
       "title": "T2D",
@@ -7081,34 +7443,15 @@
         }
       }
     },
-    "glycemic_control_t1d": {
-      "title": "Select interventions to be used",
-      "description": "",
-      "type": "object",
-      "ui:schema": {
-        "glycemic_control_t1d": {
-          "ui:widget": "checkboxes",
-          "ui:fieldtype": {
-            "type": "grid",
-            "columns": 3
-          }
-        }
-      },
-      "properties": {
-        "glycemic_control_t1d": {
-          "title": " ",
-          "description": "",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": ["Glycemic control"]
-          }
-        }
-      }
+    "glycemic_control_setup_type_t1d": {
+      "title": "Choose an intervention setup type:",
+      "$ref": "#/definitions/string",
+      "enum": ["basic", "advanced"],
+      "enumNames": ["Basic setup", "Advanced setup"],
+      "default": "basic"
     },
     "glycemic_control_intervention_t1d": {
-      "title": "Glycemic control",
+      "title": "Glycemic control intervention",
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
@@ -7123,9 +7466,6 @@
               "numbered": ""
             }
           },
-          "costs": {
-            "ui:field_type": "grid"
-          },
           "factor_changes": {
             "ui:field_type": "grid"
           },
@@ -7138,16 +7478,10 @@
       "items": {
         "type": "object",
         "properties": {
-          "costs": {
-            "title": "Cost",
-            "type": "object",
-            "properties": {
-              "cost": {
-                "title": " ",
-                "description": "",
-                "type": "number"
-              }
-            }
+          "annual_cost": {
+            "title": "Annual cost",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 400
           },
           "factor_changes": {
             "title": "Factor changes",
@@ -7156,7 +7490,8 @@
               "hba1c": {
                 "title": "HbA1c (%)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": -1
               },
               "bmi": {
                 "title": "BMI (1 point change)",
@@ -7243,7 +7578,8 @@
                 "$ref": "#/definitions/negativeProportion"
               },
               "Hypoglycemia": {
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": -0.2
               },
               "DKA": {
                 "$ref": "#/definitions/negativeProportion"
@@ -7253,190 +7589,8 @@
         }
       }
     },
-    "glycemic_control_advanced_t1d": {
-      "title": " ",
-      "description": "",
-      "type": "object",
-      "ui:schema": {
-        "glycemic_control_advanced_t1d": {
-          "ui:widget": "checkboxes",
-          "ui:fieldtype": {
-            "type": "grid",
-            "columns": 1
-          }
-        }
-      },
-      "properties": {
-        "glycemic_control_advanced_t1d": {
-          "title": " ",
-          "description": "",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": ["Advanced"],
-            "enumNames": ["Modify advanced settings"]
-          }
-        }
-      }
-    },
-    "sbp_t1d": {
-      "title": " ",
-      "description": "",
-      "type": "object",
-      "ui:schema": {
-        "sbp_t1d": {
-          "ui:widget": "checkboxes",
-          "ui:fieldtype": {
-            "type": "grid",
-            "columns": 1
-          }
-        }
-      },
-      "properties": {
-        "sbp_t1d": {
-          "title": " ",
-          "description": "",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": ["SBP"]
-          }
-        }
-      }
-    },
-    "cholesterol_control_t1d": {
-      "title": " ",
-      "description": "",
-      "type": "object",
-      "ui:schema": {
-        "cholesterol_control_t1d": {
-          "ui:widget": "checkboxes",
-          "ui:fieldtype": {
-            "type": "grid",
-            "columns": 1
-          }
-        }
-      },
-      "properties": {
-        "cholesterol_control_t1d": {
-          "title": " ",
-          "description": "",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": ["Cholesterol control"]
-          }
-        }
-      }
-    },
-    "bmi_reduction_t1d": {
-      "title": " ",
-      "description": "",
-      "type": "object",
-      "ui:schema": {
-        "bmi_reduction_t1d": {
-          "ui:widget": "checkboxes",
-          "ui:fieldtype": {
-            "type": "grid",
-            "columns": 1
-          }
-        }
-      },
-      "properties": {
-        "bmi_reduction_t1d": {
-          "title": " ",
-          "description": "",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": ["BMI reduction"]
-          }
-        }
-      }
-    },
-    "smoking_cessation_t1d": {
-      "title": " ",
-      "description": "",
-      "type": "object",
-      "ui:schema": {
-        "smoking_cessation_t1d": {
-          "ui:widget": "checkboxes",
-          "ui:fieldtype": {
-            "type": "grid",
-            "columns": 1
-          }
-        }
-      },
-      "properties": {
-        "smoking_cessation_t1d": {
-          "title": " ",
-          "description": "",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": ["Smoking cessation"]
-          }
-        }
-      }
-    },
-    "generic_intervention_t1d": {
-      "title": "",
-      "description": "",
-      "type": "object",
-      "ui:schema": {
-        "generic_intervention_t1d": {
-          "ui:widget": "checkboxes",
-          "ui:fieldtype": {
-            "type": "grid",
-            "columns": 1
-          }
-        }
-      },
-      "properties": {
-        "generic_intervention_t1d": {
-          "title": " ",
-          "description": "",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": ["Generic intervention"]
-          }
-        }
-      }
-    },
-    "glycemic_control_trajectory": {
-      "title": " ",
-      "description": "",
-      "type": "object",
-      "ui:schema": {
-        "glycemic_control_t1d": {
-          "ui:widget": "checkboxes",
-          "ui:fieldtype": {
-            "type": "grid",
-            "columns": 1
-          }
-        }
-      },
-      "properties": {
-        "glycemic_control_trajectory": {
-          "title": " ",
-          "description": "",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": ["Change trajectory"]
-          }
-        }
-      }
-    },
     "glycemic_control_trajectory_advanced_t1d": {
+      "title": "Glycemic control intervention",
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
@@ -7500,6 +7654,21 @@
             "$ref": "#/definitions/nonnegativeNumber"
           },
           "Annual A1c After Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Annual A1c subsequent intensifications": {
+            "title": "Annual A1c change (%) for subsequent intensifications",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Annual A1c Subsequent Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Annual A1c Subsequent Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
@@ -7569,6 +7738,20 @@
             "$ref": "#/definitions/nonnegativeNumber"
           },
           "Effect of next intensification on A1c Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Subsequent intensifications": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Subsequent intensifications Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Subsequent intensifications Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
@@ -7726,21 +7909,6 @@
       "items": {
         "type": "object",
         "properties": {
-          "Number of intensifications": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "placeholder1": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "placeholder2": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
           "Variable": {
             "title": " ",
             "$ref": "#/definitions/text",
@@ -7806,6 +7974,1368 @@
             "$ref": "#/definitions/nonnegativeNumber"
           },
           "Subsequent intensifications Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          }
+        }
+      }
+    },
+    "cholesterol_control_intervention_t1d": {
+      "title": "Cholesterol control intervention",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Cholesterol Control: Basic Setup",
+              "numbered": ""
+            }
+          },
+          "factor_changes": {
+            "ui:field_type": "grid"
+          },
+          "risk_reductions": {
+            "ui:field_type": "grid"
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "annual_cost": {
+            "title": "Annual cost",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "age": {
+            "title": "Minimum age of application",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "factor_changes": {
+            "title": "Change in Risk Factors",
+            "type": "object",
+            "properties": {
+              "hdl": {
+                "title": "HDL",
+                "description": "",
+                "type": "number"
+              },
+              "ldl": {
+                "title": "LDL",
+                "description": "",
+                "type": "number"
+              },
+              "trig": {
+                "title": "ln(Triglycerides)",
+                "description": "",
+                "type": "number"
+              }
+            }
+          },
+          "risk_reductions": {
+            "title": "Risk reductions (% change)",
+            "type": "object",
+            "properties": {
+              "Microalbuminuria": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Macroalbuminuria": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Impaired GFR": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "ESRD": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "NPDR": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "PDR": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "CSME": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "CVD": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "DPN": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Foot ulcer": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Amputation": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Hypoglycemia": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "DKA": {
+                "$ref": "#/definitions/negativeProportion"
+              }
+            }
+          }
+        }
+      }
+    },
+    "cholesterol_control_advanced_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Modify intervention",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Variable": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Standard control": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Intervention": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Treatment begins at age": {
+            "title": "Treatment begins at age",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Treatment begins at age Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 40
+          },
+          "Treatment begins at age Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 40
+          },
+          "Treatment if CVD=0 (choose 1)": {
+            "title": "Treatment if CVD=0 (choose 1)",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder1": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder2": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Moderate-intensity statin (CVD=0)": {
+            "title": "Moderate-intensity statin",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "moderate_statin_cvd0_std": {
+            "title": " ",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "moderate_statin_cvd0_int": {
+            "title": " ",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "High-intensity statin (CVD=0)": {
+            "title": "High-intensity statin",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "high_statin_cvd0_std": {
+            "title": " ",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "high_statin_cvd0_int": {
+            "title": " ",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Treatment if CVD=1 (choose 1)": {
+            "title": "Treatment if CVD=1 (choose 1)",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Treatment if CVD=1 (choose 1) Standard": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Treatment if CVD=1 (choose 1) Intervention": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Moderate-intensity statin (CVD=1)": {
+            "title": "Moderate-intensity statin",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "moderate_statin_cvd1_std": {
+            "title": " ",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "moderate_statin_cvd1_int": {
+            "title": " ",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "High-intensity statin (CVD=1)": {
+            "title": "High-intensity statin",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "high_statin_cvd1_std": {
+            "title": " ",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "high_statin_cvd1_int": {
+            "title": " ",
+            "$ref": "#/definitions/nonnegativeNumber"
+          }
+        }
+      }
+    },
+    "cholesterol_control_costs_advanced_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Modify annual costs",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 2
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Moderate": {
+            "title": "Moderate intensity statin",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Moderate intensity statin": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "High": {
+            "title": "High intensity statin",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "High intensity statin": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          }
+        }
+      }
+    },
+    "bp_control_intervention_t1d": {
+      "title": "Blood pressure control intervention",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Blood Pressure Control: Basic Setup",
+              "numbered": ""
+            }
+          },
+          "factor_changes": {
+            "ui:field_type": "grid"
+          },
+          "risk_reductions": {
+            "ui:field_type": "grid"
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "annual_cost": {
+            "title": "Annual cost",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "apply if greater than": {
+            "title": "Apply if systolic blood pressure greater than",
+            "$ref": "#/definitions/positiveInteger",
+            "default": 140
+          },
+          "factor_changes": {
+            "title": "Change in risk factors",
+            "type": "object",
+            "properties": {
+              "dbp": {
+                "title": "Diastolic blood pressure (mm/dL)",
+                "description": "",
+                "type": "number"
+              },
+              "sbp": {
+                "title": "Systolic blood pressure (mm/dL)",
+                "description": "",
+                "type": "number"
+              }
+            }
+          },
+          "risk_reductions": {
+            "title": "Risk reductions (% change)",
+            "type": "object",
+            "properties": {
+              "Microalbuminuria": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Macroalbuminuria": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Impaired GFR": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "ESRD": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "NPDR": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "PDR": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "CSME": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "CVD": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "DPN": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Foot ulcer": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Amputation": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "Hypoglycemia": {
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "DKA": {
+                "$ref": "#/definitions/negativeProportion"
+              }
+            }
+          }
+        }
+      }
+    },
+    "bp_control_trajectory_advanced_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Modify trajectory",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Variable": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Standard control": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Intervention": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Annual SBP change before intensifying": {
+            "title": "Annual SBP change before intensifying",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Annual SBP change Before Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Annual SBP change Before Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Annual SBP change after intensifying": {
+            "title": "Annual SBP change after intensifying",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Annual SBP change After Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Annual SBP change After Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          }
+        }
+      }
+    },
+    "bp_control_intensification_advanced_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Modify effectiveness of intensification",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Variable": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Standard control": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Intervention": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Effect of first drug on blood pressure": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Effect of first drug on blood pressure Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Effect of first drug on blood pressure Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Effect of second drug on blood pressure": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Effect of second drug on blood pressure Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Effect of second drug on blood pressure Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Effect of subsequent drugs on blood pressure": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Effect of subsequent drugs on blood pressure Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Effect of subsequent drugs on blood pressure Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          }
+        }
+      }
+    },
+    "bp_control_targets_advanced_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Modify A1c targets",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Variable": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Standard control": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Intervention": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "General": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "General Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "General Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "If age >= 65": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "If age >= 65 Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "If age >= 65 Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "If CVD = 1": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "If CVD = 1 Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "If CVD = 1 Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "If age >= 65 and CVD = 1": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "If age >= 65 and CVD = 1 Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "If age >= 65 and CVD = 1 Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Intensify if SBP > target": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Intensify if SBP > target Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Intensify if SBP > target Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          }
+        }
+      }
+    },
+    "bp_control_costs_advanced_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Modify annual costs",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Variable": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Standard control": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Intervention": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Current treatment": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Current treatment Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Current treatment Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "First intensification": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "First intensification Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "First intensification Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Next intensification": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Next intensification Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Next intensification Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Subsequent intensifications": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Subsequent intensifications Standard": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Subsequent intensifications Intervention": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          }
+        }
+      }
+    },
+    "smoking_cessation_intervention_t1d": {
+      "title": "Smoking cessation intervention",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Smoking Cessation: Basic Setup",
+              "numbered": ""
+            }
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "annual_cost": {
+            "title": "Annual cost",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "probability of quitting": {
+            "title": "Probability of quitting increased by (%)",
+            "$ref": "#/definitions/nonnegativeNumber"
+          }
+        }
+      }
+    },
+    "lifestyle_intervention_t2d": {
+      "title": "Lifestyle intervention",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Lifestyle: Basic Setup",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "annual_cost_text": {
+            "title": "Annual cost",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder1": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder2": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_1_cost": {
+            "title": "Year 1",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "subsequent_years_cost": {
+            "title": "Subsequent years",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder3": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "bmi_change_text": {
+            "title": "Change in BMI from baseline",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder4": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder5": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_1_change": {
+            "title": "Year 1",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "subsequent_years_change": {
+            "title": "Subsequent years",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder6": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          }
+        }
+      }
+    },
+    "lifestyle_advanced_t2d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Modify intervention",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Apply to persons with bmi (kg/m^2)": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "apply_bmi": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder1": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Apply to persons with HbA1 between": {
+            "title": "Apply to persons with HbA1 (%) between",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Apply to persons with HbA1 between from": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Apply to persons with HbA1 between to": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Apply to persons with FPG between": {
+            "title": "Apply to persons with FPG (mg/dL) between",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Apply to persons with FPG between from": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Apply to persons with FPG between to": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Apply to persons with 2-h plasma glucose during 75-g OGTT": {
+            "title": "Apply to persons with 2-h plasma glucose during 75-g OGTT (mg/dL)",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Apply to persons with 2-h plasma glucose during 75-g OGTT from": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Apply to persons with 2-h plasma glucose during 75-g OGTT to": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "Percent change in BMI relative to baseline": {
+            "title": "Percent change in BMI relative to baseline",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder2": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placholder3": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 1": {
+            "title": "Year 1",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_1_change": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder5": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 2": {
+            "title": "Year 2",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_2_change": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder6": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 3": {
+            "title": "Year 3",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_3_change": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder7": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 4": {
+            "title": "Year 4",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_4_change": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder8": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 5": {
+            "title": "Year 5",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_5_change": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder9": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Subsequent years": {
+            "title": "Subsequent years",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_subsequent_change": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder10": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          }
+        }
+      }
+    },
+    "lifestyle_effects_t2d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Modify effects on annual probability of diabetes onset",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          },
+          "bmi_change_dpp": {
+            "ui:widget": "checkboxes"
+          },
+          "bmi_change_calculated": {
+            "ui:widget": "checkboxes"
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text_0": {
+            "title": "The effects on annual probability of diabetes onset should be (choose 1):",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "bmi_change_dpp": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["true"],
+              "enumNames": [
+                "Based on change of BMI relative to change of BMI in DPP trial"
+              ]
+            }
+          },
+          "bmi_change_calculated": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["true"],
+              "enumNames": [
+                "Calculated directly as percentage reduction in onset risk"
+              ]
+            }
+          },
+          "text_1": {
+            "title": "If bmi change is calculated directly, the following values will be used:",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 1": {
+            "title": "Year 1",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_1_prob": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder5": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 2": {
+            "title": "Year 2",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_2_prob": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder6": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 3": {
+            "title": "Year 3",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_3_prob": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder7": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 4": {
+            "title": "Year 4",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_4_prob": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder8": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 5": {
+            "title": "Year 5",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_5_prob": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder9": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Subsequent years": {
+            "title": "Subsequent years",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_subsequent_prob": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder10": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "text_3": {
+            "title": "Change in other factors",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder11": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder12": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "SBP": {
+            "title": "SBP (mmHg)",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "SBP_change": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder13": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "HDL": {
+            "title": "HDL (mg/dL)",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "HDL_change": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder14": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "LDL": {
+            "title": "LDL (mg/dL)",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "LDL_change": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          }
+        }
+      }
+    },
+    "lifestyle_costs_t2d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Modify annual costs",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Year 1": {
+            "title": "Year 1",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_1_cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder5": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 2": {
+            "title": "Year 2",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_2_cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder6": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Year 3": {
+            "title": "Year 3",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "year_3_cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber"
+          },
+          "placeholder7": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Subsequent years": {
+            "title": "Subsequent years",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "subsequent_year_cost": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
