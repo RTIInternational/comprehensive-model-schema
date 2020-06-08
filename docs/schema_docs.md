@@ -287,7 +287,7 @@ where the output data looks something like
 
 and the conditional_property input is only rendered when the value of condition_key equals the condition.
 
-#### Complex Conditional Pages and Fieldsets
+### Complex Conditional Pages and Fieldsets
 
 The "expand_if" field may also accept the boolean operations AND and OR. AND operations in "expand_if" are denoted by the "$and" key, and have `object` values wherein each key behaves as an "expand_if" conditional or boolean operation. Similarly, OR operations are denoted by "$or". The following example shows the "expand_if" statement for a field that is displayed when schema.diabetes_type is "t1d" and schema.interventions_basic_t1d[0].type_generic_t1d[0] is "generic".
 ```
