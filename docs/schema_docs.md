@@ -253,11 +253,11 @@ Grid items have a pre-defined width and wrap responsively by default. To set a f
 
 The form can be configured to display its submit button on any non-built-in page with the "form_submit_button" page field (see [ui:layout example](#example)). It can be given a string value for use as the button text, but if given `true` will default to "Submit Form".
 
-### Conditional Pages and Fieldsets
+### Simple Conditional Pages and Fieldsets
 
 Defined by the "expand_if" field. Optional on pages and root-level fieldsets.
 
-expand_if points to some fields in the schema's properties and defines a condition. It is structured as an object with one field, which may be either the condition key:value pair or another one-field object, and so on, for example:
+expand_if conditions point to some fields in the schema's properties and defines a condition. They are structured as an object with one field, which may be either the condition key:value pair or another one-field object, and so on, for example:
 
 ```
 {
@@ -286,6 +286,61 @@ where the output data looks something like
 ```
 
 and the conditional_property input is only rendered when the value of condition_key equals the condition.
+
+#### Complex Conditional Pages and Fieldsets
+
+The "expand_if" field may also accept the boolean operations AND and OR. AND operations in "expand_if" are denoted by the "$and" key, and have `object` values wherein each key behaves as an "expand_if" conditional or boolean operation. Similarly, OR operations are denoted by "$or". The following example shows the "expand_if" statement for a field that is displayed when schema.diabetes_type is "t1d" and schema.interventions_basic_t1d[0].type_generic_t1d[0] is "generic".
+```
+"expand_if": {
+  "$and": {
+      "diabetes_type": "t1d",
+      "interventions_basic_t1d": {
+        "0": {
+          "type_generic_t1d": {
+            "0": "generic"
+          }
+        }
+      }
+    },
+  }
+},
+```
+
+Boolean operations may contain any number of operands (zero operands will always resolve to `false`):
+```
+"expand_if": {
+  "$and": {
+    "diabetes_type": "t1d",
+    "simulation_type_t1d": "Standard"
+    "interventions_basic_t1d": {
+      "0": {
+        "type_generic_t1d": {
+          "0": "generic"
+        }
+      }
+    }
+  }
+},
+```
+
+Boolean operations may be nested:
+```
+"expand_if": {
+  "$and": {
+    "$or": {
+      "diabetes_type": "t1d",
+      "simulation_type_t1d": "Standard"
+    },
+    "interventions_basic_t1d": {
+      "0": {
+        "type_generic_t1d": {
+          "0": "generic"
+        }
+      }
+    }
+  }
+},
+```
 
 # Multi-Variable Validation
 
