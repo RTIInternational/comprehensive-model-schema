@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "schema.json",
-  "description": "Configuration for the Comprehensive Diabetes Model",
+  "description": "Configuration for the comprehensive diabetes model",
   "type": "object",
   "ui:layout": {
     "pages": [
@@ -15,6 +15,7 @@
           }
         ]
       },
+
       {
         "title": "Scenario Setup: Basic - Type 1 Diabetes",
         "url_path": "/basic-setup-for-type-1-diabetes",
@@ -61,6 +62,219 @@
           ]
         ]
       },
+
+      {
+        "title": "Scenario Setup: Intervention Sets - Type 1 Diabetes",
+        "url_path": "/intervention-sets-config-for-type-1-diabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "t1d"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/intervention_types_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+
+      {
+        "title": "Scenario Setup: Intervention Sets - Generic intervention",
+        "url_path": "/intervention-set-for-generic-intervention-t1d",
+        "form_submit_button": true,
+        "expand_if": {
+          "$and": {
+            "diabetes_type": "t1d",
+            "intervention_types_t1d": {
+              "0": {
+                "type_generic_t1d": {
+                  "0": "generic"
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/generic_control_intervention_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+
+      {
+        "title": "Scenario Setup: Intervention Sets - Glycemic control intervention",
+        "url_path": "/intervention-set-for-glycemic-intervention-t1d",
+        "form_submit_button": true,
+        "expand_if": {
+          "$and": {
+            "diabetes_type": "t1d",
+            "intervention_types_t1d": {
+              "0": {
+                "type_glycemic_t1d": {
+                  "0": "glycemic"
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/glycemic_control_setup_type_t1d",
+            "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/glycemic_control_intervention_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if": {
+              "glycemic_control_setup_type_t1d": "basic"
+            }
+          },
+          {
+            "$ref": "#/properties/glycemic_control_trajectory_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if": {
+              "glycemic_control_setup_type_t1d": "advanced"
+            }
+          },
+          {
+            "$ref": "#/properties/glycemic_control_intensification_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if": {
+              "glycemic_control_setup_type_t1d": "advanced"
+            }
+          },
+          {
+            "$ref": "#/properties/glycemic_control_targets_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if": {
+              "glycemic_control_setup_type_t1d": "advanced"
+            }
+          },
+          {
+            "$ref": "#/properties/glycemic_control_costs_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if": {
+              "glycemic_control_setup_type_t1d": "advanced"
+            }
+          }
+        ]
+      },
+
+      {
+        "title": "Scenario Setup: Intervention Sets - Cholesterol control intervention",
+        "url_path": "/intervention-sets-config-for-cholesterol-intervention",
+        "form_submit_button": true,
+        "expand_if": {
+          "$and": {
+            "diabetes_type": "t1d",
+            "intervention_types_t1d": {
+              "0": {
+                "type_cholesterol_t1d": {
+                  "0": "cholesterol"
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/cholesterol_control_intervention_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/cholesterol_control_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/cholesterol_control_costs_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          }
+        ]
+      },
+
+      {
+        "title": "Scenario Setup: Intervention Sets - Blood pressure control intervention",
+        "url_path": "/intervention-sets-config-for-blood-pressure-control-intervention",
+        "form_submit_button": true,
+        "expand_if": {
+          "$and": {
+            "diabetes_type": "t1d",
+            "intervention_types_t1d": {
+              "0": {
+                "type_bp_t1d": {
+                  "0": "bp"
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/bp_control_intervention_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/bp_control_trajectory_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/bp_control_intensification_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/bp_control_targets_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/bp_control_costs_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          }
+        ]
+      },
+
+      {
+        "title": "Scenario Setup: Intervention Sets - Smoking cessation intervention",
+        "url_path": "/intervention-sets-config-for-smoking-cessation-intervention",
+        "form_submit_button": true,
+        "expand_if": {
+          "$and": {
+            "diabetes_type": "t1d",
+            "intervention_types_t1d": {
+              "0": {
+                "type_smoke_t1d": {
+                  "0": "smoking"
+                }
+              }
+            }
+          }
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/smoking_cessation_intervention_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          }
+        ]
+      },
+
       {
         "title": "Scenario Setup: Basic - Type 2 Diabetes",
         "url_path": "/basic-setup-for-type-2-diabetes",
@@ -105,6 +319,24 @@
               }
             }
           ]
+        ]
+      },
+
+
+      {
+        "title": "Scenario Setup: Intervention Sets - Type 2 Diabetes",
+        "url_path": "/intervention-sets-config-for-type-2-diabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "t2d"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/interventions_basic_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
         ]
       },
 
@@ -155,213 +387,6 @@
         ]
       },
       {
-        "title": "Scenario Setup: Intervention Sets - Type 1 Diabetes",
-        "url_path": "/intervention-sets-config-for-type-1-diabetes",
-        "form_submit_button": true,
-        "expand_if": {
-          "diabetes_type": "t1d"
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/interventions_basic_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "update_on_change": true
-          }
-        ]
-      },
-      {
-        "title": "Scenario Setup: Intervention Sets - Generic intervention",
-        "url_path": "/intervention-sets-config-for-generic-intervention",
-        "form_submit_button": true,
-        "expand_if": {
-          "interventions_basic_t1d": {
-            "0": {
-              "type_generic_t1d": {
-                "0": "generic"
-              }
-            }
-          }
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/intervention_set_generic_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "update_on_change": true
-          }
-        ]
-      },
-      {
-        "title": "Scenario Setup: Intervention Sets - Glycemic control intervention",
-        "url_path": "/intervention-sets-config-for-glycemic-intervention",
-        "form_submit_button": true,
-        "expand_if": {
-          "interventions_basic_t1d": {
-            "0": {
-              "type_glycemic_t1d": {
-                "0": "glycemic"
-              }
-            }
-          }
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/glycemic_control_setup_type_t1d",
-            "update_on_change": true
-          },
-          {
-            "$ref": "#/properties/glycemic_control_intervention_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "expand_if":{
-                "glycemic_control_setup_type_t1d": "basic"
-            }
-          },
-          {
-            "$ref": "#/properties/glycemic_control_trajectory_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "expand_if":{
-                "glycemic_control_setup_type_t1d": "advanced"
-            }
-          },
-          {
-            "$ref": "#/properties/glycemic_control_intensification_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "expand_if":{
-                "glycemic_control_setup_type_t1d": "advanced"
-            }
-          },
-          {
-            "$ref": "#/properties/glycemic_control_targets_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "expand_if":{
-                "glycemic_control_setup_type_t1d": "advanced"
-            }
-          },
-          {
-            "$ref": "#/properties/glycemic_control_costs_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "expand_if":{
-                "glycemic_control_setup_type_t1d": "advanced"
-            }
-          }
-        ]
-      },
-      {
-        "title": "Scenario Setup: Intervention Sets - Cholesterol control intervention",
-        "url_path": "/intervention-sets-config-for-cholesterol-intervention",
-        "form_submit_button": true,
-        "expand_if": {
-          "interventions_basic_t1d": {
-            "0": {
-              "type_cholesterol_t1d": {
-                "0": "cholesterol"
-              }
-            }
-          }
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/cholesterol_control_intervention_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/cholesterol_control_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/cholesterol_control_costs_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          }
-        ]
-      },
-      {
-        "title": "Scenario Setup: Intervention Sets - Blood pressure control intervention",
-        "url_path": "/intervention-sets-config-for-blood-pressure-control-intervention",
-        "form_submit_button": true,
-        "expand_if": {
-          "interventions_basic_t1d": {
-            "0": {
-              "type_bp_t1d": {
-                "0": "bp"
-              }
-            }
-          }
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/bp_control_intervention_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/bp_control_trajectory_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/bp_control_intensification_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/bp_control_targets_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/bp_control_costs_advanced_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          }
-        ]
-      },
-      {
-        "title": "Scenario Setup: Intervention Sets - Smoking cessation intervention",
-        "url_path": "/intervention-sets-config-for-smoking-cessation-intervention",
-        "form_submit_button": true,
-        "expand_if": {
-          "interventions_basic_t1d": {
-            "0": {
-              "type_smoke_t1d": {
-                "0": "smoking"
-              }
-            }
-          }
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/smoking_cessation_intervention_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          }
-        ]
-      },
-      {
-        "title": "Scenario Setup: Intervention Sets - Type 2 Diabetes",
-        "url_path": "/intervention-sets-config-for-type-2-diabetes",
-        "form_submit_button": true,
-        "expand_if": {
-          "diabetes_type": "t2d"
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/interventions_basic_t2d",
-            "items_length": "iterations_t2d",
-            "max_items_length": 1,
-            "update_on_change": true
-          }
-        ]
-      },
-      {
         "title": "Scenario Setup: Intervention Sets - Lifestyle intervention",
         "url_path": "/intervention-sets-config-for-lifestyle-intervention",
         "form_submit_button": true,
@@ -397,25 +422,7 @@
           }
         ]
       },
-      {
-        "title": "Scenario Setup: Intervention Sets - Prediabetes",
-        "url_path": "/intervention-sets-config-for-prediabetes",
-        "form_submit_button": true,
-        "expand_if": {
-          "diabetes_type": "pre"
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/intervention_sets_pre",
-            "update_on_change": true
-          },
-          {
-            "$ref": "#/properties/intervention_sets_pre_pre",
-            "items_length": "intervention_sets_pre",
-            "max_items_length": 10
-          }
-        ]
-      },
+
       {
         "title": "Advanced Setup: Population Generation - Type 1 Diabetes",
         "url_path": "/population-generation-for-type-1-diabetes",
@@ -676,18 +683,21 @@
       "title": "Type of simulation to run",
       "$ref": "#/definitions/string",
       "enum": ["Standard", "Sensitivity analysis"],
+      "default": "Standard",
       "_basic_config": true
     },
     "simulation_type_t2d": {
       "title": "Type of simulation to run",
       "$ref": "#/definitions/string",
       "enum": ["Standard", "Sensitivity analysis"],
+      "default": "Standard",
       "_basic_config": true
     },
     "simulation_type_pre": {
       "title": "Type of simulation to run",
       "$ref": "#/definitions/string",
       "enum": ["Standard", "Sensitivity analysis"],
+      "default": "Standard",
       "_basic_config": true
     },
     "intervention_sets_t1d": {
@@ -6537,7 +6547,7 @@
       },
       "_watch_for_changes": true
     },
-    "interventions_basic_t1d": {
+    "intervention_types_t1d": {
       "title": "T1D",
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -6772,7 +6782,7 @@
         }
       }
     },
-    "intervention_set_generic_t1d": {
+    "generic_control_intervention_t1d": {
       "title": "Generic intervention",
       "ui:schema": {
         "ui:field_type": "accordion",
