@@ -85,13 +85,10 @@
         "url_path": "/intervention-set-for-generic-intervention-t1d",
         "form_submit_button": true,
         "expand_if": {
-          "$and": {
-            "diabetes_type": "t1d",
-            "intervention_types_t1d": {
-              "0": {
-                "type_generic_t1d": {
-                  "0": "generic"
-                }
+          "intervention_types_t1d": {
+            "0": {
+              "type_generic_t1d": {
+                "0": "generic"
               }
             }
           }
