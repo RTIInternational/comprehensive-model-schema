@@ -265,7 +265,7 @@
         },
         "fieldsets": [
           {
-            "$ref": "#/properties/smoking_cessation_intervention_t1d",
+            "$ref": "#/properties/smoking_control_intervention_t1d",
             "items_length": "iterations_t1d",
             "max_items_length": 1
           }
@@ -8797,7 +8797,7 @@
         }
       }
     },
-    "smoking_cessation_intervention_t1d": {
+    "smoking_control_intervention_t1d": {
       "title": "Smoking cessation intervention",
       "ui:schema": {
         "ui:field_type": "accordion",
