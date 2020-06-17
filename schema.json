@@ -6870,43 +6870,56 @@
             "title": "Risk reductions (% change)",
             "type": "object",
             "properties": {
-              "Microalbuminuria": {
+              "microalbuminuria": {
+                "title": "Microalbuminuria",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "Macroalbuminuria": {
+              "macroalbuminuria": {
+                "title": "Macroalbuminuria",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "Impaired GFR": {
+              "gfr": {
+                "title": "Impaired GFR",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "ESRD": {
+              "esrd": {
+                "title": "ESRD",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "NPDR": {
+              "npdr": {
+                "title": "NPDR",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "PDR": {
+              "pdr": {
+                "title": "PDR",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "CSME": {
+              "csme": {
+                "title": "CSME",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "CVD": {
+              "cvd": {
+                "title": "CVD",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "DPN": {
+              "dpn": {
+                "title": "DPN",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "Foot ulcer": {
+              "ulcer": {
+                "title": "Foot ulcer",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "Amputation": {
+              "amputation": {
+                "title": "Amputation",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "Hypoglycemia": {
+              "hypoglycemia": {
+                "title": "Hypoglycemia",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "DKA": {
+              "dka": {
+                "title": "DKA",
                 "$ref": "#/definitions/negativeProportion"
               }
             }
@@ -7550,44 +7563,57 @@
             "title": "Risk reductions (% change)",
             "type": "object",
             "properties": {
-              "Microalbuminuria": {
+              "microalbuminuria": {
+                "title": "Microalbuminuria",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "Macroalbuminuria": {
+              "macroalbuminuria": {
+                "title": "Macroalbuminuria",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "Impaired GFR": {
+              "gfr": {
+                "title": "Impaired GFR",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "ESRD": {
+              "esrd": {
+                "title": "ESRD",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "NPDR": {
+              "npdr": {
+                "title": "NPDR",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "PDR": {
+              "pdr": {
+                "title": "PDR",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "CSME": {
+              "csme": {
+                "title": "CSME",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "CVD": {
+              "cvd": {
+                "title": "CVD",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "DPN": {
+              "dpn": {
+                "title": "DPN",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "Foot ulcer": {
+              "ulcer": {
+                "title": "Foot ulcer",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "Amputation": {
+              "amputation": {
+                "title": "Amputation",
                 "$ref": "#/definitions/negativeProportion"
               },
-              "Hypoglycemia": {
+              "hypoglycemia": {
+                "title": "Hypoglycemia",
                 "$ref": "#/definitions/negativeProportion",
                 "default": -0.2
               },
-              "DKA": {
+              "dka": {
+                "title": "DKA",
                 "$ref": "#/definitions/negativeProportion"
               }
             }
