@@ -185,19 +185,32 @@
         },
         "fieldsets": [
           {
+            "$ref": "#/properties/cholesterol_control_setup_type_t1d",
+            "update_on_change": true
+          },
+          {
             "$ref": "#/properties/cholesterol_control_intervention_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1
+            "max_items_length": 1,
+            "expand_if": {
+              "cholesterol_control_setup_type_t1d": "basic"
+            }
           },
           {
             "$ref": "#/properties/cholesterol_control_advanced_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1
+            "max_items_length": 1,
+            "expand_if": {
+              "cholesterol_control_setup_type_t1d": "advanced"
+            }
           },
           {
             "$ref": "#/properties/cholesterol_control_costs_advanced_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1
+            "max_items_length": 1,
+            "expand_if": {
+              "cholesterol_control_setup_type_t1d": "advanced"
+            }
           }
         ]
       },
@@ -220,29 +233,48 @@
         },
         "fieldsets": [
           {
+            "$ref": "#/properties/bp_control_setup_type_t1d",
+            "update_on_change": true
+          },
+          {
             "$ref": "#/properties/bp_control_intervention_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1
+            "max_items_length": 1,
+            "expand_if": {
+              "bp_control_setup_type_t1d": "basic"
+            }
           },
           {
             "$ref": "#/properties/bp_control_trajectory_advanced_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1
+            "max_items_length": 1,
+            "expand_if": {
+              "bp_control_setup_type_t1d": "advanced"
+            }
           },
           {
             "$ref": "#/properties/bp_control_intensification_advanced_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1
+            "max_items_length": 1,
+            "expand_if": {
+              "bp_control_setup_type_t1d": "advanced"
+            }
           },
           {
             "$ref": "#/properties/bp_control_targets_advanced_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1
+            "max_items_length": 1,
+            "expand_if": {
+              "bp_control_setup_type_t1d": "advanced"
+            }
           },
           {
             "$ref": "#/properties/bp_control_costs_advanced_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1
+            "max_items_length": 1,
+            "expand_if": {
+              "bp_control_setup_type_t1d": "advanced"
+            }
           }
         ]
       },
@@ -7469,6 +7501,20 @@
       "enumNames": ["Basic setup", "Advanced setup"],
       "default": "basic"
     },
+    "cholesterol_control_setup_type_t1d": {
+      "title": "Choose an intervention setup type:",
+      "$ref": "#/definitions/string",
+      "enum": ["basic", "advanced"],
+      "enumNames": ["Basic setup", "Advanced setup"],
+      "default": "basic"
+    },
+    "bp_control_setup_type_t1d": {
+      "title": "Choose an intervention setup type:",
+      "$ref": "#/definitions/string",
+      "enum": ["basic", "advanced"],
+      "enumNames": ["Basic setup", "Advanced setup"],
+      "default": "basic"
+    },
     "glycemic_control_intervention_t1d": {
       "title": "Glycemic control intervention",
       "ui:schema": {
@@ -8074,59 +8120,59 @@
             "title": "Risk reductions (% change)",
             "type": "object",
             "properties": {
-                "microalbuminuria": {
-                  "title": "Microalbuminuria",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "macroalbuminuria": {
-                  "title": "Macroalbuminuria",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "gfr": {
-                  "title": "Impaired GFR",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "esrd": {
-                  "title": "ESRD",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "npdr": {
-                  "title": "NPDR",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "pdr": {
-                  "title": "PDR",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "csme": {
-                  "title": "CSME",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "cvd": {
-                  "title": "CVD",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "dpn": {
-                  "title": "DPN",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "ulcer": {
-                  "title": "Foot ulcer",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "amputation": {
-                  "title": "Amputation",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "hypoglycemia": {
-                  "title": "Hypoglycemia",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": -0.2
-                },
-                "dka": {
-                  "title": "DKA",
-                  "$ref": "#/definitions/negativeProportion"
-                }
+              "microalbuminuria": {
+                "title": "Microalbuminuria",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "macroalbuminuria": {
+                "title": "Macroalbuminuria",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "gfr": {
+                "title": "Impaired GFR",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "esrd": {
+                "title": "ESRD",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "npdr": {
+                "title": "NPDR",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "pdr": {
+                "title": "PDR",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "csme": {
+                "title": "CSME",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "cvd": {
+                "title": "CVD",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "dpn": {
+                "title": "DPN",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "ulcer": {
+                "title": "Foot ulcer",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "amputation": {
+                "title": "Amputation",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "hypoglycemia": {
+                "title": "Hypoglycemia",
+                "$ref": "#/definitions/negativeProportion",
+                "default": -0.2
+              },
+              "dka": {
+                "title": "DKA",
+                "$ref": "#/definitions/negativeProportion"
+              }
             }
           }
         }
@@ -8377,59 +8423,59 @@
             "title": "Risk reductions (% change)",
             "type": "object",
             "properties": {
-                "microalbuminuria": {
-                  "title": "Microalbuminuria",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "macroalbuminuria": {
-                  "title": "Macroalbuminuria",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "gfr": {
-                  "title": "Impaired GFR",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "esrd": {
-                  "title": "ESRD",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "npdr": {
-                  "title": "NPDR",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "pdr": {
-                  "title": "PDR",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "csme": {
-                  "title": "CSME",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "cvd": {
-                  "title": "CVD",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "dpn": {
-                  "title": "DPN",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "ulcer": {
-                  "title": "Foot ulcer",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "amputation": {
-                  "title": "Amputation",
-                  "$ref": "#/definitions/negativeProportion"
-                },
-                "hypoglycemia": {
-                  "title": "Hypoglycemia",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": -0.2
-                },
-                "dka": {
-                  "title": "DKA",
-                  "$ref": "#/definitions/negativeProportion"
-                }
+              "microalbuminuria": {
+                "title": "Microalbuminuria",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "macroalbuminuria": {
+                "title": "Macroalbuminuria",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "gfr": {
+                "title": "Impaired GFR",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "esrd": {
+                "title": "ESRD",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "npdr": {
+                "title": "NPDR",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "pdr": {
+                "title": "PDR",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "csme": {
+                "title": "CSME",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "cvd": {
+                "title": "CVD",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "dpn": {
+                "title": "DPN",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "ulcer": {
+                "title": "Foot ulcer",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "amputation": {
+                "title": "Amputation",
+                "$ref": "#/definitions/negativeProportion"
+              },
+              "hypoglycemia": {
+                "title": "Hypoglycemia",
+                "$ref": "#/definitions/negativeProportion",
+                "default": -0.2
+              },
+              "dka": {
+                "title": "DKA",
+                "$ref": "#/definitions/negativeProportion"
+              }
             }
           }
         }
