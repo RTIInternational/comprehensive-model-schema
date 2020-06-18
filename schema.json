@@ -6585,7 +6585,7 @@
         },
         "items": {
           "ui:options": {
-            "default_collapsed": true,
+            "default_collapsed": false,
             "header_buttons": {
               "common_text": "Intervention set - Basic setup",
               "numbered": ""
@@ -6840,7 +6840,8 @@
         "properties": {
           "annual_cost": {
             "title": "Annual cost",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "factor_changes": {
             "title": "Factor changes",
@@ -6849,52 +6850,62 @@
               "hba1c": {
                 "title": "HbA1c (%)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "bmi": {
                 "title": "BMI (1 point change)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "dbp": {
                 "title": "Diastolic blood pressure (mm/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "sbp": {
                 "title": "Systolic blood pressure (mm/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "hdl": {
                 "title": "HDL (mm/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "ldl": {
                 "title": "LDL (mm/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "trig": {
                 "title": "Triglycerides (mg/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "hr": {
                 "title": "Heart rate (per minute)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "smoker": {
                 "title": "Smoking (probability change)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "insulin_dose": {
                 "title": "Insulin dose (units/kg)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               }
             }
           },
@@ -6904,55 +6915,68 @@
             "properties": {
               "microalbuminuria": {
                 "title": "Microalbuminuria",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "macroalbuminuria": {
                 "title": "Macroalbuminuria",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "gfr": {
                 "title": "Impaired GFR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "esrd": {
                 "title": "ESRD",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "npdr": {
                 "title": "NPDR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "pdr": {
                 "title": "PDR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "csme": {
                 "title": "CSME",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "cvd": {
                 "title": "CVD",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "dpn": {
                 "title": "DPN",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "ulcer": {
                 "title": "Foot ulcer",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "amputation": {
                 "title": "Amputation",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "hypoglycemia": {
                 "title": "Hypoglycemia",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "dka": {
                 "title": "DKA",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               }
             }
           }
@@ -7561,47 +7585,56 @@
               "bmi": {
                 "title": "BMI (1 point change)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "dbp": {
                 "title": "Diastolic blood pressure (mm/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "sbp": {
                 "title": "Systolic blood pressure (mm/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "hdl": {
                 "title": "HDL (mm/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "ldl": {
                 "title": "LDL (mm/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "trig": {
                 "title": "Triglycerides (mg/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "hr": {
                 "title": "Heart rate (per minute)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "smoker": {
                 "title": "Smoking (probability change)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "insulin_dose": {
                 "title": "Insulin dose (units/kg)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               }
             }
           },
@@ -7611,47 +7644,58 @@
             "properties": {
               "microalbuminuria": {
                 "title": "Microalbuminuria",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "macroalbuminuria": {
                 "title": "Macroalbuminuria",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "gfr": {
                 "title": "Impaired GFR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "esrd": {
                 "title": "ESRD",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "npdr": {
                 "title": "NPDR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "pdr": {
                 "title": "PDR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "csme": {
                 "title": "CSME",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "cvd": {
                 "title": "CVD",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "dpn": {
                 "title": "DPN",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "ulcer": {
                 "title": "Foot ulcer",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "amputation": {
                 "title": "Amputation",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "hypoglycemia": {
                 "title": "Hypoglycemia",
@@ -7660,7 +7704,8 @@
               },
               "dka": {
                 "title": "DKA",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               }
             }
           }
@@ -8089,11 +8134,13 @@
         "properties": {
           "annual_cost": {
             "title": "Annual cost",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "age": {
             "title": "Minimum age of application",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 1
           },
           "factor_changes": {
             "title": "Change in Risk Factors",
@@ -8102,17 +8149,20 @@
               "hdl": {
                 "title": "HDL",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "ldl": {
                 "title": "LDL",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "trig": {
                 "title": "ln(Triglycerides)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               }
             }
           },
@@ -8122,47 +8172,58 @@
             "properties": {
               "microalbuminuria": {
                 "title": "Microalbuminuria",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "macroalbuminuria": {
                 "title": "Macroalbuminuria",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "gfr": {
                 "title": "Impaired GFR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "esrd": {
                 "title": "ESRD",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "npdr": {
                 "title": "NPDR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "pdr": {
                 "title": "PDR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "csme": {
                 "title": "CSME",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "cvd": {
                 "title": "CVD",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "dpn": {
                 "title": "DPN",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "ulcer": {
                 "title": "Foot ulcer",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "amputation": {
                 "title": "Amputation",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "hypoglycemia": {
                 "title": "Hypoglycemia",
@@ -8171,7 +8232,8 @@
               },
               "dka": {
                 "title": "DKA",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               }
             }
           }
@@ -8396,7 +8458,8 @@
         "properties": {
           "annual_cost": {
             "title": "Annual cost",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "apply if greater than": {
             "title": "Apply if systolic blood pressure greater than",
@@ -8410,12 +8473,14 @@
               "dbp": {
                 "title": "Diastolic blood pressure (mm/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               },
               "sbp": {
                 "title": "Systolic blood pressure (mm/dL)",
                 "description": "",
-                "type": "number"
+                "type": "number",
+                "default": 0
               }
             }
           },
@@ -8425,47 +8490,58 @@
             "properties": {
               "microalbuminuria": {
                 "title": "Microalbuminuria",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "macroalbuminuria": {
                 "title": "Macroalbuminuria",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "gfr": {
                 "title": "Impaired GFR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "esrd": {
                 "title": "ESRD",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "npdr": {
                 "title": "NPDR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "pdr": {
                 "title": "PDR",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "csme": {
                 "title": "CSME",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "cvd": {
                 "title": "CVD",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "dpn": {
                 "title": "DPN",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "ulcer": {
                 "title": "Foot ulcer",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "amputation": {
                 "title": "Amputation",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               },
               "hypoglycemia": {
                 "title": "Hypoglycemia",
@@ -8474,7 +8550,8 @@
               },
               "dka": {
                 "title": "DKA",
-                "$ref": "#/definitions/negativeProportion"
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               }
             }
           }
@@ -8867,11 +8944,13 @@
         "properties": {
           "annual_cost": {
             "title": "Annual cost",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "probability of quitting": {
             "title": "Probability of quitting increased by (%)",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/percent",
+            "default": 0
           }
         }
       }
