@@ -305,11 +305,58 @@
       },
 
       {
+        "title": "Scenario Setup: Basic - Type 2 Diabetes",
+        "url_path": "/basic-setup-for-type-2-diabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "t2d"
+        },
+        "fieldsets": [
+          [
+            {
+              "$ref": "#/properties/scenario_name_t2d"
+            },
+            {
+              "$ref": "#/properties/simulation_type_t2d",
+              "update_on_change": true
+            },
+            {
+              "$ref": "#/properties/iterations_t2d"
+            },
+            {
+              "$ref": "#/properties/seed"
+            }
+          ],
+          [
+            {
+              "$ref": "#/properties/size_t2d"
+            },
+            {
+              "$ref": "#/properties/time_horizon_t2d",
+              "update_on_change": true
+            },
+            {
+              "$ref": "#/properties/max_steps_t2d",
+              "expand_if": {
+                "time_horizon_t1d": "fixed"
+              }
+            },
+            {
+              "$ref": "#/properties/max_age_t2d",
+              "expand_if": {
+                "time_horizon_t1d": "max_age"
+              }
+            }
+          ]
+        ]
+      },
+
+      {
         "title": "Scenario Setup: Intervention Sets - Type 2 Diabetes",
         "url_path": "/intervention-set-config-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "t1d"
+          "diabetes_type": "t2d"
         },
         "fieldsets": [
           {
@@ -350,7 +397,7 @@
         "form_submit_button": true,
         "expand_if": {
           "$and": {
-            "diabetes_type": "t1d",
+            "diabetes_type": "t2d",
             "intervention_types_t2d": {
               "0": {
                 "type_glycemic_t2d": {
