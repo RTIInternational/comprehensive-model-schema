@@ -2865,6 +2865,18 @@
             "$ref": "#/definitions/proportion",
             "default": 0
           },
+          "proportion_hypo_med": {
+            "title": "Hypoglycemia requiring medical assistance",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0
+          },
+          "proportion_hypo_any": {
+            "title": "Hypoglycemia requiring any assistance",
+            "description": "",
+            "$ref": "#/definitions/proportion",
+            "default": 0
+          },
           "dataset": {
             "title": "Proportion from ACCORD dataset",
             "description": "",
