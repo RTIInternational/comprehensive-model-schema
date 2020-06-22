@@ -7054,7 +7054,7 @@
             "uniqueItems": true,
             "items": {
               "type": "string",
-              "enum": ["lifestlye"],
+              "enum": ["lifestyle"],
               "enumNames": ["Lifestyle"]
             }
           }
