@@ -7247,7 +7247,7 @@
             "default_collapsed": true,
             "header_buttons": {
               "common_text": "Intervention set - Generic intervention",
-              "numbered": true
+              "numbered": false
             }
           },
           "factor_changes": {
@@ -7262,10 +7262,10 @@
       "items": {
         "type": "object",
         "properties": {
-          "intervention_set_name": {
-            "title": "Intervention set name",
-            "type": "string",
-            "default": "initial default"
+          "annual_cost": {
+            "title": "Annual cost",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "factor_changes": {
             "title": "Factor Changes",
@@ -9346,91 +9346,91 @@
             "title": "Risk reductions (% change)",
             "type": "object",
             "properties": {
-                "microalbuminuria": {
-                  "title": "Microalbuminuria",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "macroalbuminuria": {
-                  "title": "Macroalbuminuria",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "egfr_60": {
-                  "title": "eGFR <60",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "egfr_30": {
-                  "title": "eGFR <30",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "dialysis": {
-                  "title": "Dialysis",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "neuropathy": {
-                  "title": "Neuropathy",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "ulcer": {
-                  "title": "Foot ulcer",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "amputation": {
-                  "title": "Amputation",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "laser_retin": {
-                  "title": "Laser retinopathy",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "blindness": {
-                  "title": "Blindness",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "mi": {
-                  "title": "MI",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "stroke": {
-                  "title": "Stroke",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "chf": {
-                  "title": "CHF",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "angina": {
-                  "title": "Angina",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "revasc": {
-                  "title": "Revascularization",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "hypo_med": {
-                  "title": "Hypoglycemia requiring medical assistance",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "hypo_any": {
-                  "title": "Hypoglycemia requiring any assistance",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                }
+              "microalbuminuria": {
+                "title": "Microalbuminuria",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "macroalbuminuria": {
+                "title": "Macroalbuminuria",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "egfr_60": {
+                "title": "eGFR <60",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "egfr_30": {
+                "title": "eGFR <30",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "dialysis": {
+                "title": "Dialysis",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "neuropathy": {
+                "title": "Neuropathy",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "ulcer": {
+                "title": "Foot ulcer",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "amputation": {
+                "title": "Amputation",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "laser_retin": {
+                "title": "Laser retinopathy",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "blindness": {
+                "title": "Blindness",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "mi": {
+                "title": "MI",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "stroke": {
+                "title": "Stroke",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "chf": {
+                "title": "CHF",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "angina": {
+                "title": "Angina",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "revasc": {
+                "title": "Revascularization",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "hypo_med": {
+                "title": "Hypoglycemia requiring medical assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "hypo_any": {
+                "title": "Hypoglycemia requiring any assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              }
             }
           }
         }
@@ -10176,91 +10176,91 @@
             "title": "Risk reductions (% change)",
             "type": "object",
             "properties": {
-                "microalbuminuria": {
-                  "title": "Microalbuminuria",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "macroalbuminuria": {
-                  "title": "Macroalbuminuria",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "egfr_60": {
-                  "title": "eGFR <60",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "egfr_30": {
-                  "title": "eGFR <30",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "dialysis": {
-                  "title": "Dialysis",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "neuropathy": {
-                  "title": "Neuropathy",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "ulcer": {
-                  "title": "Foot ulcer",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "amputation": {
-                  "title": "Amputation",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "laser_retin": {
-                  "title": "Laser retinopathy",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "blindness": {
-                  "title": "Blindness",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "mi": {
-                  "title": "MI",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "stroke": {
-                  "title": "Stroke",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "chf": {
-                  "title": "CHF",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "angina": {
-                  "title": "Angina",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "revasc": {
-                  "title": "Revascularization",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "hypo_med": {
-                  "title": "Hypoglycemia requiring medical assistance",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                },
-                "hypo_any": {
-                  "title": "Hypoglycemia requiring any assistance",
-                  "$ref": "#/definitions/negativeProportion",
-                  "default": 0
-                }
+              "microalbuminuria": {
+                "title": "Microalbuminuria",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "macroalbuminuria": {
+                "title": "Macroalbuminuria",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "egfr_60": {
+                "title": "eGFR <60",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "egfr_30": {
+                "title": "eGFR <30",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "dialysis": {
+                "title": "Dialysis",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "neuropathy": {
+                "title": "Neuropathy",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "ulcer": {
+                "title": "Foot ulcer",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "amputation": {
+                "title": "Amputation",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "laser_retin": {
+                "title": "Laser retinopathy",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "blindness": {
+                "title": "Blindness",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "mi": {
+                "title": "MI",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "stroke": {
+                "title": "Stroke",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "chf": {
+                "title": "CHF",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "angina": {
+                "title": "Angina",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "revasc": {
+                "title": "Revascularization",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "hypo_med": {
+                "title": "Hypoglycemia requiring medical assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "hypo_any": {
+                "title": "Hypoglycemia requiring any assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              }
             }
           }
         }
