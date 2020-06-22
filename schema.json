@@ -10158,12 +10158,6 @@
             "title": "Change in risk factors",
             "type": "object",
             "properties": {
-              "dbp": {
-                "title": "Diastolic blood pressure (mm/dL)",
-                "description": "",
-                "type": "number",
-                "default": 0
-              },
               "sbp": {
                 "title": "Systolic blood pressure (mm/dL)",
                 "description": "",
