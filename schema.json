@@ -609,6 +609,10 @@
         },
         "fieldsets": [
           {
+            "$ref": "#/properties/lifestyle_control_setup_type_t2d",
+            "update_on_change": true
+          },
+          {
             "$ref": "#/properties/lifestyle_control_intervention_t2d",
             "items_length": "iterations_t2d",
             "max_items_length": 1,
