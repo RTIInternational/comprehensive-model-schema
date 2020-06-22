@@ -7247,7 +7247,7 @@
             "default_collapsed": true,
             "header_buttons": {
               "common_text": "Intervention set - Generic intervention",
-              "numbered": false
+              "numbered": ""
             }
           },
           "factor_changes": {
