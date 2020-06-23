@@ -13786,16 +13786,16 @@
       "items": {
         "type": "object",
         "properties": {
-            "normoglycemia":{
-                "title": "Normoglycemia",
-                "type": "number",
-                "default": 0.5
-            },
-            "prediabetes": {
-                "title": "Prediabetes",
-                "type": "number",
-                "default": 0.6
-            }
+          "normoglycemia": {
+            "title": "Normoglycemia",
+            "type": "number",
+            "default": 0.5
+          },
+          "prediabetes": {
+            "title": "Prediabetes",
+            "type": "number",
+            "default": 0.6
+          }
         }
       }
     },
@@ -13824,48 +13824,48 @@
       "items": {
         "type": "object",
         "properties": {
-            "Equation 1 (no CVD history)": {
-                "$ref": "#/definitions/text",
-                "readOnly": true
-            },
-            "normoglycemia_1":{
-                "title": "Normoglycemia",
-                "type": "number",
-                "default": 0.5
-            },
-            "prediabetes_1": {
-                "title": "Prediabetes",
-                "type": "number",
-                "default": 0.6
-            },
-            "Equation 2 (Year of CVD event)": {
-                "$ref": "#/definitions/text",
-                "readOnly": true
-            },
-            "normoglycemia_2":{
-                "title": "Normoglycemia",
-                "type": "number",
-                "default": 0.5
-            },
-            "prediabetes_2": {
-                "title": "Prediabetes",
-                "type": "number",
-                "default": 0.6
-            },
-            "Equation 3 (Previous CVD)": {
-                "$ref": "#/definitions/text",
-                "readOnly": true
-            },
-            "normoglycemia_3":{
-                "title": "Normoglycemia",
-                "type": "number",
-                "default": 0.5
-            },
-            "prediabetes_3": {
-                "title": "Prediabetes",
-                "type": "number",
-                "default": 0.6
-            }
+          "Equation 1 (no CVD history)": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "normoglycemia_1": {
+            "title": "Normoglycemia",
+            "type": "number",
+            "default": 0.5
+          },
+          "prediabetes_1": {
+            "title": "Prediabetes",
+            "type": "number",
+            "default": 0.6
+          },
+          "Equation 2 (Year of CVD event)": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "normoglycemia_2": {
+            "title": "Normoglycemia",
+            "type": "number",
+            "default": 0.5
+          },
+          "prediabetes_2": {
+            "title": "Prediabetes",
+            "type": "number",
+            "default": 0.6
+          },
+          "Equation 3 (Previous CVD)": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "normoglycemia_3": {
+            "title": "Normoglycemia",
+            "type": "number",
+            "default": 0.5
+          },
+          "prediabetes_3": {
+            "title": "Prediabetes",
+            "type": "number",
+            "default": 0.6
+          }
         }
       }
     },
@@ -13894,21 +13894,21 @@
       "items": {
         "type": "object",
         "properties": {
-            "baseline_qaly":{
-                "title": "Baseline QALY (normoglycemia, prediabetes)",
-                "type": "number",
-                "default": 0
-            },
-            "bmi": {
-                "title": "BMI (one-unit increase)",
-                "type": "number",
-                "default": -0.003
-            },
-            "duration_in_analysis": {
-                "title": "Duration in analysis (years)",
-                "type": "number",
-                "default": 0
-            }
+          "baseline_qaly": {
+            "title": "Baseline QALY (normoglycemia, prediabetes)",
+            "type": "number",
+            "default": 0
+          },
+          "bmi": {
+            "title": "BMI (one-unit increase)",
+            "type": "number",
+            "default": -0.003
+          },
+          "duration_in_analysis": {
+            "title": "Duration in analysis (years)",
+            "type": "number",
+            "default": 0
+          }
         }
       }
     },
@@ -13937,21 +13937,21 @@
       "items": {
         "type": "object",
         "properties": {
-            "base_cost_normoglycemia":{
-                "title": "Base cost (normoglycemia)",
-                "type": "number",
-                "default": 2168
-            },
-            "base_cost_prediabetes": {
-                "title": "Base cost (prediabetes)",
-                "type": "number",
-                "default": 2668
-            },
-            "tv_age_cost": {
-                "title": "Time-varying age cost (normoglycemia, prediabetes)",
-                "type": "number",
-                "default": 10
-            }
+          "base_cost_normoglycemia": {
+            "title": "Base cost (normoglycemia)",
+            "type": "number",
+            "default": 2168
+          },
+          "base_cost_prediabetes": {
+            "title": "Base cost (prediabetes)",
+            "type": "number",
+            "default": 2668
+          },
+          "tv_age_cost": {
+            "title": "Time-varying age cost (normoglycemia, prediabetes)",
+            "type": "number",
+            "default": 10
+          }
         }
       }
     }
