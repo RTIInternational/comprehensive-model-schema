@@ -13865,7 +13865,7 @@
                 "title": "Prediabetes",
                 "type": "number",
                 "default": 0.6
-            },
+            }
         }
       }
     },
