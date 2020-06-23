@@ -990,20 +990,11 @@
         ]
       },
       {
-        "title": "Scenario Setup: Intervention Sets - Lifestyle intervention",
-        "url_path": "/intervention-set-config-for-lifestyle-intervention-pre",
+        "title": "Prediabetes parameters",
+        "url_path": "/parameter-config-for-prediabetes",
         "form_submit_button": true,
         "expand_if": {
-          "$and": {
-            "diabetes_type": "pre",
-            "intervention_types_pre": {
-              "0": {
-                "type_lifestyle_pre": {
-                  "0": "lifestyle"
-                }
-              }
-            }
-          }
+          "diabetes_type": "pre"
         },
         "fieldsets": [
           {
