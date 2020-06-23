@@ -8721,16 +8721,16 @@
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
           },
-          "Subsequent intensifications": {
+          "Effect of subsequent intensification on A1c": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Subsequent intensification Standard": {
+          "Effect of subsequent intensification on A1c Standard": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
           },
-          "Subsequent intensification Intervention": {
+          "Effect of subsequent intensification on A1c Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
