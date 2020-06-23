@@ -8788,21 +8788,8 @@
           "General Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "If age < 18": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "If age < 18 Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "If age < 18 Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "If age >= 65": {
             "$ref": "#/definitions/text",
@@ -8818,30 +8805,30 @@
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
           },
-          "If CVD = 1 or ESRD = 1": {
+          "If CVD = 1 or dialysis = 1": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "If CVD = 1 or ESRD = 1 Standard": {
+          "If CVD = 1 or dialysis = 1 Standard": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
           },
-          "If CVD = 1 or ESRD = 1 Intervention": {
+          "If CVD = 1 or dialysis = 1 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
           },
-          "If age >= 65 and (CVD = 1 or ESRD = 1)": {
+          "If age >= 65 and (CVD = 1 or dialysis = 1)": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "If age >= 65 and (CVD = 1 or ESRD = 1) Standard": {
+          "If age >= 65 and (CVD = 1 or dialysis = 1) Standard": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
           },
-          "If age >= 65 and (CVD = 1 or ESRD = 1) Intervention": {
+          "If age >= 65 and (CVD = 1 or dialysis = 1) Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber"
