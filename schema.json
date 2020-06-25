@@ -7448,56 +7448,6 @@
             "title": "Select interventions to use:",
             "type": "null"
           },
-          "type_generic_pre": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["generic"],
-              "enumNames": ["Generic intervention"]
-            }
-          },
-          "type_glycemic_pre": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["glycemic"],
-              "enumNames": ["Glycemic control"]
-            }
-          },
-          "type_cholesterol_pre": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["cholesterol"],
-              "enumNames": ["Cholesterol control"]
-            }
-          },
-          "type_bp_pre": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["bp"],
-              "enumNames": ["Blood pressure control"]
-            }
-          },
-          "type_smoke_pre": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["smoking"],
-              "enumNames": ["Smoking cessation"]
-            }
-          },
           "type_lifestyle_pre": {
             "title": " ",
             "type": "array",
