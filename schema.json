@@ -7422,21 +7422,6 @@
             "type": "grid",
             "columns": 3
           },
-          "type_generic_pre": {
-            "ui:widget": "checkboxes"
-          },
-          "type_glycemic_pre": {
-            "ui:widget": "checkboxes"
-          },
-          "type_cholesterol_pre": {
-            "ui:widget": "checkboxes"
-          },
-          "type_bp_pre": {
-            "ui:widget": "checkboxes"
-          },
-          "type_smoke_pre": {
-            "ui:widget": "checkboxes"
-          },
           "type_lifestyle_pre": {
             "ui:widget": "checkboxes"
           }
