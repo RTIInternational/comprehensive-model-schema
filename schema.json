@@ -695,7 +695,7 @@
       },
 
       {
-        "title": "Scenario Setup: Intervention Sets - Preiabetes",
+        "title": "Scenario Setup: Intervention Sets - Prediabetes",
         "url_path": "/intervention-set-config-for-prediabetes",
         "form_submit_button": true,
         "expand_if": {
