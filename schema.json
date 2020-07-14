@@ -8466,12 +8466,14 @@
           "Annual A1c Before Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Annual A1c Before Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Annual A1c after intensifying": {
             "title": "Annual A1c change (%) after intensifying",
@@ -8481,12 +8483,14 @@
           "Annual A1c After Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Annual A1c After Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Annual A1c subsequent intensifications": {
             "title": "Annual A1c change (%) for subsequent intensifications",
@@ -8496,12 +8500,14 @@
           "Annual A1c Subsequent Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Annual A1c Subsequent Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           }
         }
       }
@@ -8551,12 +8557,14 @@
           "Effect of intensifying on A1c Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Effect of intensifying on A1c Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Effect of next intensification on A1c": {
             "$ref": "#/definitions/text",
@@ -8565,12 +8573,14 @@
           "Effect of next intensification on A1c Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Effect of next intensification on A1c Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Subsequent intensifications": {
             "$ref": "#/definitions/text",
@@ -8579,12 +8589,14 @@
           "Effect of subsequent intensification on A1c Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Effect of subsequent intensification on A1c Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           }
         }
       }
@@ -8634,12 +8646,14 @@
           "General Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "General Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "If age < 18": {
             "$ref": "#/definitions/text",
@@ -8648,12 +8662,14 @@
           "If age < 18 Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "If age < 18 Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "If age >= 65": {
             "$ref": "#/definitions/text",
@@ -8662,12 +8678,14 @@
           "If age >= 65 Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "If age >= 65 Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "If CVD = 1 or ESRD = 1": {
             "$ref": "#/definitions/text",
@@ -8676,12 +8694,14 @@
           "If CVD = 1 or ESRD = 1 Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "If CVD = 1 or ESRD = 1 Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "If age >= 65 and (CVD = 1 or ESRD = 1)": {
             "$ref": "#/definitions/text",
@@ -8690,12 +8710,14 @@
           "If age >= 65 and (CVD = 1 or ESRD = 1) Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "If age >= 65 and (CVD = 1 or ESRD = 1) Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Intensify if A1c > target": {
             "$ref": "#/definitions/text",
@@ -8704,12 +8726,14 @@
           "Intensify if A1c > target Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Intensify if A1c > target Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           }
         }
       }
@@ -8759,12 +8783,14 @@
           "Current treatment Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Current treatment Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "First intensification": {
             "$ref": "#/definitions/text",
@@ -8773,12 +8799,14 @@
           "First intensification Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "First intensification Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Next intensification": {
             "$ref": "#/definitions/text",
@@ -8787,12 +8815,14 @@
           "Next intensification Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Next intensification Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Subsequent intensifications": {
             "$ref": "#/definitions/text",
@@ -8801,12 +8831,14 @@
           "Subsequent intensification Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Subsequent intensification Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           }
         }
       }
