@@ -4072,8 +4072,8 @@
           "TV age cost": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 16
+            "$ref": "#/definitions/negativeInteger",
+            "default": -16
           },
           "TV age cost placeholder": {
             "title": " ",
@@ -5101,8 +5101,8 @@
           "TV age cost": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 64
+            "$ref": "#/definitions/negativeInteger",
+            "default": -64
           },
           "TV age cost placeholder": {
             "title": " ",
@@ -6231,8 +6231,8 @@
           "TV age cost": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 64
+            "$ref": "#/definitions/negativeInteger",
+            "default": -64
           },
           "TV age cost placeholder": {
             "title": " ",
@@ -13945,6 +13945,10 @@
     "positiveInteger": {
       "type": "integer",
       "minimum": 1
+    },
+    "negativeInteger": {
+      "type": "integer",
+      "maximum": 0
     },
     "proportion": {
       "type": "number",
