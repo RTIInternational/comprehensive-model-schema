@@ -1288,8 +1288,9 @@
     "psa_intervention_costs_t1d": {
       "title": "PSA intervention costs",
       "$ref": "#/definitions/string",
-      "enum": ["+/- 0%", "10%", "25%", "50%"],
-      "default": "+/- 0%",
+      "enum": ["0", "10", "25", "50"],
+      "enumNames": ["+/- 0%", "10%", "25%", "50%"],
+      "default": "0",
       "_basic_config": true
     },
     "psa_factor_change_t1d": {
@@ -1312,8 +1313,9 @@
     "psa_intervention_costs_t2d": {
       "title": "PSA intervention costs",
       "$ref": "#/definitions/string",
-      "enum": ["+/- 0%", "10%", "25%", "50%"],
-      "default": "+/- 0%",
+      "enum": ["0", "10", "25", "50"],
+      "enumNames": ["+/- 0%", "10%", "25%", "50%"],
+      "default": "0",
       "_basic_config": true
     },
     "psa_factor_change_t2d": {
@@ -1336,8 +1338,9 @@
     "psa_intervention_costs_pre": {
       "title": "PSA intervention costs",
       "$ref": "#/definitions/string",
-      "enum": ["+/- 0%", "10%", "25%", "50%"],
-      "default": "+/- 0%",
+      "enum": ["0", "10", "25", "50"],
+      "enumNames": ["+/- 0%", "10%", "25%", "50%"],
+      "default": "0",
       "_basic_config": true
     },
     "psa_factor_change_pre": {
