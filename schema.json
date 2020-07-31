@@ -35,19 +35,19 @@
             {
               "$ref": "#/properties/psa_intervention_costs_t1d",
               "expand_if": {
-                  "simulation_type_t1d": "Sensitivity analysis"
+                "simulation_type_t1d": "Sensitivity analysis"
               }
             },
             {
               "$ref": "#/properties/psa_factor_change_t1d",
               "expand_if": {
-                  "simulation_type_t1d": "Sensitivity analysis"
+                "simulation_type_t1d": "Sensitivity analysis"
               }
             },
             {
               "$ref": "#/properties/psa_risk_reduction_t1d",
               "expand_if": {
-                  "simulation_type_t1d": "Sensitivity analysis"
+                "simulation_type_t1d": "Sensitivity analysis"
               }
             },
             {
@@ -341,19 +341,19 @@
             {
               "$ref": "#/properties/psa_intervention_costs_t2d",
               "expand_if": {
-                  "simulation_type_t2d": "Sensitivity analysis"
+                "simulation_type_t2d": "Sensitivity analysis"
               }
             },
             {
               "$ref": "#/properties/psa_factor_change_t2d",
               "expand_if": {
-                  "simulation_type_t2d": "Sensitivity analysis"
+                "simulation_type_t2d": "Sensitivity analysis"
               }
             },
             {
               "$ref": "#/properties/psa_risk_reduction_t2d",
               "expand_if": {
-                  "simulation_type_t2d": "Sensitivity analysis"
+                "simulation_type_t2d": "Sensitivity analysis"
               }
             },
             {
@@ -702,19 +702,19 @@
             {
               "$ref": "#/properties/psa_intervention_costs_pre",
               "expand_if": {
-                  "simulation_type_pre": "Sensitivity analysis"
+                "simulation_type_pre": "Sensitivity analysis"
               }
             },
             {
               "$ref": "#/properties/psa_factor_change_pre",
               "expand_if": {
-                  "simulation_type_pre": "Sensitivity analysis"
+                "simulation_type_pre": "Sensitivity analysis"
               }
             },
             {
               "$ref": "#/properties/psa_risk_reduction_pre",
               "expand_if": {
-                  "simulation_type_pre": "Sensitivity analysis"
+                "simulation_type_pre": "Sensitivity analysis"
               }
             },
             {
@@ -1308,48 +1308,48 @@
     },
 
     "psa_intervention_costs_t2d": {
-        "title": "PSA intervention costs",
-        "$ref": "#/definitions/string",
-        "enum": ["+/- 0%", "10%", "25%", "50%"],
-        "default": "+/- 0%",
-        "_basic_config": true
-      },
-      "psa_factor_change_t2d": {
-        "title": "PSA factor changes",
-        "$ref": "#/definitions/string",
-        "enum": ["1%", "5%", "10%"],
-        "default": "5%",
-        "_basic_config": true
-      },
-      "psa_risk_reduction_t2d": {
-        "title": "PSA risk reductions",
-        "$ref": "#/definitions/string",
-        "enum": ["1%", "5%", "10%"],
-        "default": "5%",
-        "_basic_config": true
-      },
+      "title": "PSA intervention costs",
+      "$ref": "#/definitions/string",
+      "enum": ["+/- 0%", "10%", "25%", "50%"],
+      "default": "+/- 0%",
+      "_basic_config": true
+    },
+    "psa_factor_change_t2d": {
+      "title": "PSA factor changes",
+      "$ref": "#/definitions/string",
+      "enum": ["1%", "5%", "10%"],
+      "default": "5%",
+      "_basic_config": true
+    },
+    "psa_risk_reduction_t2d": {
+      "title": "PSA risk reductions",
+      "$ref": "#/definitions/string",
+      "enum": ["1%", "5%", "10%"],
+      "default": "5%",
+      "_basic_config": true
+    },
 
     "psa_intervention_costs_pre": {
-        "title": "PSA intervention costs",
-        "$ref": "#/definitions/string",
-        "enum": ["+/- 0%", "10%", "25%", "50%"],
-        "default": "+/- 0%",
-        "_basic_config": true
-      },
-      "psa_factor_change_pre": {
-        "title": "PSA factor changes",
-        "$ref": "#/definitions/string",
-        "enum": ["1%", "5%", "10%"],
-        "default": "5%",
-        "_basic_config": true
-      },
-      "psa_risk_reduction_pre": {
-        "title": "PSA risk reductions",
-        "$ref": "#/definitions/string",
-        "enum": ["1%", "5%", "10%"],
-        "default": "5%",
-        "_basic_config": true
-      },
+      "title": "PSA intervention costs",
+      "$ref": "#/definitions/string",
+      "enum": ["+/- 0%", "10%", "25%", "50%"],
+      "default": "+/- 0%",
+      "_basic_config": true
+    },
+    "psa_factor_change_pre": {
+      "title": "PSA factor changes",
+      "$ref": "#/definitions/string",
+      "enum": ["1%", "5%", "10%"],
+      "default": "5%",
+      "_basic_config": true
+    },
+    "psa_risk_reduction_pre": {
+      "title": "PSA risk reductions",
+      "$ref": "#/definitions/string",
+      "enum": ["1%", "5%", "10%"],
+      "default": "5%",
+      "_basic_config": true
+    },
     "intervention_sets_t1d": {
       "title": "Number of intervention sets",
       "$ref": "#/definitions/interventionSetsLength",
@@ -2646,7 +2646,8 @@
             }
           }
         }
-      }
+      },
+      "_watch_for_changes": true
     },
     "demographics_pre": {
       "title": "Population Composition",
@@ -2774,7 +2775,8 @@
             }
           }
         }
-      }
+      },
+      "_watch_for_changes": true
     },
     "risk_factors": {
       "title": " ",
@@ -2943,7 +2945,8 @@
             "default": 0.38
           }
         }
-      }
+      },
+      "_watch_for_changes": true
     },
     "risk_factors_pre": {
       "title": " ",
@@ -3267,7 +3270,8 @@
             "default": 0
           }
         }
-      }
+      },
+      "_watch_for_changes": true
     },
     "clinical_history_pre": {
       "title": " ",
@@ -3410,7 +3414,8 @@
             "default": 0
           }
         }
-      }
+      },
+      "_watch_for_changes": true
     },
     "baseline_economic_factors_t1d": {
       "title": "Economic factors",
@@ -3489,7 +3494,8 @@
             "default": 0.03
           }
         }
-      }
+      },
+      "_watch_for_changes": true
     },
     "baseline_economic_factors_pre": {
       "title": "Economic factors",
@@ -3528,7 +3534,8 @@
             "default": 0.03
           }
         }
-      }
+      },
+      "_watch_for_changes": true
     },
     "disutilities_t1d": {
       "ui:schema": {
@@ -5086,7 +5093,8 @@
             "default": 0.012
           }
         }
-      }
+      },
+      "_watch_for_changes": true
     },
     "costs_t2d": {
       "ui:schema": {
@@ -5609,7 +5617,8 @@
             "default": 296.0
           }
         }
-      }
+      },
+      "_watch_for_changes": true
     },
     "disutilities_pre": {
       "title": "",
@@ -6216,7 +6225,8 @@
             "default": 0.012
           }
         }
-      }
+      },
+      "_watch_for_changes": true
     },
     "costs_pre": {
       "ui:schema": {
@@ -6739,7 +6749,8 @@
             "default": 296.0
           }
         }
-      }
+      },
+      "_watch_for_changes": true
     },
     "interventions_or_treatments": {
       "title": "Name of the treatment",
