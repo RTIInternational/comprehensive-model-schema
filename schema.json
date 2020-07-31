@@ -397,7 +397,7 @@
         "fieldsets": [
           {
             "$ref": "#/properties/intervention_types_t2d",
-            "items_length": "iterations_t1d",
+            "items_length": "iterations_t2d",
             "max_items_length": 1,
             "update_on_change": true
           }
@@ -757,7 +757,7 @@
         "fieldsets": [
           {
             "$ref": "#/properties/intervention_types_pre",
-            "items_length": "iterations_t1d",
+            "items_length": "iterations_pre",
             "max_items_length": 1,
             "update_on_change": true
           }
