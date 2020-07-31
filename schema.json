@@ -35,19 +35,19 @@
             {
               "$ref": "#/properties/psa_intervention_costs_t1d",
               "expand_if": {
-                "simulation_type_t1d": "Sensitivity analysis"
+                "simulation_type_t1d": "PSA"
               }
             },
             {
               "$ref": "#/properties/psa_factor_change_t1d",
               "expand_if": {
-                "simulation_type_t1d": "Sensitivity analysis"
+                "simulation_type_t1d": "PSA"
               }
             },
             {
               "$ref": "#/properties/psa_risk_reduction_t1d",
               "expand_if": {
-                "simulation_type_t1d": "Sensitivity analysis"
+                "simulation_type_t1d": "PSA"
               }
             },
             {
@@ -341,19 +341,19 @@
             {
               "$ref": "#/properties/psa_intervention_costs_t2d",
               "expand_if": {
-                "simulation_type_t2d": "Sensitivity analysis"
+                "simulation_type_t2d": "PSA"
               }
             },
             {
               "$ref": "#/properties/psa_factor_change_t2d",
               "expand_if": {
-                "simulation_type_t2d": "Sensitivity analysis"
+                "simulation_type_t2d": "PSA"
               }
             },
             {
               "$ref": "#/properties/psa_risk_reduction_t2d",
               "expand_if": {
-                "simulation_type_t2d": "Sensitivity analysis"
+                "simulation_type_t2d": "PSA"
               }
             },
             {
@@ -702,19 +702,19 @@
             {
               "$ref": "#/properties/psa_intervention_costs_pre",
               "expand_if": {
-                "simulation_type_pre": "Sensitivity analysis"
+                "simulation_type_pre": "PSA"
               }
             },
             {
               "$ref": "#/properties/psa_factor_change_pre",
               "expand_if": {
-                "simulation_type_pre": "Sensitivity analysis"
+                "simulation_type_pre": "PSA"
               }
             },
             {
               "$ref": "#/properties/psa_risk_reduction_pre",
               "expand_if": {
-                "simulation_type_pre": "Sensitivity analysis"
+                "simulation_type_pre": "PSA"
               }
             },
             {
@@ -1191,7 +1191,7 @@
         "url_path": "/sensitivity-analysis-config-t1d",
         "form_submit_button": true,
         "expand_if": {
-          "simulation_type_t1d": "Sensitivity analysis"
+          "simulation_type_t1d": "PSA"
         },
         "fieldsets": [
           {
@@ -1204,7 +1204,7 @@
         "title": "Scenario Setup: Sensitivity Analysis - Type 2 Diabetes",
         "url_path": "/sensitivity-analysis-config-t2d",
         "expand_if": {
-          "simulation_type_t2d": "Sensitivity analysis"
+          "simulation_type_t2d": "PSA"
         },
         "fieldsets": [
           {
@@ -1217,7 +1217,7 @@
         "title": "Scenario Setup: Sensitivity Analysis - Prediabetes",
         "url_path": "/sensitivity-analysis-config-pre",
         "expand_if": {
-          "simulation_type_pre": "Sensitivity analysis"
+          "simulation_type_pre": "PSA"
         },
         "fieldsets": [
           {
@@ -1267,21 +1267,21 @@
     "simulation_type_t1d": {
       "title": "Type of simulation to run",
       "$ref": "#/definitions/string",
-      "enum": ["Standard", "Sensitivity analysis"],
+      "enum": ["Standard", "PSA"],
       "default": "Standard",
       "_basic_config": true
     },
     "simulation_type_t2d": {
       "title": "Type of simulation to run",
       "$ref": "#/definitions/string",
-      "enum": ["Standard", "Sensitivity analysis"],
+      "enum": ["Standard", "PSA"],
       "default": "Standard",
       "_basic_config": true
     },
     "simulation_type_pre": {
       "title": "Type of simulation to run",
       "$ref": "#/definitions/string",
-      "enum": ["Standard", "Sensitivity analysis"],
+      "enum": ["Standard", "PSA"],
       "default": "Standard",
       "_basic_config": true
     },
