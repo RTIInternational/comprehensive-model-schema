@@ -21,7 +21,7 @@
         "url_path": "/basic-setup-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "t1d"
+          "diabetes_type": "Type 1"
         },
         "fieldsets": [
           [
@@ -86,7 +86,7 @@
         "url_path": "/configure-intervention-sets-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "t1d"
+          "diabetes_type": "Type 1"
         },
         "fieldsets": [
           {
@@ -127,7 +127,7 @@
         "form_submit_button": true,
         "expand_if": {
           "$and": {
-            "diabetes_type": "t1d",
+            "diabetes_type": "Type 1",
             "intervention_types_t1d": {
               "0": {
                 "type_glycemic_t1d": {
@@ -191,7 +191,7 @@
         "form_submit_button": true,
         "expand_if": {
           "$and": {
-            "diabetes_type": "t1d",
+            "diabetes_type": "Type 1",
             "intervention_types_t1d": {
               "0": {
                 "type_cholesterol_t1d": {
@@ -239,7 +239,7 @@
         "form_submit_button": true,
         "expand_if": {
           "$and": {
-            "diabetes_type": "t1d",
+            "diabetes_type": "Type 1",
             "intervention_types_t1d": {
               "0": {
                 "type_bp_t1d": {
@@ -303,7 +303,7 @@
         "form_submit_button": true,
         "expand_if": {
           "$and": {
-            "diabetes_type": "t1d",
+            "diabetes_type": "Type 1",
             "intervention_types_t1d": {
               "0": {
                 "type_smoke_t1d": {
@@ -327,7 +327,7 @@
         "url_path": "/basic-setup-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "t2d"
+          "diabetes_type": "Type 2"
         },
         "fieldsets": [
           [
@@ -392,7 +392,7 @@
         "url_path": "/configure-intervention-sets-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "t2d"
+          "diabetes_type": "Type 2"
         },
         "fieldsets": [
           {
@@ -433,7 +433,7 @@
         "form_submit_button": true,
         "expand_if": {
           "$and": {
-            "diabetes_type": "t2d",
+            "diabetes_type": "Type 2",
             "intervention_types_t2d": {
               "0": {
                 "type_glycemic_t2d": {
@@ -497,7 +497,7 @@
         "form_submit_button": true,
         "expand_if": {
           "$and": {
-            "diabetes_type": "t2d",
+            "diabetes_type": "Type 2",
             "intervention_types_t2d": {
               "0": {
                 "type_cholesterol_t2d": {
@@ -545,7 +545,7 @@
         "form_submit_button": true,
         "expand_if": {
           "$and": {
-            "diabetes_type": "t2d",
+            "diabetes_type": "Type 2",
             "intervention_types_t2d": {
               "0": {
                 "type_bp_t2d": {
@@ -609,7 +609,7 @@
         "form_submit_button": true,
         "expand_if": {
           "$and": {
-            "diabetes_type": "t2d",
+            "diabetes_type": "Type 2",
             "intervention_types_t2d": {
               "0": {
                 "type_smoke_t2d": {
@@ -633,7 +633,7 @@
         "form_submit_button": true,
         "expand_if": {
           "$and": {
-            "diabetes_type": "t2d",
+            "diabetes_type": "Type 2",
             "intervention_types_t2d": {
               "0": {
                 "type_lifestyle_t2d": {
@@ -688,7 +688,7 @@
         "url_path": "/basic-setup-for-prediabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "pre"
+          "diabetes_type": "Prediabetes"
         },
         "fieldsets": [
           [
@@ -752,7 +752,7 @@
         "url_path": "/configure-intervention-sets-for-prediabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "pre"
+          "diabetes_type": "Prediabetes"
         },
         "fieldsets": [
           {
@@ -769,7 +769,7 @@
         "form_submit_button": true,
         "expand_if": {
           "$and": {
-            "diabetes_type": "pre",
+            "diabetes_type": "Prediabetes",
             "intervention_types_pre": {
               "0": {
                 "type_lifestyle_pre": {
@@ -823,7 +823,7 @@
         "url_path": "/configure-parameters-for-prediabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "pre"
+          "diabetes_type": "Prediabetes"
         },
         "fieldsets": [
           {
@@ -853,7 +853,7 @@
         "url_path": "/population-generation-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "t1d"
+          "diabetes_type": "Type 1"
         },
         "fieldsets": [
           {
@@ -898,7 +898,7 @@
         "url_path": "/population-generation-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "t2d"
+          "diabetes_type": "Type 2"
         },
         "fieldsets": [
           {
@@ -923,7 +923,7 @@
         "url_path": "/population-generation-for-prediabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "pre"
+          "diabetes_type": "Prediabetes"
         },
         "fieldsets": [
           {
@@ -948,7 +948,7 @@
         "url_path": "/economic-factors-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "t1d"
+          "diabetes_type": "Type 1"
         },
         "fieldsets": [
           {
@@ -976,7 +976,7 @@
         "url_path": "/economic-factors-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "t2d"
+          "diabetes_type": "Type 2"
         },
         "fieldsets": [
           {
@@ -1004,7 +1004,7 @@
         "url_path": "/economic-factors-for-prediabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "pre"
+          "diabetes_type": "Prediabetes"
         },
         "fieldsets": [
           {
