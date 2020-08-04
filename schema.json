@@ -83,7 +83,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Type 1 Diabetes",
-        "url_path": "/intervention-sets-config-for-type-1-diabetes",
+        "url_path": "/configure-intervention-sets-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "diabetes_type": "t1d"
@@ -100,7 +100,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Generic intervention",
-        "url_path": "/intervention-set-for-generic-intervention-t1d",
+        "url_path": "/configure-generic-intervention-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "intervention_types_t1d": {
@@ -123,7 +123,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Glycemic control intervention",
-        "url_path": "/intervention-set-for-glycemic-intervention-t1d",
+        "url_path": "/configure-glycemic-control-intervention-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "$and": {
@@ -187,7 +187,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Cholesterol control intervention",
-        "url_path": "/intervention-set-for-cholesterol-intervention-t1d",
+        "url_path": "/configure-cholesterol-control-intervention-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "$and": {
@@ -235,7 +235,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Blood pressure control intervention",
-        "url_path": "/intervention-set-config-for-blood-pressure-intervention-t1d",
+        "url_path": "/configure-blood-pressure-control-intervention-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "$and": {
@@ -299,7 +299,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Smoking cessation intervention",
-        "url_path": "/intervention-set-config-for-smoking-intervention-t1d",
+        "url_path": "/configure-smoking-intervention-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "$and": {
@@ -389,7 +389,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Type 2 Diabetes",
-        "url_path": "/intervention-set-config-for-type-2-diabetes",
+        "url_path": "/configure-intervention-sets-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "diabetes_type": "t2d"
@@ -406,7 +406,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Generic intervention",
-        "url_path": "/intervention-set-for-generic-intervention-t2d",
+        "url_path": "/configure-generic-intervention-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "intervention_types_t2d": {
@@ -429,7 +429,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Glycemic control intervention",
-        "url_path": "/intervention-set-for-glycemic-intervention-t2d",
+        "url_path": "/configure-glycemic-control-intervention-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "$and": {
@@ -493,7 +493,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Cholesterol control intervention",
-        "url_path": "/intervention-sets-config-for-cholesterol-intervention",
+        "url_path": "/configure-cholesterol-control-intervention-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "$and": {
@@ -541,7 +541,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Blood pressure control intervention",
-        "url_path": "/intervention-sets-config-for-blood-pressure-control-intervention",
+        "url_path": "/configure-blood-pressure-control-intervention-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "$and": {
@@ -605,7 +605,7 @@
 
       {
         "title": "Scenario Setup: Intervention Sets - Smoking cessation intervention",
-        "url_path": "/intervention-sets-config-for-smoking-cessation-intervention",
+        "url_path": "/configure-smoking-intervention-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "$and": {
@@ -629,7 +629,7 @@
       },
       {
         "title": "Scenario Setup: Intervention Sets - Lifestyle intervention",
-        "url_path": "/intervention-set-config-for-lifestyle-intervention-t2d",
+        "url_path": "/configure-lifestyle-intervention-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "$and": {
@@ -749,7 +749,7 @@
       },
       {
         "title": "Scenario Setup: Intervention Sets - Prediabetes",
-        "url_path": "/intervention-set-config-for-prediabetes",
+        "url_path": "/configure-intervention-sets-for-prediabetes",
         "form_submit_button": true,
         "expand_if": {
           "diabetes_type": "pre"
@@ -763,168 +763,9 @@
           }
         ]
       },
-
-      {
-        "title": "Scenario Setup: Intervention Sets - Generic intervention",
-        "url_path": "/intervention-set-for-generic-intervention-prediabetes",
-        "form_submit_button": true,
-        "expand_if": {
-          "intervention_types_pre": {
-            "0": {
-              "type_generic_pre": {
-                "0": "generic"
-              }
-            }
-          }
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/generic_control_intervention_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1,
-            "update_on_change": true
-          }
-        ]
-      },
-      {
-        "title": "Scenario Setup: Intervention Sets - Cholesterol control intervention",
-        "url_path": "/intervention-sets-config-for-cholesterol-intervention",
-        "form_submit_button": true,
-        "expand_if": {
-          "$and": {
-            "diabetes_type": "pre",
-            "intervention_types_pre": {
-              "0": {
-                "type_cholesterol_pre": {
-                  "0": "cholesterol"
-                }
-              }
-            }
-          }
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/cholesterol_control_setup_type_pre",
-            "update_on_change": true
-          },
-          {
-            "$ref": "#/properties/cholesterol_control_intervention_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1,
-            "expand_if": {
-              "cholesterol_control_setup_type_pre": "basic"
-            }
-          },
-          {
-            "$ref": "#/properties/cholesterol_control_advanced_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1,
-            "expand_if": {
-              "cholesterol_control_setup_type_pre": "advanced"
-            }
-          },
-          {
-            "$ref": "#/properties/cholesterol_control_costs_advanced_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1,
-            "expand_if": {
-              "cholesterol_control_setup_type_pre": "advanced"
-            }
-          }
-        ]
-      },
-
-      {
-        "title": "Scenario Setup: Intervention Sets - Blood pressure control intervention",
-        "url_path": "/intervention-sets-config-for-blood-pressure-control-intervention",
-        "form_submit_button": true,
-        "expand_if": {
-          "$and": {
-            "diabetes_type": "pre",
-            "intervention_types_pre": {
-              "0": {
-                "type_bp_pre": {
-                  "0": "bp"
-                }
-              }
-            }
-          }
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/bp_control_setup_type_pre",
-            "update_on_change": true
-          },
-          {
-            "$ref": "#/properties/bp_control_intervention_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1,
-            "expand_if": {
-              "bp_control_setup_type_pre": "basic"
-            }
-          },
-          {
-            "$ref": "#/properties/bp_control_trajectory_advanced_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1,
-            "expand_if": {
-              "bp_control_setup_type_pre": "advanced"
-            }
-          },
-          {
-            "$ref": "#/properties/bp_control_intensification_advanced_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1,
-            "expand_if": {
-              "bp_control_setup_type_pre": "advanced"
-            }
-          },
-          {
-            "$ref": "#/properties/bp_control_targets_advanced_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1,
-            "expand_if": {
-              "bp_control_setup_type_pre": "advanced"
-            }
-          },
-          {
-            "$ref": "#/properties/bp_control_costs_advanced_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1,
-            "expand_if": {
-              "bp_control_setup_type_pre": "advanced"
-            }
-          }
-        ]
-      },
-
-      {
-        "title": "Scenario Setup: Intervention Sets - Smoking cessation intervention",
-        "url_path": "/intervention-sets-config-for-smoking-cessation-intervention",
-        "form_submit_button": true,
-        "expand_if": {
-          "$and": {
-            "diabetes_type": "pre",
-            "intervention_types_pre": {
-              "0": {
-                "type_smoke_pre": {
-                  "0": "smoking"
-                }
-              }
-            }
-          }
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/smoking_control_intervention_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1
-          }
-        ]
-      },
       {
         "title": "Scenario Setup: Intervention Sets - Lifestyle intervention",
-        "url_path": "/intervention-set-config-for-lifestyle-intervention-pre",
+        "url_path": "/configure-lifestyle-intervention-for-prediabetes",
         "form_submit_button": true,
         "expand_if": {
           "$and": {
@@ -979,7 +820,7 @@
       },
       {
         "title": "Prediabetes parameters",
-        "url_path": "/parameter-config-for-prediabetes",
+        "url_path": "/configure-parameters-for-prediabetes",
         "form_submit_button": true,
         "expand_if": {
           "diabetes_type": "pre"
@@ -1188,7 +1029,7 @@
       },
       {
         "title": "Scenario Setup: Sensitivity Analysis - Type 1 Diabetes",
-        "url_path": "/sensitivity-analysis-config-t1d",
+        "url_path": "/configure-sensitivity-analysis-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
           "simulation_type_t1d": "PSA"
@@ -1202,7 +1043,7 @@
       },
       {
         "title": "Scenario Setup: Sensitivity Analysis - Type 2 Diabetes",
-        "url_path": "/sensitivity-analysis-config-t2d",
+        "url_path": "//configure-sensitivity-analysis-for-type-2-diabetes",
         "expand_if": {
           "simulation_type_t2d": "PSA"
         },
@@ -1215,7 +1056,7 @@
       },
       {
         "title": "Scenario Setup: Sensitivity Analysis - Prediabetes",
-        "url_path": "/sensitivity-analysis-config-pre",
+        "url_path": "//configure-sensitivity-analysis-for-prediabetes",
         "expand_if": {
           "simulation_type_pre": "PSA"
         },
@@ -1241,9 +1082,8 @@
     "diabetes_type": {
       "title": "Diabetes type",
       "$ref": "#/definitions/string",
-      "enum": ["t1d", "t2d", "pre"],
-      "enumNames": ["Type 1", "Type 2", "Prediabetes"],
-      "default": "t1d",
+      "enum": ["Type 1", "Type 2", "Prediabetes"],
+      "default": "Type 1",
       "_basic_config": true
     },
     "scenario_name_t1d": {
@@ -1437,7 +1277,7 @@
       "_basic_config": true
     },
     "max_steps_t1d": {
-      "title": "Maximum number of steps",
+      "title": "Maximum number of steps (years)",
       "$ref": "#/definitions/positiveInteger",
       "default": 5,
       "_basic_config": true
@@ -1456,7 +1296,7 @@
       "default": 30
     },
     "max_steps_t2d": {
-      "title": "Maximum number of steps",
+      "title": "Maximum number of steps (years)",
       "$ref": "#/definitions/positiveInteger",
       "default": 5
     },
@@ -1474,7 +1314,7 @@
       "default": 30
     },
     "max_steps_pre": {
-      "title": "Maximum number of steps",
+      "title": "Maximum number of steps (years)",
       "$ref": "#/definitions/positiveInteger",
       "default": 5
     },
@@ -2736,25 +2576,25 @@
                 "title": "Race: White",
                 "description": "",
                 "$ref": "#/definitions/proportion",
-                "default": 0.4291
+                "default": 0.3551
               },
               "proportion_black": {
                 "title": "Race: Black",
                 "description": "",
                 "$ref": "#/definitions/proportion",
-                "default": 0.1947
+                "default": 0.2645
               },
               "proportion_hispanic": {
                 "title": "Race: Hispanic",
                 "description": "",
                 "$ref": "#/definitions/proportion",
-                "default": 0.2478
+                "default": 0.2628
               },
               "proportion_other": {
                 "title": "Race: Other",
                 "description": "",
                 "$ref": "#/definitions/proportion",
-                "default": 0.1285
+                "default": 0.1176
               }
             }
           },
@@ -2767,7 +2607,7 @@
                 "title": "Proportion with postsecondary education",
                 "description": "",
                 "$ref": "#/definitions/proportion",
-                "default": 0.5642
+                "default": 0.4808
               },
               "proportion_smoker": {
                 "title": "Proportion smoking",
@@ -2779,7 +2619,7 @@
                 "title": "Proportion females",
                 "description": "",
                 "$ref": "#/definitions/proportion",
-                "default": 0.5202
+                "default": 0.5133
               }
             }
           }
@@ -3008,13 +2848,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 5.44
+            "default": 5.90
           },
           "HBA1C sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.39
+            "default": 0.19
           },
           "BMI": {
             "description": "",
@@ -3025,13 +2865,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 28.47
+            "default": 30.23
           },
           "BMI sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 6.56
+            "default": 6.98
           },
           "SBP": {
             "title": "Systolic blood pressure (mmHg)",
@@ -3043,13 +2883,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 121.75
+            "default": 127.21
           },
           "SBP sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 17.19
+            "default": 17.95
           },
           "HDL": {
             "title": "HDL (mg/dL)",
@@ -3061,13 +2901,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 54.06
+            "default": 51.89
           },
           "HDL sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 16.35
+            "default": 15.34
           },
           "LDL": {
             "title": "LDL (mg/dL)",
@@ -3079,13 +2919,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 115.85
+            "default": 122.63
           },
           "LDL sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 34.23
+            "default": 35.54364
           },
           "Triglycerides": {
             "title": "ln(Triglycerides (ln(mg/dL)))",
@@ -3097,13 +2937,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4.68
+            "default": 4.78
           },
           "Triglycerides sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.48
+            "default": 0.46
           },
           "Serum creatinine": {
             "title": "Serum creatinine (mg/dL)",
@@ -3115,7 +2955,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.87
+            "default": 0.90
           },
           "Serum creatinine sd": {
             "title": " ",
@@ -3260,18 +3100,6 @@
             "$ref": "#/definitions/proportion",
             "default": 0
           },
-          "proportion_hypo_med": {
-            "title": "Hypoglycemia requiring medical assistance",
-            "description": "",
-            "$ref": "#/definitions/proportion",
-            "default": 0
-          },
-          "proportion_hypo_any": {
-            "title": "Hypoglycemia requiring any assistance",
-            "description": "",
-            "$ref": "#/definitions/proportion",
-            "default": 0
-          },
           "dataset": {
             "title": "Proportion from ACCORD dataset",
             "description": "",
@@ -3312,7 +3140,7 @@
             "title": "Microalbuminuria",
             "description": "",
             "$ref": "#/definitions/proportion",
-            "default": 0.0731
+            "default": 0.0967
           },
           "proportion_macroalbuminuria": {
             "title": "Macroalbuminuria",
@@ -3324,19 +3152,19 @@
             "title": "eGFR <60",
             "description": "",
             "$ref": "#/definitions/proportion",
-            "default": 0.0654
+            "default": 0.1199
           },
           "proportion_egfr_30": {
             "title": "eGFR <30",
             "description": "",
             "$ref": "#/definitions/proportion",
-            "default": 0.004
+            "default": 0.0072
           },
           "proportion_dialysis": {
             "title": "Dialysis",
             "description": "",
             "$ref": "#/definitions/proportion",
-            "default": 0.0007
+            "default": 0.0004
           },
           "proportion_neuropathy": {
             "title": "Neuropathy",
@@ -3372,25 +3200,25 @@
             "title": "MI",
             "description": "",
             "$ref": "#/definitions/proportion",
-            "default": 0.0266
+            "default": 0.0491
           },
           "proportion_stroke": {
             "title": "Stroke",
             "description": "",
             "$ref": "#/definitions/proportion",
-            "default": 0.0242
+            "default": 0.0359
           },
           "proportion_chf": {
             "title": "CHF",
             "description": "",
             "$ref": "#/definitions/proportion",
-            "default": 0.0181
+            "default": 0.0308
           },
           "proportion_angina": {
             "title": "Angina",
             "description": "",
             "$ref": "#/definitions/proportion",
-            "default": 0.015
+            "default": 0.0276
           },
           "proportion_revascularization": {
             "title": "Revascularization",
@@ -4142,8 +3970,8 @@
           "TV age cost": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/negativeInteger",
-            "default": -16
+            "type": "number",
+            "default": 16
           },
           "TV age cost placeholder": {
             "title": " ",
@@ -5172,7 +5000,7 @@
           "TV age cost": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/negativeInteger",
+            "type": "number",
             "default": -64
           },
           "TV age cost placeholder": {
@@ -6304,7 +6132,7 @@
           "TV age cost": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/negativeInteger",
+            "type": "number",
             "default": -64
           },
           "TV age cost placeholder": {
@@ -9196,13 +9024,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 0.2
           },
           "Annual A1c Before Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 0.2
           },
           "Annual A1c after intensifying": {
             "title": "Annual A1c change (%) after intensifying",
@@ -9213,13 +9041,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 0.2
           },
           "Annual A1c After Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 0.1
           },
           "Annual A1c subsequent intensifications": {
             "title": "Annual A1c change (%) for subsequent intensifications",
@@ -9230,13 +9058,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 0.2
           },
           "Annual A1c Subsequent Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 0.1
           }
         }
       }
@@ -9287,13 +9115,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "Effect of intensifying on A1c Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1.5
           },
           "Effect of next intensification on A1c": {
             "$ref": "#/definitions/text",
@@ -9303,13 +9131,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "Effect of next intensification on A1c Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "Effect of subsequent intensification on A1c": {
             "$ref": "#/definitions/text",
@@ -9319,13 +9147,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "Effect of subsequent intensification on A1c Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           }
         }
       }
@@ -9376,13 +9204,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7.5
           },
           "General Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7
           },
           "If age >= 65": {
             "$ref": "#/definitions/text",
@@ -9392,13 +9220,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 8
           },
           "If age >= 65 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7.5
           },
           "If CVD = 1 or dialysis = 1": {
             "$ref": "#/definitions/text",
@@ -9408,13 +9236,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 8
           },
           "If CVD = 1 or dialysis = 1 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7.5
           },
           "If age >= 65 and (CVD = 1 or dialysis = 1)": {
             "$ref": "#/definitions/text",
@@ -9424,13 +9252,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 8.5
           },
           "If age >= 65 and (CVD = 1 or dialysis = 1) Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 8
           },
           "Intensify if A1c > target": {
             "$ref": "#/definitions/text",
@@ -9440,7 +9268,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 0.5
           },
           "Intensify if A1c > target Intervention": {
             "title": " ",
@@ -9497,13 +9325,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 478
           },
           "Current treatment Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 758
           },
           "First intensification": {
             "$ref": "#/definitions/text",
@@ -9513,13 +9341,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 758
           },
           "First intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1975
           },
           "Next intensification": {
             "$ref": "#/definitions/text",
@@ -9529,13 +9357,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1975
           },
           "Next intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1975
           },
           "Subsequent intensifications": {
             "$ref": "#/definitions/text",
@@ -9545,13 +9373,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1975
           },
           "Subsequent intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1975
           }
         }
       }
@@ -12367,7 +12195,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Apply to persons with bmi (kg/m^2)": {
+          "Apply to persons with BMI (kg/m^2)": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12608,7 +12436,7 @@
             }
           },
           "text_1": {
-            "title": "If bmi change is calculated directly, the following values will be used:",
+            "title": "If BMI change is calculated directly, the following values will be used:",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12901,7 +12729,7 @@
           "year_1_cost": {
             "title": "Year 1",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 495
           },
           "subsequent_years_cost": {
             "title": "Subsequent years",
@@ -12914,7 +12742,7 @@
             "readOnly": true
           },
           "bmi_change_text": {
-            "title": "Change in BMI from baseline",
+            "title": "Percent change in BMI from baseline",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12930,13 +12758,13 @@
           },
           "year_1_change": {
             "title": "Year 1",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/decimal_percent",
+            "default": -0.05
           },
           "subsequent_years_change": {
             "title": "Subsequent years",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/decimal_percent",
+            "default": -0.02
           },
           "placeholder6": {
             "title": " ",
@@ -12971,7 +12799,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Apply to persons with bmi (kg/m^2)": {
+          "Apply to persons with BMI >= (kg/m2)": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12979,7 +12807,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 25
           },
           "placeholder1": {
             "title": " ",
@@ -12987,7 +12815,7 @@
             "readOnly": true
           },
           "Apply to persons with HbA1 between": {
-            "title": "Apply to persons with HbA1 (%) between",
+            "title": "Apply to persons with HbA1c (%) between",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12995,13 +12823,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 5.7
           },
           "Apply to persons with HbA1 between to": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 6.5
           },
           "Apply to persons with FPG between": {
             "title": "Apply to persons with FPG (mg/dL) between",
@@ -13012,30 +12840,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 100
           },
           "Apply to persons with FPG between to": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          },
-          "Apply to persons with 2-h plasma glucose during 75-g OGTT": {
-            "title": "Apply to persons with 2-h plasma glucose during 75-g OGTT (mg/dL)",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Apply to persons with 2-h plasma glucose during 75-g OGTT from": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          },
-          "Apply to persons with 2-h plasma glucose during 75-g OGTT to": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 126
           },
           "Percent change in BMI relative to baseline": {
             "title": "Percent change in BMI relative to baseline",
@@ -13060,8 +12871,8 @@
           "year_1_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negative_percent",
+            "default": -5
           },
           "placeholder5": {
             "title": " ",
@@ -13076,8 +12887,8 @@
           "year_2_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negative_percent",
+            "default": -2.5
           },
           "placeholder6": {
             "title": " ",
@@ -13092,8 +12903,8 @@
           "year_3_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negative_percent",
+            "default": -1.25
           },
           "placeholder7": {
             "title": " ",
@@ -13108,8 +12919,8 @@
           "year_4_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negative_percent",
+            "default": -1.25
           },
           "placeholder8": {
             "title": " ",
@@ -13124,8 +12935,8 @@
           "year_5_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negative_percent",
+            "default": -1.25
           },
           "placeholder9": {
             "title": " ",
@@ -13140,8 +12951,8 @@
           "year_subsequent_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negative_percent",
+            "default": -1.25
           },
           "placeholder10": {
             "title": " ",
@@ -13170,9 +12981,6 @@
             "type": "grid",
             "columns": 3
           },
-          "bmi_change_dpp": {
-            "ui:widget": "checkboxes"
-          },
           "bmi_change_calculated": {
             "ui:widget": "checkboxes"
           }
@@ -13182,23 +12990,6 @@
       "items": {
         "type": "object",
         "properties": {
-          "text_0": {
-            "title": "The effects on annual probability of diabetes onset should be (choose 1):",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "bmi_change_dpp": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["true"],
-              "enumNames": [
-                "Based on change of BMI relative to change of BMI in DPP trial"
-              ]
-            }
-          },
           "bmi_change_calculated": {
             "title": " ",
             "type": "array",
@@ -13207,12 +12998,22 @@
               "type": "string",
               "enum": ["true"],
               "enumNames": [
-                "Calculated directly as percentage reduction in onset risk"
+                "Instead of using the BMI changes entered above, calculate the reduction in onset risk directly according to relative risk reductions entered below."
               ]
             }
           },
+          "placeholder_1": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder_2": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
           "text_1": {
-            "title": "If bmi change is calculated directly, the following values will be used:",
+            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used:”",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -13225,7 +13026,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 40.3
           },
           "placeholder5": {
             "title": " ",
@@ -13241,7 +13042,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 20.1
           },
           "placeholder6": {
             "title": " ",
@@ -13257,7 +13058,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 10.1
           },
           "placeholder7": {
             "title": " ",
@@ -13273,7 +13074,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 10.1
           },
           "placeholder8": {
             "title": " ",
@@ -13289,7 +13090,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 10.1
           },
           "placeholder9": {
             "title": " ",
@@ -13305,7 +13106,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 10.1
           },
           "placeholder10": {
             "title": " ",
@@ -13407,7 +13208,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 495
           },
           "placeholder5": {
             "title": " ",
@@ -13692,6 +13493,16 @@
     "percent": {
       "type": "number",
       "minimum": 0,
+      "maximum": 100
+    },
+    "decimal_percent": {
+      "type": "number",
+      "minimum": -1,
+      "maximum": 1
+    },
+    "negative_percent": {
+      "type": "number",
+      "minimum": -100,
       "maximum": 100
     },
     "negativeProportion": {
