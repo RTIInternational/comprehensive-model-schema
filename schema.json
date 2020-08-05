@@ -1084,7 +1084,7 @@
       "$ref": "#/definitions/string",
       "enum": ["t1d", "t2d", "pre"],
       "enumNames": ["Type 1", "Type 2", "Prediabetes"],
-      "default": "Type 1",
+      "default": "t1d",
       "_basic_config": true
     },
     "scenario_name_t1d": {
