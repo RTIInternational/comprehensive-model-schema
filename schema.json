@@ -5,6 +5,7 @@
   "type": "object",
   "ui:layout": {
     "pages": [
+
       {
         "url_path": "/",
         "title": "New Scenario Setup",
@@ -68,13 +69,19 @@
             {
               "$ref": "#/properties/max_steps_t1d",
               "expand_if": {
-                "time_horizon_t1d": "fixed"
+                "$and": {
+                  "diabetes_type": "t1d",
+                  "time_horizon_t1d": "fixed"
+                }
               }
             },
             {
               "$ref": "#/properties/max_age_t1d",
               "expand_if": {
-                "time_horizon_t1d": "max_age"
+                "$and": {
+                  "diabetes_type": "t1d",
+                  "time_horizon_t1d": "fixed"
+                }
               }
             }
           ]
@@ -103,10 +110,13 @@
         "url_path": "/configure-generic-intervention-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "intervention_types_t1d": {
-            "0": {
-              "type_generic_t1d": {
-                "0": "generic"
+          "$and": {
+            "diabetes_type": "t1d",
+            "intervention_types_t1d": {
+              "0": {
+                "type_generic_t1d": {
+                  "0": "generic"
+                }
               }
             }
           }
@@ -323,6 +333,96 @@
       },
 
       {
+        "title": "Advanced Setup: Population Generation - Type 1 Diabetes",
+        "url_path": "/population-generation-for-type-1-diabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "t1d"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/population_composition",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/SEARCH_demographics",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/SEARCH_risk_factors",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/SEARCH_clinical_history",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/EXCHANGE_demographics",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/EXCHANGE_risk_factors",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/EXCHANGE_clinical_history",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1
+          }
+        ]
+      },
+      
+      {
+        "title": "Advanced Setup: Economic Factors - Type 1 Diabetes",
+        "url_path": "/economic-factors-for-type-1-diabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "t1d"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/baseline_economic_factors_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/disutilities_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/costs_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+      
+      {
+        "title": "Scenario Setup: Sensitivity Analysis - Type 1 Diabetes",
+        "url_path": "/configure-sensitivity-analysis-for-type-1-diabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "simulation_type_t1d": "PSA"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/sensitivity_analysis_t1d",
+            "update_on_change": true
+          }
+        ]
+      },
+
+      {
         "title": "Scenario Setup: Basic - Type 2 Diabetes",
         "url_path": "/basic-setup-for-type-2-diabetes",
         "form_submit_button": true,
@@ -374,13 +474,19 @@
             {
               "$ref": "#/properties/max_steps_t2d",
               "expand_if": {
-                "time_horizon_t1d": "fixed"
+                "$and": {
+                  "diabetes_type": "t2d",
+                  "time_horizon_t2d": "fixed"
+                }
               }
             },
             {
               "$ref": "#/properties/max_age_t2d",
               "expand_if": {
-                "time_horizon_t1d": "max_age"
+                "$and": {
+                  "diabetes_type": "t2d",
+                  "time_horizon_t2d": "max_age"
+                }
               }
             }
           ]
@@ -409,10 +515,13 @@
         "url_path": "/configure-generic-intervention-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "intervention_types_t2d": {
-            "0": {
-              "type_generic_t2d": {
-                "0": "generic"
+          "$and": {
+            "diabetes_type": "t2d",
+            "intervention_types_t2d": {
+              "0": {
+                "type_generic_t2d": {
+                  "0": "generic"
+                }
               }
             }
           }
@@ -627,6 +736,7 @@
           }
         ]
       },
+
       {
         "title": "Scenario Setup: Intervention Sets - Lifestyle intervention",
         "url_path": "/configure-lifestyle-intervention-for-type-2-diabetes",
@@ -679,6 +789,75 @@
             "expand_if": {
               "lifestyle_control_setup_type_t2d": "advanced"
             }
+          }
+        ]
+      },
+      
+      {
+        "title": "Advanced Setup: Population Generation - Type 2 Diabetes",
+        "url_path": "/population-generation-for-type-2-diabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "t2d"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/demographics",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/risk_factors",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1
+          },
+          {
+            "$ref": "#/properties/clinical_history",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1
+          }
+        ]
+      },
+      
+      {
+        "title": "Advanced Setup: Economic Factors - Type 2 Diabetes",
+        "url_path": "/economic-factors-for-type-2-diabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "t2d"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/baseline_economic_factors_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/disutilities_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/costs_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+
+      {
+        "title": "Scenario Setup: Sensitivity Analysis - Type 2 Diabetes",
+        "url_path": "//configure-sensitivity-analysis-for-type-2-diabetes",
+        "expand_if": {
+          "simulation_type_t2d": "PSA"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/sensitivity_analysis_t2d",
+            "update_on_change": true
           }
         ]
       },
@@ -747,6 +926,7 @@
           ]
         ]
       },
+
       {
         "title": "Scenario Setup: Intervention Sets - Prediabetes",
         "url_path": "/configure-intervention-sets-for-prediabetes",
@@ -763,6 +943,7 @@
           }
         ]
       },
+
       {
         "title": "Scenario Setup: Intervention Sets - Lifestyle intervention",
         "url_path": "/configure-lifestyle-intervention-for-prediabetes",
@@ -818,6 +999,7 @@
           }
         ]
       },
+
       {
         "title": "Prediabetes parameters",
         "url_path": "/configure-parameters-for-prediabetes",
@@ -848,76 +1030,7 @@
           }
         ]
       },
-      {
-        "title": "Advanced Setup: Population Generation - Type 1 Diabetes",
-        "url_path": "/population-generation-for-type-1-diabetes",
-        "form_submit_button": true,
-        "expand_if": {
-          "diabetes_type": "t1d"
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/population_composition",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/SEARCH_demographics",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/SEARCH_risk_factors",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/SEARCH_clinical_history",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/EXCHANGE_demographics",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/EXCHANGE_risk_factors",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/EXCHANGE_clinical_history",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
-          }
-        ]
-      },
-      {
-        "title": "Advanced Setup: Population Generation - Type 2 Diabetes",
-        "url_path": "/population-generation-for-type-2-diabetes",
-        "form_submit_button": true,
-        "expand_if": {
-          "diabetes_type": "t2d"
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/demographics",
-            "items_length": "iterations_t2d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/risk_factors",
-            "items_length": "iterations_t2d",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/clinical_history",
-            "items_length": "iterations_t2d",
-            "max_items_length": 1
-          }
-        ]
-      },
+
       {
         "title": "Advanced Setup: Population Generation - Prediabetes",
         "url_path": "/population-generation-for-prediabetes",
@@ -943,62 +1056,7 @@
           }
         ]
       },
-      {
-        "title": "Advanced Setup: Economic Factors - Type 1 Diabetes",
-        "url_path": "/economic-factors-for-type-1-diabetes",
-        "form_submit_button": true,
-        "expand_if": {
-          "diabetes_type": "t1d"
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/baseline_economic_factors_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "update_on_change": true
-          },
-          {
-            "$ref": "#/properties/disutilities_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "update_on_change": true
-          },
-          {
-            "$ref": "#/properties/costs_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "update_on_change": true
-          }
-        ]
-      },
-      {
-        "title": "Advanced Setup: Economic Factors - Type 2 Diabetes",
-        "url_path": "/economic-factors-for-type-2-diabetes",
-        "form_submit_button": true,
-        "expand_if": {
-          "diabetes_type": "t2d"
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/baseline_economic_factors_t2d",
-            "items_length": "iterations_t2d",
-            "max_items_length": 1,
-            "update_on_change": true
-          },
-          {
-            "$ref": "#/properties/disutilities_t2d",
-            "items_length": "iterations_t2d",
-            "max_items_length": 1,
-            "update_on_change": true
-          },
-          {
-            "$ref": "#/properties/costs_t2d",
-            "items_length": "iterations_t2d",
-            "max_items_length": 1,
-            "update_on_change": true
-          }
-        ]
-      },
+
       {
         "title": "Advanced Setup: Economic Factors - Prediabetes",
         "url_path": "/economic-factors-for-prediabetes",
@@ -1027,33 +1085,7 @@
           }
         ]
       },
-      {
-        "title": "Scenario Setup: Sensitivity Analysis - Type 1 Diabetes",
-        "url_path": "/configure-sensitivity-analysis-for-type-1-diabetes",
-        "form_submit_button": true,
-        "expand_if": {
-          "simulation_type_t1d": "PSA"
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/sensitivity_analysis_t1d",
-            "update_on_change": true
-          }
-        ]
-      },
-      {
-        "title": "Scenario Setup: Sensitivity Analysis - Type 2 Diabetes",
-        "url_path": "//configure-sensitivity-analysis-for-type-2-diabetes",
-        "expand_if": {
-          "simulation_type_t2d": "PSA"
-        },
-        "fieldsets": [
-          {
-            "$ref": "#/properties/sensitivity_analysis_t2d",
-            "update_on_change": true
-          }
-        ]
-      },
+
       {
         "title": "Scenario Setup: Sensitivity Analysis - Prediabetes",
         "url_path": "//configure-sensitivity-analysis-for-prediabetes",
@@ -1067,6 +1099,7 @@
           }
         ]
       },
+
       {
         "url_path": "/summary",
         "built_in_page": {
@@ -1341,12 +1374,12 @@
         "properties": {
           "SEARCH": {
             "title": "Young patients (onset at age < 21)",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.52
           },
           "EXCHANGE": {
             "title": "Older Patients (onset at age ≥ 21)",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.48
           }
         }
@@ -1452,25 +1485,25 @@
               "proportion_white": {
                 "title": "White",
                 "description": "",
-                "$ref": "#/definitions/percent",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.716
               },
               "proportion_black": {
                 "title": "Black",
                 "description": "",
-                "$ref": "#/definitions/percent",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.0
               },
               "proportion_hispanic": {
                 "title": "Hispanic",
                 "description": "",
-                "$ref": "#/definitions/percent",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.0
               },
               "proportion_other": {
                 "title": "Other",
                 "description": "",
-                "$ref": "#/definitions/percent",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.284
               }
             }
@@ -1482,17 +1515,17 @@
             "properties": {
               "proportion_postsecondary_education": {
                 "title": "Postsecondary education",
-                "$ref": "#/definitions/percent",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.0
               },
               "proportion_secondary_education": {
                 "title": "Secondary education",
-                "$ref": "#/definitions/percent",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.015
               },
               "proportion_less_than_secondary_education": {
                 "title": "Less than secondary education",
-                "$ref": "#/definitions/percent",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.985
               }
             }
@@ -1505,19 +1538,19 @@
               "proportion_married": {
                 "title": "Married",
                 "description": "",
-                "$ref": "#/definitions/percent",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.0
               },
               "proportion_female": {
                 "title": "Female",
                 "description": "",
-                "$ref": "#/definitions/percent",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.471
               },
               "proportion_smoker": {
                 "title": "Smoking",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.03
               }
             }
@@ -1768,79 +1801,79 @@
           "proportion_microalbuminuria": {
             "title": "Microalbuminuria",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.063
           },
           "proportion_macroalbuminuria": {
             "title": "Macroalbuminuria",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.006
           },
           "proportion_gfr": {
             "title": "Impaired GFR (glomerular filtration rate)",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.088
           },
           "proportion_esrd": {
             "title": "ESRD (end-stage renal disease)",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.020727
           },
           "proportion_npdr": {
             "title": "NPDR (nonproliferative retinopathy)",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0
           },
           "proportion_pdr": {
             "title": "PDR (proliferative retinopathy)",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_csme": {
             "title": "CSME (clinically significant macular edema)",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_cvd": {
             "title": "CVD (cardiovascular disease)",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_dpn": {
             "title": "DPN (diabetic peripheral neuropathy)",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_foot_ulcer": {
             "title": "Foot ulcer",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0
           },
           "proportion_amputation": {
             "title": "Amputation",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_hypoglycemia": {
             "title": "Hypoglycemia",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.006
           },
           "proportion_dka": {
             "title": "DKA (diabetic ketoacidosis)",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.055724
           },
           "proportion_hypertension": {
@@ -1954,25 +1987,25 @@
               "proportion_white": {
                 "title": "White",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.898
               },
               "proportion_black": {
                 "title": "Black",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.0
               },
               "proportion_hispanic": {
                 "title": "Hispanic",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.0
               },
               "proportion_other": {
                 "title": "Other",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.102
               }
             }
@@ -1985,19 +2018,19 @@
               "proportion_postsecondary_education": {
                 "title": "Postsecondary education",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.58
               },
               "proportion_secondary_education": {
                 "title": "Secondary education",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.28
               },
               "proportion_less_than_secondary_education": {
                 "title": "Less than secondary education",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.14
               }
             }
@@ -2010,19 +2043,19 @@
               "proportion_married": {
                 "title": "Married",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.713
               },
               "proportion_female": {
                 "title": "Female",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.508
               },
               "proportion_smoker": {
                 "title": "Smoking",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.067
               }
             }
@@ -2447,25 +2480,25 @@
               "proportion_white": {
                 "title": "Race: White",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.35
               },
               "proportion_black": {
                 "title": "Race: Black",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.224
               },
               "proportion_hispanic": {
                 "title": "Race: Hispanic",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.313
               },
               "proportion_other": {
                 "title": "Race: Other",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.113
               }
             }
@@ -2478,19 +2511,19 @@
               "proportion_postsecondary_education": {
                 "title": "Proportion with postsecondary education",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.44
               },
               "proportion_smoker": {
                 "title": "Proportion smoking",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.03
               },
               "proportion_female": {
                 "title": "Proportion females",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.502
               }
             }
@@ -2576,25 +2609,25 @@
               "proportion_white": {
                 "title": "Race: White",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.3551
               },
               "proportion_black": {
                 "title": "Race: Black",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.2645
               },
               "proportion_hispanic": {
                 "title": "Race: Hispanic",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.2628
               },
               "proportion_other": {
                 "title": "Race: Other",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.1176
               }
             }
@@ -2607,19 +2640,19 @@
               "proportion_postsecondary_education": {
                 "title": "Proportion with postsecondary education",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.4808
               },
               "proportion_smoker": {
                 "title": "Proportion smoking",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.25
               },
               "proportion_female": {
                 "title": "Proportion females",
                 "description": "",
-                "$ref": "#/definitions/proportion",
+                "$ref": "#/definitions/positiveProportion",
                 "default": 0.5133
               }
             }
@@ -3014,97 +3047,97 @@
           "proportion_microalbuminuria": {
             "title": "Microalbuminuria",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.2314
           },
           "proportion_macroalbuminuria": {
             "title": "Macroalbuminuria",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_egfr_60": {
             "title": "eGFR <60",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.2054
           },
           "proportion_egfr_30": {
             "title": "eGFR <30",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0168
           },
           "proportion_dialysis": {
             "title": "Dialysis",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0022
           },
           "proportion_neuropathy": {
             "title": "Neuropathy",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_foot_ulcer": {
             "title": "Foot ulcer",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_amputation": {
             "title": "Amputation",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_laser_retina": {
             "title": "Laser retinopathy",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_blindness": {
             "title": "Blindness",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_mi": {
             "title": "MI",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0994
           },
           "proportion_stroke": {
             "title": "Stroke",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0796
           },
           "proportion_chf": {
             "title": "CHF",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0817
           },
           "proportion_angina": {
             "title": "Angina",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0649
           },
           "proportion_revascularization": {
             "title": "Revascularization",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "dataset": {
             "title": "Proportion from ACCORD dataset",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           }
         }
@@ -3140,115 +3173,115 @@
           "proportion_microalbuminuria": {
             "title": "Microalbuminuria",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0967
           },
           "proportion_macroalbuminuria": {
             "title": "Macroalbuminuria",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_egfr_60": {
             "title": "eGFR <60",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.1199
           },
           "proportion_egfr_30": {
             "title": "eGFR <30",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0072
           },
           "proportion_dialysis": {
             "title": "Dialysis",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0004
           },
           "proportion_neuropathy": {
             "title": "Neuropathy",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0
           },
           "proportion_foot_ulcer": {
             "title": "Foot ulcer",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0
           },
           "proportion_amputation": {
             "title": "Amputation",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0
           },
           "proportion_laser_retina": {
             "title": "Laser retinopathy",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0
           },
           "proportion_blindness": {
             "title": "Blindness",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0
           },
           "proportion_mi": {
             "title": "MI",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0491
           },
           "proportion_stroke": {
             "title": "Stroke",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0359
           },
           "proportion_chf": {
             "title": "CHF",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0308
           },
           "proportion_angina": {
             "title": "Angina",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0276
           },
           "proportion_revascularization": {
             "title": "Revascularization",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0
           },
           "proportion_family_history": {
             "title": "Family history",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0.0
           },
           "proportion_hypo_med": {
             "title": "Hypoglycemia requiring medical assistance",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "proportion_hypo_any": {
             "title": "Hypoglycemia requiring any assistance",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
           "dataset": {
             "title": "Proportion from ACCORD dataset",
             "description": "",
-            "$ref": "#/definitions/proportion",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           }
         }
@@ -6612,7 +6645,7 @@
         "discount": {
           "title": "Discount factor.",
           "description": "",
-          "$ref": "#/definitions/proportion",
+          "$ref": "#/definitions/positiveProportion",
           "default": 3
         },
         "cost_strategy": {
@@ -6852,6 +6885,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "Variable": {
@@ -7465,6 +7499,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -7626,6 +7661,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -7807,6 +7843,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -8300,6 +8337,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -8885,6 +8923,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -9449,6 +9488,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -9783,6 +9823,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -10137,6 +10178,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -10475,6 +10517,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -10989,6 +11032,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -11523,6 +11567,7 @@
           },
           "risk_reductions": {
             "title": "Risk reductions (% change)",
+            "description": "Increases may be expressed as negative numbers",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -13465,12 +13510,12 @@
       "type": "string",
       "minLength": 1
     },
-    "nonnegativeInteger": {
-      "type": "integer",
-      "minimum": 0
-    },
     "nonnegativeNumber": {
       "type": "number",
+      "minimum": 0
+    },
+    "nonnegativeInteger": {
+      "type": "integer",
       "minimum": 0
     },
     "positiveInteger": {
@@ -13481,35 +13526,20 @@
       "type": "integer",
       "maximum": 0
     },
-    "proportion": {
+    "positiveProportion": {
       "type": "number",
       "minimum": 0,
+      "maximum": 1
+    },
+    "negativeProportion": {
+      "type": "number",
+      "minimum": -1,
       "maximum": 1
     },
     "interventionSetsLength": {
       "type": "integer",
       "minimum": 1,
       "maximum": 10
-    },
-    "percent": {
-      "type": "number",
-      "minimum": 0,
-      "maximum": 100
-    },
-    "decimal_percent": {
-      "type": "number",
-      "minimum": -1,
-      "maximum": 1
-    },
-    "negative_percent": {
-      "type": "number",
-      "minimum": -100,
-      "maximum": 100
-    },
-    "negativeProportion": {
-      "type": "number",
-      "minimum": -1,
-      "maximum": 1
     }
   }
 }
