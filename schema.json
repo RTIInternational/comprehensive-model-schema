@@ -12051,7 +12051,7 @@
           },
           "probability of quitting": {
             "title": "Probability of quitting increased by (%)",
-            "$ref": "#/definitions/percent",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           }
         }
@@ -12086,7 +12086,7 @@
           },
           "probability of quitting": {
             "title": "Probability of quitting increased by (%)",
-            "$ref": "#/definitions/percent",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           }
         }
@@ -12121,7 +12121,7 @@
           },
           "probability of quitting": {
             "title": "Probability of quitting increased by (%)",
-            "$ref": "#/definitions/percent",
+            "$ref": "#/definitions/positiveProportion",
             "default": 0
           }
         }
@@ -12804,12 +12804,12 @@
           },
           "year_1_change": {
             "title": "Year 1",
-            "$ref": "#/definitions/decimal_percent",
+            "$ref": "#/definitions/negativeProportion",
             "default": -0.05
           },
           "subsequent_years_change": {
             "title": "Subsequent years",
-            "$ref": "#/definitions/decimal_percent",
+            "$ref": "#/definitions/negativeProportion",
             "default": -0.02
           },
           "placeholder6": {
@@ -12917,8 +12917,8 @@
           "year_1_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/negative_percent",
-            "default": -5
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.05
           },
           "placeholder5": {
             "title": " ",
@@ -12933,8 +12933,8 @@
           "year_2_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/negative_percent",
-            "default": -2.5
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.025
           },
           "placeholder6": {
             "title": " ",
@@ -12949,8 +12949,8 @@
           "year_3_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/negative_percent",
-            "default": -1.25
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.0125
           },
           "placeholder7": {
             "title": " ",
@@ -12965,8 +12965,8 @@
           "year_4_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/negative_percent",
-            "default": -1.25
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.0125
           },
           "placeholder8": {
             "title": " ",
@@ -12981,8 +12981,8 @@
           "year_5_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/negative_percent",
-            "default": -1.25
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.0125
           },
           "placeholder9": {
             "title": " ",
@@ -12997,8 +12997,8 @@
           "year_subsequent_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/negative_percent",
-            "default": -1.25
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.0125
           },
           "placeholder10": {
             "title": " ",
