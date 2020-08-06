@@ -80,7 +80,7 @@
               "expand_if": {
                 "$and": {
                   "diabetes_type": "t1d",
-                  "time_horizon_t1d": "fixed"
+                  "time_horizon_t1d": "max_age"
                 }
               }
             }
