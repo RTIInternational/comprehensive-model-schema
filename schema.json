@@ -233,6 +233,14 @@
             }
           },
           {
+            "$ref": "#/properties/cholesterol_control_statin_t1d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "expand_if": {
+              "cholesterol_control_setup_type_t2d": "advanced"
+            }
+          },
+          {
             "$ref": "#/properties/cholesterol_control_costs_advanced_t1d",
             "items_length": "iterations_t1d",
             "max_items_length": 1,
@@ -631,6 +639,14 @@
           },
           {
             "$ref": "#/properties/cholesterol_control_advanced_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "expand_if": {
+              "cholesterol_control_setup_type_t2d": "advanced"
+            }
+          },
+          {
+            "$ref": "#/properties/cholesterol_control_statin_t2d",
             "items_length": "iterations_t2d",
             "max_items_length": 1,
             "expand_if": {
@@ -1332,7 +1348,8 @@
     "max_steps_t2d": {
       "title": "Maximum number of steps (years)",
       "$ref": "#/definitions/positiveInteger",
-      "default": 5
+      "default": 5,
+      "_basic_config": true
     },
     "time_horizon_pre": {
       "title": "Time horizon execution strategy",
@@ -1350,7 +1367,8 @@
     "max_steps_pre": {
       "title": "Maximum number of steps (years)",
       "$ref": "#/definitions/positiveInteger",
-      "default": 5
+      "default": 5,
+      "_basic_config": true
     },
     "population_composition": {
       "title": "Population composition",
@@ -8208,27 +8226,6 @@
       "enumNames": ["Basic setup", "Advanced setup"],
       "default": "basic"
     },
-    "glycemic_control_setup_type_pre": {
-      "title": "Choose an intervention setup type:",
-      "$ref": "#/definitions/string",
-      "enum": ["basic", "advanced"],
-      "enumNames": ["Basic setup", "Advanced setup"],
-      "default": "basic"
-    },
-    "cholesterol_control_setup_type_pre": {
-      "title": "Choose an intervention setup type:",
-      "$ref": "#/definitions/string",
-      "enum": ["basic", "advanced"],
-      "enumNames": ["Basic setup", "Advanced setup"],
-      "default": "basic"
-    },
-    "bp_control_setup_type_pre": {
-      "title": "Choose an intervention setup type:",
-      "$ref": "#/definitions/string",
-      "enum": ["basic", "advanced"],
-      "enumNames": ["Basic setup", "Advanced setup"],
-      "default": "basic"
-    },
     "lifestyle_control_setup_type_pre": {
       "title": "Choose an intervention setup type:",
       "$ref": "#/definitions/string",
@@ -8398,7 +8395,7 @@
               "hypoglycemia": {
                 "title": "Hypoglycemia",
                 "$ref": "#/definitions/negativeProportion",
-                "default": -0.2
+                "default": 0
               },
               "dka": {
                 "title": "DKA",
@@ -8457,14 +8454,14 @@
           "Annual A1c Before Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.2
           },
           "Annual A1c Before Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.2
           },
           "Annual A1c after intensifying": {
             "title": "Annual A1c change (%) after intensifying",
@@ -8474,14 +8471,14 @@
           "Annual A1c After Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.2
           },
           "Annual A1c After Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.1
           },
           "Annual A1c subsequent intensifications": {
             "title": "Annual A1c change (%) for subsequent intensifications",
@@ -8491,14 +8488,14 @@
           "Annual A1c Subsequent Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.2
           },
           "Annual A1c Subsequent Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.1
           }
         }
       }
@@ -8549,13 +8546,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "Effect of intensifying on A1c Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1.5
           },
           "Effect of next intensification on A1c": {
             "$ref": "#/definitions/text",
@@ -8565,13 +8562,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "Effect of next intensification on A1c Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "Subsequent intensifications": {
             "$ref": "#/definitions/text",
@@ -8581,13 +8578,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "Effect of subsequent intensification on A1c Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           }
         }
       }
@@ -8775,13 +8772,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 478
           },
           "Current treatment Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 758
           },
           "First intensification": {
             "$ref": "#/definitions/text",
@@ -8791,13 +8788,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 758
           },
           "First intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1975
           },
           "Next intensification": {
             "$ref": "#/definitions/text",
@@ -8807,13 +8804,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1975
           },
           "Next intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1975
           },
           "Subsequent intensifications": {
             "$ref": "#/definitions/text",
@@ -8823,13 +8820,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1975
           },
           "Subsequent intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1975
           }
         }
       }
@@ -9549,7 +9546,7 @@
               "hypoglycemia": {
                 "title": "Hypoglycemia",
                 "$ref": "#/definitions/negativeProportion",
-                "default": -0.2
+                "default": 0
               },
               "dka": {
                 "title": "DKA",
@@ -9639,7 +9636,7 @@
           "moderate_statin_cvd0_std": {
             "title": " ",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "moderate_statin_cvd0_int": {
             "title": " ",
@@ -9659,7 +9656,7 @@
           "high_statin_cvd0_int": {
             "title": " ",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "Treatment if CVD=1 (choose 1)": {
             "title": "Treatment if CVD=1 (choose 1)",
@@ -9684,7 +9681,7 @@
           "moderate_statin_cvd1_std": {
             "title": " ",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "moderate_statin_cvd1_int": {
             "title": " ",
@@ -9704,7 +9701,56 @@
           "high_statin_cvd1_int": {
             "title": " ",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
+          }
+        }
+      }
+    },
+    "cholesterol_control_statin_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Modify effect of statin on LDL-cholesterol",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 2
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Moderate-intensity statin": {
+            "title": "Moderate-intensity statin reduces LDL by (express % as fraction)",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "moderate_statin_reduction": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.4
+          },
+          "High-intensity statin": {
+            "title": "High-intensity statin reduces LDL by (express % as fraction)",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "high_statin_reduction": {
+            "title": " ",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.5
           }
         }
       }
@@ -9743,7 +9789,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 446
           },
           "High": {
             "title": "High intensity statin",
@@ -9754,7 +9800,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 497
           }
         }
       }
@@ -9994,7 +10040,7 @@
           "moderate_statin_cvd0_std": {
             "title": " ",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "moderate_statin_cvd0_int": {
             "title": " ",
@@ -10014,7 +10060,7 @@
           "high_statin_cvd0_int": {
             "title": " ",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "Treatment if CVD=1 (choose 1)": {
             "title": "Treatment if CVD=1 (choose 1)",
@@ -10039,7 +10085,7 @@
           "moderate_statin_cvd1_std": {
             "title": " ",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
           },
           "moderate_statin_cvd1_int": {
             "title": " ",
@@ -10059,7 +10105,56 @@
           "high_statin_cvd1_int": {
             "title": " ",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 1
+          }
+        }
+      }
+    },
+    "cholesterol_control_statin_t2d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Modify effect of statin on LDL-cholesterol",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 2
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Moderate-intensity statin": {
+            "title": "Moderate-intensity statin reduces LDL by (express % as fraction)",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "moderate_statin_reduction": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.4
+          },
+          "High-intensity statin": {
+            "title": "High-intensity statin reduces LDL by (express % as fraction)",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "high_statin_reduction": {
+            "title": " ",
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.5
           }
         }
       }
@@ -10098,7 +10193,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 446
           },
           "High": {
             "title": "High intensity statin",
@@ -10109,352 +10204,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          }
-        }
-      }
-    },
-    "cholesterol_control_intervention_pre": {
-      "title": "Cholesterol control intervention",
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Cholesterol Control: Basic Setup",
-              "numbered": ""
-            }
-          },
-          "factor_changes": {
-            "ui:field_type": "grid"
-          },
-          "risk_reductions": {
-            "ui:field_type": "grid"
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "annual_cost": {
-            "title": "Annual cost",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          },
-          "age": {
-            "title": "Minimum age of application",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1
-          },
-          "factor_changes": {
-            "title": "Change in Risk Factors",
-            "type": "object",
-            "properties": {
-              "hdl": {
-                "title": "HDL",
-                "description": "",
-                "type": "number",
-                "default": 0
-              },
-              "ldl": {
-                "title": "LDL",
-                "description": "",
-                "type": "number",
-                "default": 0
-              },
-              "trig": {
-                "title": "ln(Triglycerides)",
-                "description": "",
-                "type": "number",
-                "default": 0
-              }
-            }
-          },
-          "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
-            "type": "object",
-            "properties": {
-              "microalbuminuria": {
-                "title": "Microalbuminuria",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "macroalbuminuria": {
-                "title": "Macroalbuminuria",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "egfr_60": {
-                "title": "eGFR <60",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "egfr_30": {
-                "title": "eGFR <30",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "dialysis": {
-                "title": "Dialysis",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "neuropathy": {
-                "title": "Neuropathy",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "ulcer": {
-                "title": "Foot ulcer",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "amputation": {
-                "title": "Amputation",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "laser_retin": {
-                "title": "Laser retinopathy",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "blindness": {
-                "title": "Blindness",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "mi": {
-                "title": "MI",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "stroke": {
-                "title": "Stroke",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "chf": {
-                "title": "CHF",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "angina": {
-                "title": "Angina",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "revasc": {
-                "title": "Revascularization",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "hypo_med": {
-                "title": "Hypoglycemia requiring medical assistance",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "hypo_any": {
-                "title": "Hypoglycemia requiring any assistance",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              }
-            }
-          }
-        }
-      }
-    },
-    "cholesterol_control_advanced_pre": {
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Modify intervention",
-              "numbered": ""
-            }
-          },
-          "ui:field_type": {
-            "type": "grid",
-            "columns": 3
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "Variable": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Standard control": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Intervention": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Treatment begins at age": {
-            "title": "Treatment begins at age",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Treatment begins at age Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 40
-          },
-          "Treatment begins at age Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 40
-          },
-          "Treatment if CVD=0 (choose 1)": {
-            "title": "Treatment if CVD=0 (choose 1)",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "placeholder1": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "placeholder2": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Moderate-intensity statin (CVD=0)": {
-            "title": "Moderate-intensity statin",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "moderate_statin_cvd0_std": {
-            "title": " ",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "moderate_statin_cvd0_int": {
-            "title": " ",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "High-intensity statin (CVD=0)": {
-            "title": "High-intensity statin",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "high_statin_cvd0_std": {
-            "title": " ",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "high_statin_cvd0_int": {
-            "title": " ",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Treatment if CVD=1 (choose 1)": {
-            "title": "Treatment if CVD=1 (choose 1)",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Treatment if CVD=1 (choose 1) Standard": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Treatment if CVD=1 (choose 1) Intervention": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Moderate-intensity statin (CVD=1)": {
-            "title": "Moderate-intensity statin",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "moderate_statin_cvd1_std": {
-            "title": " ",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "moderate_statin_cvd1_int": {
-            "title": " ",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "High-intensity statin (CVD=1)": {
-            "title": "High-intensity statin",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "high_statin_cvd1_std": {
-            "title": " ",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "high_statin_cvd1_int": {
-            "title": " ",
-            "$ref": "#/definitions/nonnegativeNumber"
-          }
-        }
-      }
-    },
-    "cholesterol_control_costs_advanced_pre": {
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Modify annual costs",
-              "numbered": ""
-            }
-          },
-          "ui:field_type": {
-            "type": "grid",
-            "columns": 2
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "Moderate": {
-            "title": "Moderate intensity statin",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Moderate intensity statin": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "High": {
-            "title": "High intensity statin",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "High intensity statin": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
+            "default": 497
           }
         }
       }
@@ -10578,7 +10328,7 @@
               "hypoglycemia": {
                 "title": "Hypoglycemia",
                 "$ref": "#/definitions/negativeProportion",
-                "default": -0.2
+                "default": 0
               },
               "dka": {
                 "title": "DKA",
@@ -10765,7 +10515,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Modify A1c targets",
+              "common_text": "Modify blood pressure targets",
               "numbered": ""
             }
           },
@@ -10937,13 +10687,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 339
           },
           "First intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 339
           },
           "Next intensification": {
             "$ref": "#/definitions/text",
@@ -10953,13 +10703,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 607
           },
           "Next intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 607
           },
           "Subsequent intensifications": {
             "$ref": "#/definitions/text",
@@ -10969,13 +10719,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 940
           },
           "Subsequent intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 940
           }
         }
       }
@@ -11300,7 +11050,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Modify A1c targets",
+              "common_text": "Modify blood pressure targets",
               "numbered": ""
             }
           },
@@ -11472,13 +11222,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 339
           },
           "First intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 339
           },
           "Next intensification": {
             "$ref": "#/definitions/text",
@@ -11488,13 +11238,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 607
           },
           "Next intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 607
           },
           "Subsequent intensifications": {
             "$ref": "#/definitions/text",
@@ -11504,595 +11254,18 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 940
           },
           "Subsequent intensification Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          }
-        }
-      }
-    },
-    "bp_control_intervention_pre": {
-      "title": "Blood pressure control intervention",
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Blood Pressure Control: Basic Setup",
-              "numbered": ""
-            }
-          },
-          "factor_changes": {
-            "ui:field_type": "grid"
-          },
-          "risk_reductions": {
-            "ui:field_type": "grid"
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "annual_cost": {
-            "title": "Annual cost",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          },
-          "apply if greater than": {
-            "title": "Apply if systolic blood pressure greater than",
-            "$ref": "#/definitions/positiveInteger",
-            "default": 140
-          },
-          "factor_changes": {
-            "title": "Change in risk factors",
-            "type": "object",
-            "properties": {
-              "sbp": {
-                "title": "Systolic blood pressure (mm/dL)",
-                "description": "",
-                "type": "number",
-                "default": 0
-              }
-            }
-          },
-          "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
-            "type": "object",
-            "properties": {
-              "microalbuminuria": {
-                "title": "Microalbuminuria",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "macroalbuminuria": {
-                "title": "Macroalbuminuria",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "egfr_60": {
-                "title": "eGFR <60",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "egfr_30": {
-                "title": "eGFR <30",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "dialysis": {
-                "title": "Dialysis",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "neuropathy": {
-                "title": "Neuropathy",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "ulcer": {
-                "title": "Foot ulcer",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "amputation": {
-                "title": "Amputation",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "laser_retin": {
-                "title": "Laser retinopathy",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "blindness": {
-                "title": "Blindness",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "mi": {
-                "title": "MI",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "stroke": {
-                "title": "Stroke",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "chf": {
-                "title": "CHF",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "angina": {
-                "title": "Angina",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "revasc": {
-                "title": "Revascularization",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "hypo_med": {
-                "title": "Hypoglycemia requiring medical assistance",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              },
-              "hypo_any": {
-                "title": "Hypoglycemia requiring any assistance",
-                "$ref": "#/definitions/negativeProportion",
-                "default": 0
-              }
-            }
-          }
-        }
-      }
-    },
-    "bp_control_trajectory_advanced_pre": {
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Modify trajectory",
-              "numbered": ""
-            }
-          },
-          "ui:field_type": {
-            "type": "grid",
-            "columns": 3
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "Variable": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Standard control": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Intervention": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Annual SBP change before intensifying": {
-            "title": "Annual SBP change before intensifying",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Annual SBP change Before Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Annual SBP change Before Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Annual SBP change after intensifying": {
-            "title": "Annual SBP change after intensifying",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Annual SBP change After Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Annual SBP change After Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          }
-        }
-      }
-    },
-    "bp_control_intensification_advanced_pre": {
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Modify effectiveness of intensification",
-              "numbered": ""
-            }
-          },
-          "ui:field_type": {
-            "type": "grid",
-            "columns": 3
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "Variable": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Standard control": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Intervention": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Effect of first drug on blood pressure": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Effect of first drug on blood pressure Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Effect of first drug on blood pressure Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Effect of second drug on blood pressure": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Effect of second drug on blood pressure Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Effect of second drug on blood pressure Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Effect of subsequent drugs on blood pressure": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Effect of subsequent drugs on blood pressure Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Effect of subsequent drugs on blood pressure Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          }
-        }
-      }
-    },
-    "bp_control_targets_advanced_pre": {
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Modify A1c targets",
-              "numbered": ""
-            }
-          },
-          "ui:field_type": {
-            "type": "grid",
-            "columns": 3
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "Variable": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Standard control": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Intervention": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "General": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "General Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "General Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "If age >= 65": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "If age >= 65 Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "If age >= 65 Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "If CVD = 1": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "If CVD = 1 Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "If CVD = 1 Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "If age >= 65 and CVD = 1": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "If age >= 65 and CVD = 1 Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "If age >= 65 and CVD = 1 Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Intensify if SBP > target": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Intensify if SBP > target Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Intensify if SBP > target Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          }
-        }
-      }
-    },
-    "bp_control_costs_advanced_pre": {
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Modify annual costs",
-              "numbered": ""
-            }
-          },
-          "ui:field_type": {
-            "type": "grid",
-            "columns": 3
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "Variable": {
-            "title": " ",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Standard control": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Intervention": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Current treatment": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Current treatment Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Current treatment Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "First intensification": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "First intensification Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "First intensification Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Next intensification": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Next intensification Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Next intensification Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Subsequent intensifications": {
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Subsequent intensification Standard": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          },
-          "Subsequent intensification Intervention": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber"
-          }
-        }
-      }
-    },
-    "smoking_control_intervention_t1d": {
-      "title": "Smoking cessation intervention",
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Smoking Cessation: Basic Setup",
-              "numbered": ""
-            }
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "annual_cost": {
-            "title": "Annual cost",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          },
-          "probability of quitting": {
-            "title": "Probability of quitting increased by (%)",
-            "$ref": "#/definitions/positiveProportion",
-            "default": 0
+            "default": 940
           }
         }
       }
     },
     "smoking_control_intervention_t2d": {
-      "title": "Smoking cessation intervention",
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Smoking Cessation: Basic Setup",
-              "numbered": ""
-            }
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "annual_cost": {
-            "title": "Annual cost",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          },
-          "probability of quitting": {
-            "title": "Probability of quitting increased by (%)",
-            "$ref": "#/definitions/positiveProportion",
-            "default": 0
-          }
-        }
-      }
-    },
-    "smoking_control_intervention_pre": {
       "title": "Smoking cessation intervention",
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -13059,7 +12232,7 @@
             "readOnly": true
           },
           "text_1": {
-            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used:”",
+            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used:",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -13071,8 +12244,8 @@
           "year_1_prob": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 40.3
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.403
           },
           "placeholder5": {
             "title": " ",
@@ -13087,8 +12260,8 @@
           "year_2_prob": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 20.1
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.201
           },
           "placeholder6": {
             "title": " ",
@@ -13103,8 +12276,8 @@
           "year_3_prob": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 10.1
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.101
           },
           "placeholder7": {
             "title": " ",
@@ -13119,8 +12292,8 @@
           "year_4_prob": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 10.1
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.101
           },
           "placeholder8": {
             "title": " ",
@@ -13135,8 +12308,8 @@
           "year_5_prob": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 10.1
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.101
           },
           "placeholder9": {
             "title": " ",
@@ -13151,8 +12324,8 @@
           "year_subsequent_prob": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 10.1
+            "$ref": "#/definitions/negativeProportion",
+            "default": 0.101
           },
           "placeholder10": {
             "title": " ",
@@ -13182,7 +12355,7 @@
           "SBP_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
+            "$ref": "#/definitions/negativeProportion",
             "default": 0
           },
           "placeholder13": {
@@ -13198,7 +12371,7 @@
           "HDL_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
+            "$ref": "#/definitions/negativeProportion",
             "default": 0
           },
           "placeholder14": {
@@ -13214,7 +12387,7 @@
           "LDL_change": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
+            "$ref": "#/definitions/negativeProportion",
             "default": 0
           }
         }
