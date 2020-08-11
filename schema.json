@@ -10730,6 +10730,41 @@
         }
       }
     },
+    "smoking_control_intervention_t1d": {
+      "title": "Smoking cessation intervention",
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Smoking Cessation: Basic Setup",
+              "numbered": ""
+            }
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "annual_cost": {
+            "title": "Annual cost",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "probability of quitting": {
+            "title": "Probability of quitting increased by (%)",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
+          }
+        }
+      }
+    },
     "bp_control_intervention_t2d": {
       "title": "Blood pressure control intervention",
       "ui:schema": {
