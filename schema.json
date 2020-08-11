@@ -3152,7 +3152,7 @@
             "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
-          "dataset": {
+          "proportion_from_accord_dataset": {
             "title": "Proportion from ACCORD dataset",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
@@ -3296,7 +3296,7 @@
             "$ref": "#/definitions/positiveProportion",
             "default": 0
           },
-          "dataset": {
+          "proportion_from_accord_dataset": {
             "title": "Proportion from ACCORD dataset",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
