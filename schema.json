@@ -8545,14 +8545,14 @@
           "Effect of intensifying on A1c Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1
+            "type": "number",
+            "default": -1
           },
           "Effect of intensifying on A1c Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1.5
+            "type": "number",
+            "default": -1.5
           },
           "Effect of next intensification on A1c": {
             "$ref": "#/definitions/text",
@@ -8561,14 +8561,14 @@
           "Effect of next intensification on A1c Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1
+            "type": "number",
+            "default": -1
           },
           "Effect of next intensification on A1c Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1
+            "type": "number",
+            "default": -1
           },
           "Subsequent intensifications": {
             "$ref": "#/definitions/text",
@@ -8577,14 +8577,14 @@
           "Effect of subsequent intensification on A1c Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1
+            "type": "number",
+            "default": -1
           },
           "Effect of subsequent intensification on A1c Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1
+            "type": "number",
+            "default": -1
           }
         }
       }
@@ -9151,14 +9151,14 @@
           "Effect of intensifying on A1c Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1
+            "type": "number",
+            "default": -1
           },
           "Effect of intensifying on A1c Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1.5
+            "type": "number",
+            "default": -1.5
           },
           "Effect of next intensification on A1c": {
             "$ref": "#/definitions/text",
@@ -9167,14 +9167,14 @@
           "Effect of next intensification on A1c Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1
+            "type": "number",
+            "default": -1
           },
           "Effect of next intensification on A1c Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1
+            "type": "number",
+            "default": -1
           },
           "Effect of subsequent intensification on A1c": {
             "$ref": "#/definitions/text",
@@ -9183,14 +9183,14 @@
           "Effect of subsequent intensification on A1c Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1
+            "type": "number",
+            "default": -1
           },
           "Effect of subsequent intensification on A1c Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1
+            "type": "number",
+            "default": -1
           }
         }
       }
