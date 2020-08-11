@@ -234,10 +234,10 @@
           },
           {
             "$ref": "#/properties/cholesterol_control_statin_t1d",
-            "items_length": "iterations_t2d",
+            "items_length": "iterations_t1d",
             "max_items_length": 1,
             "expand_if": {
-              "cholesterol_control_setup_type_t2d": "advanced"
+              "cholesterol_control_setup_type_t1d": "advanced"
             }
           },
           {
