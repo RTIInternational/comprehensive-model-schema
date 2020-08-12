@@ -3284,6 +3284,18 @@
             "$ref": "#/definitions/positiveProportion",
             "default": 0.0
           },
+          "proportion_hypo_med": {
+            "title": "Hypoglycemia requiring medical assistance",
+            "description": "",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
+          },
+          "proportion_hypo_any": {
+            "title": "Hypoglycemia requiring any assistance",
+            "description": "",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
+          },
           "proportion_from_accord_dataset": {
             "title": "Proportion from ACCORD dataset",
             "description": "",
@@ -7744,6 +7756,16 @@
                 "title": "Revascularization",
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
+              },
+              "hypo_med": {
+                "title": "Hypoglycemia requiring medical assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "hypo_any": {
+                "title": "Hypoglycemia requiring any assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               }
             }
           }
@@ -7916,6 +7938,16 @@
                 "title": "Revascularization",
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
+              },
+              "hypo_med": {
+                "title": "Hypoglycemia requiring medical assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "hypo_any": {
+                "title": "Hypoglycemia requiring any assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               }
             }
           }
@@ -7997,7 +8029,9 @@
               "stroke",
               "chf",
               "angina",
-              "revasc"
+              "revasc",
+              "hypo_med",
+              "hypo_any"
             ],
             "enumNames": [
               "Microalbuminuria",
@@ -8087,7 +8121,9 @@
               "stroke",
               "chf",
               "angina",
-              "revasc"
+              "revasc",
+              "hypo_med",
+              "hypo_any"
             ],
             "enumNames": [
               "Microalbuminuria",
@@ -8959,6 +8995,16 @@
               },
               "revasc": {
                 "title": "Revascularization",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "hypo_med": {
+                "title": "Hypoglycemia requiring medical assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "hypo_any": {
+                "title": "Hypoglycemia requiring any assistance",
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
               }
@@ -9900,6 +9946,16 @@
                 "title": "Revascularization",
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
+              },
+              "hypo_med": {
+                "title": "Hypoglycemia requiring medical assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "hypo_any": {
+                "title": "Hypoglycemia requiring any assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
               }
             }
           }
@@ -10836,6 +10892,16 @@
               },
               "revasc": {
                 "title": "Revascularization",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "hypo_med": {
+                "title": "Hypoglycemia requiring medical assistance",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "hypo_any": {
+                "title": "Hypoglycemia requiring any assistance",
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
               }
