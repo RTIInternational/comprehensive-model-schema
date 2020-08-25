@@ -5,7 +5,6 @@
   "type": "object",
   "ui:layout": {
     "pages": [
-
       {
         "url_path": "/",
         "title": "New Scenario Setup",
@@ -385,7 +384,7 @@
           }
         ]
       },
-      
+
       {
         "title": "Advanced Setup: Economic Factors - Type 1 Diabetes",
         "url_path": "/economic-factors-for-type-1-diabetes",
@@ -414,7 +413,7 @@
           }
         ]
       },
-      
+
       {
         "title": "Scenario Setup: Sensitivity Analysis - Type 1 Diabetes",
         "url_path": "/configure-sensitivity-analysis-for-type-1-diabetes",
@@ -808,7 +807,7 @@
           }
         ]
       },
-      
+
       {
         "title": "Advanced Setup: Population Generation - Type 2 Diabetes",
         "url_path": "/population-generation-for-type-2-diabetes",
@@ -834,7 +833,7 @@
           }
         ]
       },
-      
+
       {
         "title": "Advanced Setup: Economic Factors - Type 2 Diabetes",
         "url_path": "/economic-factors-for-type-2-diabetes",
@@ -2900,7 +2899,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 5.90
+            "default": 5.9
           },
           "HBA1C sd": {
             "title": " ",
@@ -3007,7 +3006,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.90
+            "default": 0.9
           },
           "Serum creatinine sd": {
             "title": " ",
@@ -8455,13 +8454,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0.2
+            "default": -0.2
           },
           "Annual A1c Before Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0.2
+            "default": -0.2
           },
           "Annual A1c after intensifying": {
             "title": "Annual A1c change (%) after intensifying",
@@ -8472,13 +8471,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0.2
+            "default": -0.2
           },
           "Annual A1c After Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0.1
+            "default": -0.1
           },
           "Annual A1c subsequent intensifications": {
             "title": "Annual A1c change (%) for subsequent intensifications",
@@ -8489,13 +8488,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0.2
+            "default": -0.2
           },
           "Annual A1c Subsequent Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0.1
+            "default": -0.1
           }
         }
       }
@@ -9060,14 +9059,14 @@
           "Annual A1c Before Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.2
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.2
           },
           "Annual A1c Before Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.2
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.2
           },
           "Annual A1c after intensifying": {
             "title": "Annual A1c change (%) after intensifying",
@@ -9077,14 +9076,14 @@
           "Annual A1c After Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.2
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.2
           },
           "Annual A1c After Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.1
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.1
           },
           "Annual A1c subsequent intensifications": {
             "title": "Annual A1c change (%) for subsequent intensifications",
@@ -9094,14 +9093,14 @@
           "Annual A1c Subsequent Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.2
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.2
           },
           "Annual A1c Subsequent Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.1
+            "$ref": "#/definitions/negativeProportion",
+            "default": -0.1
           }
         }
       }
@@ -11648,9 +11647,6 @@
             "type": "grid",
             "columns": 3
           },
-          "bmi_change_dpp": {
-            "ui:widget": "checkboxes"
-          },
           "bmi_change_calculated": {
             "ui:widget": "checkboxes"
           }
@@ -11660,23 +11656,6 @@
       "items": {
         "type": "object",
         "properties": {
-          "text_0": {
-            "title": "The effects on annual probability of diabetes onset should be (choose 1):",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "bmi_change_dpp": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["true"],
-              "enumNames": [
-                "Based on change of BMI relative to change of BMI in DPP trial"
-              ]
-            }
-          },
           "bmi_change_calculated": {
             "title": " ",
             "type": "array",
@@ -11685,12 +11664,22 @@
               "type": "string",
               "enum": ["true"],
               "enumNames": [
-                "Calculated directly as percentage reduction in onset risk"
+                "Instead of using the BMI changes entered above, calculate the reduction in onset risk directly according to relative risk reductions entered below."
               ]
             }
           },
+          "placeholder_1": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder_2": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
           "text_1": {
-            "title": "If BMI change is calculated directly, the following values will be used:",
+            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used:",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
