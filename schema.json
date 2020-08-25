@@ -4270,6 +4270,23 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 7126
           },
+          "Amputation, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Amputation, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Amputation, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
           "CVD MACE, first year": {
             "description": "",
             "$ref": "#/definitions/text",
@@ -4371,6 +4388,40 @@
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 577
+          },
+          "Blindness, first year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Blindness, first year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Blindness, first year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Incremental cost in year of death": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Incremental cost in year of death cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Incremental cost in year of death se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           }
         }
       },
@@ -5281,6 +5332,23 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 3767.0
           },
+          "Amputation, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Amputation, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Amputation, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
           "Laser retina, first year": {
             "title": "Laser retinopathy, first year",
             "description": "",
@@ -5470,6 +5538,23 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 560.0
           },
+          "Revascularization, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Revascularization, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Revascularization, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
           "Angina, first year": {
             "description": "",
             "$ref": "#/definitions/text",
@@ -5487,6 +5572,23 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 331.0
           },
+          "Angina, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Angina, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Angina, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
           "Hypoglycemia (medical assistance), first year": {
             "description": "",
             "$ref": "#/definitions/text",
@@ -5503,6 +5605,23 @@
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 296.0
+          },
+          "Incremental cost in year of death": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Incremental cost in year of death cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Incremental cost in year of death se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           }
         }
       },
