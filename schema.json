@@ -11448,7 +11448,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Apply to persons with BMI (kg/m^2)": {
+          "Apply to persons with BMI >= (kg/m^2)": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -11456,15 +11456,15 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 25
           },
           "placeholder1": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Apply to persons with HbA1 between": {
-            "title": "Apply to persons with HbA1 (%) between",
+          "Apply to persons with HbA1c between": {
+            "title": "Apply to persons with HbA1c (%) between",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -11472,13 +11472,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 5.7
           },
           "Apply to persons with HbA1 between to": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 6.5
           },
           "Apply to persons with FPG between": {
             "title": "Apply to persons with FPG (mg/dL) between",
@@ -11489,30 +11489,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 100
           },
           "Apply to persons with FPG between to": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          },
-          "Apply to persons with 2-h plasma glucose during 75-g OGTT": {
-            "title": "Apply to persons with 2-h plasma glucose during 75-g OGTT (mg/dL)",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Apply to persons with 2-h plasma glucose during 75-g OGTT from": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          },
-          "Apply to persons with 2-h plasma glucose during 75-g OGTT to": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 126
           },
           "Percent change in BMI relative to baseline": {
             "title": "Percent change in BMI relative to baseline",
@@ -12042,7 +12025,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Apply to persons with BMI >= (kg/m2)": {
+          "Apply to persons with BMI >= (kg/m^2)": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
