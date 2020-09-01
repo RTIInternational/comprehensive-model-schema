@@ -5013,23 +5013,6 @@
             "description": "",
             "$ref": "#/definitions/negativeProportion",
             "default": 0.006
-          },
-          "Intercept, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Intercept, first year mean": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/negativeProportion",
-            "default": 0.935
-          },
-          "Intercept, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/negativeProportion",
-            "default": 0.012
           }
         }
       },
@@ -6213,23 +6196,6 @@
             "description": "",
             "$ref": "#/definitions/negativeProportion",
             "default": 0.006
-          },
-          "Intercept, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Intercept, first year mean": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/negativeProportion",
-            "default": 0.935
-          },
-          "Intercept, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/negativeProportion",
-            "default": 0.012
           }
         }
       },
