@@ -8510,6 +8510,9 @@
           "ui:field_type": {
             "type": "grid",
             "columns": 3
+          },
+          "custom_a1c_trajectory": {
+            "ui:widget": "checkboxes"
           }
         }
       },
@@ -8517,6 +8520,28 @@
       "items": {
         "type": "object",
         "properties": {
+          "custom_a1c_trajectory": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["true"],
+              "enumNames": [
+                "Enter custom A1c trajectory (instead of using A1c progression equation)"
+              ]
+            }
+          },
+          "placeholder_1": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder_2": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
           "Variable": {
             "title": " ",
             "$ref": "#/definitions/text",
@@ -8539,13 +8564,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.2
+            "default": 0.2
           },
           "Annual A1c Before Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.2
+            "default": 0.2
           },
           "Annual A1c after intensifying": {
             "title": "Annual A1c change (%) after intensifying",
@@ -8556,13 +8581,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.2
+            "default": 0.2
           },
           "Annual A1c After Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.1
+            "default": 0.1
           },
           "Annual A1c subsequent intensifications": {
             "title": "Annual A1c change (%) for subsequent intensifications",
@@ -8573,13 +8598,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.2
+            "default": 0.2
           },
           "Annual A1c Subsequent Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.1
+            "default": 0.1
           }
         }
       }
@@ -8719,13 +8744,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7
           },
           "General Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7
           },
           "If age < 18": {
             "$ref": "#/definitions/text",
@@ -8735,13 +8760,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7.5
           },
           "If age < 18 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7
           },
           "If age >= 65": {
             "$ref": "#/definitions/text",
@@ -8751,13 +8776,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7.5
           },
           "If age >= 65 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7
           },
           "If CVD = 1 or ESRD = 1": {
             "$ref": "#/definitions/text",
@@ -8767,13 +8792,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 8
           },
           "If CVD = 1 or ESRD = 1 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7.5
           },
           "If age >= 65 and (CVD = 1 or ESRD = 1)": {
             "$ref": "#/definitions/text",
@@ -8783,13 +8808,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 8.5
           },
           "If age >= 65 and (CVD = 1 or ESRD = 1) Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 8
           },
           "Intensify if A1c > target": {
             "$ref": "#/definitions/text",
@@ -9116,6 +9141,9 @@
           "ui:field_type": {
             "type": "grid",
             "columns": 3
+          },
+          "custom_a1c_trajectory": {
+            "ui:widget": "checkboxes"
           }
         }
       },
@@ -9123,6 +9151,28 @@
       "items": {
         "type": "object",
         "properties": {
+          "custom_a1c_trajectory": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["true"],
+              "enumNames": [
+                "Enter custom A1c trajectory (instead of using A1c progression equation)"
+              ]
+            }
+          },
+          "placeholder_1": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder_2": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
           "Variable": {
             "title": " ",
             "$ref": "#/definitions/text",
@@ -9145,13 +9195,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.2
+            "default": 0.2
           },
           "Annual A1c Before Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.2
+            "default": 0.2
           },
           "Annual A1c after intensifying": {
             "title": "Annual A1c change (%) after intensifying",
@@ -9162,13 +9212,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.2
+            "default": 0.2
           },
           "Annual A1c After Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.1
+            "default": 0.1
           },
           "Annual A1c subsequent intensifications": {
             "title": "Annual A1c change (%) for subsequent intensifications",
@@ -9179,13 +9229,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.2
+            "default": 0.2
           },
           "Annual A1c Subsequent Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.1
+            "default": 0.1
           }
         }
       }
@@ -10442,6 +10492,9 @@
           "ui:field_type": {
             "type": "grid",
             "columns": 3
+          },
+          "custom_sbp_trajectory": {
+            "ui:widget": "checkboxes"
           }
         }
       },
@@ -10449,6 +10502,28 @@
       "items": {
         "type": "object",
         "properties": {
+          "custom_sbp_trajectory": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["true"],
+              "enumNames": [
+                "Enter custom SBP trajectory (instead of using SBP progression equation)"
+              ]
+            }
+          },
+          "placeholder_1": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder_2": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
           "Variable": {
             "title": " ",
             "$ref": "#/definitions/text",
@@ -10544,14 +10619,14 @@
           "Effect of first drug on blood pressure Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           },
           "Effect of first drug on blood pressure Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           },
           "Effect of second drug on blood pressure": {
             "$ref": "#/definitions/text",
@@ -10560,14 +10635,14 @@
           "Effect of second drug on blood pressure Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           },
           "Effect of second drug on blood pressure Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           },
           "Effect of subsequent drugs on blood pressure": {
             "$ref": "#/definitions/text",
@@ -10576,14 +10651,14 @@
           "Effect of subsequent drugs on blood pressure Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           },
           "Effect of subsequent drugs on blood pressure Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           }
         }
       }
@@ -10634,13 +10709,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "General Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "If age >= 65": {
             "$ref": "#/definitions/text",
@@ -10650,13 +10725,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "If age >= 65 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "If CVD = 1": {
             "$ref": "#/definitions/text",
@@ -10666,13 +10741,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "If CVD = 1 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 130
           },
           "If age >= 65 and CVD = 1": {
             "$ref": "#/definitions/text",
@@ -10682,13 +10757,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "If age >= 65 and CVD = 1 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 130
           },
           "Intensify if SBP > target": {
             "$ref": "#/definitions/text",
@@ -11012,6 +11087,9 @@
           "ui:field_type": {
             "type": "grid",
             "columns": 3
+          },
+          "custom_sbp_trajectory": {
+            "ui:widget": "checkboxes"
           }
         }
       },
@@ -11019,6 +11097,28 @@
       "items": {
         "type": "object",
         "properties": {
+          "custom_sbp_trajectory": {
+            "title": " ",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["true"],
+              "enumNames": [
+                "Enter custom SBP trajectory (instead of using SBP progression equation)"
+              ]
+            }
+          },
+          "placeholder_1": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder_2": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
           "Variable": {
             "title": " ",
             "$ref": "#/definitions/text",
@@ -11114,14 +11214,14 @@
           "Effect of first drug on blood pressure Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           },
           "Effect of first drug on blood pressure Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           },
           "Effect of second drug on blood pressure": {
             "$ref": "#/definitions/text",
@@ -11130,14 +11230,14 @@
           "Effect of second drug on blood pressure Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           },
           "Effect of second drug on blood pressure Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           },
           "Effect of subsequent drugs on blood pressure": {
             "$ref": "#/definitions/text",
@@ -11146,14 +11246,14 @@
           "Effect of subsequent drugs on blood pressure Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           },
           "Effect of subsequent drugs on blood pressure Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "type": "number",
+            "default": -9
           }
         }
       }
@@ -11204,13 +11304,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "General Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "If age >= 65": {
             "$ref": "#/definitions/text",
@@ -11220,13 +11320,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "If age >= 65 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "If CVD = 1": {
             "$ref": "#/definitions/text",
@@ -11236,13 +11336,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "If CVD = 1 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 130
           },
           "If age >= 65 and CVD = 1": {
             "$ref": "#/definitions/text",
@@ -11252,13 +11352,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 140
           },
           "If age >= 65 and CVD = 1 Intervention": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 130
           },
           "Intensify if SBP > target": {
             "$ref": "#/definitions/text",
@@ -11476,7 +11576,7 @@
             "readOnly": true
           },
           "bmi_change_text": {
-            "title": "Change in BMI from baseline",
+            "title": "Percent change in BMI from baseline",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -11547,40 +11647,6 @@
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
-          },
-          "Apply to persons with HbA1c between": {
-            "title": "Apply to persons with HbA1c (%) between",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Apply to persons with HbA1 between from": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 5.7
-          },
-          "Apply to persons with HbA1 between to": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 6.5
-          },
-          "Apply to persons with FPG between": {
-            "title": "Apply to persons with FPG (mg/dL) between",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Apply to persons with FPG between from": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 100
-          },
-          "Apply to persons with FPG between to": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 126
           },
           "Percent change in BMI relative to baseline": {
             "title": "Percent change in BMI relative to baseline",
