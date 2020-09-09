@@ -4406,6 +4406,23 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 0
           },
+          "Blindness, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Blindness, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Blindness, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
           "Incremental cost in year of death": {
             "description": "",
             "$ref": "#/definitions/text",
