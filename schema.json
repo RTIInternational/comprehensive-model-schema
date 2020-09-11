@@ -6737,6 +6737,23 @@
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 296.0
+          },
+          "Incremental cost in year of death": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "Incremental cost in year of death cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Incremental cost in year of death se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           }
         }
       },
