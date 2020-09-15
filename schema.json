@@ -1899,6 +1899,12 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 0.003
           },
+          "proportion_blindness": {
+            "title": "Blindness",
+            "description": "",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
+          },
           "proportion_dcct_intervention": {
             "title": "DCCT intervention",
             "description": "",
@@ -2409,6 +2415,12 @@
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 0.137
+          },
+          "proportion_blindness": {
+            "title": "Blindness",
+            "description": "",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
           },
           "proportion_dcct_intervention": {
             "title": "DCCT intervention",
