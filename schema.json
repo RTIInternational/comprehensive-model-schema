@@ -8128,88 +8128,35 @@
       "description": "",
       "type": "object",
       "ui:schema": {
-        "ui:order": ["factor_changes", "risk_reductions"],
-        "factor_changes": {
-          "ui:widget": "checkboxes"
-        },
-        "risk_reductions": {
-          "ui:widget": "checkboxes"
+        "psa_samples": {
+          "ui:widget": "checkboxes",
+          "ui:fieldtype": {
+            "type": "grid",
+            "columns": 5
+          }
         }
       },
       "properties": {
-        "risk_reductions": {
-          "title": "Array of risk reductions variables to sample randomly",
+        "psa_samples": {
+          "title": "Values to be randomly sampled from previous inputs",
           "description": "",
           "type": "array",
           "uniqueItems": true,
           "items": {
             "type": "string",
             "enum": [
-              "microalbuminuria",
-              "macroalbuminuria",
-              "egfr_60",
-              "egfr_30",
-              "dialysis",
-              "neuropathy",
-              "ulcer",
-              "amputation",
-              "laser_retin",
-              "blindness",
-              "mi",
-              "stroke",
-              "chf",
-              "angina",
-              "revasc",
-              "hypo_med",
-              "hypo_any"
+              "discount_factors",
+              "disutilities",
+              "cost",
+              "risk_factors",
+              "risk_reductions"
             ],
             "enumNames": [
-              "Microalbuminuria",
-              "Macroalbuminuria",
-              "eGFR <60",
-              "eGFR <30",
-              "Dialysis",
-              "Neuropathy",
-              "Foot ulcer",
-              "Amputation",
-              "Laser retinopathy",
-              "Blindness",
-              "MI",
-              "Stroke",
-              "CHF",
-              "Angina",
-              "Revascularization",
-              "Hypoglycemia, requiring medical assistance",
-              "Hypoglycemia, any medical assistance"
-            ]
-          }
-        },
-        "factor_changes": {
-          "title": "Array of risk factor variables to sample randomly",
-          "description": "",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": [
-              "hba1c",
-              "bmi",
-              "sbp",
-              "hdl",
-              "ldl",
-              "trig",
-              "smoker",
-              "serum_creatinine"
-            ],
-            "enumNames": [
-              "HbA1c",
-              "BMI",
-              "Systolic blood pressure",
-              "HDL",
-              "LDL",
-              "Triglycerides",
-              "Smoking",
-              "Serum creatinine"
+              "Discount factors",
+              "Disutilities",
+              "Costs",
+              "Risk factors",
+              "Risk reductions"
             ]
           }
         }
@@ -8220,88 +8167,35 @@
       "description": "",
       "type": "object",
       "ui:schema": {
-        "ui:order": ["factor_changes", "risk_reductions"],
-        "factor_changes": {
-          "ui:widget": "checkboxes"
-        },
-        "risk_reductions": {
-          "ui:widget": "checkboxes"
+        "psa_samples": {
+          "ui:widget": "checkboxes",
+          "ui:fieldtype": {
+            "type": "grid",
+            "columns": 5
+          }
         }
       },
       "properties": {
-        "risk_reductions": {
-          "title": "Array of risk reductions variables to sample randomly",
+        "psa_samples": {
+          "title": "Values to be randomly sampled from previous inputs",
           "description": "",
           "type": "array",
           "uniqueItems": true,
           "items": {
             "type": "string",
             "enum": [
-              "microalbuminuria",
-              "macroalbuminuria",
-              "egfr_60",
-              "egfr_30",
-              "dialysis",
-              "neuropathy",
-              "ulcer",
-              "amputation",
-              "laser_retin",
-              "blindness",
-              "mi",
-              "stroke",
-              "chf",
-              "angina",
-              "revasc",
-              "hypo_med",
-              "hypo_any"
+              "discount_factors",
+              "disutilities",
+              "cost",
+              "risk_factors",
+              "risk_reductions"
             ],
             "enumNames": [
-              "Microalbuminuria",
-              "Macroalbuminuria",
-              "eGFR <60",
-              "eGFR <30",
-              "Dialysis",
-              "Neuropathy",
-              "Foot ulcer",
-              "Amputation",
-              "Laser retinopathy",
-              "Blindness",
-              "MI",
-              "Stroke",
-              "CHF",
-              "Angina",
-              "Revascularization",
-              "Hypoglycemia, requiring medical assistance",
-              "Hypoglycemia, any medical assistance"
-            ]
-          }
-        },
-        "factor_changes": {
-          "title": "Array of risk factor variables to sample randomly",
-          "description": "",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": [
-              "hba1c",
-              "bmi",
-              "sbp",
-              "hdl",
-              "ldl",
-              "trig",
-              "smoker",
-              "serum_creatinine"
-            ],
-            "enumNames": [
-              "HbA1c",
-              "BMI",
-              "Systolic blood pressure",
-              "HDL",
-              "LDL",
-              "Triglycerides",
-              "Smoking",
-              "Serum creatinine"
+              "Discount factors",
+              "Disutilities",
+              "Costs",
+              "Risk factors",
+              "Risk reductions"
             ]
           }
         }
