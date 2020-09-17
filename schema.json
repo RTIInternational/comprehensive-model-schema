@@ -1312,7 +1312,7 @@
     },
     "time_horizon_t1d": {
       "title": "Time horizon execution strategy",
-      "description": "'Fixed' runs for a set duration. 'Max age' runs until the youngest indidual reaches the max age. 'All deceased' runs until all agents have passed away.",
+      "description": "'Fixed' runs for a set duration. 'Max age' runs until the youngest individual reaches the max age. 'All deceased' runs until all agents have passed away.",
       "$ref": "#/definitions/string",
       "default": "fixed",
       "enum": ["fixed", "max_age", "all_deceased"],
@@ -1333,7 +1333,7 @@
     },
     "time_horizon_t2d": {
       "title": "Time horizon execution strategy",
-      "description": "'Fixed' runs for a set duration. 'Max age' runs until the youngest indidual reaches the max age. 'All deceased' runs until all agents have passed away.",
+      "description": "'Fixed' runs for a set duration. 'Max age' runs until the youngest individual reaches the max age. 'All deceased' runs until all agents have passed away.",
       "$ref": "#/definitions/string",
       "default": "fixed",
       "enum": ["fixed", "max_age", "all_deceased"],
@@ -1352,7 +1352,7 @@
     },
     "time_horizon_pre": {
       "title": "Time horizon execution strategy",
-      "description": "'Fixed' runs for a set duration. 'Max age' runs until the youngest indidual reaches the max age. 'All deceased' runs until all agents have passed away.",
+      "description": "'Fixed' runs for a set duration. 'Max age' runs until the youngest individual reaches the max age. 'All deceased' runs until all agents have passed away.",
       "$ref": "#/definitions/string",
       "default": "fixed",
       "enum": ["fixed", "max_age", "all_deceased"],
@@ -8587,7 +8587,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Effect of intensifying on A1c": {
+          "Effect of intensifying on A1c (% change)": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -8603,7 +8603,7 @@
             "type": "number",
             "default": -1.5
           },
-          "Effect of next intensification on A1c": {
+          "Effect of next intensification on A1c (% change)": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -8619,7 +8619,7 @@
             "type": "number",
             "default": -1
           },
-          "Subsequent intensifications": {
+          "Subsequent intensifications (% change)": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -9218,7 +9218,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Effect of intensifying on A1c": {
+          "Effect of intensifying on A1c (% change)": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -9234,7 +9234,7 @@
             "type": "number",
             "default": -1.5
           },
-          "Effect of next intensification on A1c": {
+          "Effect of next intensification on A1c (% change)": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -9250,7 +9250,7 @@
             "type": "number",
             "default": -1
           },
-          "Effect of subsequent intensification on A1c": {
+          "Effect of subsequent intensification on A1c (% change)": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -10485,13 +10485,13 @@
           "Annual SBP change Before Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
+            "type": "number",
             "default": 0
           },
           "Annual SBP change Before Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
+            "type": "number",
             "default": 0
           },
           "Annual SBP change after intensifying": {
@@ -10502,13 +10502,13 @@
           "Annual SBP change After Standard": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
+            "type": "number",
             "default": 0
           },
           "Annual SBP change After Intervention": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
+            "type": "number",
             "default": 0
           }
         }
@@ -10907,7 +10907,7 @@
             "type": "object",
             "properties": {
               "sbp": {
-                "title": "Systolic blood pressure (mm/dL)",
+                "title": "Systolic blood pressure (mm Hg)",
                 "description": "",
                 "type": "number",
                 "default": 0
@@ -12714,7 +12714,7 @@
           "baseline_qaly": {
             "title": "Baseline QALY (normoglycemia, prediabetes)",
             "type": "number",
-            "default": 0
+            "default": 0.935
           },
           "bmi": {
             "title": "BMI (one-unit increase)",
@@ -12724,7 +12724,7 @@
           "duration_in_analysis": {
             "title": "Duration in analysis (years)",
             "type": "number",
-            "default": 0
+            "default": -0.008
           }
         }
       }
