@@ -410,6 +410,12 @@
             "items_length": "iterations_t1d",
             "max_items_length": 1,
             "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/mortality_multipliers_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "update_on_change": true
           }
         ]
       },
@@ -856,6 +862,12 @@
           },
           {
             "$ref": "#/properties/costs_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/mortality_multipliers_t2d",
             "items_length": "iterations_t2d",
             "max_items_length": 1,
             "update_on_change": true
@@ -12682,6 +12694,116 @@
             "title": "Prediabetes",
             "type": "number",
             "default": 0.6
+          }
+        }
+      }
+    },
+    "mortality_multipliers_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Mortality Multipliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 2
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Equation 1 (no CVD history)": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "equation_1": {
+            "title": " ",
+            "type": "number",
+            "default": 1
+          },
+          "Equation 2 (Year of CVD event)": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "equation_2": {
+            "title": " ",
+            "type": "number",
+            "default": 1
+          },
+          "Equation 3 (Previous CVD)": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "equation_3": {
+            "title": " ",
+            "type": "number",
+            "default": 1
+          }
+        }
+      }
+    },
+    "mortality_multipliers_t2d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Mortality Multipliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 2
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Equation 1 (no CVD history)": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "equation_1": {
+            "title": " ",
+            "type": "number",
+            "default": 2
+          },
+          "Equation 2 (Year of CVD event)": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "equation_2": {
+            "title": " ",
+            "type": "number",
+            "default": 1
+          },
+          "Equation 3 (Previous CVD)": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "equation_3": {
+            "title": " ",
+            "type": "number",
+            "default": 2
           }
         }
       }
