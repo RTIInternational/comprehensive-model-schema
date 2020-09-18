@@ -12727,7 +12727,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Equation 1": {
+          "equation_1": {
             "title": " ",
             "type": "number",
             "default": 1
@@ -12736,7 +12736,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Equation 2": {
+          "equation_2": {
             "title": " ",
             "type": "number",
             "default": 1
@@ -12745,7 +12745,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Equation 3": {
+          "equation_3": {
             "title": " ",
             "type": "number",
             "default": 1
@@ -12782,7 +12782,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Equation 1": {
+          "equation_1": {
             "title": " ",
             "type": "number",
             "default": 2
@@ -12791,7 +12791,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Equation 2": {
+          "equation_2": {
             "title": " ",
             "type": "number",
             "default": 1
@@ -12800,7 +12800,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Equation 3": {
+          "equation_3": {
             "title": " ",
             "type": "number",
             "default": 2
