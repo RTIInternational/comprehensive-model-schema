@@ -396,26 +396,22 @@
           {
             "$ref": "#/properties/baseline_economic_factors_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "update_on_change": true
+            "max_items_length": 1
           },
           {
             "$ref": "#/properties/disutilities_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "update_on_change": true
+            "max_items_length": 1
           },
           {
             "$ref": "#/properties/costs_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "update_on_change": true
+            "max_items_length": 1
           },
           {
             "$ref": "#/properties/mortality_multipliers_t1d",
             "items_length": "iterations_t1d",
-            "max_items_length": 1,
-            "update_on_change": true
+            "max_items_length": 1
           }
         ]
       },
@@ -851,26 +847,22 @@
           {
             "$ref": "#/properties/baseline_economic_factors_t2d",
             "items_length": "iterations_t2d",
-            "max_items_length": 1,
-            "update_on_change": true
+            "max_items_length": 1
           },
           {
             "$ref": "#/properties/disutilities_t2d",
             "items_length": "iterations_t2d",
-            "max_items_length": 1,
-            "update_on_change": true
+            "max_items_length": 1
           },
           {
             "$ref": "#/properties/costs_t2d",
             "items_length": "iterations_t2d",
-            "max_items_length": 1,
-            "update_on_change": true
+            "max_items_length": 1
           },
           {
             "$ref": "#/properties/mortality_multipliers_t2d",
             "items_length": "iterations_t2d",
-            "max_items_length": 1,
-            "update_on_change": true
+            "max_items_length": 1
           }
         ]
       },
