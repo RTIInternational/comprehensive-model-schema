@@ -407,11 +407,6 @@
             "$ref": "#/properties/costs_t1d",
             "items_length": "iterations_t1d",
             "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/mortality_multipliers_t1d",
-            "items_length": "iterations_t1d",
-            "max_items_length": 1
           }
         ]
       },
@@ -858,11 +853,6 @@
             "$ref": "#/properties/costs_t2d",
             "items_length": "iterations_t2d",
             "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/mortality_multipliers_t2d",
-            "items_length": "iterations_t2d",
-            "max_items_length": 1
           }
         ]
       },
@@ -1029,11 +1019,6 @@
         "fieldsets": [
           {
             "$ref": "#/properties/cvd_multipliers_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1
-          },
-          {
-            "$ref": "#/properties/mortality_multipliers_pre",
             "items_length": "iterations_pre",
             "max_items_length": 1
           },
