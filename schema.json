@@ -12639,7 +12639,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Mortality Multipliers (relative to diabetes)",
+              "common_text": "Mortality multipliers for calibration",
               "numbered": ""
             }
           },
@@ -12727,7 +12727,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "equation_1": {
+          "Equation 1": {
             "title": " ",
             "type": "number",
             "default": 1
@@ -12736,7 +12736,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "equation_2": {
+          "Equation 2": {
             "title": " ",
             "type": "number",
             "default": 1
@@ -12745,7 +12745,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "equation_3": {
+          "Equation 3": {
             "title": " ",
             "type": "number",
             "default": 1
@@ -12782,7 +12782,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "equation_1": {
+          "Equation 1": {
             "title": " ",
             "type": "number",
             "default": 2
@@ -12791,7 +12791,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "equation_2": {
+          "Equation 2": {
             "title": " ",
             "type": "number",
             "default": 1
@@ -12800,7 +12800,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "equation_3": {
+          "Equation 3": {
             "title": " ",
             "type": "number",
             "default": 2
