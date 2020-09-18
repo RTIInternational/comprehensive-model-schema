@@ -12709,7 +12709,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Mortality Multipliers",
+              "common_text": "Mortality multipliers for calibration",
               "numbered": ""
             }
           },
@@ -12764,7 +12764,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Mortality Multipliers",
+              "common_text": "Mortality multipliers for calibration",
               "numbered": ""
             }
           },
