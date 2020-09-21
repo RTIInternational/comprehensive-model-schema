@@ -2548,7 +2548,7 @@
                 "default": 0.44
               },
               "proportion_smoker": {
-                "title": "Proportion smoking",
+                "title": "Proportion currently smoking",
                 "description": "",
                 "$ref": "#/definitions/positiveProportion",
                 "default": 0.03
@@ -2677,7 +2677,7 @@
                 "default": 0.4808
               },
               "proportion_smoker": {
-                "title": "Proportion smoking",
+                "title": "Proportion currently smoking",
                 "description": "",
                 "$ref": "#/definitions/positiveProportion",
                 "default": 0.25
@@ -7036,8 +7036,8 @@
             }
           },
           "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
+            "title": "Risk reductions",
+            "description": "Enter risk reductions as positive numbers written as fractions (e.g., for 20% reduction, enter 0.20). For increases, enter negative number.",
             "type": "object",
             "properties": {
               "Variable": {
@@ -7650,8 +7650,8 @@
             }
           },
           "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
+            "title": "Risk reductions",
+            "description": "Enter risk reductions as positive numbers written as fractions (e.g., for 20% reduction, enter 0.20). For increases, enter negative number.",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -7812,8 +7812,8 @@
             }
           },
           "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
+            "title": "Risk reductions",
+            "description": "Enter risk reductions as positive numbers written as fractions (e.g., for 20% reduction, enter 0.20). For increases, enter negative number.",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -7994,8 +7994,8 @@
             }
           },
           "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
+            "title": "Risk reductions",
+            "description": "Enter risk reductions as positive numbers written as fractions (e.g., for 20% reduction, enter 0.20). For increases, enter negative number.",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -8361,8 +8361,8 @@
             }
           },
           "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
+            "title": "Risk reductions",
+            "description": "Enter risk reductions as positive numbers written as fractions (e.g., for 20% reduction, enter 0.20). For increases, enter negative number.",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -8972,8 +8972,8 @@
             }
           },
           "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
+            "title": "Risk reductions",
+            "description": "Enter risk reductions as positive numbers written as fractions (e.g., for 20% reduction, enter 0.20). For increases, enter negative number.",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -9562,8 +9562,8 @@
             }
           },
           "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
+            "title": "Risk reductions",
+            "description": "Enter risk reductions as positive numbers written as fractions (e.g., for 20% reduction, enter 0.20). For increases, enter negative number.",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -9946,8 +9946,8 @@
             }
           },
           "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
+            "title": "Risk reductions",
+            "description": "Enter risk reductions as positive numbers written as fractions (e.g., for 20% reduction, enter 0.20). For increases, enter negative number.",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -10344,8 +10344,8 @@
             }
           },
           "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
+            "title": "Risk reductions",
+            "description": "Enter risk reductions as positive numbers written as fractions (e.g., for 20% reduction, enter 0.20). For increases, enter negative number.",
             "type": "object",
             "properties": {
               "microalbuminuria": {
@@ -10919,8 +10919,8 @@
             }
           },
           "risk_reductions": {
-            "title": "Risk reductions (% change)",
-            "description": "Increases may be expressed as negative numbers",
+            "title": "Risk reductions",
+            "description": "Enter risk reductions as positive numbers written as fractions (e.g., for 20% reduction, enter 0.20). For increases, enter negative number.",
             "type": "object",
             "properties": {
               "microalbuminuria": {
