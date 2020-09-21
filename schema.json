@@ -10592,13 +10592,13 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Effect of subsequent drugs on blood pressure Standard": {
+          "Effect of subsequent drug on blood pressure Standard": {
             "title": " ",
             "description": "",
             "type": "number",
             "default": -9
           },
-          "Effect of subsequent drugs on blood pressure Intervention": {
+          "Effect of subsequent drug on blood pressure Intervention": {
             "title": " ",
             "description": "",
             "type": "number",
@@ -10861,7 +10861,7 @@
             "default": 0
           },
           "probability of quitting": {
-            "title": "Probability of quitting increased by (%)",
+            "title": "Increase in probability of quitting (Enter percentage point increase as a fraction, e.g. enter 0.20 for a 20% percentage point increase).",
             "$ref": "#/definitions/positiveProportion",
             "default": 0
           }
@@ -11187,13 +11187,13 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Effect of subsequent drugs on blood pressure Standard": {
+          "Effect of subsequent drug on blood pressure Standard": {
             "title": " ",
             "description": "",
             "type": "number",
             "default": -9
           },
-          "Effect of subsequent drugs on blood pressure Intervention": {
+          "Effect of subsequent drug on blood pressure Intervention": {
             "title": " ",
             "description": "",
             "type": "number",
@@ -11456,7 +11456,7 @@
             "default": 0
           },
           "probability of quitting": {
-            "title": "Probability of quitting increased by (%)",
+            "title": "Increase in probability of quitting (Enter percentage point increase as a fraction, e.g. enter 0.20 for a 20% percentage point increase).",
             "$ref": "#/definitions/positiveProportion",
             "default": 0
           }
