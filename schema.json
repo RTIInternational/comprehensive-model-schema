@@ -1132,7 +1132,7 @@
   },
   "properties": {
     "diabetes_type": {
-      "title": "Diabetes type",
+      "title": "Diabetes type: choose one from the dropdown menu below",
       "$ref": "#/definitions/string",
       "enum": ["t1d", "t2d", "pre"],
       "enumNames": ["Type 1", "Type 2", "Prediabetes"],
@@ -2643,25 +2643,25 @@
                 "title": "Race: White",
                 "description": "",
                 "$ref": "#/definitions/positiveProportion",
-                "default": 0.3551
+                "default": 0.429
               },
               "proportion_black": {
                 "title": "Race: Black",
                 "description": "",
                 "$ref": "#/definitions/positiveProportion",
-                "default": 0.2645
+                "default": 0.1947
               },
               "proportion_hispanic": {
                 "title": "Race: Hispanic",
                 "description": "",
                 "$ref": "#/definitions/positiveProportion",
-                "default": 0.2628
+                "default": 0.2478
               },
               "proportion_other": {
                 "title": "Race: Other",
                 "description": "",
                 "$ref": "#/definitions/positiveProportion",
-                "default": 0.1176
+                "default": 0.1285
               }
             }
           },
@@ -2674,7 +2674,7 @@
                 "title": "Proportion with postsecondary education",
                 "description": "",
                 "$ref": "#/definitions/positiveProportion",
-                "default": 0.4808
+                "default": 0.5642
               },
               "proportion_smoker": {
                 "title": "Proportion currently smoking",
@@ -2686,7 +2686,7 @@
                 "title": "Proportion females",
                 "description": "",
                 "$ref": "#/definitions/positiveProportion",
-                "default": 0.5133
+                "default": 0.5202
               }
             }
           }
@@ -2915,13 +2915,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 5.9
+            "default": 5.44
           },
           "HBA1C sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.19
+            "default": 0.39
           },
           "BMI": {
             "description": "",
@@ -2932,13 +2932,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 30.23
+            "default": 28.47
           },
           "BMI sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 6.98
+            "default": 6.56
           },
           "SBP": {
             "title": "Systolic blood pressure (mmHg)",
@@ -2950,13 +2950,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 127.21
+            "default": 121.75
           },
           "SBP sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 17.95
+            "default": 17.19
           },
           "HDL": {
             "title": "HDL (mg/dL)",
@@ -2968,13 +2968,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 51.89
+            "default": 54.06
           },
           "HDL sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 15.34
+            "default": 16.35
           },
           "LDL": {
             "title": "LDL (mg/dL)",
@@ -2986,13 +2986,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 122.63
+            "default": 115.85
           },
           "LDL sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 35.54364
+            "default": 34.23
           },
           "Triglycerides": {
             "title": "ln(Triglycerides (ln(mg/dL)))",
@@ -3004,13 +3004,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4.78
+            "default": 4.68
           },
           "Triglycerides sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.46
+            "default": 0.48
           },
           "Serum creatinine": {
             "title": "Serum creatinine (mg/dL)",
@@ -3022,7 +3022,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.9
+            "default": 0.87
           },
           "Serum creatinine sd": {
             "title": " ",
@@ -3040,13 +3040,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 98.4
+            "default": 98.2
           },
           "FPG sd": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 9.1
+            "default": 9.84
           }
         }
       }
@@ -3207,7 +3207,7 @@
             "title": "Microalbuminuria",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
-            "default": 0.0967
+            "default": 0.0731
           },
           "proportion_macroalbuminuria": {
             "title": "Macroalbuminuria",
@@ -3219,19 +3219,19 @@
             "title": "eGFR <60",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
-            "default": 0.1199
+            "default": 0.0654
           },
           "proportion_egfr_30": {
             "title": "eGFR <30",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
-            "default": 0.0072
+            "default": 0.004
           },
           "proportion_dialysis": {
             "title": "Dialysis",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
-            "default": 0.0004
+            "default": 0.0007
           },
           "proportion_neuropathy": {
             "title": "Neuropathy",
@@ -3267,25 +3267,25 @@
             "title": "MI",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
-            "default": 0.0491
+            "default": 0.0266
           },
           "proportion_stroke": {
             "title": "Stroke",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
-            "default": 0.0359
+            "default": 0.0242
           },
           "proportion_chf": {
             "title": "CHF",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
-            "default": 0.0308
+            "default": 0.0181
           },
           "proportion_angina": {
             "title": "Angina",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
-            "default": 0.0276
+            "default": 0.015
           },
           "proportion_revascularization": {
             "title": "Revascularization",
@@ -3303,19 +3303,19 @@
             "title": "Hypoglycemia requiring medical assistance",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
-            "default": 0
+            "default": 0.0
           },
           "proportion_hypo_any": {
             "title": "Hypoglycemia requiring any assistance",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
-            "default": 0
+            "default": 0.0
           },
           "proportion_from_accord_dataset": {
             "title": "Proportion from ACCORD dataset",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
-            "default": 0
+            "default": 0.0
           }
         }
       },
@@ -11465,6 +11465,7 @@
     },
     "lifestyle_control_intervention_t2d": {
       "title": "Lifestyle intervention",
+      "description": "The lifestyle intervention is only applied to people with A1c in the prediabetes range (5.7-6.4%) and BMI>=25 and FPG in the prediabetes range (100-125 mg/dl). To change these criteria, use advanced intervention by selecting it from the dropdown menu above.",
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
@@ -11520,7 +11521,7 @@
             "readOnly": true
           },
           "bmi_change_text": {
-            "title": "Percent change in BMI from baseline",
+            "title": "“Percent change in BMI relative to baseline (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction.)",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -11593,7 +11594,7 @@
             "readOnly": true
           },
           "Percent change in BMI relative to baseline": {
-            "title": "Percent change in BMI relative to baseline",
+            "title": "“Percent change in BMI relative to baseline (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction.)",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -11757,7 +11758,7 @@
             "readOnly": true
           },
           "text_1": {
-            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used:",
+            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction):",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12008,6 +12009,7 @@
 
     "lifestyle_control_intervention_pre": {
       "title": "Lifestyle intervention",
+      "description": "The lifestyle intervention is only applied to people with A1c in the prediabetes range (5.7-6.4%) and BMI>=25 and FPG in the prediabetes range (100-125 mg/dl). To change these criteria, use advanced intervention by selecting it from the dropdown menu above.",
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
@@ -12120,6 +12122,20 @@
       "items": {
         "type": "object",
         "properties": {
+          "The lifestyle intervention is only applied to people with A1c and BMI and FPG in the ranges set below. Individual constraints can be relaxed, for example, by setting the minimum FPG = 0.": {
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder01": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
+          "placeholder02": {
+            "title": " ",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
           "Apply to persons with BMI >= (kg/m^2)": {
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -12170,7 +12186,7 @@
             "default": 126
           },
           "Percent change in BMI relative to baseline": {
-            "title": "Percent change in BMI relative to baseline",
+            "title": "“Percent change in BMI relative to baseline (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction.)",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12334,7 +12350,7 @@
             "readOnly": true
           },
           "text_1": {
-            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used:",
+            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction):",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12631,7 +12647,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Mortality multipliers for calibration",
+              "common_text": "Mortality multipliers relative to diabetes",
               "numbered": ""
             }
           },
