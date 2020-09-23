@@ -1116,6 +1116,7 @@
     },
     "simulation_type_t1d": {
       "title": "Type of simulation to run",
+      "description": "Complication costs and disutilities are also included in PSA.",
       "$ref": "#/definitions/string",
       "enum": ["Standard", "PSA"],
       "default": "Standard",
@@ -1123,6 +1124,7 @@
     },
     "simulation_type_t2d": {
       "title": "Type of simulation to run",
+      "description": "Complication costs and disutilities are also included in PSA.",
       "$ref": "#/definitions/string",
       "enum": ["Standard", "PSA"],
       "default": "Standard",
@@ -1130,6 +1132,7 @@
     },
     "simulation_type_pre": {
       "title": "Type of simulation to run",
+      "description": "Complication costs and disutilities are also included in PSA.",
       "$ref": "#/definitions/string",
       "enum": ["Standard", "PSA"],
       "default": "Standard",
