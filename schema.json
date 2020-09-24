@@ -12762,7 +12762,7 @@
           "Equation 2": {
             "title": " ",
             "type": "number",
-            "default": 1
+            "default": 2
           },
           "Equation 3 (Previous CVD)": {
             "$ref": "#/definitions/text",
