@@ -10552,13 +10552,13 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Effect of subsequent drugs on blood pressure Standard": {
+          "Effect of subsequent drug on blood pressure Standard": {
             "title": " ",
             "description": "",
             "type": "number",
             "default": -9
           },
-          "Effect of subsequent drugs on blood pressure Intervention": {
+          "Effect of subsequent drug on blood pressure Intervention": {
             "title": " ",
             "description": "",
             "type": "number",
