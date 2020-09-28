@@ -2511,7 +2511,7 @@
                 "title": "Proportion currently smoking",
                 "description": "",
                 "$ref": "#/definitions/positiveProportion",
-                "default": 0.03
+                "default": 0.175
               },
               "proportion_female": {
                 "title": "Proportion females",
@@ -3998,7 +3998,7 @@
             "title": " ",
             "description": "",
             "type": "number",
-            "default": 16
+            "default": 13
           },
           "TV age cost placeholder": {
             "title": " ",
@@ -11481,7 +11481,7 @@
             "readOnly": true
           },
           "bmi_change_text": {
-            "title": "“Percent change in BMI relative to baseline (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction.)",
+            "title": "Percent change in BMI relative to baseline (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction.)",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -11554,7 +11554,7 @@
             "readOnly": true
           },
           "Percent change in BMI relative to baseline": {
-            "title": "“Percent change in BMI relative to baseline (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction.)",
+            "title": "Percent change in BMI relative to baseline (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction.)",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -11718,7 +11718,7 @@
             "readOnly": true
           },
           "text_1": {
-            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction):",
+            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used (Enter percentage reductions as a positive fraction, e.g., enter 0.40 for a 40% reduction):",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -11819,7 +11819,7 @@
             "readOnly": true
           },
           "text_3": {
-            "title": "Change in other factors",
+            "title": "Change in other factors (enter negative numbers for reductions and positive numbers for increases)",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12025,7 +12025,7 @@
             "readOnly": true
           },
           "bmi_change_text": {
-            "title": "Percent change in BMI from baseline",
+            "title": "Percent change in BMI relative to baseline (Enter percentage changes as a fraction, e.g. enter –0.05 for a 5% reduction)",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12146,7 +12146,7 @@
             "default": 126
           },
           "Percent change in BMI relative to baseline": {
-            "title": "“Percent change in BMI relative to baseline (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction.)",
+            "title": "Percent change in BMI relative to baseline (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction.)",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12310,7 +12310,7 @@
             "readOnly": true
           },
           "text_1": {
-            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used (Enter percentage changes as a fraction, e.g. enter -0.05 for a 5% reduction):",
+            "title": "If percentage reduction in onset risk is calculated directly, the following values will be used (Enter percentage reductions as a positive fraction, e.g., enter 0.40 for a 40% reduction):",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12411,7 +12411,7 @@
             "readOnly": true
           },
           "text_3": {
-            "title": "Change in other factors",
+            "title": "Change in other factors (enter negative numbers for reductions and positive numbers for increases)",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -12607,7 +12607,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Mortality multipliers relative to diabetes",
+              "common_text": "Mortality Multipliers (relative to diabetes)",
               "numbered": ""
             }
           },
