@@ -5653,7 +5653,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.935
+            "default": 0
           },
           "Baseline QALY placeholder": {
             "title": " ",
@@ -5687,7 +5687,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.003
+            "default": 0
           },
           "BMI, first year se": {
             "title": " ",
@@ -5704,7 +5704,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.008
+            "default": 0
           },
           "Duration, first year se": {
             "title": " ",
@@ -6244,7 +6244,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 9311
+            "default": 0
           },
           "Base cost placeholder": {
             "title": " ",
@@ -6262,7 +6262,7 @@
             "title": " ",
             "description": "",
             "type": "number",
-            "default": -64
+            "default": 0
           },
           "TV age cost placeholder": {
             "title": " ",
