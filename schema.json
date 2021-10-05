@@ -5653,7 +5653,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 0.935
           },
           "Baseline QALY placeholder": {
             "title": " ",
