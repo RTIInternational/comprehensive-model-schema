@@ -5051,8 +5051,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Base cost text": {
-            "title": "Base cost",
+          "Base": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -5653,7 +5652,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0.935
+            "default": 9.35
           },
           "Baseline QALY placeholder": {
             "title": " ",
@@ -5670,7 +5669,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": -0.006
+            "default": -0.656
           },
           "Smoking, first year se": {
             "title": " ",
