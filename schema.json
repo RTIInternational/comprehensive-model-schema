@@ -3982,11 +3982,11 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 7131
           },
-          "Base cost placeholder": {
+          "Base cost se": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 978
           },
           "TV age cost text": {
             "title": "Time-varying age cost",
@@ -4000,11 +4000,11 @@
             "type": "number",
             "default": 13
           },
-          "TV age cost placeholder": {
+          "TV age cost se": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 29
           },
           "Macroalbuminuria, first year": {
             "description": "",
@@ -5063,11 +5063,11 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 9311
           },
-          "Base cost placeholder": {
+          "Base cost se": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 445
           },
           "TV age cost text": {
             "title": "Time-varying age cost",
@@ -5081,11 +5081,11 @@
             "type": "number",
             "default": -64
           },
-          "TV age cost placeholder": {
+          "TV age cost se": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 9
           },
           "Macroalbuminuria, first year": {
             "description": "",
@@ -6244,13 +6244,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 9311
           },
-          "Base cost placeholder": {
+          "Base cost se": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 445
           },
           "TV age cost text": {
             "title": "Time-varying age cost",
@@ -6262,13 +6262,13 @@
             "title": " ",
             "description": "",
             "type": "number",
-            "default": 0
+            "default": -64
           },
-          "TV age cost placeholder": {
+          "TV age cost se": {
             "title": " ",
             "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 9
           },
           "Macroalbuminuria, first year": {
             "description": "",
