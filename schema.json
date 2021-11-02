@@ -11500,7 +11500,7 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 0
           },
-          "subsequent_years_change": {
+          "year_subsequent_change": {
             "title": "Subsequent years",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 0
@@ -12044,7 +12044,7 @@
             "$ref": "#/definitions/negativeProportion",
             "default": -0.05
           },
-          "subsequent_years_change": {
+          "year_subsequent_change": {
             "title": "Subsequent years",
             "$ref": "#/definitions/negativeProportion",
             "default": -0.02
