@@ -17,6 +17,20 @@
       },
 
       {
+        "url_path": "/population-dataset",
+        "built_in_page": {
+          "type": "dataset-picker",
+          "title": "Population Dataset",
+          "message": "A preloaded population dataset may be selected here. If none are selected, then you will be prompted to configure a new one later in the setup process."
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/population_dataset_uuid"
+          }
+        ]
+      },
+
+      {
         "title": "Scenario Setup: Basic - Type 1 Diabetes",
         "url_path": "/basic-setup-for-type-1-diabetes",
         "form_submit_button": true,
@@ -344,7 +358,10 @@
         "url_path": "/population-generation-for-type-1-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "t1d"
+          "$and": {
+            "diabetes_type": "t1d",
+            "population_dataset_uuid": "none"
+          }
         },
         "fieldsets": [
           {
@@ -800,7 +817,10 @@
         "url_path": "/population-generation-for-type-2-diabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "t2d"
+          "$and": {
+            "diabetes_type": "t2d",
+            "population_dataset_uuid": "none"
+          }
         },
         "fieldsets": [
           {
@@ -1026,7 +1046,10 @@
         "url_path": "/population-generation-for-prediabetes",
         "form_submit_button": true,
         "expand_if": {
-          "diabetes_type": "pre"
+          "$and": {
+            "diabetes_type": "pre",
+            "population_dataset_uuid": "none"
+          }
         },
         "fieldsets": [
           {
@@ -1095,6 +1118,16 @@
       "enumNames": ["Type 1", "Type 2", "Prediabetes"],
       "default": "t1d",
       "_basic_config": true
+    },
+    "population_dataset_uuid": {
+      "title": "Pre-loaded Population Dataset",
+      "$ref": "#/definitions/string",
+      "enum": ["none"],
+      "enumNames": ["none"],
+      "nullValue": "none",
+      "default": "none",
+      "_basic_config": true,
+      "validate": false
     },
     "scenario_name_t1d": {
       "title": "Name of the scenario",
@@ -1280,7 +1313,11 @@
       "$ref": "#/definitions/string",
       "default": "fixed",
       "enum": ["fixed", "max_age", "all_deceased"],
-      "enumNames": ["Fixed", "Max age", "All deceased (this will take a long time to run)"],
+      "enumNames": [
+        "Fixed",
+        "Max age",
+        "All deceased (this will take a long time to run)"
+      ],
       "_basic_config": true
     },
     "max_age_t1d": {
@@ -1301,7 +1338,11 @@
       "$ref": "#/definitions/string",
       "default": "fixed",
       "enum": ["fixed", "max_age", "all_deceased"],
-      "enumNames": ["Fixed", "Max age", "All deceased (this will take a long time to run)"]
+      "enumNames": [
+        "Fixed",
+        "Max age",
+        "All deceased (this will take a long time to run)"
+      ]
     },
     "max_age_t2d": {
       "title": "Maximum age",
@@ -1320,7 +1361,11 @@
       "$ref": "#/definitions/string",
       "default": "fixed",
       "enum": ["fixed", "max_age", "all_deceased"],
-      "enumNames": ["Fixed", "Max age", "All deceased (this will take a long time to run)"]
+      "enumNames": [
+        "Fixed",
+        "Max age",
+        "All deceased (this will take a long time to run)"
+      ]
     },
     "max_age_pre": {
       "title": "Maximum age",
