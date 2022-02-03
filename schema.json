@@ -1282,12 +1282,11 @@
       "_basic_config": true
     },
     "seed": {
+      "title": "Seed",
       "description": "6 digit simulation seed",
-      "$ref": "#/definitions/positiveInteger",
-      "ui:schema": {
-        "ui:widget": "hidden"
-      },
-      "default": 123456
+      "$ref": "#/definitions/seedInteger",
+      "default": 123456,
+      "_basic_config": true
     },
     "size_t1d": {
       "title": "Number of individuals in the population",
@@ -12927,6 +12926,11 @@
     "positiveInteger": {
       "type": "integer",
       "minimum": 1
+    },
+    "seedInteger": {
+      "type": "integer",
+      "minimum": 100000,
+      "maximum": 999999
     },
     "negativeInteger": {
       "type": "integer",
