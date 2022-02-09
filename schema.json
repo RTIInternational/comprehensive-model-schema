@@ -1100,6 +1100,57 @@
       },
 
       {
+        "title": "Complication Multipliers - Type 1 Diabetes",
+        "url_path": "/complication-multipliers-for-type-1-diabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "t1d"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/complication_multipliers_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+
+      {
+        "title": "Complication Multipliers - Type 2 Diabetes",
+        "url_path": "/complication-multipliers-for-type-2-diabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "t2d"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/complication_multipliers_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+
+      {
+        "title": "Complication Multipliers - Prediabetes",
+        "url_path": "/complication-multipliers-for-prediabetes",
+        "form_submit_button": true,
+        "expand_if": {
+          "diabetes_type": "pre"
+        },
+        "fieldsets": [
+          {
+            "$ref": "#/properties/complication_multipliers_pre",
+            "items_length": "iterations_pre",
+            "max_items_length": 1,
+            "update_on_change": true
+          }
+        ]
+      },
+
+      {
         "url_path": "/summary",
         "built_in_page": {
           "type": "summary",
@@ -12903,6 +12954,335 @@
             "type": "number",
             "default": 10
           }
+        }
+      }
+    },
+    "complication_multipliers_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Complication multipliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "npdr multiplier": {
+            "title": "NPDR",
+            "type": "number",
+            "default": 1
+          },
+          "esrd multiplier": {
+            "title": "ESRD",
+            "type": "number",
+            "default": 1
+          },
+          "dpd multiplier": {
+            "title": "DPD",
+            "type": "number",
+            "default": 1
+          },
+          "microalbuminuria multiplier": {
+            "title": "Microalbuminuria,",
+            "type": "number",
+            "default": 1
+          },
+          "pdr multiplier": {
+            "title": "PDR",
+            "type": "number",
+            "default": 1
+          },
+          "hypoglycemia multiplier": {
+            "title": "Hypoglycemia",
+            "type": "number",
+            "default": 1
+          },
+          "macroalbuminuria multiplier": {
+            "title": "Macroalbuminuria",
+            "type": "number",
+            "default": 1
+          },
+          "amputation multiplier": {
+            "title": "Amputation",
+            "type": "number",
+            "default": 1
+          },
+          "cvd_non_mace multiplier": {
+            "title": "CVD non-MACE",
+            "type": "number",
+            "default": 1
+          },
+          "ulcer multiplier": {
+            "title": "Ulcer",
+            "type": "number",
+            "default": 1
+          },
+          "cvd_mace multiplier": {
+            "title": "CVD MACE",
+            "type": "number",
+            "default": 1
+          },
+          "gfr multiplier": {
+            "title": "GFR",
+            "type": "number",
+            "default": 1
+          },
+          "dka multiplier": {
+            "title": "DKA",
+            "type": "number",
+            "default": 1
+          },
+          "csme multiplier": {
+            "title": "CSME",
+            "type": "number",
+            "default": 1
+          },
+          "blindness multiplier": {
+            "title": "Blindness",
+            "type": "number",
+            "default": 1
+          }
+        }
+      }
+    },
+    "complication_multipliers_t2d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Complication multipliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "stroke multiplier": {
+            "title": "Stroke",
+            "type": "number",
+            "default": 1
+          },
+          "chf multiplier": {
+            "title": "CHF",
+            "type": "number",
+            "default": 1
+          },
+          "angina multiplier": {
+            "title": "Angina",
+            "type": "number",
+            "default": 1
+          },
+          "microalbuminuria multiplier": {
+            "title": "Microalbuminuria",
+            "type": "number",
+            "default": 1
+          },
+          "macroalbuminuria multiplier": {
+            "title": "Macroalbuminuria",
+            "type": "number",
+            "default": 1
+          },
+          "amputation multiplier": {
+            "title": "Amputation",
+            "type": "number",
+            "default": 1
+          },
+          "mi multiplier": {
+            "title": "MI",
+            "type": "number",
+            "default": 1
+          },
+          "revasc multiplier": {
+            "title": "Revascularization",
+            "type": "number",
+            "default": 1
+          },
+          "blindness multiplier": {
+            "title": "Blindness",
+            "type": "number",
+            "default": 1
+          },
+          "hypoglycemia_any multiplier": {
+            "title": "Hypoglycemia Any",
+            "type": "number",
+            "default": 1
+          },
+          "hypoglycemia_medical multiplier": {
+            "title": "Hypoglycemia Medical",
+            "type": "number",
+            "default": 1
+          },
+          "neurop multiplier": {
+            "title": "Neuropathy",
+            "type": "number",
+            "default": 1
+          },
+          "egfr_30 multiplier": {
+            "title": "EGFR 30",
+            "type": "number",
+            "default": 1
+          },
+          "egfr_60 multiplier": {
+            "title": "EGFR 60",
+            "type": "number",
+            "default": 1
+          },
+          "dialysis multiplier": {
+            "title": "Dialysis",
+            "type": "number",
+            "default": 1
+          },
+          "ulcer multiplier": {
+            "title": "Ulcer",
+            "type": "number",
+            "default": 1
+          },
+          "laser_retina multiplier": {
+            "title": "Laser Retina",
+            "type": "number",
+            "default": 1
+          }
+        }
+      }
+    },
+    "complication_multipliers_pre": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Complication multipliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 3
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+            "stroke multiplier": {
+              "title": "Stroke",
+              "type": "number",
+              "default": 1
+            },
+            "chf multiplier": {
+              "title": "CHF",
+              "type": "number",
+              "default": 1
+            },
+            "angina multiplier": {
+              "title": "Angina",
+              "type": "number",
+              "default": 1
+            },
+            "microalbuminuria multiplier": {
+              "title": "Microalbuminuria",
+              "type": "number",
+              "default": 1
+            },
+            "macroalbuminuria multiplier": {
+              "title": "Macroalbuminuria",
+              "type": "number",
+              "default": 1
+            },
+            "amputation multiplier": {
+              "title": "Amputation",
+              "type": "number",
+              "default": 1
+            },
+            "mi multiplier": {
+              "title": "MI",
+              "type": "number",
+              "default": 1
+            },
+            "revasc multiplier": {
+              "title": "Revascularization",
+              "type": "number",
+              "default": 1
+            },
+            "blindness multiplier": {
+              "title": "Blindness",
+              "type": "number",
+              "default": 1
+            },
+            "hypoglycemia_any multiplier": {
+              "title": "Hypoglycemia Any",
+              "type": "number",
+              "default": 1
+            },
+            "hypoglycemia_medical multiplier": {
+              "title": "Hypoglycemia Medical",
+              "type": "number",
+              "default": 1
+            },
+            "neurop multiplier": {
+              "title": "Neuropathy",
+              "type": "number",
+              "default": 1
+            },
+            "egfr_30 multiplier": {
+              "title": "EGFR 30",
+              "type": "number",
+              "default": 1
+            },
+            "egfr_60 multiplier": {
+              "title": "EGFR 60",
+              "type": "number",
+              "default": 1
+            },
+            "dialysis multiplier": {
+              "title": "Dialysis",
+              "type": "number",
+              "default": 1
+            },
+            "ulcer multiplier": {
+              "title": "Ulcer",
+              "type": "number",
+              "default": 1
+            },
+            "laser_retina multiplier": {
+              "title": "Laser Retina",
+              "type": "number",
+              "default": 1
+            }
         }
       }
     }
