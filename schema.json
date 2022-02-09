@@ -12998,7 +12998,7 @@
             "default": 1
           },
           "microalbuminuria multiplier": {
-            "title": "Microalbuminuria,",
+            "title": "Microalbuminuria",
             "type": "number",
             "default": 1
           },
