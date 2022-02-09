@@ -12992,8 +12992,8 @@
             "type": "number",
             "default": 1
           },
-          "dpd multiplier": {
-            "title": "DPD",
+          "dpn multiplier": {
+            "title": "DPN",
             "type": "number",
             "default": 1
           },
