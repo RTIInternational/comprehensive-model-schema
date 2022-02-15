@@ -13308,7 +13308,7 @@
     },
     "seedInteger": {
       "type": "integer",
-      "minimum": 100000,
+      "minimum": 1,
       "maximum": 999999
     },
     "negativeInteger": {
