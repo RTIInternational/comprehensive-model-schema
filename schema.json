@@ -68,7 +68,7 @@
               "$ref": "#/properties/iterations_t1d"
             },
             {
-              "$ref": "#/properties/seed"
+              "$ref": "#/properties/seed_t1d"
             }
           ],
           [
@@ -471,7 +471,7 @@
               "$ref": "#/properties/iterations_t2d"
             },
             {
-              "$ref": "#/properties/seed"
+              "$ref": "#/properties/seed_t2d"
             }
           ],
           [
@@ -910,7 +910,7 @@
               "$ref": "#/properties/iterations_pre"
             },
             {
-              "$ref": "#/properties/seed"
+              "$ref": "#/properties/seed_pre"
             }
           ],
           [
@@ -1332,7 +1332,21 @@
       "default": 1,
       "_basic_config": true
     },
-    "seed": {
+    "seed_t1d": {
+      "title": "Simulation Seed",
+      "description": "seed value can be anything between 1 and 999999",
+      "$ref": "#/definitions/seedInteger",
+      "default": 123456,
+      "_basic_config": true
+    },
+    "seed_t2d": {
+      "title": "Simulation Seed",
+      "description": "seed value can be anything between 1 and 999999",
+      "$ref": "#/definitions/seedInteger",
+      "default": 123456,
+      "_basic_config": true
+    },
+    "seed_pre": {
       "title": "Simulation Seed",
       "description": "seed value can be anything between 1 and 999999",
       "$ref": "#/definitions/seedInteger",
