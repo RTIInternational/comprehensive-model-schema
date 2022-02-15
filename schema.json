@@ -1334,6 +1334,7 @@
     },
     "seed": {
       "title": "Simulation Seed",
+      "description": "seed value can be anything between 1 and 999999",
       "$ref": "#/definitions/seedInteger",
       "default": 123456,
       "_basic_config": true
