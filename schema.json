@@ -1333,8 +1333,7 @@
       "_basic_config": true
     },
     "seed": {
-      "title": "Seed",
-      "description": "6 digit simulation seed",
+      "title": "Simulation Seed",
       "$ref": "#/definitions/seedInteger",
       "default": 123456,
       "_basic_config": true
