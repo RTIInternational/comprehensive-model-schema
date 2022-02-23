@@ -205,6 +205,14 @@
               "glycemic_control_setup_type_t1d": "advanced"
             }
           }
+          {
+            "$ref": "#/properties/glycemic_control_noncompliers_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if": {
+              "glycemic_control_setup_type_t1d": "advanced"
+            }
+          }
         ]
       },
 
@@ -8211,6 +8219,41 @@
       "enum": ["basic", "advanced"],
       "enumNames": ["Basic setup", "Advanced setup"],
       "default": "basic"
+    },
+    "glycemic_control_noncompliers_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Non-compliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 1
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "glycemic_non_compliant_t1d": {
+            "title": "Percent of non-compliant patients",
+            "description": "",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
+          },
+        }
+      },
+      "_watch_for_changes": true
     },
     "cholesterol_control_setup_type_t1d": {
       "title": "Choose an intervention setup type:",
