@@ -204,7 +204,7 @@
             "expand_if": {
               "glycemic_control_setup_type_t1d": "advanced"
             }
-          }
+          },
           {
             "$ref": "#/properties/glycemic_control_noncompliers_t1d",
             "items_length": "iterations_t1d",
@@ -8250,7 +8250,7 @@
             "description": "",
             "$ref": "#/definitions/positiveProportion",
             "default": 0
-          },
+          }
         }
       },
       "_watch_for_changes": true
