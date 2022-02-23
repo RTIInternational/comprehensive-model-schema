@@ -268,6 +268,14 @@
             "expand_if": {
               "cholesterol_control_setup_type_t1d": "advanced"
             }
+          },
+          {
+            "$ref": "#/properties/cholesterol_control_noncompliers_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if": {
+              "cholesterol_control_setup_type_t1d": "advanced"
+            }
           }
         ]
       },
@@ -327,6 +335,14 @@
           },
           {
             "$ref": "#/properties/bp_control_costs_advanced_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if": {
+              "bp_control_setup_type_t1d": "advanced"
+            }
+          },
+          {
+            "$ref": "#/properties/bp_control_noncompliers_t1d",
             "items_length": "iterations_t1d",
             "max_items_length": 1,
             "expand_if": {
@@ -615,6 +631,14 @@
             "expand_if": {
               "glycemic_control_setup_type_t2d": "advanced"
             }
+          },
+          {
+            "$ref": "#/properties/glycemic_control_noncompliers_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "expand_if": {
+              "glycemic_control_setup_type_t2d": "advanced"
+            }
           }
         ]
       },
@@ -666,6 +690,14 @@
           },
           {
             "$ref": "#/properties/cholesterol_control_costs_advanced_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "expand_if": {
+              "cholesterol_control_setup_type_t2d": "advanced"
+            }
+          },
+          {
+            "$ref": "#/properties/cholesterol_control_noncompliers_t2d",
             "items_length": "iterations_t2d",
             "max_items_length": 1,
             "expand_if": {
@@ -730,6 +762,14 @@
           },
           {
             "$ref": "#/properties/bp_control_costs_advanced_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "expand_if": {
+              "bp_control_setup_type_t2d": "advanced"
+            }
+          },
+          {
+            "$ref": "#/properties/bp_control_noncompliers_t2d",
             "items_length": "iterations_t2d",
             "max_items_length": 1,
             "expand_if": {
@@ -953,6 +993,14 @@
           },
           {
             "$ref": "#/properties/lifestyle_control_costs_pre",
+            "items_length": "iterations_pre",
+            "max_items_length": 1,
+            "expand_if": {
+              "lifestyle_control_setup_type_pre": "advanced"
+            }
+          },
+          {
+            "$ref": "#/properties/lifestyle_control_noncompliers_pre",
             "items_length": "iterations_pre",
             "max_items_length": 1,
             "expand_if": {
@@ -8255,6 +8303,216 @@
       },
       "_watch_for_changes": true
     },
+    "cholesterol_control_noncompliers_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Non-compliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 1
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "cholesterol_non_compliant_t1d": {
+            "title": "Percent of non-compliant patients",
+            "description": "",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
+          }
+        }
+      },
+      "_watch_for_changes": true
+    },
+    "bp_control_noncompliers_t1d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Non-compliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 1
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "bp_non_compliant_t1d": {
+            "title": "Percent of non-compliant patients",
+            "description": "",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
+          }
+        }
+      },
+      "_watch_for_changes": true
+    },
+    "glycemic_control_noncompliers_t2d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Non-compliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 1
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "glycemic_non_compliant_t2d": {
+            "title": "Percent of non-compliant patients",
+            "description": "",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
+          }
+        }
+      },
+      "_watch_for_changes": true
+    },
+    "cholesterol_control_noncompliers_t2d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Non-compliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 1
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "cholesterol_non_compliant_t2d": {
+            "title": "Percent of non-compliant patients",
+            "description": "",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
+          }
+        }
+      },
+      "_watch_for_changes": true
+    },
+    "bp_control_noncompliers_t2d": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Non-compliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 1
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "bp_non_compliant_t2d": {
+            "title": "Percent of non-compliant patients",
+            "description": "",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
+          }
+        }
+      },
+      "_watch_for_changes": true
+    },
+    "lifestyle_control_noncompliers_pre": {
+      "ui:schema": {
+        "ui:field_type": "accordion",
+        "ui:options": {
+          "orderable": false,
+          "addable": false
+        },
+        "items": {
+          "ui:options": {
+            "default_collapsed": true,
+            "header_buttons": {
+              "common_text": "Non-compliers",
+              "numbered": ""
+            }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 1
+          }
+        }
+      },
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "lifestyle_non_compliant_pre": {
+            "title": "Percent of non-compliant patients",
+            "description": "",
+            "$ref": "#/definitions/positiveProportion",
+            "default": 0
+          }
+        }
+      },
+      "_watch_for_changes": true
+    },
     "cholesterol_control_setup_type_t1d": {
       "title": "Choose an intervention setup type:",
       "$ref": "#/definitions/string",
@@ -12636,91 +12894,91 @@
       "items": {
         "type": "object",
         "properties": {
-            "stroke multiplier": {
-              "title": "Stroke",
-              "type": "number",
-              "default": 1
-            },
-            "chf multiplier": {
-              "title": "CHF",
-              "type": "number",
-              "default": 1
-            },
-            "angina multiplier": {
-              "title": "Angina",
-              "type": "number",
-              "default": 1
-            },
-            "microalbuminuria multiplier": {
-              "title": "Microalbuminuria",
-              "type": "number",
-              "default": 1
-            },
-            "macroalbuminuria multiplier": {
-              "title": "Macroalbuminuria",
-              "type": "number",
-              "default": 1
-            },
-            "amputation multiplier": {
-              "title": "Amputation",
-              "type": "number",
-              "default": 1
-            },
-            "mi multiplier": {
-              "title": "MI",
-              "type": "number",
-              "default": 1
-            },
-            "revasc multiplier": {
-              "title": "Revascularization",
-              "type": "number",
-              "default": 1
-            },
-            "blindness multiplier": {
-              "title": "Blindness",
-              "type": "number",
-              "default": 1
-            },
-            "hypoglycemia_any multiplier": {
-              "title": "Hypoglycemia Any",
-              "type": "number",
-              "default": 1
-            },
-            "hypoglycemia_medical multiplier": {
-              "title": "Hypoglycemia Medical",
-              "type": "number",
-              "default": 1
-            },
-            "neurop multiplier": {
-              "title": "Neuropathy",
-              "type": "number",
-              "default": 1
-            },
-            "egfr_30 multiplier": {
-              "title": "EGFR 30",
-              "type": "number",
-              "default": 1
-            },
-            "egfr_60 multiplier": {
-              "title": "EGFR 60",
-              "type": "number",
-              "default": 1
-            },
-            "dialysis multiplier": {
-              "title": "Dialysis",
-              "type": "number",
-              "default": 1
-            },
-            "ulcer multiplier": {
-              "title": "Ulcer",
-              "type": "number",
-              "default": 1
-            },
-            "laser_retina multiplier": {
-              "title": "Laser Retina",
-              "type": "number",
-              "default": 1
-            }
+          "stroke multiplier": {
+            "title": "Stroke",
+            "type": "number",
+            "default": 1
+          },
+          "chf multiplier": {
+            "title": "CHF",
+            "type": "number",
+            "default": 1
+          },
+          "angina multiplier": {
+            "title": "Angina",
+            "type": "number",
+            "default": 1
+          },
+          "microalbuminuria multiplier": {
+            "title": "Microalbuminuria",
+            "type": "number",
+            "default": 1
+          },
+          "macroalbuminuria multiplier": {
+            "title": "Macroalbuminuria",
+            "type": "number",
+            "default": 1
+          },
+          "amputation multiplier": {
+            "title": "Amputation",
+            "type": "number",
+            "default": 1
+          },
+          "mi multiplier": {
+            "title": "MI",
+            "type": "number",
+            "default": 1
+          },
+          "revasc multiplier": {
+            "title": "Revascularization",
+            "type": "number",
+            "default": 1
+          },
+          "blindness multiplier": {
+            "title": "Blindness",
+            "type": "number",
+            "default": 1
+          },
+          "hypoglycemia_any multiplier": {
+            "title": "Hypoglycemia Any",
+            "type": "number",
+            "default": 1
+          },
+          "hypoglycemia_medical multiplier": {
+            "title": "Hypoglycemia Medical",
+            "type": "number",
+            "default": 1
+          },
+          "neurop multiplier": {
+            "title": "Neuropathy",
+            "type": "number",
+            "default": 1
+          },
+          "egfr_30 multiplier": {
+            "title": "EGFR 30",
+            "type": "number",
+            "default": 1
+          },
+          "egfr_60 multiplier": {
+            "title": "EGFR 60",
+            "type": "number",
+            "default": 1
+          },
+          "dialysis multiplier": {
+            "title": "Dialysis",
+            "type": "number",
+            "default": 1
+          },
+          "ulcer multiplier": {
+            "title": "Ulcer",
+            "type": "number",
+            "default": 1
+          },
+          "laser_retina multiplier": {
+            "title": "Laser Retina",
+            "type": "number",
+            "default": 1
+          }
         }
       }
     }
