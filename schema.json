@@ -1334,23 +1334,23 @@
     },
     "seed_t1d": {
       "title": "Simulation Seed",
-      "description": "seed value can be anything between 1 and 999999",
+      "description": "seed value can be anything between 1 and 9999",
       "$ref": "#/definitions/seedInteger",
-      "default": 123456,
+      "default": 1234,
       "_basic_config": true
     },
     "seed_t2d": {
       "title": "Simulation Seed",
-      "description": "seed value can be anything between 1 and 999999",
+      "description": "seed value can be anything between 1 and 9999",
       "$ref": "#/definitions/seedInteger",
-      "default": 123456,
+      "default": 1234,
       "_basic_config": true
     },
     "seed_pre": {
       "title": "Simulation Seed",
-      "description": "seed value can be anything between 1 and 999999",
+      "description": "seed value can be anything between 1 and 9999",
       "$ref": "#/definitions/seedInteger",
-      "default": 123456,
+      "default": 1234,
       "_basic_config": true
     },
     "size_t1d": {
@@ -13006,7 +13006,7 @@
     "seedInteger": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999
+      "maximum": 9999
     },
     "negativeInteger": {
       "type": "integer",
