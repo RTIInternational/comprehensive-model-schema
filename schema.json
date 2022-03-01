@@ -8294,7 +8294,7 @@
         "type": "object",
         "properties": {
           "glycemic_non_compliant_t1d": {
-            "title": "Percent of non-compliant patients",
+            "title": "Proportion of non-compliant patients",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
             "default": 0
@@ -8329,7 +8329,7 @@
         "type": "object",
         "properties": {
           "cholesterol_non_compliant_t1d": {
-            "title": "Percent of non-compliant patients",
+            "title": "Proportion of non-compliant patients",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
             "default": 0
@@ -8364,7 +8364,7 @@
         "type": "object",
         "properties": {
           "bp_non_compliant_t1d": {
-            "title": "Percent of non-compliant patients",
+            "title": "Proportion of non-compliant patients",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
             "default": 0
@@ -8399,7 +8399,7 @@
         "type": "object",
         "properties": {
           "glycemic_non_compliant_t2d": {
-            "title": "Percent of non-compliant patients",
+            "title": "Proportion of non-compliant patients",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
             "default": 0
@@ -8434,7 +8434,7 @@
         "type": "object",
         "properties": {
           "cholesterol_non_compliant_t2d": {
-            "title": "Percent of non-compliant patients",
+            "title": "Proportion of non-compliant patients",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
             "default": 0
@@ -8469,7 +8469,7 @@
         "type": "object",
         "properties": {
           "bp_non_compliant_t2d": {
-            "title": "Percent of non-compliant patients",
+            "title": "Proportion of non-compliant patients",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
             "default": 0
@@ -8504,7 +8504,7 @@
         "type": "object",
         "properties": {
           "lifestyle_non_compliant_pre": {
-            "title": "Percent of non-compliant patients",
+            "title": "Proportion of non-compliant patients",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
             "default": 0
