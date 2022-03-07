@@ -1354,19 +1354,19 @@
       "_basic_config": true
     },
     "size_t1d": {
-      "title": "Number of individuals in the population",
+      "title": "Number of individuals in the population (does not apply for a shared data set)",
       "default": 10000,
       "$ref": "#/definitions/positiveInteger",
       "_basic_config": true
     },
     "size_t2d": {
-      "title": "Number of individuals in the population",
+      "title": "Number of individuals in the population (does not apply for a shared data set)",
       "default": 10000,
       "$ref": "#/definitions/positiveInteger",
       "_basic_config": true
     },
     "size_pre": {
-      "title": "Number of individuals in the population",
+      "title": "Number of individuals in the population (does not apply for a shared data set)",
       "default": 10000,
       "$ref": "#/definitions/positiveInteger",
       "_basic_config": true
