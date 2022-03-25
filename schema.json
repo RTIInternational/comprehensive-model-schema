@@ -12,6 +12,12 @@
           {
             "$ref": "#/properties/diabetes_type",
             "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/save_population_on_run",
+            "items_length": 1,
+            "max_items_length": 2,
+            "update_on_change": true
           }
         ]
       },
@@ -1170,6 +1176,48 @@
       "default": "t1d",
       "_basic_config": true
     },
+    "save_population_on_run": {
+        "title": "",
+        "ui:schema": {
+          "ui:field_type": "accordion",
+          "ui:options": {
+            "orderable": false,
+            "addable": false
+          },
+          "items": {
+            "ui:options": {
+              "default_collapsed": false,
+              "header_buttons": {
+                "common_text": "Save Population Dataset on Completed Simulation Run",
+                "numbered": ""
+              }
+            },
+            "ui:field_type": {
+              "type": "grid",
+              "columns": 1
+            },
+            "save_population": {
+              "ui:widget": "checkboxes"
+            }
+          }
+        },
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "save_population": {
+              "title": " ",
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": ["save_population"],
+                "enumNames": ["Save population dataset on completed simulation run"]
+              }
+            }
+          }
+        }
+      },
     "population_dataset_uuid": {
       "title": "Pre-loaded Population Dataset",
       "$ref": "#/definitions/string",
