@@ -1354,19 +1354,19 @@
       "_basic_config": true
     },
     "size_t1d": {
-      "title": "Number of individuals in the population (does not apply for a shared data set)",
+      "title": "Number of individuals in the population",
       "default": 10000,
       "$ref": "#/definitions/positiveInteger",
       "_basic_config": true
     },
     "size_t2d": {
-      "title": "Number of individuals in the population (does not apply for a shared data set)",
+      "title": "Number of individuals in the population",
       "default": 10000,
       "$ref": "#/definitions/positiveInteger",
       "_basic_config": true
     },
     "size_pre": {
-      "title": "Number of individuals in the population (does not apply for a shared data set)",
+      "title": "Number of individuals in the population",
       "default": 10000,
       "$ref": "#/definitions/positiveInteger",
       "_basic_config": true
@@ -7745,8 +7745,13 @@
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
               },
-              "cvd": {
-                "title": "CVD",
+              "cvd_non_mace": {
+                "title": "CVD non mace",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "cvd_mace": {
+                "title": "CVD mace",
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
               },
@@ -8694,8 +8699,13 @@
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
               },
-              "cvd": {
-                "title": "CVD",
+              "cvd_non_mace": {
+                "title": "CVD non-mace",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "cvd_mace": {
+                "title": "CVD mace",
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
               },
@@ -9895,8 +9905,13 @@
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
               },
-              "cvd": {
-                "title": "CVD",
+              "cvd_non_mace": {
+                "title": "CVD non-mace",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "cvd_mace": {
+                "title": "CVD mace",
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
               },
@@ -10677,8 +10692,13 @@
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
               },
-              "cvd": {
-                "title": "CVD",
+              "cvd_non_mace": {
+                "title": "CVD non-mace",
+                "$ref": "#/definitions/negativeProportion",
+                "default": 0
+              },
+              "cvd_mace": {
+                "title": "CVD mace",
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
               },
