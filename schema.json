@@ -7794,7 +7794,7 @@
                 "default": 0
               },
               "cvd_non_mace": {
-                "title": "CVD non mace",
+                "title": "CVD non-mace",
                 "$ref": "#/definitions/negativeProportion",
                 "default": 0
               },
