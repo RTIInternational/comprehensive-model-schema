@@ -18,6 +18,12 @@
             "items_length": 1,
             "max_items_length": 2,
             "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/save_config_on_run",
+            "items_length": 1,
+            "max_items_length": 2,
+            "update_on_change": true
           }
         ]
       },
@@ -1217,7 +1223,49 @@
             }
           }
         }
-      },
+    },
+    "save_config_on_run": {
+        "title": "",
+        "ui:schema": {
+          "ui:field_type": "accordion",
+          "ui:options": {
+            "orderable": false,
+            "addable": false
+          },
+          "items": {
+            "ui:options": {
+              "default_collapsed": false,
+              "header_buttons": {
+                "common_text": "Save Config on Completed Simulation Run",
+                "numbered": ""
+              }
+            },
+            "ui:field_type": {
+              "type": "grid",
+              "columns": 1
+            },
+            "save_config": {
+              "ui:widget": "checkboxes"
+            }
+          }
+        },
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "save_config": {
+              "title": " ",
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": ["save_config"],
+                "enumNames": ["Save configuration file on completed simulation run"]
+              }
+            }
+          }
+        }
+    },
     "population_dataset_uuid": {
       "title": "Pre-loaded Population Dataset",
       "$ref": "#/definitions/string",
