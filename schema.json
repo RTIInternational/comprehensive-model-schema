@@ -1215,7 +1215,7 @@
               "items": {
                 "type": "string",
                 "enum": ["save_population"],
-                "enumNames": ["Save population dataset on completed simulation run"]
+                "enumNames": ["Save population dataset on completed simulation run (available after viewing results)"]
               }
             },
             "save_config": {
