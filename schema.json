@@ -1178,13 +1178,13 @@
     },
     "save_items_on_run": {
         "title": "",
-        "description": "* available after viewing results",
         "ui:schema": {
           "ui:field_type": "accordion",
           "ui:options": {
             "orderable": false,
             "addable": false
           },
+          "description": "* available after viewing results",
           "items": {
             "ui:options": {
               "default_collapsed": false,
