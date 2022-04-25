@@ -1178,6 +1178,7 @@
     },
     "save_items_on_run": {
         "title": "",
+        "description": "* available after viewing results",
         "ui:schema": {
           "ui:field_type": "accordion",
           "ui:options": {
@@ -1210,13 +1211,12 @@
           "properties": {
             "save_population": {
               "title": " ",
-              "description": "Will become available after viewing results",
               "type": "array",
               "uniqueItems": true,
               "items": {
                 "type": "string",
                 "enum": ["save_population"],
-                "enumNames": ["Save population dataset on completed simulation run"]
+                "enumNames": ["Save population dataset on completed simulation run*"]
               }
             },
             "save_config": {
