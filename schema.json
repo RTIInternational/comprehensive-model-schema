@@ -15,7 +15,7 @@
           },
           {
             "$ref": "#/properties/save_items_on_run",
-            "items_length": 2,
+            "items_length": 1,
             "max_items_length": 2,
             "update_on_change": true
           }
