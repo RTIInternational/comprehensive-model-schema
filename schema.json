@@ -1210,12 +1210,13 @@
           "properties": {
             "save_population": {
               "title": " ",
+              "description": "*Saved population available only after viewing results",
               "type": "array",
               "uniqueItems": true,
               "items": {
                 "type": "string",
                 "enum": ["save_population"],
-                "enumNames": ["Save population dataset on completed simulation run <i style='font-size: .9rem;'>(available after viewing results)</i>"]
+                "enumNames": ["Save population dataset on completed simulation run*"]
               }
             },
             "save_config": {
@@ -1225,7 +1226,7 @@
               "items": {
                 "type": "string",
                 "enum": ["save_config"],
-                "enumNames": ["Save config file on completed simulation run \n"]
+                "enumNames": ["Save config file on completed simulation run"]
               }
             }
           }
