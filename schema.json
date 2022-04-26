@@ -1178,9 +1178,9 @@
     },
     "save_items_on_run": {
         "title": "",
-        "description": "Saving items makes them available in their respective dashboards after run is complete. Saved population datasets will be available only after results are viewed.",
         "ui:schema": {
           "ui:field_type": "accordion",
+          "ui:description": "Saving items makes them available in their respective dashboards after run is complete. Saved population datasets will be available only after results are viewed.",
           "ui:options": {
             "orderable": false,
             "addable": false
@@ -1210,7 +1210,7 @@
           "type": "object",
           "properties": {
             "save_population": {
-              "title": "",
+              "title": " ",
               "type": "array",
               "uniqueItems": true,
               "items": {
@@ -1220,7 +1220,7 @@
               }
             },
             "save_config": {
-              "title": "",
+              "title": " ",
               "type": "array",
               "uniqueItems": true,
               "items": {
