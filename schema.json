@@ -1184,7 +1184,6 @@
             "orderable": false,
             "addable": false
           },
-          "description": "* available after viewing results",
           "items": {
             "ui:options": {
               "default_collapsed": false,
@@ -1210,17 +1209,17 @@
           "type": "object",
           "properties": {
             "save_population": {
-              "title": " ",
+              "description": "(available after viewing results)",
               "type": "array",
               "uniqueItems": true,
               "items": {
                 "type": "string",
                 "enum": ["save_population"],
-                "enumNames": ["Save population dataset on completed simulation run*"]
+                "enumNames": ["Save population dataset on completed simulation run"]
               }
             },
             "save_config": {
-              "title": " ",
+              "description": " ",
               "type": "array",
               "uniqueItems": true,
               "items": {
