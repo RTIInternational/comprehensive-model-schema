@@ -1180,7 +1180,6 @@
         "title": "",
         "ui:schema": {
           "ui:field_type": "accordion",
-          "ui:description": "Saving items makes them available in their respective dashboards after run is complete. Saved population datasets will be available only after results are viewed.",
           "ui:options": {
             "orderable": false,
             "addable": false
@@ -1216,7 +1215,7 @@
               "items": {
                 "type": "string",
                 "enum": ["save_population"],
-                "enumNames": ["Save population dataset on completed simulation run"]
+                "enumNames": ["Save population dataset on completed simulation run (available after viewing results)"]
               }
             },
             "save_config": {
@@ -1226,7 +1225,7 @@
               "items": {
                 "type": "string",
                 "enum": ["save_config"],
-                "enumNames": ["Save config file on completed simulation run"]
+                "enumNames": ["Save config file on completed simulation run \n"]
               }
             }
           }
