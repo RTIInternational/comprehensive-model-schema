@@ -1109,7 +1109,7 @@
             "update_on_change": true
           },
           {
-            "$ref": "#/properties/cost_diabetes_pre",
+            "$ref": "#/properties/costs_diabetes_pre",
             "items_length": "iterations_pre",
             "max_items_length": 1,
             "update_on_change": true
@@ -15067,7 +15067,7 @@
         }
       }
     },
-    "cost_diabetes_pre": {
+    "costs_diabetes_pre": {
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
