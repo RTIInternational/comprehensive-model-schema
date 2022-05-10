@@ -1103,6 +1103,18 @@
             "update_on_change": true
           },
           {
+            "$ref": "#/properties/disutilities_prediabetes_pre",
+            "items_length": "iterations_pre",
+            "max_items_length": 1,
+            "update_on_change": true
+          },
+          {
+            "$ref": "#/properties/cost_diabetes_pre",
+            "items_length": "iterations_pre",
+            "max_items_length": 1,
+            "update_on_change": true
+          },
+          {
             "$ref": "#/properties/disutilities_pre",
             "items_length": "iterations_pre",
             "max_items_length": 1,
@@ -1110,18 +1122,6 @@
           },
           {
             "$ref": "#/properties/costs_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1,
-            "update_on_change": true
-          },
-          {
-            "$ref": "#/properties/disutilities_type_2_pre",
-            "items_length": "iterations_pre",
-            "max_items_length": 1,
-            "update_on_change": true
-          },
-          {
-            "$ref": "#/properties/costs_type_2_pre",
             "items_length": "iterations_pre",
             "max_items_length": 1,
             "update_on_change": true
@@ -8098,7 +8098,7 @@
       },
       "_watch_for_changes": true
     },
-    "disutilities_type_2_pre": {
+    "disutilities_pre": {
       "title": "",
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -8690,547 +8690,6 @@
       "_watch_for_changes": true
     },
     "costs_pre": {
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Event Cost - Prediabetes",
-              "numbered": ""
-            }
-          },
-          "ui:field_type": {
-            "type": "grid",
-            "columns": 3
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "Variable": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Cost": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Standard error": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Base cost text": {
-            "title": "Base cost",
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Base cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 9311
-          },
-          "Base cost se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 445
-          },
-          "TV age cost text": {
-            "title": "Time-varying age cost",
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "TV age cost": {
-            "title": " ",
-            "description": "",
-            "type": "number",
-            "default": -64
-          },
-          "TV age cost se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 9
-          },
-          "Macroalbuminuria, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Macroalbuminuria, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 11509
-          },
-          "Macroalbuminuria, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 315
-          },
-          "Macroalbuminuria, following year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Macroalbuminuria, following year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 3057
-          },
-          "Macroalbuminuria, following year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 291
-          },
-          "eGFR <30, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "eGFR 30, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 11509
-          },
-          "eGFR 30, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 315
-          },
-          "eGFR <30, following year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "eGFR 30, following year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 3057
-          },
-          "eGFR 30, following year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 291
-          },
-          "eGFR <60, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "eGFR 60, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 11509
-          },
-          "eGFR 60, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 315
-          },
-          "eGFR <60, following year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "eGFR 60, following year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 3057
-          },
-          "eGFR 60, following year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 291
-          },
-          "Dialysis, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Dialysis, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 94231.0
-          },
-          "Dialysis, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4336.0
-          },
-          "Dialysis, following year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Dialysis, following year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 98981.0
-          },
-          "Dialysis, following year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 5066.0
-          },
-          "Neuropathy, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Neuropathy, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4323.0
-          },
-          "Neuropathy, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 160.0
-          },
-          "Neuropathy, following year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Neuropathy, following year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2012.0
-          },
-          "Neuropathy, following year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 186.0
-          },
-          "Foot ulcer, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Foot ulcer, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 11045.0
-          },
-          "Foot ulcer, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 704.0
-          },
-          "Foot ulcer, following year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Foot ulcer, following year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2147.0
-          },
-          "Foot ulcer, following year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 684.0
-          },
-          "Amputation, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Amputation, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 25008.0
-          },
-          "Amputation, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 3767.0
-          },
-          "Laser retina, first year": {
-            "title": "Laser retinopathy, first year",
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Laser retina, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4393.0
-          },
-          "Laser retina, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 995.0
-          },
-          "Laser retina, following year": {
-            "title": "Laser retinopathy, following year",
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Laser retina, following year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2202.0
-          },
-          "Laser retina, following year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 276.0
-          },
-          "Blindness, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Blindness, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 12995.0
-          },
-          "Blindness, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1733.0
-          },
-          "Blindness, following year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Blindness, following year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2378.0
-          },
-          "Blindness, following year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1813.0
-          },
-          "MI, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "MI, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 45251.0
-          },
-          "MI, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1203.0
-          },
-          "MI, following year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "MI, following year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 8572.0
-          },
-          "MI, following year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1107.0
-          },
-          "Stroke, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Stroke, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 23780.0
-          },
-          "Stroke, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 850.0
-          },
-          "Stroke, following year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Stroke, following year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4729.0
-          },
-          "Stroke, following year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 876.0
-          },
-          "CHF, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "CHF, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 31202.0
-          },
-          "CHF, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 920.0
-          },
-          "CHF, following year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "CHF, following year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 7062.0
-          },
-          "CHF, following year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 883.0
-          },
-          "Revascularization, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Revascularization, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 20328.0
-          },
-          "Revascularization, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 560.0
-          },
-          "Angina, first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Angina, first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 8907.0
-          },
-          "Angina, first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 331.0
-          },
-          "Hypoglycemia (medical assistance), first year": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Hypoglycemia (medical assistance), first year cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 7656.0
-          },
-          "Hypoglycemia (medical assistance), first year se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 296.0
-          },
-          "Incremental cost in year of death": {
-            "description": "",
-            "$ref": "#/definitions/text",
-            "readOnly": true
-          },
-          "Incremental cost in year of death cost": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          },
-          "Incremental cost in year of death se": {
-            "title": " ",
-            "description": "",
-            "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
-          }
-        }
-      },
-      "_watch_for_changes": true
-    },
-    "costs_type_2_pre": {
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
@@ -15514,7 +14973,7 @@
         }
       }
     },
-    "event_disutilities_pre": {
+    "disutilities_prediabetes_pre": {
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
@@ -15525,7 +14984,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Event Disutilities",
+              "common_text": "Event Disutilities - Prediabetes",
               "numbered": ""
             }
           },
@@ -15557,7 +15016,7 @@
         }
       }
     },
-    "event_cost_pre": {
+    "cost_diabetes_pre": {
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
@@ -15568,7 +15027,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Event Cost",
+              "common_text": "Event Cost - Prediabetes",
               "numbered": ""
             }
           },
