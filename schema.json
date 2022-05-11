@@ -3493,15 +3493,6 @@
         "classNames": "check-box-override"
       }
     },
-    "include_medicare_pre": {
-      "type": "boolean",
-      "title": "Include Medicare event cost in result",
-      "enum": [true, false],
-      "default": false,
-      "ui:schema": {
-        "classNames": "check-box-override"
-      }
-    },
     "baseline_economic_factors_t1d": {
       "title": "Economic factors",
       "ui:schema": {
@@ -3590,6 +3581,15 @@
         }
       },
       "_watch_for_changes": true
+    },
+    "include_medicare_pre": {
+      "type": "boolean",
+      "title": "Include Medicare event cost in result",
+      "enum": [true, false],
+      "default": false,
+      "ui:schema": {
+        "classNames": "check-box-override"
+      }
     },
     "baseline_economic_factors_pre": {
       "title": "Economic factors",
