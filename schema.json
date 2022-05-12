@@ -8390,7 +8390,7 @@
             "default": 3767.0
           },
           "Amputation, following year": {
-            "title": " ",
+            "title": "Amputation, following year",
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
