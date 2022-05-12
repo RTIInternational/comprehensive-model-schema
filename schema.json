@@ -8389,6 +8389,12 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 3767.0
           },
+          "Amputation, following year": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
           "Amputation, following year cost": {
             "title": " ",
             "description": "",
@@ -8590,6 +8596,11 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 560.0
           },
+          "Revascularization, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
+          },
           "Revascularization, following year cost": {
             "title": " ",
             "description": "",
@@ -8618,6 +8629,11 @@
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 331.0
+          },
+          "Angina, following year": {
+            "description": "",
+            "$ref": "#/definitions/text",
+            "readOnly": true
           },
           "Angina, following year cost": {
             "title": " ",
