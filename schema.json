@@ -1107,7 +1107,7 @@
             "max_items_length": 1
           },
           {
-            "$ref": "#/properties/cost_diabetes_pre",
+            "$ref": "#/properties/costs_prediabetes_pre",
             "items_length": "iterations_pre",
             "max_items_length": 1
           },
@@ -14419,7 +14419,7 @@
         }
       }
     },
-    "cost_diabetes_pre": {
+    "costs_prediabetes_pre": {
       "ui:schema": {
         "ui:field_type": "accordion",
         "ui:options": {
