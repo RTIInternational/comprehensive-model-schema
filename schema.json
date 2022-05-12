@@ -8389,6 +8389,18 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 3767.0
           },
+          "Amputation, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Amputation, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
           "Laser retina, first year": {
             "title": "Laser retinopathy, first year",
             "description": "",
@@ -8578,6 +8590,18 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 560.0
           },
+          "Revascularization, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Revascularization, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
           "Angina, first year": {
             "description": "",
             "$ref": "#/definitions/text",
@@ -8594,6 +8618,18 @@
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 331.0
+          },
+          "Angina, following year cost": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
+          },
+          "Angina, following year se": {
+            "title": " ",
+            "description": "",
+            "$ref": "#/definitions/nonnegativeNumber",
+            "default": 0
           },
           "Hypoglycemia (medical assistance), first year": {
             "description": "",
