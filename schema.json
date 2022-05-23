@@ -71,6 +71,12 @@
               }
             },
             {
+              "$ref": "#/properties/psa_complication_mortality_variablility_t1d",
+              "expand_if": {
+                "simulation_type_t1d": "PSA"
+              }
+            },
+            {
               "$ref": "#/properties/iterations_t1d"
             },
             {
@@ -249,6 +255,14 @@
             "max_items_length": 1,
             "expand_if": {
               "cholesterol_control_setup_type_t1d": "basic"
+            }
+          },
+          {
+            "$ref": "#/properties/cholesterol_control_trajectory_t1d",
+            "items_length": "iterations_t1d",
+            "max_items_length": 1,
+            "expand_if": {
+              "cholesterol_control_setup_type_t1d": "advanced"
             }
           },
           {
@@ -507,6 +521,12 @@
               }
             },
             {
+              "$ref": "#/properties/psa_complication_mortality_variablility_t2d",
+              "expand_if": {
+                "simulation_type_t2d": "PSA"
+              }
+            },
+            {
               "$ref": "#/properties/iterations_t2d"
             },
             {
@@ -685,6 +705,14 @@
             "max_items_length": 1,
             "expand_if": {
               "cholesterol_control_setup_type_t2d": "basic"
+            }
+          },
+          {
+            "$ref": "#/properties/cholesterol_control_trajectory_t2d",
+            "items_length": "iterations_t2d",
+            "max_items_length": 1,
+            "expand_if": {
+              "cholesterol_control_setup_type_t2d": "advanced"
             }
           },
           {
@@ -918,6 +946,12 @@
             },
             {
               "$ref": "#/properties/psa_risk_reduction_pre",
+              "expand_if": {
+                "simulation_type_pre": "PSA"
+              }
+            },
+            {
+              "$ref": "#/properties/psa_complication_mortality_variablility_pre",
               "expand_if": {
                 "simulation_type_pre": "PSA"
               }
@@ -1334,6 +1368,14 @@
       "default": "5",
       "_basic_config": true
     },
+    "psa_complication_mortality_variablility_t1d": {
+      "title": "PSA complication/mortality variability",
+      "$ref": "#/definitions/string",
+      "enum": ["Do not vary", "1", "5", "10"],
+      "enumNames": ["Do not vary", "1%", "5%", "10%"],
+      "default": "Do not vary",
+      "_basic_config": true
+    },
 
     "psa_intervention_costs_t2d": {
       "title": "PSA intervention costs",
@@ -1359,6 +1401,14 @@
       "default": "5",
       "_basic_config": true
     },
+    "psa_complication_mortality_variablility_t2d": {
+      "title": "PSA complication/mortality variability",
+      "$ref": "#/definitions/string",
+      "enum": ["Do not vary", "1", "5", "10"],
+      "enumNames": ["Do not vary", "1%", "5%", "10%"],
+      "default": "Do not vary",
+      "_basic_config": true
+    },
 
     "psa_intervention_costs_pre": {
       "title": "PSA intervention costs",
@@ -1382,6 +1432,14 @@
       "enum": ["Do not vary", "1", "5", "10"],
       "enumNames": ["Do not vary", "1%", "5%", "10%"],
       "default": "5",
+      "_basic_config": true
+    },
+    "psa_complication_mortality_variablility_pre": {
+      "title": "PSA complication/mortality variability",
+      "$ref": "#/definitions/string",
+      "enum": ["Do not vary", "1", "5", "10"],
+      "enumNames": ["Do not vary", "1%", "5%", "10%"],
+      "default": "Do not vary",
       "_basic_config": true
     },
     "intervention_sets_t1d": {
@@ -11882,6 +11940,88 @@
         }
       }
     },
+    "cholesterol_control_trajectory_t1d": {
+        "ui:schema": {
+          "ui:field_type": "accordion",
+          "ui:options": {
+            "orderable": false,
+            "addable": false
+          },
+          "items": {
+            "ui:options": {
+              "default_collapsed": true,
+              "header_buttons": {
+                "common_text": "Modify trajectory",
+                "numbered": ""
+              }
+            },
+            "ui:field_type": {
+              "type": "grid",
+              "columns": 2
+            },
+            "modify_trajectory": {
+              "ui:widget": "checkboxes"
+            }
+          }
+        },
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "modify_trajectory": {
+              "title": " ",
+              "description": " ",
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": ["modify_trajectory"],
+                "enumNames": [
+                  "Enter custom cholesterol trajectories (instead of using cholesterol progression equations)"
+                ]
+              }
+            },
+            "modify_trajectory_placeholder": {
+              "title": " ",
+              "$ref": "#/definitions/text",
+              "readOnly": true
+            },
+            "Annual LDL change (mg/dL) before treatment": {
+              "title": "Annual LDL change (mg/dL) before treatment",
+              "$ref": "#/definitions/text",
+              "readOnly": true
+            },
+            "annual_ldl_change": {
+              "title": " ",
+              "description": "",
+              "$ref": "#/definitions/nonnegativeNumber",
+              "default": 0
+            },
+            "Annual HDL change (mg/dL) before treatment": {
+              "title": "Annual HDL change (mg/dL) before treatment",
+              "$ref": "#/definitions/text",
+              "readOnly": true
+            },
+            "annual_hdl_change": {
+              "title": " ",
+              "description": "",
+              "$ref": "#/definitions/nonnegativeNumber",
+              "default": 0
+            },
+            "Annual ln(triglycerides) change (ln(mg/dL)) before treatment": {
+              "title": "Annual ln(triglycerides) change (ln(mg/dL)) before treatment",
+              "$ref": "#/definitions/text",
+              "readOnly": true
+            },
+            "annual_triglycerides_change": {
+              "title": " ",
+              "description": "",
+              "$ref": "#/definitions/nonnegativeNumber",
+              "default": 0
+            }
+          }
+        }
+      },
     "cholesterol_control_statin_t1d": {
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -11981,6 +12121,88 @@
         }
       }
     },
+    "cholesterol_control_trajectory_t2d": {
+        "ui:schema": {
+          "ui:field_type": "accordion",
+          "ui:options": {
+            "orderable": false,
+            "addable": false
+          },
+          "items": {
+            "ui:options": {
+              "default_collapsed": true,
+              "header_buttons": {
+                "common_text": "Modify trajectory",
+                "numbered": ""
+              }
+            },
+            "ui:field_type": {
+              "type": "grid",
+              "columns": 2
+            },
+            "modify_trajectory": {
+              "ui:widget": "checkboxes"
+            }
+          }
+        },
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "modify_trajectory": {
+              "title": " ",
+              "description": " ",
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": ["modify_trajectory"],
+                "enumNames": [
+                  "Enter custom cholesterol trajectories (instead of using cholesterol progression equations)"
+                ]
+              }
+            },
+            "modify_trajectory_placeholder": {
+              "title": " ",
+              "$ref": "#/definitions/text",
+              "readOnly": true
+            },
+            "Annual LDL change (mg/dL) before treatment": {
+              "title": "Annual LDL change (mg/dL) before treatment",
+              "$ref": "#/definitions/text",
+              "readOnly": true
+            },
+            "annual_ldl_change": {
+              "title": " ",
+              "description": "",
+              "$ref": "#/definitions/nonnegativeNumber",
+              "default": 0
+            },
+            "Annual HDL change (mg/dL) before treatment": {
+              "title": "Annual HDL change (mg/dL) before treatment",
+              "$ref": "#/definitions/text",
+              "readOnly": true
+            },
+            "annual_hdl_change": {
+              "title": " ",
+              "description": "",
+              "$ref": "#/definitions/nonnegativeNumber",
+              "default": 0
+            },
+            "Annual ln(triglycerides) change (ln(mg/dL)) before treatment": {
+              "title": "Annual ln(triglycerides) change (ln(mg/dL)) before treatment",
+              "$ref": "#/definitions/text",
+              "readOnly": true
+            },
+            "annual_triglycerides_change": {
+              "title": " ",
+              "description": "",
+              "$ref": "#/definitions/nonnegativeNumber",
+              "default": 0
+            }
+          }
+        }
+      },
     "cholesterol_control_intervention_t2d": {
       "title": "Cholesterol control intervention",
       "ui:schema": {
