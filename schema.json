@@ -1296,7 +1296,8 @@
           {
             "$ref": "#/properties/who_gets_screened",
             "max_items_length": 1,
-            "items_length": "iterations_screen"
+            "items_length": "iterations_screen",
+            "update_on_change": true
           },
           {
             "$ref": "#/properties/screening_characteristics",
@@ -4643,7 +4644,7 @@
       "enum": [true, false],
       "default": false,
       "ui:schema": {
-        "classNames": "check-box-override"
+        "classNames": "input-style-override"
       }
     },
     "include_medicare_pre": {
@@ -4652,7 +4653,7 @@
       "enum": [true, false],
       "default": false,
       "ui:schema": {
-        "classNames": "check-box-override"
+        "classNames": "input-style-override"
       }
     },
     "include_medicare_screen": {
@@ -4661,7 +4662,7 @@
       "enum": [true, false],
       "default": false,
       "ui:schema": {
-        "classNames": "check-box-override"
+        "classNames": "input-style-override"
       }
     },
     "baseline_economic_factors_t1d": {
@@ -4710,7 +4711,7 @@
       "enum": [true, false],
       "default": false,
       "ui:schema": {
-        "classNames": "check-box-override"
+        "classNames": "input-style-override"
       }
     },
     "baseline_economic_factors_t2d": {
@@ -9904,7 +9905,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Event Disutilities - Screening",
+              "common_text": "Event Disutilities - Prediabetes",
               "numbered": ""
             }
           },
@@ -11087,7 +11088,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Event Cost - Screening",
+              "common_text": "Event Cost - Prediabetes",
               "numbered": ""
             }
           },
@@ -12451,6 +12452,9 @@
             "type": "grid",
             "columns": 3
           },
+          "intervention_type_text": {
+            "classNames": "small-description"
+          },
           "type_lifestyle_screen": {
             "ui:widget": "checkboxes"
           },
@@ -12490,6 +12494,15 @@
           },
           "intervention_type_text": {
             "title": "Select interventions to use:",
+            "description": "* You have chosen the Screening diabetes type. Ensure that you have selected at least one Advanced Type 2 Diabetes Intervention from the list below (Glycemic, Cholesterol, Blood Pressure)",
+            "type": "null"
+          },
+          "placeholder3": {
+            "title": " ",
+            "type": "null"
+          },
+          "placeholder4": {
+            "title": " ",
             "type": "null"
           },
           "type_lifestyle_screen": {
@@ -12577,6 +12590,9 @@
               "columns": 4
             },
             "classNames": "overflow-auto"
+          },
+          "screening_frequency": {
+            "classNames": "small-description"
           }
         }
       },
@@ -12590,12 +12606,12 @@
             "properties": {
               "min_age": {
                 "title": "Age ≥",
-                "$ref": "#/definitions/positiveInteger",
+                "$ref": "#/definitions/nonnegativeInteger",
                 "default": 35
               },
               "max_age": {
                 "title": "Age <",
-                "$ref": "#/definitions/positiveInteger",
+                "$ref": "#/definitions/nonnegativeInteger",
                 "default": 95
               }
             }
@@ -12615,9 +12631,10 @@
             "nullValue": "all"
 
           },
-          "frequency": {
-            "title": "Screened once every how many years",
-            "$ref": "#/definitions/positiveInteger",
+          "screening_frequency": {
+            "title": "Screening occurs once every how many years?",
+            "description": "* enter 0 for one-time screening",
+            "$ref": "#/definitions/nonnegativeNumber",
             "default": 3
           }
         }
@@ -20402,7 +20419,7 @@
             "default": 0.5
           },
           "screening": {
-            "title": "Screening",
+            "title": "Prediabetes",
             "type": "number",
             "default": 0.6
           }
@@ -20444,7 +20461,7 @@
             "default": 0.5
           },
           "screening_1": {
-            "title": "Screening",
+            "title": "Prediabetes",
             "type": "number",
             "default": 0.6
           },
@@ -20458,7 +20475,7 @@
             "default": 0.5
           },
           "screening_2": {
-            "title": "Screening",
+            "title": "Prediabetes",
             "type": "number",
             "default": 0.6
           },
@@ -20472,7 +20489,7 @@
             "default": 0.5
           },
           "screening_3": {
-            "title": "Screening",
+            "title": "Prediabetes",
             "type": "number",
             "default": 0.6
           }
@@ -20643,7 +20660,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Event Disutilities - Screening",
+              "common_text": "Event Disutilities - Prediabetes",
               "numbered": ""
             }
           },
@@ -20686,7 +20703,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Event Disutilities - Screening",
+              "common_text": "Event Disutilities - Prediabetes",
               "numbered": ""
             }
           },
@@ -20772,7 +20789,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Event Cost - Screening",
+              "common_text": "Event Cost - Prediabetes",
               "numbered": ""
             }
           },
@@ -20815,7 +20832,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Event Cost - Screening",
+              "common_text": "Event Cost - Prediabetes",
               "numbered": ""
             }
           },
