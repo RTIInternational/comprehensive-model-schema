@@ -1723,12 +1723,12 @@
             "max_items_length": 1
           },
           {
-            "$ref": "#/properties/disutilities_screening_screen",
+            "$ref": "#/properties/disutilities_prediabetes_screen",
             "items_length": "iterations_screen",
             "max_items_length": 1
           },
           {
-            "$ref": "#/properties/costs_screening_screen",
+            "$ref": "#/properties/costs_prediabetes_screen",
             "items_length": "iterations_screen",
             "max_items_length": 1
           },
@@ -9905,7 +9905,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Event Disutilities - Prediabetes",
+              "common_text": "Event Disutilities - T2D",
               "numbered": ""
             }
           },
@@ -11088,7 +11088,7 @@
           "ui:options": {
             "default_collapsed": true,
             "header_buttons": {
-              "common_text": "Event Cost - Prediabetes",
+              "common_text": "Event Cost - T2D",
               "numbered": ""
             }
           },
@@ -12700,7 +12700,7 @@
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 14.71
           },
-          "cost_confirmitory": {
+          "cost_confirmatory": {
             "title": "Cost of confirmatory test if screen indicates diabetes ($)",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 8.73
@@ -20649,49 +20649,6 @@
         }
       }
     },
-    "disutilities_screening_screen": {
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Event Disutilities - Prediabetes",
-              "numbered": ""
-            }
-          },
-          "ui:field_type": {
-            "type": "grid",
-            "columns": 3
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "baseline_qaly": {
-            "title": "Baseline QALY (normoglycemia, screening)",
-            "type": "number",
-            "default": 0.935
-          },
-          "bmi": {
-            "title": "BMI (one-unit increase)",
-            "type": "number",
-            "default": -0.003
-          },
-          "duration_in_analysis": {
-            "title": "Duration in analysis (years)",
-            "type": "number",
-            "default": -0.008
-          }
-        }
-      }
-    },
     "disutilities_prediabetes_screen": {
       "ui:schema": {
         "ui:field_type": "accordion",
@@ -20772,49 +20729,6 @@
           },
           "tv_age_cost": {
             "title": "Time-varying age cost (normoglycemia, prediabetes)",
-            "type": "number",
-            "default": 10
-          }
-        }
-      }
-    },
-    "costs_screening_screen": {
-      "ui:schema": {
-        "ui:field_type": "accordion",
-        "ui:options": {
-          "orderable": false,
-          "addable": false
-        },
-        "items": {
-          "ui:options": {
-            "default_collapsed": true,
-            "header_buttons": {
-              "common_text": "Event Cost - Prediabetes",
-              "numbered": ""
-            }
-          },
-          "ui:field_type": {
-            "type": "grid",
-            "columns": 3
-          }
-        }
-      },
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "base_cost_normoglycemia": {
-            "title": "Base cost (normoglycemia)",
-            "type": "number",
-            "default": 2168
-          },
-          "base_cost_screening": {
-            "title": "Base cost (screening)",
-            "type": "number",
-            "default": 2668
-          },
-          "tv_age_cost": {
-            "title": "Time-varying age cost (normoglycemia, screening)",
             "type": "number",
             "default": 10
           }
