@@ -12655,6 +12655,10 @@
               "common_text": "Screening Characteristics",
               "numbered": ""
             }
+          },
+          "ui:field_type": {
+            "type": "grid",
+            "columns": 2
           }
         }
       },
