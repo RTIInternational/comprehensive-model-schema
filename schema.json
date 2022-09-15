@@ -12700,7 +12700,7 @@
             "maximum": 100
           },
           "cost_screening": {
-            "title": "Cost of screrening test ($)",
+            "title": "Cost of screening test ($)",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 14.71
           },
@@ -13945,7 +13945,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "lifestyle_non_compliant_pre": {
+          "lifestyle_non_compliant_screen": {
             "title": "Proportion of non-compliant patients",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
