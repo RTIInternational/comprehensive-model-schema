@@ -13805,7 +13805,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "glycemic_non_compliant_t2d": {
+          "glycemic_non_compliant_screen": {
             "title": "Proportion of non-compliant patients",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
@@ -13840,7 +13840,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "cholesterol_non_compliant_t2d": {
+          "cholesterol_non_compliant_screen": {
             "title": "Proportion of non-compliant patients",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
