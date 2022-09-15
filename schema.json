@@ -13875,7 +13875,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "bp_non_compliant_t2d": {
+          "bp_non_compliant_screen": {
             "title": "Proportion of non-compliant patients",
             "description": "",
             "$ref": "#/definitions/positiveProportion",
