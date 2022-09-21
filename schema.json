@@ -12589,7 +12589,7 @@
               "type": "grid",
               "columns": 4
             },
-            "classNames": "overflow-auto"
+            "classNames": "overflow-hidden"
           },
           "screening_frequency": {
             "classNames": "small-description"
