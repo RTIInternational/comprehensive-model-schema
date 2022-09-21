@@ -9392,7 +9392,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0
+            "default": -0.003
           },
           "Duration": {
             "description": "",
@@ -9403,7 +9403,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0
+            "default": -0.008
           },
           "Duration, first year se": {
             "title": " ",
@@ -9977,7 +9977,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0
+            "default": -0.003
           },
           "BMI, first year se": {
             "title": " ",
@@ -9994,7 +9994,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0
+            "default": -0.008
           },
           "Duration, first year se": {
             "title": " ",
