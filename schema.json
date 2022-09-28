@@ -31,6 +31,12 @@
         },
         "fieldsets": [
           {
+            "$ref": "#/properties/dataset_screening_message",
+            "expand_if": {
+              "diabetes_type": "screen"
+            }
+          },
+          {
             "$ref": "#/properties/population_dataset_uuid"
           }
         ]
@@ -1854,6 +1860,16 @@
       "default": "none",
       "_basic_config": true,
       "validate": false
+    },
+    "dataset_screening_message": {
+      "type": "object",
+      "properties": {
+        "Important Note:": {
+          "$ref": "#/definitions/text",
+          "description": "You have chosen the Prediabetes (Screening) diabetes type. Please either use one of the predefined population datasets (with 'pre-screen' in the title), or if you are using a user-uploaded population dataset, ensure that it includes either an A1c or FPG column. These columns will be used to calculate diagnosis.",
+          "readOnly": true
+        }
+      }
     },
     "scenario_name_t1d": {
       "title": "Name of the scenario",
