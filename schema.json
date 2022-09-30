@@ -1296,8 +1296,7 @@
           {
             "$ref": "#/properties/who_gets_screened",
             "max_items_length": 1,
-            "items_length": "iterations_screen",
-            "update_on_change": true
+            "items_length": "iterations_screen"
           },
           {
             "$ref": "#/properties/screening_characteristics",
@@ -12688,7 +12687,7 @@
             "maximum": 100
           },
           "prediabetes_sensitivity": {
-            "title": "Sensitivity for prediabetes (%))",
+            "title": "Sensitivity for prediabetes (%)",
             "$ref": "#/definitions/nonnegativeNumber",
             "default": 50,
             "maximum": 100
