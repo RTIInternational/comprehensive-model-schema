@@ -77,7 +77,19 @@
               }
             },
             {
-              "$ref": "#/properties/psa_complication_mortality_variability_t1d",
+              "$ref": "#/properties/psa_variability_title",
+              "expand_if": {
+                "simulation_type_t1d": "PSA"
+              }
+            },
+            {
+              "$ref": "#/properties/psa_complication_variability_t1d",
+              "expand_if": {
+                "simulation_type_t1d": "PSA"
+              }
+            },
+            {
+              "$ref": "#/properties/psa_mortality_variability_t1d",
               "expand_if": {
                 "simulation_type_t1d": "PSA"
               }
@@ -527,7 +539,19 @@
               }
             },
             {
-              "$ref": "#/properties/psa_complication_mortality_variability_t2d",
+              "$ref": "#/properties/psa_variability_title",
+              "expand_if": {
+                "simulation_type_t2d": "PSA"
+              }
+            },
+            {
+              "$ref": "#/properties/psa_complication_variability_t2d",
+              "expand_if": {
+                "simulation_type_t2d": "PSA"
+              }
+            },
+            {
+              "$ref": "#/properties/psa_mortality_variability_t2d",
               "expand_if": {
                 "simulation_type_t2d": "PSA"
               }
@@ -957,7 +981,19 @@
               }
             },
             {
-              "$ref": "#/properties/psa_complication_mortality_variability_pre",
+              "$ref": "#/properties/psa_variability_title",
+              "expand_if": {
+                "simulation_type_pre": "PSA"
+              }
+            },
+            {
+              "$ref": "#/properties/psa_complication_variability_pre",
+              "expand_if": {
+                "simulation_type_pre": "PSA"
+              }
+            },
+            {
+              "$ref": "#/properties/psa_mortality_variability_pre",
               "expand_if": {
                 "simulation_type_pre": "PSA"
               }
@@ -1255,7 +1291,19 @@
               }
             },
             {
-              "$ref": "#/properties/psa_complication_mortality_variability_screen",
+              "$ref": "#/properties/psa_variability_title",
+              "expand_if": {
+                "simulation_type_screen": "PSA"
+              }
+            },
+            {
+              "$ref": "#/properties/psa_complication_variability_screen",
+              "expand_if": {
+                "simulation_type_screen": "PSA"
+              }
+            },
+            {
+              "$ref": "#/properties/psa_mortality_variability_screen",
               "expand_if": {
                 "simulation_type_screen": "PSA"
               }
@@ -1950,12 +1998,32 @@
       "default": "5",
       "_basic_config": true
     },
-    "psa_complication_mortality_variability_t1d": {
+    "psa_variability_title": {
       "title": "PSA complication/mortality variability",
-      "$ref": "#/definitions/string",
-      "enum": ["Do not vary", "1", "5", "10"],
-      "enumNames": ["Do not vary", "1%", "5%", "10%"],
-      "default": "Do not vary",
+      "type": "string",
+      "default": "psa_variability_title",
+      "ui:schema": {
+        "classNames": "title-only"
+      }
+    },
+    "psa_complication_variability_t1d": {
+      "title": "Include complication variability",
+      "type": "boolean",
+      "enum": [true, false],
+      "default": false,
+      "ui:schema": {
+        "classNames": "input-style-override"
+      },
+      "_basic_config": true
+    },
+    "psa_mortality_variability_t1d": {
+      "title": "Include mortality variability",
+      "type": "boolean",
+      "enum": [true, false],
+      "default": false,
+      "ui:schema": {
+        "classNames": "input-style-override"
+      },
       "_basic_config": true
     },
 
@@ -1983,12 +2051,24 @@
       "default": "5",
       "_basic_config": true
     },
-    "psa_complication_mortality_variability_t2d": {
-      "title": "PSA complication/mortality variability",
-      "$ref": "#/definitions/string",
-      "enum": ["Do not vary", "1", "5", "10"],
-      "enumNames": ["Do not vary", "1%", "5%", "10%"],
-      "default": "Do not vary",
+    "psa_complication_variability_t2d": {
+      "title": "Include complication variability",
+      "type": "boolean",
+      "enum": [true, false],
+      "default": false,
+      "ui:schema": {
+        "classNames": "input-style-override"
+      },
+      "_basic_config": true
+    },
+    "psa_mortality_variability_t2d": {
+      "title": "Include mortality variability",
+      "type": "boolean",
+      "enum": [true, false],
+      "default": false,
+      "ui:schema": {
+        "classNames": "input-style-override"
+      },
       "_basic_config": true
     },
 
@@ -2016,12 +2096,24 @@
       "default": "5",
       "_basic_config": true
     },
-    "psa_complication_mortality_variability_pre": {
-      "title": "PSA complication/mortality variability",
-      "$ref": "#/definitions/string",
-      "enum": ["Do not vary", "1", "5", "10"],
-      "enumNames": ["Do not vary", "1%", "5%", "10%"],
-      "default": "Do not vary",
+    "psa_complication_variability_pre": {
+      "title": "Include complication variability",
+      "type": "boolean",
+      "enum": [true, false],
+      "default": false,
+      "ui:schema": {
+        "classNames": "input-style-override"
+      },
+      "_basic_config": true
+    },
+    "psa_mortality_variability_pre": {
+      "title": "Include mortality variability",
+      "type": "boolean",
+      "enum": [true, false],
+      "default": false,
+      "ui:schema": {
+        "classNames": "input-style-override"
+      },
       "_basic_config": true
     },
     "psa_intervention_costs_screen": {
@@ -2048,12 +2140,24 @@
       "default": "5",
       "_basic_config": true
     },
-    "psa_complication_mortality_variability_screen": {
-      "title": "PSA complication/mortality variability",
-      "$ref": "#/definitions/string",
-      "enum": ["Do not vary", "1", "5", "10"],
-      "enumNames": ["Do not vary", "1%", "5%", "10%"],
-      "default": "Do not vary",
+    "psa_complication_variability_screen": {
+      "title": "Include complication variability",
+      "type": "boolean",
+      "enum": [true, false],
+      "default": false,
+      "ui:schema": {
+        "classNames": "input-style-override"
+      },
+      "_basic_config": true
+    },
+    "psa_mortality_variability_screen": {
+      "title": "Include mortality variability",
+      "type": "boolean",
+      "enum": [true, false],
+      "default": false,
+      "ui:schema": {
+        "classNames": "input-style-override"
+      },
       "_basic_config": true
     },
     "intervention_sets_t1d": {
