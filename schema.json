@@ -77,12 +77,6 @@
               }
             },
             {
-              "$ref": "#/properties/psa_variability_title",
-              "expand_if": {
-                "simulation_type_t1d": "PSA"
-              }
-            },
-            {
               "$ref": "#/properties/psa_complication_variability_t1d",
               "expand_if": {
                 "simulation_type_t1d": "PSA"
@@ -539,12 +533,6 @@
               }
             },
             {
-              "$ref": "#/properties/psa_variability_title",
-              "expand_if": {
-                "simulation_type_t2d": "PSA"
-              }
-            },
-            {
               "$ref": "#/properties/psa_complication_variability_t2d",
               "expand_if": {
                 "simulation_type_t2d": "PSA"
@@ -981,12 +969,6 @@
               }
             },
             {
-              "$ref": "#/properties/psa_variability_title",
-              "expand_if": {
-                "simulation_type_pre": "PSA"
-              }
-            },
-            {
               "$ref": "#/properties/psa_complication_variability_pre",
               "expand_if": {
                 "simulation_type_pre": "PSA"
@@ -1286,12 +1268,6 @@
             },
             {
               "$ref": "#/properties/psa_risk_reduction_screen",
-              "expand_if": {
-                "simulation_type_screen": "PSA"
-              }
-            },
-            {
-              "$ref": "#/properties/psa_variability_title",
               "expand_if": {
                 "simulation_type_screen": "PSA"
               }
@@ -1998,16 +1974,8 @@
       "default": "5",
       "_basic_config": true
     },
-    "psa_variability_title": {
-      "title": "PSA complication/mortality variability",
-      "type": "string",
-      "default": "psa_variability_title",
-      "ui:schema": {
-        "classNames": "title-only"
-      }
-    },
     "psa_complication_variability_t1d": {
-      "title": "Include complication variability",
+      "title": "Include PSA complication variability",
       "type": "boolean",
       "enum": [true, false],
       "default": false,
@@ -2017,7 +1985,7 @@
       "_basic_config": true
     },
     "psa_mortality_variability_t1d": {
-      "title": "Include mortality variability",
+      "title": "Include PSA mortality variability",
       "type": "boolean",
       "enum": [true, false],
       "default": false,
@@ -2052,7 +2020,7 @@
       "_basic_config": true
     },
     "psa_complication_variability_t2d": {
-      "title": "Include complication variability",
+      "title": "Include PSA complication variability",
       "type": "boolean",
       "enum": [true, false],
       "default": false,
@@ -2062,7 +2030,7 @@
       "_basic_config": true
     },
     "psa_mortality_variability_t2d": {
-      "title": "Include mortality variability",
+      "title": "Include PSA mortality variability",
       "type": "boolean",
       "enum": [true, false],
       "default": false,
@@ -2097,7 +2065,7 @@
       "_basic_config": true
     },
     "psa_complication_variability_pre": {
-      "title": "Include complication variability",
+      "title": "Include PSA complication variability",
       "type": "boolean",
       "enum": [true, false],
       "default": false,
@@ -2107,7 +2075,7 @@
       "_basic_config": true
     },
     "psa_mortality_variability_pre": {
-      "title": "Include mortality variability",
+      "title": "Include PSA mortality variability",
       "type": "boolean",
       "enum": [true, false],
       "default": false,
@@ -2141,7 +2109,7 @@
       "_basic_config": true
     },
     "psa_complication_variability_screen": {
-      "title": "Include complication variability",
+      "title": "Include PSA complication variability",
       "type": "boolean",
       "enum": [true, false],
       "default": false,
@@ -2151,7 +2119,7 @@
       "_basic_config": true
     },
     "psa_mortality_variability_screen": {
-      "title": "Include mortality variability",
+      "title": "Include PSA mortality variability",
       "type": "boolean",
       "enum": [true, false],
       "default": false,
