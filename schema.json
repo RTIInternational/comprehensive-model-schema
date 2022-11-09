@@ -77,6 +77,12 @@
               }
             },
             {
+              "$ref": "#/properties/variability_title",
+              "expand_if": {
+                "simulation_type_t1d": "PSA"
+              }
+            },
+            {
               "$ref": "#/properties/psa_complication_variability_t1d",
               "expand_if": {
                 "simulation_type_t1d": "PSA"
@@ -533,6 +539,12 @@
               }
             },
             {
+              "$ref": "#/properties/variability_title",
+              "expand_if": {
+                "simulation_type_t2d": "PSA"
+              }
+            },
+            {
               "$ref": "#/properties/psa_complication_variability_t2d",
               "expand_if": {
                 "simulation_type_t2d": "PSA"
@@ -969,6 +981,12 @@
               }
             },
             {
+              "$ref": "#/properties/variability_title",
+              "expand_if": {
+                "simulation_type_pre": "PSA"
+              }
+            },
+            {
               "$ref": "#/properties/psa_complication_variability_pre",
               "expand_if": {
                 "simulation_type_pre": "PSA"
@@ -1268,6 +1286,12 @@
             },
             {
               "$ref": "#/properties/psa_risk_reduction_screen",
+              "expand_if": {
+                "simulation_type_screen": "PSA"
+              }
+            },
+            {
+              "$ref": "#/properties/variability_title",
               "expand_if": {
                 "simulation_type_screen": "PSA"
               }
@@ -1959,7 +1983,7 @@
       "_basic_config": true
     },
     "psa_factor_change_t1d": {
-      "title": "PSA factor changes",
+      "title": "PSA factor changes (vary across CI based on selected p-value)",
       "$ref": "#/definitions/string",
       "enum": ["Do not vary", "1", "5", "10"],
       "enumNames": ["Do not vary", "1%", "5%", "10%"],
@@ -1967,12 +1991,24 @@
       "_basic_config": true
     },
     "psa_risk_reduction_t1d": {
-      "title": "PSA risk reductions",
+      "title": "PSA risk reductions (vary across CI based on selected p-value)",
       "$ref": "#/definitions/string",
       "enum": ["Do not vary", "1", "5", "10"],
       "enumNames": ["Do not vary", "1%", "5%", "10%"],
       "default": "5",
       "_basic_config": true
+    },
+    "variability_title": {
+      "type": "object",
+      "ui:schema": {
+        "classNames": "title-only-field"
+      },
+      "properties": {
+        "placeholder": {
+          "title": "PSA complication and mortality equations",
+          "type": "null"
+        }
+      }
     },
     "psa_complication_variability_t1d": {
       "title": "Include PSA complication variability",
@@ -2004,7 +2040,7 @@
       "_basic_config": true
     },
     "psa_factor_change_t2d": {
-      "title": "PSA factor changes",
+      "title": "PSA factor changes (vary across CI based on selected p-value)",
       "$ref": "#/definitions/string",
       "enum": ["Do not vary", "1", "5", "10"],
       "enumNames": ["Do not vary", "1%", "5%", "10%"],
@@ -2012,7 +2048,7 @@
       "_basic_config": true
     },
     "psa_risk_reduction_t2d": {
-      "title": "PSA risk reductions",
+      "title": "PSA risk reductions (vary across CI based on selected p-value)",
       "$ref": "#/definitions/string",
       "enum": ["Do not vary", "1", "5", "10"],
       "enumNames": ["Do not vary", "1%", "5%", "10%"],
@@ -2049,7 +2085,7 @@
       "_basic_config": true
     },
     "psa_factor_change_pre": {
-      "title": "PSA factor changes",
+      "title": "PSA factor changes (vary across CI based on selected p-value)",
       "$ref": "#/definitions/string",
       "enum": ["Do not vary", "1", "5", "10"],
       "enumNames": ["Do not vary", "1%", "5%", "10%"],
@@ -2057,7 +2093,7 @@
       "_basic_config": true
     },
     "psa_risk_reduction_pre": {
-      "title": "PSA risk reductions",
+      "title": "PSA risk reductions (vary across CI based on selected p-value)",
       "$ref": "#/definitions/string",
       "enum": ["Do not vary", "1", "5", "10"],
       "enumNames": ["Do not vary", "1%", "5%", "10%"],
@@ -2093,7 +2129,7 @@
       "_basic_config": true
     },
     "psa_factor_change_screen": {
-      "title": "PSA factor changes",
+      "title": "PSA factor changes (vary across CI based on selected p-value)",
       "$ref": "#/definitions/string",
       "enum": ["Do not vary", "1", "5", "10"],
       "enumNames": ["Do not vary", "1%", "5%", "10%"],
@@ -2101,7 +2137,7 @@
       "_basic_config": true
     },
     "psa_risk_reduction_screen": {
-      "title": "PSA risk reductions",
+      "title": "PSA risk reductions (vary across CI based on selected p-value)",
       "$ref": "#/definitions/string",
       "enum": ["Do not vary", "1", "5", "10"],
       "enumNames": ["Do not vary", "1%", "5%", "10%"],
