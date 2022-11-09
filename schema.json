@@ -14348,7 +14348,7 @@
             "columns": 3
           },
           "custom_a1c_trajectory": {
-            "ui:widget": "checkboxes"
+            "classNames": "input-style-override"
           }
         }
       },
@@ -14357,16 +14357,10 @@
         "type": "object",
         "properties": {
           "custom_a1c_trajectory": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["true"],
-              "enumNames": [
-                "Enter custom A1c trajectory (instead of using A1c progression equation)"
-              ]
-            }
+            "title": "Enter custom A1c trajectory (instead of using A1c progression equation)",
+            "type": "boolean",
+            "enum": [true, false],
+            "default": false
           },
           "placeholder_1": {
             "title": " ",
@@ -14979,7 +14973,7 @@
             "columns": 3
           },
           "custom_a1c_trajectory": {
-            "ui:widget": "checkboxes"
+            "classNames": "input-style-override"
           }
         }
       },
@@ -14988,16 +14982,10 @@
         "type": "object",
         "properties": {
           "custom_a1c_trajectory": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["true"],
-              "enumNames": [
-                "Enter custom A1c trajectory (instead of using A1c progression equation)"
-              ]
-            }
+            "title": "Enter custom A1c trajectory (instead of using A1c progression equation)",
+            "type": "boolean",
+            "enum": [true, false],
+            "default": false
           },
           "placeholder_1": {
             "title": " ",
@@ -15594,7 +15582,7 @@
             "columns": 3
           },
           "custom_a1c_trajectory": {
-            "ui:widget": "checkboxes"
+            "classNames": "input-style-override"
           }
         }
       },
@@ -15603,16 +15591,10 @@
         "type": "object",
         "properties": {
           "custom_a1c_trajectory": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["true"],
-              "enumNames": [
-                "Enter custom A1c trajectory (instead of using A1c progression equation)"
-              ]
-            }
+            "title": "Enter custom A1c trajectory (instead of using A1c progression equation)",
+            "type": "boolean",
+            "enum": [true, false],
+            "default": false
           },
           "placeholder_1": {
             "title": " ",
@@ -17605,7 +17587,7 @@
             "columns": 3
           },
           "custom_sbp_trajectory": {
-            "ui:widget": "checkboxes"
+            "classNames": "input-style-override"
           }
         }
       },
@@ -17614,16 +17596,10 @@
         "type": "object",
         "properties": {
           "custom_sbp_trajectory": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["true"],
-              "enumNames": [
-                "Enter custom SBP trajectory (instead of using SBP progression equation)"
-              ]
-            }
+            "title": "Enter custom SBP trajectory (instead of using SBP progression equation)",
+            "type": "boolean",
+            "enum": [true, false],
+            "default": false
           },
           "placeholder_1": {
             "title": " ",
@@ -18200,7 +18176,7 @@
             "columns": 3
           },
           "custom_sbp_trajectory": {
-            "ui:widget": "checkboxes"
+            "classNames": "input-style-override"
           }
         }
       },
@@ -18209,16 +18185,10 @@
         "type": "object",
         "properties": {
           "custom_sbp_trajectory": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["true"],
-              "enumNames": [
-                "Enter custom SBP trajectory (instead of using SBP progression equation)"
-              ]
-            }
+            "title": "Enter custom SBP trajectory (instead of using SBP progression equation)",
+            "type": "boolean",
+            "enum": [true, false],
+            "default": false
           },
           "placeholder_1": {
             "title": " ",
@@ -18795,7 +18765,7 @@
             "columns": 3
           },
           "custom_sbp_trajectory": {
-            "ui:widget": "checkboxes"
+            "classNames": "input-style-override"
           }
         }
       },
@@ -18804,16 +18774,10 @@
         "type": "object",
         "properties": {
           "custom_sbp_trajectory": {
-            "title": " ",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": ["true"],
-              "enumNames": [
-                "Enter custom SBP trajectory (instead of using SBP progression equation)"
-              ]
-            }
+            "title": "Enter custom SBP trajectory (instead of using SBP progression equation)",
+            "type": "boolean",
+            "enum": [true, false],
+            "default": false
           },
           "placeholder_1": {
             "title": " ",
