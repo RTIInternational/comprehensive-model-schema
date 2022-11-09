@@ -1356,6 +1356,11 @@
             "$ref": "#/properties/screening_characteristics",
             "max_items_length": 1,
             "items_length": "iterations_screen"
+          },
+          {
+            "$ref": "#/properties/annual_probability_of_developing_prediabetes",
+            "max_items_length": 1,
+            "items_length": "iterations_screen"
           }
         ]
       },
@@ -12701,7 +12706,7 @@
         },
         "items": {
           "ui:options": {
-            "default_collapsed": false,
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Who Gets Screened?",
               "numbered": ""
@@ -12773,7 +12778,7 @@
         },
         "items": {
           "ui:options": {
-            "default_collapsed": false,
+            "default_collapsed": true,
             "header_buttons": {
               "common_text": "Screening Characteristics",
               "numbered": ""
@@ -12842,6 +12847,102 @@
             "nullValue": "no"
           }
         }
+      }
+    },
+    "annual_probability_of_developing_prediabetes": {
+      "title": " ",
+      "ui:schema": {
+          "ui:field_type": "accordion",
+          "ui:options": {
+              "orderable": false,
+              "addable": false
+          },
+          "items": {
+              "ui:options": {
+                  "default_collapsed": true,
+                  "header_buttons": {
+                      "common_text": "Annual Probability of Developing Prediabetes",
+                      "numbered": ""
+                  }
+              },
+              "probability_of_prediabetes": {
+                  "ui:field_type": "grid"
+              },
+              "A1c_FPG_after_developing_prediabetes": {
+                  "ui:field_type": "grid"
+              }
+          }
+      },
+      "type": "array",
+      "items": {
+          "type": "object",
+          "properties": {
+              "probability_of_prediabetes": {
+                  "title": "Probability of prediabetes",
+                  "type": "object",
+                  "properties": {
+                      "baseline_annual_hazard_rate": {
+                          "title": "Baseline annual hazard rate for developing prediabetes",
+                          "description": "",
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "default": 0.0300,
+                          "multipleOf": 0.001 
+                      },
+                      "odds_ratio_for_age": {
+                          "title": "Odds ratio for (age – 50 years)",
+                          "description": "",
+                          "type": "number",
+                          "minimum": 0.01,
+                          "maximum": 1,
+                          "default": 1.00,
+                          "multipleOf": 0.01 
+                      },
+                      "odds_ratio_for_A1c": {
+                          "title": "Odds ratio for (A1c – 5.4%)",
+                          "description": "",
+                          "type": "number",
+                          "minimum": 0.01,
+                          "maximum": 1,
+                          "default": 1,
+                          "multipleOf": 0.01 
+                      },
+                      "odds_ratio_for_BMI": {
+                          "title": "Odds ratio for (BMI – 30)",
+                          "description": "",
+                          "type": "number",
+                          "minimum": 0.01,
+                          "maximum": 1,
+                          "default": 1,
+                          "multipleOf": 0.01 
+                      }
+                  }
+              },
+              "A1c_FPG_after_developing_prediabetes": {
+                  "title": "A1c and FPG values after developing prediabetes",
+                  "type": "object",
+                  "properties": {
+                      "A1c": {
+                          "title": "A1c (%)",
+                          "description": "",
+                          "type": "number",
+                          "default": 5.9,
+                          "minimum": 5.8,
+                          "maximum": 6.4,
+                          "multipleOf": 0.1 
+                        },
+                      "FPG": {
+                          "title": "FPG (mg/dL)",
+                          "description": "",
+                          "type": "number",
+                          "default": 106,
+                          "minimum": 100,
+                          "maximum": 125
+                      }
+                  }
+              }
+          }
       }
     },
     "generic_control_intervention_t1d": {
