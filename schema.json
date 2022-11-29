@@ -7033,13 +7033,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0
+            "default": 0.0
           },
           "Hypoglycemia (medical assistance), first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0.008
+            "default": 0.0
           },
           "Hypoglycemia (any assistance), first year": {
             "description": "",
@@ -9992,13 +9992,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0
+            "default": 0.0
           },
           "Hypoglycemia (medical assistance), first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0.008
+            "default": 0.0
           },
           "Hypoglycemia (any assistance), first year": {
             "description": "",
@@ -10583,13 +10583,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0
+            "default": 0.0
           },
           "Hypoglycemia (medical assistance), first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/negativeProportion",
-            "default": 0.008
+            "default": 0.0
           },
           "Hypoglycemia (any assistance), first year": {
             "description": "",
