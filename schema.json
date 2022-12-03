@@ -1879,7 +1879,7 @@
         "properties": {
           "save_population": {
             "title": " ",
-            "description": "*Saved population available only after viewing results",
+            "description": "*Saved population available only after viewing results. Please do not use this option if you intend to execute a PSA run.",
             "type": "array",
             "uniqueItems": true,
             "items": {
