@@ -6031,13 +6031,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 7131
+            "default": 10584.4
           },
           "Base cost se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 978
+            "default": 30.9
           },
           "TV age cost text": {
             "title": "Time-varying age cost",
@@ -6049,13 +6049,13 @@
             "title": " ",
             "description": "",
             "type": "number",
-            "default": 13
+            "default": 0
           },
           "TV age cost se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 29
+            "default": 0
           },
           "Macroalbuminuria, first year": {
             "description": "",
@@ -6066,13 +6066,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 9119
+            "default": 10263.6
           },
           "Macroalbuminuria, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1161
+            "default": 148.3
           },
           "Macroalbuminuria, following year": {
             "description": "",
@@ -6083,13 +6083,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 3865
+            "default": 2321
           },
           "Macroalbuminuria, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1001
+            "default": 142.9
           },
           "GFR, first year": {
             "title": "Impaired GFR, first year",
@@ -6101,13 +6101,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 9119
+            "default": 10263.6
           },
           "GFR, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1161
+            "default": 148.3
           },
           "GFR, following year": {
             "title": "Impaired GFR, following year",
@@ -6119,13 +6119,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 3865
+            "default": 2321
           },
           "GFR, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1001
+            "default": 142.9
           },
           "ESRD, first year": {
             "description": "",
@@ -6136,13 +6136,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 73534
+            "default": 56469.2
           },
           "ESRD, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 8269
+            "default": 504.3
           },
           "ESRD, following year": {
             "description": "",
@@ -6153,13 +6153,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 97431
+            "default": 41429.3
           },
           "ESRD, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 11596
+            "default": 543.1
           },
           "PDR, first year": {
             "description": "",
@@ -6170,13 +6170,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2023
+            "default": 871.8
           },
           "PDR, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 539
+            "default": 279
           },
           "PDR, following year": {
             "description": "",
@@ -6187,13 +6187,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2250
+            "default": 39.8
           },
           "PDR, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 755
+            "default": 233.1
           },
           "CSME, first year": {
             "description": "",
@@ -6204,13 +6204,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 5357
+            "default": 1404.5
           },
           "CSME, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1232
+            "default": 234.7
           },
           "DPN, first year": {
             "description": "",
@@ -6221,13 +6221,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 3646
+            "default": 4434.2
           },
           "DPN, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 390
+            "default": 182.8
           },
           "DPN, following year": {
             "description": "",
@@ -6238,13 +6238,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2200
+            "default": 1168.3
           },
           "DPN, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 498
+            "default": 161.2
           },
           "Foot ulcer, first year": {
             "description": "",
@@ -6255,13 +6255,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4418
+            "default": 10639.3
           },
           "Ulcer, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1904
+            "default": 198
           },
           "Foot ulcer, following year": {
             "description": "",
@@ -6272,13 +6272,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2520
+            "default": 3090.4
           },
           "Ulcer, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1955
+            "default": 183.9
           },
           "Amputation, first year": {
             "description": "",
@@ -6289,13 +6289,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 10264
+            "default": 40697.7
           },
           "Amputation, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 7126
+            "default": 776.5
           },
           "Amputation, following year": {
             "description": "",
@@ -6306,13 +6306,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7379.8
           },
           "Amputation, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 932
           },
           "CVD MACE, first year": {
             "description": "",
@@ -6323,13 +6323,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 38773
+            "default": 16343.2
           },
           "CVD MACE, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4354
+            "default": 186.6
           },
           "CVD MACE, following year": {
             "description": "",
@@ -6340,13 +6340,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 9225
+            "default": 1146.9
           },
           "CVD MACE, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4130
+            "default": 193.4
           },
           "CVD non-MACE, first year": {
             "description": "",
@@ -6357,13 +6357,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 16546
+            "default": 6790.3
           },
           "CVD non-MACE, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2882
+            "default": 152.1
           },
           "CVD non-MACE, following year": {
             "description": "",
@@ -6374,13 +6374,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1185
+            "default": 257.6
           },
           "CVD non-MACE, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1121
+            "default": 44.9
           },
           "Hypoglycemia, first year": {
             "description": "",
@@ -6391,13 +6391,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 5497
+            "default": 6400.2
           },
           "Hypoglycemia, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 448
+            "default": 155.3
           },
           "DKA, first year": {
             "description": "",
@@ -6408,13 +6408,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 10624
+            "default": 11204.4
           },
           "DKA, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 577
+            "default": 717.2
           },
           "Blindness, first year": {
             "description": "",
@@ -6425,13 +6425,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 6770.70
           },
           "Blindness, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 302.2
           },
           "Blindness, following year": {
             "description": "",
@@ -6442,13 +6442,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 739.7
           },
           "Blindness, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 271.3
           },
           "Incremental cost in year of death": {
             "description": "",
@@ -7704,13 +7704,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 9311
+            "default": 9688.7
           },
           "Base cost se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 445
+            "default": 3.5
           },
           "TV age cost text": {
             "title": "Time-varying age cost",
@@ -7722,13 +7722,13 @@
             "title": " ",
             "description": "",
             "type": "number",
-            "default": -64
+            "default": 0
           },
           "TV age cost se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 9
+            "default": 0
           },
           "Macroalbuminuria, first year": {
             "description": "",
@@ -7739,13 +7739,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 11509
+            "default": 9576
           },
           "Macroalbuminuria, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 315
+            "default": 18
           },
           "Macroalbuminuria, following year": {
             "description": "",
@@ -7756,13 +7756,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 3057
+            "default": 1875.2
           },
           "Macroalbuminuria, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 291
+            "default": 17.3
           },
           "eGFR <30, first year": {
             "description": "",
@@ -7773,13 +7773,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 11509
+            "default": 9576
           },
           "eGFR 30, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 315
+            "default": 18
           },
           "eGFR <30, following year": {
             "description": "",
@@ -7790,13 +7790,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 3057
+            "default": 1875.2
           },
           "eGFR 30, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 291
+            "default": 17.3
           },
           "eGFR <60, first year": {
             "description": "",
@@ -7807,13 +7807,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 11509
+            "default": 9576
           },
           "eGFR 60, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 315
+            "default": 18
           },
           "eGFR <60, following year": {
             "description": "",
@@ -7824,13 +7824,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 3057
+            "default": 1875.2
           },
           "eGFR 60, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 291
+            "default": 17.3
           },
           "Dialysis, first year": {
             "description": "",
@@ -7841,13 +7841,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 94231.0
+            "default": 54739.2
           },
           "Dialysis, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4336.0
+            "default": 64.4
           },
           "Dialysis, following year": {
             "description": "",
@@ -7858,13 +7858,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 98981.0
+            "default": 38621.6
           },
           "Dialysis, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 5066.0
+            "default": 69.1
           },
           "Neuropathy, first year": {
             "description": "",
@@ -7875,13 +7875,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4323.0
+            "default": 4561.9
           },
           "Neuropathy, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 160.0
+            "default": 22.9
           },
           "Neuropathy, following year": {
             "description": "",
@@ -7892,13 +7892,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2012.0
+            "default": 870.7
           },
           "Neuropathy, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 186.0
+            "default": 20.1
           },
           "Foot ulcer, first year": {
             "description": "",
@@ -7909,13 +7909,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 11045.0
+            "default": 10433.3
           },
           "Foot ulcer, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 704.0
+            "default": 26
           },
           "Foot ulcer, following year": {
             "description": "",
@@ -7926,13 +7926,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2147.0
+            "default": 2303.7
           },
           "Foot ulcer, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 684.0
+            "default": 24
           },
           "Amputation, first year": {
             "description": "",
@@ -7943,13 +7943,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 25008.0
+            "default": 39617.7
           },
           "Amputation, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 3767.0
+            "default": 112
           },
           "Amputation, following year": {
             "description": "",
@@ -7960,13 +7960,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 7506
           },
           "Amputation, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 135.5
           },
           "Laser retina, first year": {
             "title": "Laser retinopathy, first year",
@@ -7978,13 +7978,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4393.0
+            "default": 681.8
           },
           "Laser retina, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 995.0
+            "default": 38.2
           },
           "Laser retina, following year": {
             "title": "Laser retinopathy, following year",
@@ -7996,13 +7996,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2202.0
+            "default": 0
           },
           "Laser retina, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 276.0
+            "default": 0
           },
           "Blindness, first year": {
             "description": "",
@@ -8013,13 +8013,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 12995.0
+            "default": 6511.1
           },
           "Blindness, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1733.0
+            "default": 39.1
           },
           "Blindness, following year": {
             "description": "",
@@ -8030,13 +8030,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 2378.0
+            "default": 446.9
           },
           "Blindness, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1813.0
+            "default": 35
           },
           "MI, first year": {
             "description": "",
@@ -8047,13 +8047,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 45251.0
+            "default": 18981.5
           },
           "MI, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1203.0
+            "default": 26.2
           },
           "MI, following year": {
             "description": "",
@@ -8064,13 +8064,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 8572.0
+            "default": 1602.5
           },
           "MI, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 1107.0
+            "default": 25.4
           },
           "Stroke, first year": {
             "description": "",
@@ -8081,13 +8081,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 23780.0
+            "default": 12442
           },
           "Stroke, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 850.0
+            "default": 19
           },
           "Stroke, following year": {
             "description": "",
@@ -8098,13 +8098,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 4729.0
+            "default": 159.9
           },
           "Stroke, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 876.0
+            "default": 22.4
           },
           "CHF, first year": {
             "description": "",
@@ -8115,13 +8115,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 31202.0
+            "default": 12476
           },
           "CHF, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 920.0
+            "default": 20
           },
           "CHF, following year": {
             "description": "",
@@ -8132,13 +8132,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 7062.0
+            "default": 2990.8
           },
           "CHF, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 883.0
+            "default": 19.6
           },
           "Revascularization, first year": {
             "description": "",
@@ -8149,13 +8149,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 20328.0
+            "default": 11300.6
           },
           "Revascularization, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 560.0
+            "default": 20.7
           },
           "Revascularization, following year": {
             "description": "",
@@ -8166,13 +8166,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 575.8
           },
           "Revascularization, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 31.2
           },
           "Angina, first year": {
             "description": "",
@@ -8183,13 +8183,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 8907.0
+            "default": 5240.1
           },
           "Angina, first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 331.0
+            "default": 22.7
           },
           "Angina, following year": {
             "description": "",
@@ -8200,13 +8200,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 541.7
           },
           "Angina, following year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 27.5
           },
           "Hypoglycemia (medical assistance), first year": {
             "description": "",
@@ -8217,13 +8217,13 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 7656.0
+            "default": 9399.2
           },
           "Hypoglycemia (medical assistance), first year se": {
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 296.0
+            "default": 27
           },
           "Incremental cost in year of death": {
             "description": "",
@@ -8234,7 +8234,7 @@
             "title": " ",
             "description": "",
             "$ref": "#/definitions/nonnegativeNumber",
-            "default": 0
+            "default": 500
           },
           "Incremental cost in year of death se": {
             "title": " ",
