@@ -126,6 +126,9 @@
                   "time_horizon_t1d": "max_age"
                 }
               }
+            },
+            {
+              "$ref": "#/properties/iteration_size_note"
             }
           ]
         ]
@@ -588,6 +591,9 @@
                   "time_horizon_t2d": "max_age"
                 }
               }
+            },
+            {
+              "$ref": "#/properties/iteration_size_note"
             }
           ]
         ]
@@ -1024,6 +1030,9 @@
               "expand_if": {
                 "time_horizon_pre": "max_age"
               }
+            },
+            {
+              "$ref": "#/properties/iteration_size_note"
             }
           ]
         ]
@@ -1334,6 +1343,9 @@
               "expand_if": {
                 "time_horizon_screen": "max_age"
               }
+            },
+            {
+              "$ref": "#/properties/iteration_size_note"
             }
           ]
         ]
@@ -2188,6 +2200,7 @@
       "title": "Number of iterations",
       "description": "In 'Standard', this is the number of times a simulation is run. In 'Sensitivity analysis', this is the number of times a new set of values is drawn.",
       "$ref": "#/definitions/positiveInteger",
+      "maximum": 1000,
       "default": 1,
       "_basic_config": true
     },
@@ -2195,6 +2208,7 @@
       "title": "Number of iterations",
       "description": "In 'Standard', this is the number of times a simulation is run. In 'Sensitivity analysis', this is the number of times a new set of values is drawn.",
       "$ref": "#/definitions/positiveInteger",
+      "maximum": 1000,
       "default": 1,
       "_basic_config": true
     },
@@ -2202,6 +2216,7 @@
       "title": "Number of iterations",
       "description": "In 'Standard', this is the number of times a simulation is run. In 'Sensitivity analysis', this is the number of times a new set of values is drawn.",
       "$ref": "#/definitions/positiveInteger",
+      "maximum": 1000,
       "default": 1,
       "_basic_config": true
     },
@@ -2209,6 +2224,7 @@
       "title": "Number of iterations",
       "description": "In 'Standard', this is the number of times a simulation is run. In 'Sensitivity analysis', this is the number of times a new set of values is drawn.",
       "$ref": "#/definitions/positiveInteger",
+      "maximum": 1000,
       "default": 1,
       "_basic_config": true
     },
@@ -2244,24 +2260,28 @@
       "title": "Number of individuals in the population",
       "default": 10000,
       "$ref": "#/definitions/positiveInteger",
+      "maximum": 1000000,
       "_basic_config": true
     },
     "size_t2d": {
       "title": "Number of individuals in the population",
       "default": 10000,
       "$ref": "#/definitions/positiveInteger",
+      "maximum": 1000000,
       "_basic_config": true
     },
     "size_pre": {
       "title": "Number of individuals in the population",
       "default": 10000,
       "$ref": "#/definitions/positiveInteger",
+      "maximum": 1000000,
       "_basic_config": true
     },
     "size_screen": {
       "title": "Number of individuals in the population",
       "default": 10000,
       "$ref": "#/definitions/positiveInteger",
+      "maximum": 1000000,
       "_basic_config": true
     },
     "time_horizon_t1d": {
@@ -2346,6 +2366,12 @@
         "Max age",
         "All deceased (this will take a long time to run)"
       ]
+    },
+    "iteration_size_note" : {
+      "type": "null",
+      "title": " ",
+      "description": "NOTE: Populations size multiplied by number of iterations must not exceed 1 million",
+      "default": null
     },
     "max_age_screen": {
       "title": "Maximum age",
