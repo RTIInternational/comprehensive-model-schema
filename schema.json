@@ -12976,7 +12976,7 @@
           }
       }
     },
-    "probability_of_non_screening_diagnosis": {
+    "probability_of_nonscreening_diagnosis": {
       "title": " ",
       "ui:schema": {
           "ui:field_type": "accordion",
