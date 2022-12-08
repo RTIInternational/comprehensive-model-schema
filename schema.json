@@ -12988,7 +12988,7 @@
             "ui:options": {
               "default_collapsed": true,
               "header_buttons": {
-                "common_text": "Probability of Non-Screening Diagnosis",
+                "common_text": "Probability of Non-Screening Diagnosis of Diabetes",
                 "numbered": ""
               }
             }
@@ -12999,9 +12999,9 @@
           "type": "object",
           "properties": {
               "probability": {
-                  "title": "Probability of non-screening diagnosis",
+                  "title": "Annual probability of non-screening diagnosis of diabetes",
                   "$ref": "#/definitions/positiveProportion",
-                  "default": 0.2,
+                  "default": 0.1,
                   "multipleOf": 0.01
               }
           }
