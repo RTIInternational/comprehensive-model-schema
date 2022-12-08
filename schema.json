@@ -1373,6 +1373,11 @@
             "$ref": "#/properties/annual_probability_of_developing_prediabetes",
             "max_items_length": 1,
             "items_length": "iterations_screen"
+          },
+          {
+            "$ref": "#/properties/probability_of_non_screening_diagnosis",
+            "max_items_length": 1,
+            "items_length": "iterations_screen"
           }
         ]
       },
@@ -12967,6 +12972,37 @@
                           "maximum": 125
                       }
                   }
+              }
+          }
+      }
+    },
+    "probability_of_non_screening_diagnosis": {
+      "title": " ",
+      "ui:schema": {
+          "ui:field_type": "accordion",
+          "ui:options": {
+              "orderable": false,
+              "addable": false
+          },
+          "items": {
+            "ui:options": {
+              "default_collapsed": true,
+              "header_buttons": {
+                "common_text": "Probability of Non-Screening Diagnosis",
+                "numbered": ""
+              }
+            }
+          }
+      },
+      "type": "array",
+      "items": {
+          "type": "object",
+          "properties": {
+              "probability": {
+                  "title": "Probability of non-screening diagnosis",
+                  "$ref": "#/definitions/positiveProportion",
+                  "default": 0.2,
+                  "multipleOf": 0.01
               }
           }
       }
