@@ -1375,7 +1375,7 @@
             "items_length": "iterations_screen"
           },
           {
-            "$ref": "#/properties/probability_of_non_screening_diagnosis",
+            "$ref": "#/properties/probability_of_nonscreening_diagnosis",
             "max_items_length": 1,
             "items_length": "iterations_screen"
           }
