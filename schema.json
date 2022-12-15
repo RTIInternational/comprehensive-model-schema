@@ -20898,7 +20898,7 @@
           "duration_in_analysis": {
             "title": "Duration in analysis (years)",
             "type": "number",
-            "default": -0.008
+            "default": 0.0
           }
         }
       }
@@ -20941,7 +20941,7 @@
           "duration_in_analysis": {
             "title": "Duration in analysis (years)",
             "type": "number",
-            "default": -0.008
+            "default": 0.0
           }
         }
       }
