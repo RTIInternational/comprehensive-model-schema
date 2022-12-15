@@ -1935,7 +1935,7 @@
       "properties": {
         "Important Note:": {
           "$ref": "#/definitions/text",
-          "description": "You have chosen the Prediabetes (Screening) diabetes type. Please either use one of the predefined population datasets (with 'prediabetes' in the title), or if you are using a user-uploaded population dataset, ensure that it includes either an A1c or FPG column. These columns will be used to calculate diagnosis.",
+          "description": "You have chosen the Prediabetes (Screening) diabetes type. Please either use the predefined 'prediabetes_nhanes_screening' data set, or, if you are using a user-uploaded population dataset, ensure that it includes either an A1c or FPG column. These columns will be used to calculate diagnosis.",
           "readOnly": true
         }
       }
