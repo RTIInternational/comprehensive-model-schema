@@ -2435,7 +2435,7 @@
           "error_message": "Standard deviation must be less than the mean"
         },
         {
-          "condition": "$.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white + $.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic = 1",
+          "condition": "$.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic + $.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white = 1",
           "error_message": "Race proportions must sum to 1."
         },
         {
@@ -2939,7 +2939,7 @@
       "title": "Older patient population composition",
       "validation": [
         {
-          "condition": "$.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white + $.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic = 1",
+          "condition": "$.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic + $.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white = 1",
           "error_message": "Race proportions must sum to 1."
         },
         {
@@ -3456,7 +3456,7 @@
       "title": "Population Composition",
       "validation": [
         {
-          "condition": "$.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white + $.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic = 1",
+          "condition": "$.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic + $.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white = 1",
           "error_message": "Race proportions must sum to 1."
         }
       ],
@@ -3585,7 +3585,7 @@
       "title": "Population Composition",
       "validation": [
         {
-          "condition": "$.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white + $.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic = 1",
+          "condition": "$.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic + $.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white = 1",
           "error_message": "Race proportions must sum to 1."
         }
       ],
@@ -3714,7 +3714,7 @@
       "title": "Population Composition",
       "validation": [
         {
-          "condition": "$.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white + $.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic = 1",
+          "condition": "$.0.race_proportions.proportion_black + $.0.race_proportions.proportion_hispanic + $.0.race_proportions.proportion_other + $.0.race_proportions.proportion_white = 1",
           "error_message": "Race proportions must sum to 1."
         }
       ],
