@@ -5108,7 +5108,7 @@
             "readOnly": true
           },
           "Microalbuminuria, first year mean": {
-            "title": " Microalbuminuria, first year",
+            "title": " ",
             "$ref": "#/definitions/negativeProportion",
             "default": -0.01
           },
