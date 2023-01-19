@@ -2374,9 +2374,9 @@
     },
     "iteration_size_note" : {
       "type": "null",
-      "title": " ",
-      "description": "NOTE: Populations size multiplied by number of iterations must not exceed 1 million",
-      "default": null
+      "title": "NOTE: Populations size multiplied by number of iterations must not exceed 1 million",
+      "default": null,
+      "readOnly": true
     },
     "max_age_screen": {
       "title": "Maximum age",
@@ -2618,7 +2618,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -3133,7 +3133,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -3865,7 +3865,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -4035,7 +4035,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -4222,7 +4222,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -5011,6 +5011,11 @@
           "ui:field_type": {
             "type": "grid",
             "columns": 3
+          },
+          "Baseline QALY placeholder": {
+            "ui:options": {
+              "label": false
+            }
           }
         }
       },
@@ -5018,7 +5023,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "$ref": "#/definitions/text",
             "readOnly": true
           },
@@ -5547,7 +5552,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -6037,7 +6042,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -6528,7 +6533,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -7118,7 +7123,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -7710,7 +7715,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -8302,7 +8307,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -8894,7 +8899,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -9487,7 +9492,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -10078,7 +10083,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -10668,7 +10673,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -11261,7 +11266,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "description": "",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -11912,7 +11917,7 @@
             "title": "Factor changes",
             "type": "object",
             "properties": {
-              "Variable": {
+              "Variable_placeholder": {
                 "description": "",
                 "$ref": "#/definitions/text",
                 "readOnly": true
@@ -12094,7 +12099,7 @@
             "description": "Enter risk reductions as positive numbers written as fractions (e.g., for 20% reduction, enter 0.20). For increases, enter negative number.",
             "type": "object",
             "properties": {
-              "Variable": {
+              "Variable_placeholder": {
                 "description": "",
                 "$ref": "#/definitions/text",
                 "readOnly": true
@@ -12366,7 +12371,8 @@
           },
           "intervention_type_text": {
             "title": "Select interventions to use:",
-            "type": "null"
+            "type": "null",
+            "readOnly": true
           },
           "type_generic_t1d": {
             "title": " ",
@@ -12477,7 +12483,8 @@
           },
           "intervention_type_text": {
             "title": "Select interventions to use:",
-            "type": "null"
+            "type": "null",
+            "readOnly": true
           },
           "type_generic_t2d": {
             "title": " ",
@@ -12576,7 +12583,8 @@
           },
           "intervention_type_text": {
             "title": "Select interventions to use:",
-            "type": "null"
+            "type": "null",
+            "readOnly": true
           },
           "type_lifestyle_pre": {
             "title": " ",
@@ -12654,7 +12662,8 @@
           "intervention_type_text": {
             "title": "Select interventions to use:",
             "description": "* You have chosen the Screening diabetes type. Ensure that you have selected at least one Advanced Type 2 Diabetes Intervention from the list below (Glycemic, Cholesterol, Blood Pressure)",
-            "type": "null"
+            "type": "null",
+            "readOnly": true
           },
           "placeholder3": {
             "title": " ",
@@ -14535,7 +14544,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -14627,7 +14636,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -14716,7 +14725,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -14853,7 +14862,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -15160,7 +15169,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -15252,7 +15261,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -15341,7 +15350,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -15462,7 +15471,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -15769,7 +15778,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -15861,7 +15870,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -15950,7 +15959,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -16071,7 +16080,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -16318,7 +16327,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -16886,7 +16895,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -17372,7 +17381,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -17774,7 +17783,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -17849,7 +17858,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -17938,7 +17947,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -18059,7 +18068,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -18363,7 +18372,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -18438,7 +18447,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -18527,7 +18536,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -18648,7 +18657,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -18952,7 +18961,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -19027,7 +19036,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -19116,7 +19125,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -19237,7 +19246,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "Variable": {
+          "Variable_placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -19540,7 +19549,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "placholder3": {
+          "placeholder3": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -20131,7 +20140,7 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "placholder3": {
+          "placeholder3": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
