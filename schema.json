@@ -16407,12 +16407,12 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Treatment if CVD=1 (choose 1) Standard": {
+          "Treatment if CVD=1 (choose 1) Standard placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Treatment if CVD=1 (choose 1) Intervention": {
+          "Treatment if CVD=1 (choose 1) Intervention placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -16975,12 +16975,12 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Treatment if CVD=1 (choose 1) Standard": {
+          "Treatment if CVD=1 (choose 1) Standard placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Treatment if CVD=1 (choose 1) Intervention": {
+          "Treatment if CVD=1 (choose 1) Intervention placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
@@ -17461,12 +17461,12 @@
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Treatment if CVD=1 (choose 1) Standard": {
+          "Treatment if CVD=1 (choose 1) Standard placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
           },
-          "Treatment if CVD=1 (choose 1) Intervention": {
+          "Treatment if CVD=1 (choose 1) Intervention placeholder": {
             "title": " ",
             "$ref": "#/definitions/text",
             "readOnly": true
