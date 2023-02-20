@@ -12926,7 +12926,7 @@
                           "description": "",
                           "type": "number",
                           "minimum": 0.01,
-                          "maximum": 1,
+                          "maximum": 5,
                           "default": 1.00,
                           "multipleOf": 0.01 
                       },
@@ -12935,7 +12935,7 @@
                           "description": "",
                           "type": "number",
                           "minimum": 0.01,
-                          "maximum": 1,
+                          "maximum": 5,
                           "default": 1,
                           "multipleOf": 0.01 
                       },
@@ -12944,7 +12944,7 @@
                           "description": "",
                           "type": "number",
                           "minimum": 0.01,
-                          "maximum": 1,
+                          "maximum": 5,
                           "default": 1,
                           "multipleOf": 0.01 
                       }
